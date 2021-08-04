@@ -10,7 +10,7 @@
          xmlns:db="http://docbook.org/ns/docbook">
   <title>안내서에 대하여</title>
 
-  <bridgehead>안내서의 대상</bridgehead>
+  <bridgehead>@@@안내서의 대상</bridgehead>
 
   <para>본 안내서는 TmaxData의 HyperData™(이하 HyperData) Web UI의 구조와 사용법에 대해서 설명한다.
   설치에 대한 자세한 내용은 "HyperData 설치 안내서"를 참고한다.</para>
