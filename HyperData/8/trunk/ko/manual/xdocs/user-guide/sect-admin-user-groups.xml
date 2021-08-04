@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section version="5.0" xml:id="sect_admin_user_groups"
+         xmlns="http://docbook.org/ns/docbook"
+         xmlns:xlink="http://www.w3.org/1999/xlink"
+         xmlns:xi="http://www.w3.org/2001/XInclude"
+         xmlns:svg="http://www.w3.org/2000/svg"
+         xmlns:mml="http://www.w3.org/1998/Math/MathML"
+         xmlns:html="http://www.w3.org/1999/xhtml"
+         xmlns:db="http://docbook.org/ns/docbook">
+  <title>User Groups<indexterm>
+      <primary>시스템 관리 카테고리</primary>
+
+      <secondary>[User Groups] 메뉴</secondary>
+    </indexterm></title>
+
+  <para>HyperData에서는 2인 이상의 사용자를 묶어 하나의 사용자 그룹을 생성할 수 있다. 이를 통해 프로젝트 구성원을 수정할
+  때 그룹 단위로 추가/삭제가 가능하다.</para>
+
+  <para><guibutton>[시스템 관리] &gt;</guibutton> <guibutton>[User
+  Groups]</guibutton> 메뉴를 선택하면 사용자 그룹을 조회하고 관리할 수 있다.</para>
+
+  <para><guibutton>사용자 그룹 화면</guibutton>에서 <guibutton>[+그룹]</guibutton> 버튼을
+  클릭하면 신규 사용자 그룹을 생성할 수 있다. 사용자 그룹 목록의 <guibutton>'실행'</guibutton> 항목에서
+  <inlinemediaobject>
+      <imageobject>
+        <imagedata fileref="resources/icon_edit.png" width="20"></imagedata>
+      </imageobject>
+    </inlinemediaobject> 아이콘을 클릭하면 사용자 그룹을 수정할 수 있다. 사용자 그룹 목록에서 그룹을 선택한 후
+  <guibutton>[삭제]</guibutton> 버튼을 클릭하거나 <guibutton>'실행'</guibutton> 항목에
+  <inlinemediaobject>
+      <imageobject>
+        <imagedata fileref="resources/icon_delete.png" width="20"></imagedata>
+      </imageobject>
+    </inlinemediaobject> 아이콘을 클릭하면 사용자 그룹을 삭제할 수 있다.</para>
+
+  <para>목록 위에 <guibutton>'검색'</guibutton> 입력항목에 검색할 그룹 이름을 입력하고 &lt;Enter&gt;
+  키를 누르거나 <inlinemediaobject>
+      <imageobject>
+        <imagedata fileref="resources/icon_search.png" width="22"></imagedata>
+      </imageobject>
+    </inlinemediaobject> 아이콘을 클릭하면 해당 그룹 정보를 조회할 수 있다.
+  <guibutton>'이름'</guibutton> 항목을 클릭하면 <guibutton>User Group Detail
+  화면</guibutton>(<xref linkend="figure_user_group_detail" />)에서 해당 그룹의 기본 정보를
+  조회할 수 있다. 목록 아래에 조회된 건수와 페이징 정보, 조회할 건수를 선택할 수 있다.</para>
+
+  <para></para>
+
+  <figure xml:id="figure_user_group_management">
+    <title>사용자 그룹 화면</title>
+
+    <mediaobject>
+      <imageobject>
+        <imagedata align="left"
+                   fileref="resources/figure_user_group_management.png"
+                   width="750"></imagedata>
+      </imageobject>
+    </mediaobject>
+  </figure>
+
+  <para></para>
+
+  <section>
+    <title>사용자 그룹 생성</title>
+
+    <para><guibutton>사용자 그룹 화면</guibutton>(<xref
+    linkend="figure_user_group_management" />)에서 <guibutton>[+그룹]</guibutton>
+    버튼을 클릭하면 사용자 그룹을 신규로 생성할 수 있다.</para>
+
+    <para><guibutton>New User Group 화면</guibutton>에서 그룹 정보를 설정한다(* 표시 항목은 필수
+    입력). <guibutton>'이름'</guibutton> 항목은 중복된 값을 입력하면 에러가 발생하므로 주의한다.
+    <guibutton>[+참여자]</guibutton> 버튼을 클릭한 후 사용자 목록을 조회해서 해당 그룹에 사용자를 추가할 수 있다.
+    이미 추가된 사용자는 목록에서 선택한 후 <guibutton>[삭제]</guibutton> 버튼을 클릭하면 그룹에서 삭제할 수 있다.
+    각 항목을 입력한 후 <guibutton>[추가]</guibutton> 버튼을 클릭한다.</para>
+
+    <figure>
+      <title>[User Groups] - 사용자 그룹 생성</title>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata align="left"
+                     fileref="resources/figure_user_group_add.png" width="500"></imagedata>
+        </imageobject>
+      </mediaobject>
+    </figure>
+
+    <para></para>
+
+    <para></para>
+
+    <para></para>
+  </section>
+
+  <section>
+    <title>사용자 그룹 수정</title>
+
+    <para><guibutton>사용자 그룹 화면</guibutton>(<xref
+    linkend="figure_user_group_management" />)에서 <guibutton>'실행'</guibutton>
+    항목의 <inlinemediaobject>
+        <imageobject>
+          <imagedata fileref="resources/icon_edit.png" width="20"></imagedata>
+        </imageobject>
+      </inlinemediaobject> 아이콘을 클릭하면 그룹 정보를 수정할 수 있다.</para>
+
+    <para><guibutton>Eidt User Group 화면</guibutton>에서
+    <guibutton>[+참여자]</guibutton> 버튼을 클릭한 후 사용자 목록을 조회해서 해당 그룹에 추가할 사용자를 선택한다.
+    이미 추가된 사용자는 목록에서 선택한 후 <guibutton>[삭제]</guibutton> 버튼을 클릭하면 그룹에서 삭제할 수 있다.
+    항목을 수정한 후 <guibutton>[저장]</guibutton> 버튼을 클릭한다.</para>
+
+    <figure xml:id="figure_user_group_edit">
+      <title>[User Groups] - 사용자 그룹 수정</title>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata align="left"
+                     fileref="resources/figure_user_group_edit.png"
+                     width="500"></imagedata>
+        </imageobject>
+      </mediaobject>
+    </figure>
+  </section>
+
+  <section>
+    <title>사용자 그룹 삭제</title>
+
+    <para><guibutton>사용자 그룹 화면</guibutton>(<xref
+    linkend="figure_user_group_management" />)의 그룹 목록을 선택한 후
+    <guibutton>[삭제]</guibutton> 버튼을 클릭하거나 <guibutton>'실행'</guibutton> 항목의
+    <inlinemediaobject>
+        <imageobject>
+          <imagedata fileref="resources/icon_delete.png" width="20"></imagedata>
+        </imageobject>
+      </inlinemediaobject> 아이콘을 클릭하면 그룹 정보를 삭제할 수 있다. 목록에서 삭제할 정보를 확인한 후
+    <guibutton>[삭제]</guibutton> 버튼을 클릭한다.</para>
+
+    <figure>
+      <title>[User Groups] - 사용자 그룹 삭제</title>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata align="left"
+                     fileref="resources/figure_user_group_delete.png"
+                     width="300"></imagedata>
+        </imageobject>
+      </mediaobject>
+    </figure>
+  </section>
+
+  <section>
+    <title>사용자 그룹 상세 조회</title>
+
+    <para></para>
+
+    <para><guibutton>사용자 그룹 화면</guibutton>(<xref
+    linkend="figure_user_group_management" />) 목록의 <guibutton>'이름'</guibutton>
+    항목을 클릭하면 <guibutton>User Group Detail 화면</guibutton>에서 해당 그룹의 기본 정보를 조회할 수
+    있다.</para>
+
+    <para><guibutton>[수정]</guibutton> 버튼을 클릭하면 <guibutton>Edit User Group
+    화면</guibutton>(<xref linkend="figure_user_group_edit" />)으로 이동해서 사용자 그룹
+    정보를 수정할 수 있다.</para>
+
+    <para><figure xml:id="figure_user_group_detail">
+        <title>[User Groups] - 사용자 그룹 상세 조회</title>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata align="left"
+                       fileref="resources/figure_user_group_detail.png"
+                       width="500"></imagedata>
+          </imageobject>
+        </mediaobject>
+      </figure></para>
+  </section>
+</section>

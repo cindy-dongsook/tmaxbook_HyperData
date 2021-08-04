@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section version="5.0" xml:id="sect_admin_mornitoring"
+         xmlns="http://docbook.org/ns/docbook"
+         xmlns:xlink="http://www.w3.org/1999/xlink"
+         xmlns:xi="http://www.w3.org/2001/XInclude"
+         xmlns:svg="http://www.w3.org/2000/svg"
+         xmlns:mml="http://www.w3.org/1998/Math/MathML"
+         xmlns:html="http://www.w3.org/1999/xhtml"
+         xmlns:db="http://docbook.org/ns/docbook">
+  <title>Realtime Monitoring<indexterm>
+      <primary>시스템 관리 카테고리</primary>
+
+      <secondary>[System Monitoring] 메뉴</secondary>
+    </indexterm></title>
+
+  <para><guibutton>[시스템 관리] &gt; [System Monitoring]</guibutton> 메뉴를 선택하면
+  <guibutton>RealTime Monitoring 화면</guibutton>에서 HyperData 내 작업 수행 중인 시스템 상황을
+  실시간으로 조회하고 설정할 수 있다(모니터링 타겟을 변경하고 커스터마이징하는 편집 기능은 추후 추가 예정).</para>
+
+  <para><figure xml:id="figure_system_monitoring_dashboard">
+      <title>RealTime Monitoring 화면</title>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata align="left"
+                     fileref="resources/figure_system_monitoring_dashboard.png"
+                     width="750"></imagedata>
+        </imageobject>
+      </mediaobject>
+    </figure></para>
+</section>

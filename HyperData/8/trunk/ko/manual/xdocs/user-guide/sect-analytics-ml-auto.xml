@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section version="5.0" xml:id="sect_analytics_ml_auto"
+         xmlns="http://docbook.org/ns/docbook"
+         xmlns:xlink="http://www.w3.org/1999/xlink"
+         xmlns:xi="http://www.w3.org/2001/XInclude"
+         xmlns:svg="http://www.w3.org/2000/svg"
+         xmlns:mml="http://www.w3.org/1998/Math/MathML"
+         xmlns:html="http://www.w3.org/1999/xhtml"
+         xmlns:db="http://docbook.org/ns/docbook">
+  <title>AutoML<indexterm>
+      <primary>분석 카테고리</primary>
+
+      <secondary>[AutoML] 메뉴</secondary>
+    </indexterm></title>
+
+  <para><guibutton>분석 &gt; [AutoML</guibutton>] 메뉴를 선택하면 데이터와 분석 목표만을 입력해서
+  자동으로 모델을 생성할 수 있다. 자동 모델 생성은 <guibutton>데이터 준비</guibutton>, <guibutton>실험
+  구성</guibutton>, <guibutton>목적 선택</guibutton>의 과정으로 진행된다.</para>
+
+  <section>
+    <title>데이터 준비</title>
+
+    <para><guibutton>데이터 준비단계</guibutton>에서는 HyperData의 데이터 오브젝트 목록을 조회한다. 입력할
+    데이터 오브젝트를 선택하고 <guibutton>[다음]</guibutton> 버튼을 클릭한다. 실험 생성을 중단하려면
+    <guibutton>[취소]</guibutton> 버튼을 클릭한다. 실험 중단되면 <guibutton> Experiments 목록
+    화면</guibutton>(<xref linkend="figure_automl_experiment" />)으로 이동한다.</para>
+
+    <para><figure>
+        <title>[AutoML] - 데이터 준비 단계</title>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata align="left"
+                       fileref="resources/figure_automldata_selection.png"
+                       width="750"></imagedata>
+          </imageobject>
+        </mediaobject>
+      </figure></para>
+
+    <para></para>
+
+    <para></para>
+  </section>
+
+  <section>
+    <title>실험 구성</title>
+
+    <para><guibutton>실험 구성단계</guibutton>에서는 <guibutton>데이터 준비단계</guibutton>에서
+    선택한 데이터 오브젝트의 데이터를 조회한다. 실험의 이름과 대상열을 선택한 후 <guibutton>[다음]</guibutton>
+    버튼을 클릭한다. 이전 단계로 이동하려면 <guibutton>[이전]</guibutton> 버튼을 클릭하고, 실험 생성을 중단하려면
+    <guibutton>[취소]</guibutton> 버튼을 클릭한다. 실험 중단되면 <guibutton>Experiments 목록
+    화면</guibutton>(<xref linkend="figure_automl_experiment" />)으로 이동한다.</para>
+
+    <para><figure>
+        <title>[AutoML] - 실험 구성 단계</title>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata align="left"
+                       fileref="resources/figure_automlcol_selection.png"
+                       width="750"></imagedata>
+          </imageobject>
+        </mediaobject>
+      </figure></para>
+
+    <para>다음은 각 항목에 대한 설명이다.</para>
+
+    <para><informaltable colsep="1" frame="topbot" rowsep="1">
+        <tgroup cols="2">
+          <colspec align="left" colwidth="150" />
+
+          <thead>
+            <row>
+              <entry>항목</entry>
+
+              <entry>설명</entry>
+            </row>
+          </thead>
+
+          <tbody>
+            <row>
+              <entry>데이터 필드</entry>
+
+              <entry>선택한 데이터 오브젝트의 필드 정보와 저장된 데이터를 조회한다.</entry>
+            </row>
+
+            <row>
+              <entry>데이터</entry>
+
+              <entry>이전 단계에서 선택한 데이터 오브젝트의 이름이 출력된다.</entry>
+            </row>
+
+            <row>
+              <entry>실험이름</entry>
+
+              <entry>진행할 실험 이름을 입력한다. 입력한 이름은 이전의 저장한 실험이름과 중복될 수 없다.</entry>
+            </row>
+
+            <row>
+              <entry>대상 열</entry>
+
+              <entry>실험 목적에 맞는 분석 대상 컬럼을 선택한다.</entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </informaltable></para>
+
+    <para></para>
+
+    <para><guibutton>데이터 준비단계</guibutton>에서 시계열 데이터 오브젝트를 선택한 경우 시계열 분석을 위한
+    추가적인 설정이 필요하다.</para>
+
+    <para><figure>
+        <title>[AutoML] - 시계열 데이터의 실험 구성 단계</title>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata align="left"
+                       fileref="resources/figure_automl_timeseries1.png"
+                       width="750"></imagedata>
+          </imageobject>
+        </mediaobject>
+      </figure></para>
+
+    <para><figure>
+        <title>[AutoML] - 시계열 데이터의 추가 설정</title>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata align="left"
+                       fileref="resources/figure_automl_timeseries2.png"
+                       width="750"></imagedata>
+          </imageobject>
+        </mediaobject>
+      </figure></para>
+
+    <para>다음은 각 항목에 대한 설명이다.</para>
+
+    <para><informaltable colsep="1" frame="topbot" rowsep="1">
+        <tgroup cols="2">
+          <colspec align="left" colwidth="150" />
+
+          <thead>
+            <row>
+              <entry>항목</entry>
+
+              <entry>설명</entry>
+            </row>
+          </thead>
+
+          <tbody>
+            <row>
+              <entry>시계열 컬럼</entry>
+
+              <entry>시간 컬럼을 선택한다.</entry>
+            </row>
+
+            <row>
+              <entry>그룹</entry>
+
+              <entry>범주형 컬럼을 그룹으로 묶어 처리할 수 있다. 싱글 그룹인 경우 설정할 필요없다.</entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </informaltable></para>
+  </section>
+
+  <section>
+    <title>목적 선택</title>
+
+    <para>설정한 실험의 모델의 유형을 선택한다. 연속적이지 않은 범주형 열을 예측하는 경우 <guibutton>분류
+    모델(Classification Model)</guibutton>을 선택하고, 연속적인 수치형 열을 예측하는 경우는
+    <guibutton>회귀 모델(Regression Model)</guibutton>을 선택한다.</para>
+
+    <para>이전 단계로 이동하려면 <guibutton>[이전]</guibutton> 버튼을 클릭하고, 실험 생성을 중단하려면
+    <guibutton>[취소]</guibutton> 버튼을 클릭한다. 실험 중단되면 <guibutton>Experiments 목록
+    화면</guibutton>(<xref linkend="figure_automl_experiment" />)으로 이동한다.</para>
+
+    <para>모델의 유형을 선택한 후 <guibutton>[실험시작]</guibutton> 버튼을 클릭하면 학습이
+    시작된다.</para>
+
+    <para><figure>
+        <title>[AutoML] - 목적 선택 단계</title>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata align="left"
+                       fileref="resources/figure_automltask_selection.png"
+                       width="750"></imagedata>
+          </imageobject>
+        </mediaobject>
+      </figure></para>
+
+    <para>데이터의 크기에 따라 하이퍼파라미터 최적화 과정에서 긴 시간이 소요될 수 있으며 동시에 여러 실험을 생성한 경우 자원
+    부족으로 크게 느려질 수 있다. 학습시간 경고 알람이 뜨면 <guibutton>[계속]</guibutton> 버튼을 클릭한다(버튼을
+    클릭하지 않아도 실험은 내부적으로 수행된다). 실험이 완료되면 <guibutton>Experiments 목록
+    화면</guibutton>(<xref linkend="figure_automl_experiment" />)으로 이동한다.</para>
+
+    <para><figure>
+        <title>[AutoML] - 학습 시간 경고창</title>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata align="left"
+                       fileref="resources/figure_automlcol_warning.png"
+                       width="300"></imagedata>
+          </imageobject>
+        </mediaobject>
+      </figure></para>
+
+    <para></para>
+
+    <para></para>
+  </section>
+</section>

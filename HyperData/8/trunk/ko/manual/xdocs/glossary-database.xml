@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<glossary version="5.0" xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:xi="http://www.w3.org/2001/XInclude"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:html="http://www.w3.org/1999/xhtml"
+          xmlns:db="http://docbook.org/ns/docbook">
+  <title>Glossary Database</title>
+
+  <glossdiv>
+    <title>G</title>
+
+    <glossentry xml:id="term_glossary-database">
+      <glossterm>다운 사이징</glossterm>
+
+      <glossdef>
+        <para>Mainframe에서 사용하던 어플리케이션을 소형 컴퓨터인 워크스테이션 등 상대적으로 소규모 컴퓨터로 구성된 분산
+        시스템에서 수행할 수 있도록 구성하는 것을 의미한다.</para>
+      </glossdef>
+    </glossentry>
+  </glossdiv>
+
+  <glossdiv>
+    <title>T</title>
+
+    <glossentry xml:id="term_glossary-database">
+      <glossterm>TmaxBook</glossterm>
+
+      <glossdef>
+        <para>DocBook의 라이브러리를 TmaxSoft에 맞게 커스터마이즈하여 기술문서 및 매뉴얼의 표준을 정의한 DTD를 의미한다.</para>
+      </glossdef>
+    </glossentry>
+  </glossdiv>
+</glossary>

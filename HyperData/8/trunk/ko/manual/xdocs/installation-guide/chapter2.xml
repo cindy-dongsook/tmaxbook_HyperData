@@ -1,0 +1,1751 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<chapter version="5.0" xml:id="chapter2" xmlns="http://docbook.org/ns/docbook"
+         xmlns:xlink="http://www.w3.org/1999/xlink"
+         xmlns:xila="http://www.w3.org/2001/XInclude/local-attributes"
+         xmlns:xi="http://www.w3.org/2001/XInclude"
+         xmlns:trans="http://docbook.org/ns/transclusion"
+         xmlns:svg="http://www.w3.org/2000/svg"
+         xmlns:m="http://www.w3.org/1998/Math/MathML"
+         xmlns:html="http://www.w3.org/1999/xhtml"
+         xmlns:db="http://docbook.org/ns/docbook">
+  <title>HyperData 설치(On Kubernetes)</title>
+
+  <para>본 절에서는 Kubernetes 환경에서 HyperData를 설치하는 방법을 기술한다.</para>
+
+  <section>
+    <title>개요</title>
+
+    <para>Kubernetes 환경에서 HyperData는 다음의 과정으로 설치를 진행한다. 각 단계의 자세한 내용은 해당 절의
+    설명을 참고한다.</para>
+
+    <orderedlist spacing="compact">
+      <listitem>
+        <para><link linkend="sect_image_check">이미지 확인</link></para>
+      </listitem>
+
+      <listitem>
+        <para><link linkend="sect_namespace_create">네임스페이스 생성</link></para>
+      </listitem>
+
+      <listitem>
+        <para><link linkend="sect_service_create">Tibero, HyperData 서비스
+        생성</link></para>
+      </listitem>
+
+      <listitem>
+        <para><link linkend="sect_storage_create">Tibero 스토리지 생성</link></para>
+      </listitem>
+
+      <listitem>
+        <para><link linkend="sect_pod_create">Tibero, Recommend-Module,
+        HyperData, Nginx 파드 생성</link></para>
+      </listitem>
+    </orderedlist>
+
+    <para>설치가 완료되면 HyperData에 접속하여 정상 설치 여부를 확인한다. 자세한 내용은 <xref
+    linkend="sect_install_validate" />을 참고한다.</para>
+
+    <para></para>
+  </section>
+
+  <section xml:id="sect_image_check">
+    <title>이미지 확인</title>
+
+    <para>컨테이너 생성을 위한 이미지를 확인한다. HyperData 설치 이미지가 저장된 레지스트리가 구축되어 있어야 한다. 도커
+    레지스트리 주소는 {ip}:{port} 형태로 설정한다.</para>
+
+    <para>도커 레지스트리의 이미지를 확인하는 방법은 다음과 같다.</para>
+
+    <orderedlist spacing="compact">
+      <listitem>
+        <para>이미지 이름을 확인한다. 조회되는 이미지 목록은 hyperdata8.3_tb, hyperdata8.3_eda,
+        hyperdata8.3_hd 이다.</para>
+
+        <programlisting><?db-font-size 90% ?>[root@master ~]# curl -X GET 192.168.105.224:5000/v2/_catalog
+{"repositories":["hyperdata8.3_eda","hyperdata8.3_hd","hyperdata8.3_tb"]}</programlisting>
+      </listitem>
+
+      <listitem>
+        <para>이미지 이름을 확인한 후 태그 리스트를 확인한다.</para>
+
+        <programlisting><?db-font-size 90% ?>[root@master ~]# curl -X GET 192.168.105.224:5000/v2/hyperdata8.3_hd/tags/list
+{"name":"hyperdata8.3_hd","tags":["20200507_v1","20200513_v1","20200513_v2"]}</programlisting>
+      </listitem>
+    </orderedlist>
+  </section>
+
+  <section xml:id="sect_namespace_create">
+    <title>네임스페이스 생성</title>
+
+    <para>HyperData 설치를 위해 네임스페이스 야믈 파일을 생성하고 배포한다.</para>
+
+    <para><orderedlist spacing="compact">
+        <listitem>
+          <para>네임스페이스 야믈 템플릿을 생성한다.</para>
+
+          <para><programlisting><?db-font-size 90% ?>apiVersion: v1
+kind: Namespace
+metadata:
+  name: hyperdata
+  labels:
+    app: hd</programlisting></para>
+        </listitem>
+
+        <listitem>
+          <para>HyperData 네임스페이스를 kubectl 명령어로 배포한다.</para>
+
+          <para><programlisting><?db-font-size 90% ?>[root@master ~]# kubectl create -f namespace.yaml</programlisting></para>
+        </listitem>
+
+        <listitem>
+          <para>HyperData 네임스페이스가 정상적으로 배포했는지 확인한다.</para>
+
+          <para><programlisting><?db-font-size 90% ?>[root@master ~]# kubectl get namespace
+NAME              STATUS   AGE
+hyperdata         Active   16s
+kube-node-lease   Active   14d
+kube-public       Active   14d
+kube-system       Active   14d
+rook-ceph         Active   14d</programlisting></para>
+        </listitem>
+      </orderedlist></para>
+  </section>
+
+  <section xml:id="sect_service_create">
+    <title>서비스 생성</title>
+
+    <para>HyperData 기동을 위한 서비스를 생성한다. 본 안내서에서는 서비스를 로드밸런서로 배포하며 외부 통신이 가능한 퍼블릭
+    IP가 미리 준비되어 있다는 가정하에 진행한다.</para>
+
+    <section>
+      <title>Tibero 서비스 생성</title>
+
+      <para>Tibero 서비스 생성을 위해 야믈 파일을 생성하고 배포한다.</para>
+
+      <para><orderedlist spacing="compact">
+          <listitem>
+            <para>Tibero 서비스 야믈 파일(lb-db.yaml)을 생성한다.</para>
+
+            <para><programlisting><?db-font-size 90% ?>apiVersion: v1
+kind: Service
+metadata:
+  name: hyper-db-lb
+  namespace: hyperdata
+  labels:
+    lb: hyper-lb
+  annotations:
+    metallb.universe.tf/allow-shared-ip: top
+spec:
+  ports:
+    - name: tb-lsnr
+      nodePort: 31096
+      port: 8629
+      protocol: TCP
+      targetPort: 8629
+    - name: ora-gw
+      nodePort: 31081
+      port: 9999
+      protocol: TCP
+      targetPort: 9999
+    - name: nz-gw
+      nodePort: 31083
+      port: 9095
+      protocol: TCP
+      targetPort: 9095
+    - name: iq-gw
+      nodePort: 31087
+      port: 9093
+      protocol: TCP
+      targetPort: 9093
+    - name: ase-gw
+      nodePort: 31091
+      port: 9091
+      protocol: TCP
+      targetPort: 9091
+    - name: my-gw
+      nodePort: 31097
+      port: 9777
+      protocol: TCP
+      targetPort: 9777
+    - name: gp-gw
+      nodePort: 31099
+      port: 9097
+      protocol: TCP
+      targetPort: 9097
+  selector:
+    lb: db-lb
+  type: LoadBalancer
+  sessionAffinity: None
+  loadBalancerIP: <guibutton>192.168.179.184</guibutton>
+  externalTrafficPolicy: Cluster</programlisting></para>
+
+            <para><itemizedlist mark="circle" spacing="compact">
+                <listitem>
+                  <para>다음은 서비스 포트 정보이다.</para>
+
+                  <informaltable colsep="1" frame="topbot" rowsep="1">
+                    <tgroup cols="2">
+                      <colspec align="left" colwidth="130" />
+
+                      <thead>
+                        <row>
+                          <entry>포트</entry>
+
+                          <entry>설명</entry>
+                        </row>
+                      </thead>
+
+                      <tbody>
+                        <row>
+                          <entry>tb-lsnr</entry>
+
+                          <entry>tb-lsnr 포트 정보 (기본값: 8629)</entry>
+                        </row>
+
+                        <row>
+                          <entry>ora-gw</entry>
+
+                          <entry>Oracle Gateway 포트 정보 (기본값: 9999)</entry>
+                        </row>
+
+                        <row>
+                          <entry>nz-gw</entry>
+
+                          <entry>Netezza Gateway 포트 정보 (기본값: 9095)</entry>
+                        </row>
+
+                        <row>
+                          <entry>iq-gw</entry>
+
+                          <entry>Sybase IQ Gateway 포트 정보 (기본값: 9093)</entry>
+                        </row>
+
+                        <row>
+                          <entry>ase-gw</entry>
+
+                          <entry>Sybase ASE Gateway 포트 정보 (기본값: 9091)</entry>
+                        </row>
+
+                        <row>
+                          <entry>my-gw</entry>
+
+                          <entry>MySQL Gateway 포트 정보 (기본값: 9777)</entry>
+                        </row>
+
+                        <row>
+                          <entry>gp-gw</entry>
+
+                          <entry>Greenplum Gateway 포트 정보 (기본값: 9097)</entry>
+                        </row>
+                      </tbody>
+                    </tgroup>
+                  </informaltable>
+                </listitem>
+
+                <listitem>
+                  <para>nodePort 값은 30000~32767 포트 사이의 임의의 포트로 설정한다.</para>
+                </listitem>
+
+                <listitem>
+                  <para>loadBalancerIP 값은 외부 통신이 가능한 IP로 설정하며 db, hd 서비스 모두
+                  동일한 IP를 공유한다.</para>
+                </listitem>
+              </itemizedlist></para>
+          </listitem>
+
+          <listitem>
+            <para>Tibero 서비스를 kubectl 명령어로 배포한다.</para>
+
+            <para><programlisting><?db-font-size 90% ?>[root@master ~]# kubectl create -f lb-db.yaml</programlisting></para>
+          </listitem>
+
+          <listitem>
+            <para>HyperData 서비스가 정상적으로 배포되었는지 확인한다.</para>
+
+            <para><programlisting><?db-font-size 90% ?>[root@master ~]# kubectl get svc -n hyperdata
+NAME          TYPE           CLUSTER-IP       EXTERNAL-IP        PORT(S)         AGE
+hyper-db-lb   LoadBalancer   10.104.214.249   <guibutton>192.168.179.184</guibutton>  8629:31096/TCP..  26h</programlisting></para>
+          </listitem>
+        </orderedlist></para>
+
+      <para></para>
+    </section>
+
+    <section>
+      <title>HyperData 서비스 생성</title>
+
+      <para>HyperData 서비스 생성을 위해 야믈 파일(lb-hd.yaml, svc-hd.yaml)을 생성하고
+      배포한다.</para>
+
+      <para><orderedlist spacing="compact">
+          <listitem>
+            <para>HyperData 서비스 야믈 파일(lb-hd.yaml )을 생성한다.</para>
+
+            <para><programlisting><?db-font-size 90% ?>kind: Service
+apiVersion: v1
+metadata:
+  name: hyper-hd-lb
+  namespace: hyperdata
+  labels:
+    lb: hyper-lb
+  annotations:
+    metallb.universe.tf/allow-shared-ip: top
+spec:
+  ports:
+    - name: ftp
+      nodePort: 32314
+      port: 20
+      protocol: TCP
+      targetPort: 20
+    - name: ftp2
+      nodePort: 32324
+      port: 21
+      protocol: TCP
+      targetPort: 21
+    - name: ssh
+      nodePort: 32334
+      port: 22
+      protocol: TCP
+      targetPort: 22
+    - name: telnet
+      nodePort: 32344
+      port: 23
+      protocol: TCP
+      targetPort: 23
+    - name: jeus-http
+      nodePort: 32389
+      port: 9736
+      protocol: TCP
+      targetPort: 9736
+    - name: proauth-http
+      nodePort: 32164
+      port: 28080
+      protocol: TCP
+      targetPort: 28080
+    - name: hd-web
+      nodePort: 32214
+      port: 1408
+      protocol: TCP
+      targetPort: 1408
+  selector:
+    lb: hd-lb
+  type: LoadBalancer
+  sessionAffinity: None
+  loadBalancerIP: <guibutton>192.168.179.184</guibutton>
+  externalTrafficPolicy: Cluster</programlisting></para>
+
+            <para><itemizedlist mark="circle" spacing="compact">
+                <listitem>
+                  <para>다음은 서비스 포트 정보이다.</para>
+
+                  <informaltable colsep="1" frame="topbot" rowsep="1">
+                    <tgroup cols="2">
+                      <colspec align="left" colwidth="130" />
+
+                      <thead>
+                        <row>
+                          <entry>포트</entry>
+
+                          <entry>설명</entry>
+                        </row>
+                      </thead>
+
+                      <tbody>
+                        <row>
+                          <entry>ftp</entry>
+
+                          <entry>ftp 포트 정보 (기본값: 20)</entry>
+                        </row>
+
+                        <row>
+                          <entry>ftp2</entry>
+
+                          <entry>ftp2 포트 정보 (기본값: 21)</entry>
+                        </row>
+
+                        <row>
+                          <entry>ssh</entry>
+
+                          <entry>ssh 포트 정보 (기본값: 22)</entry>
+                        </row>
+
+                        <row>
+                          <entry>telnet</entry>
+
+                          <entry>telnet 포트 정보 (기본값: 23)</entry>
+                        </row>
+
+                        <row>
+                          <entry>jeus-http</entry>
+
+                          <entry>JEUS 웹 포트 정보 (기본값: 9736)</entry>
+                        </row>
+
+                        <row>
+                          <entry>proauth-http</entry>
+
+                          <entry>ProAuth 포트 정보 (기본값: 28080)</entry>
+                        </row>
+
+                        <row>
+                          <entry>hd-web</entry>
+
+                          <entry>hd-web 웹 포트 정보 (기본값: 1408)</entry>
+                        </row>
+                      </tbody>
+                    </tgroup>
+                  </informaltable>
+                </listitem>
+
+                <listitem>
+                  <para>nodePort 값은 30000~32767 포트 사이의 임의의 포트로 설정한다.</para>
+                </listitem>
+
+                <listitem>
+                  <para>loadBalancerIP 값은 외부통신이 가능한 IP로 설정하며 db, hd 서비스 모두 동일한
+                  IP를 공유한다.</para>
+                </listitem>
+              </itemizedlist></para>
+          </listitem>
+
+          <listitem>
+            <para>HyperData 서비스를 kubectl 명령어로 배포한다.</para>
+
+            <para><programlisting><?db-font-size 90% ?>[root@master ~]# kubectl create -f lb-hd.yaml</programlisting></para>
+          </listitem>
+
+          <listitem>
+            <para>HyperData 서비스가 정상적으로 배포되었는지 확인한다.</para>
+
+            <para><programlisting><?db-font-size 90% ?>[root@master ~]# kubectl get svc -n hyperdata
+NAME          TYPE           CLUSTER-IP       EXTERNAL-IP        PORT(S)                          AGE
+hyper-db-lb   LoadBalancer   10.104.214.249   <guibutton>192.168.179.184</guibutton>  8629:31094/TCP, 9999:31081/TCP..  26h
+hyper-hd-lb   LoadBalancer   10.105.5.75      <guibutton>192.168.179.184  </guibutton>20:31014/TCP,21:31024/TCP,22:3..  26h</programlisting></para>
+          </listitem>
+
+          <listitem>
+            <para>HyperData 서비스 야믈 파일(svc-hd.yaml)을 생성한다.</para>
+
+            <para><programlisting><?db-font-size 90% ?>kind: Service
+apiVersion: v1
+metadata:
+  name: hyper-svc-hd
+  namespace: hyperdata
+spec:
+  ports:
+    - name: hd-http
+      port: 8080
+      protocol: TCP
+      targetPort: 8080
+    - name: msqt-lsnr1
+      port: 1883
+      protocol: TCP
+      targetPort: 1883
+    - name: msqt-lsnr2
+      port: 2883
+      protocol: TCP
+      targetPort: 2883
+    - name: hdd-http
+      port: 18080
+      protocol: TCP
+      targetPort: 18080
+  selector:
+    lb: svc-hd
+  type: ClusterIP</programlisting></para>
+
+            <para><itemizedlist mark="circle" spacing="compact">
+                <listitem>
+                  <para>다음은 서비스 포트 정보이다.</para>
+
+                  <informaltable colsep="1" frame="topbot" rowsep="1">
+                    <tgroup cols="2">
+                      <colspec align="left" colwidth="130" />
+
+                      <thead>
+                        <row>
+                          <entry>포트</entry>
+
+                          <entry>설명</entry>
+                        </row>
+                      </thead>
+
+                      <tbody>
+                        <row>
+                          <entry>hd-http</entry>
+
+                          <entry>HyperData 웹 포트 정보 (기본값: 8080)</entry>
+                        </row>
+
+                        <row>
+                          <entry>msqt-lsnr1</entry>
+
+                          <entry>모스키토 웹 접속 포트1 정보 (기본값: 1883)</entry>
+                        </row>
+
+                        <row>
+                          <entry>msqt-lsnr2</entry>
+
+                          <entry>모스키토 웹 접속 포트2 정보 (기본값: 2883)</entry>
+                        </row>
+
+                        <row>
+                          <entry>hdd-http</entry>
+
+                          <entry>DashBoard Iframe 웹 접속 포트 정보 (기본값:
+                          18080)</entry>
+                        </row>
+                      </tbody>
+                    </tgroup>
+                  </informaltable>
+                </listitem>
+              </itemizedlist></para>
+          </listitem>
+
+          <listitem>
+            <para>HyperData 서비스를 kubectl 명령어로 배포한다.</para>
+
+            <para><programlisting><?db-font-size 90% ?>[root@master ~]# kubectl create -f svc-hd.yaml</programlisting></para>
+          </listitem>
+
+          <listitem>
+            <para>HyperData 서비스가 정상적으로 배포되었는지 확인한다.</para>
+
+            <para><programlisting><?db-font-size 90% ?>[root@master ~]# kubectl get svc -n hyperdata
+NAME          TYPE           CLUSTER-IP       EXTERNAL-IP        PORT(S)                          AGE
+hyper-db-lb   LoadBalancer   10.104.214.249   <guibutton>192.168.179.184</guibutton>  8629:31094/TCP                    26h
+hyper-hd-lb   LoadBalancer   10.105.5.75      <guibutton>192.168.179.184 </guibutton> 20:31014/TCP,21:31024/TCP,22:3..  26h
+hyper-svc-hd  ClusterIP      10.105.5.71       <guibutton>none</guibutton>             8080/TCP,1883/TCP,2883/TCP        26h</programlisting></para>
+          </listitem>
+        </orderedlist></para>
+
+      <para></para>
+    </section>
+  </section>
+
+  <section xml:id="sect_storage_create">
+    <title>스토리지 생성</title>
+
+    <para>HyperData 기동을 위한 스토리지를 생성한다. 본 안내서에서는 동적 프로비저닝을 위해 Kubernetes 내 스토리지
+    클래스가 미리 구축되어 있다는 가정 하에 분산 스토리지 엔진인 룩쉐프(rook-ceph)을 이용해 스토리지 클래스를
+    구성한다.</para>
+
+    <para></para>
+
+    <section>
+      <title>Tibero 스토리지 생성</title>
+
+      <para>Tibero 스토리지 생성을 위해 야믈 파일을 생성하고 배포한다.</para>
+
+      <para><orderedlist spacing="compact">
+          <listitem>
+            <para>Tibero 스토리지 야믈 파일(pvc-db.yaml)을 생성한다.</para>
+
+            <para><programlisting><?db-font-size 90% ?>apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  labels:
+    app: hd
+  name: pvc-db
+  namespace: hyperdata
+spec:
+  accessModes:
+  - ReadWriteMany
+  resources:
+    requests:
+      storage: <guibutton>10000Mi</guibutton> 
+  storageClassName: <guibutton>csi-cephfs-sc</guibutton> 
+  volumeMode: Filesystem</programlisting></para>
+
+            <para><itemizedlist mark="circle" spacing="compact">
+                <listitem>
+                  <para>spec.resources 부분은 사용자 환경에 맞게 변경한다.</para>
+                </listitem>
+
+                <listitem>
+                  <para>storageClassName은 미리 준비한 스토리지 클래스로 설정한다. 본 안내서에서는 분산
+                  파일 스토리지인 csi-cephfs 형태의 스토리지 클래스를 구성하였다.</para>
+                </listitem>
+
+                <listitem>
+                  <para>다음의 명령어를 사용해서 스토리지 클래스를 조회한다.</para>
+
+                  <para><programlisting><?db-font-size 90% ?>[root@master ~]# kubectl get storageclass
+NAME                      PROVISIONER                     AGE
+csi-cephfs-sc (default)   rook-ceph.cephfs.csi.ceph.com   14d
+rook-ceph-block           rook-ceph.rbd.csi.ceph.com      14d</programlisting></para>
+                </listitem>
+              </itemizedlist></para>
+          </listitem>
+
+          <listitem>
+            <para>Tibero 스토리지를 kubectl 명령어로 배포한다.</para>
+
+            <para><programlisting><?db-font-size 90% ?>[root@master ~]# kubectl create -f pvc-db.yaml</programlisting></para>
+          </listitem>
+
+          <listitem>
+            <para>Tibero 스토리지가 정상적으로 배포했는지 확인한다.</para>
+
+            <para><programlisting><?db-font-size 90% ?>[root@master ~]# kubectl get pvc -n hyperdata  
+NAME     STATUS   VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS    AGE
+pvc-db   Bound    pvc-153514e4-702e-4a2f-a2d2-dcdba91e4881   10Gi       RWX            csi-cephfs-sc   43d</programlisting></para>
+          </listitem>
+        </orderedlist></para>
+
+      <para></para>
+
+      <?dbfo-need height="10in" ?>
+    </section>
+  </section>
+
+  <section xml:id="sect_pod_create">
+    <title>파드 생성</title>
+
+    <para>HyperData 설치를 위해 Tibero, Recommend-Module, HyperData, Nginx 파드를
+    생성한다.</para>
+
+    <section>
+      <title>Tibero 파드 생성</title>
+
+      <para>Tibero 파드를 배포하기 위해 야믈 파일을 작성하고 배포한다.</para>
+
+      <orderedlist spacing="compact">
+        <listitem>
+          <para>다음은 Tibero 파드 야믈 파일(db.yaml) 템플릿이다.</para>
+
+          <para><programlisting><?db-font-size 90% ?>apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    lb: db-lb
+  name: pod-db-hd
+  namespace: hyperdata
+spec:
+  containers:
+  - env:
+    - name: TB_PORT
+      value: "8629"
+    - name: MAX_SESSION_COUNT
+      value: "100"
+    - name: TOTAL_SHM_SIZE
+      value: "8"
+    - name: MEMORY_TARGET
+      value: "16"
+    - name: LOG_BUFFER
+      value: "300M"
+    - name: LOG_GROUP
+      value: "5"
+    - name: LOG_FILE_SIZE
+      value: "200M"
+    - name: SYSTEM_FILE_SIZE
+      value: "1G"
+    - name: TEMP_FILE_SIZE
+      value: "5G"
+    - name: UNDO_FILE_SIZE
+      value: "1G"
+    - name: USR_FILE_SIZE
+      value: "5G"
+    - name: DB_CHARACTER_SET
+      value: "UTF8"
+    image: 192.168.179.185:5000/hyperdata8.3_tb:20200824_v1
+    name: con-db-hd
+    ports:
+    - containerPort: 8629
+      name: tb-lsnr
+      protocol: TCP
+    - containerPort: 8630
+      name: tb-sp
+      protocol: TCP
+    - containerPort: 9999
+      name: ora-gw
+      protocol: TCP
+    - containerPort: 9095
+      name: nz-gw
+      protocol: TCP
+    - containerPort: 9093
+      name: iq-gw
+      protocol: TCP
+    - containerPort: 9091
+      name: ase-gw
+      protocol: TCP
+    - containerPort: 9777
+      name: my-gw
+      protocol: TCP
+    - containerPort: 9097
+      name: gp-gw
+      protocol: TCP
+    resources:
+      limits:
+        cpu: "8"
+        memory: 16Gi
+        nvidia.com/gpu: "0"
+      requests:
+        cpu: "8"
+        memory: 16Gi
+        nvidia.com/gpu: "0"
+    volumeMounts:
+    - mountPath: /db
+      name: pv-storage
+    - name: tz-seoul
+      mountPath: /etc/localtime
+  securityContext:
+    sysctls:
+    - name: kernel.sem
+      value: 10000 32000 10000 10000
+  volumes:
+  - name: pv-storage
+    persistentVolumeClaim:
+      claimName: pvc-db
+  - name: tz-seoul
+    hostPath:
+      path: /usr/share/zoneinfo/Asia/Seoul</programlisting></para>
+
+          <itemizedlist mark="circle" spacing="compact">
+            <listitem>
+              <para>컨테이너 환경변수 정보는 다음과 같다.</para>
+
+              <informaltable colsep="1" frame="topbot" rowsep="1">
+                <tgroup cols="2">
+                  <colspec align="left" colwidth="180" />
+
+                  <thead>
+                    <row>
+                      <entry>환경변수</entry>
+
+                      <entry>설명</entry>
+                    </row>
+                  </thead>
+
+                  <tbody>
+                    <row>
+                      <entry>TB_PORT</entry>
+
+                      <entry>Tibero 리스너 포트 지정 변수 (기본값: 8629)</entry>
+                    </row>
+
+                    <row>
+                      <entry>MAX_SESSION_COUNT</entry>
+
+                      <entry>Tibero 접속 최대 개수 (기본값: 100)</entry>
+                    </row>
+
+                    <row>
+                      <entry>TOTAL_SHM_SIZE</entry>
+
+                      <entry>Tibero 데이터베이스의 인스턴스 내에서 사용할 전체 공유 메모리 크기 (기본값:
+                      8)</entry>
+                    </row>
+
+                    <row>
+                      <entry>MEMORY_TARGET</entry>
+
+                      <entry><para>Tibero 데이터베이스의 인스턴스 내에서 사용할 전체 메모리 크기
+                      </para><para>(기본값: 16)</para></entry>
+                    </row>
+
+                    <row>
+                      <entry>kernel.sem</entry>
+
+                      <entry>Tibero 기동을 위한 커널 파라미터 (기본값: 10000 32000 10000
+                      10000)</entry>
+                    </row>
+
+                    <row>
+                      <entry>LOG_BUFFER</entry>
+
+                      <entry><para>Tibero를 최초 설치하는 경우 DB 생성문의 LOG_BUFFER 크기
+                      </para><para>(기본값: 300M)</para></entry>
+                    </row>
+
+                    <row>
+                      <entry>LOG_GROUP</entry>
+
+                      <entry><para>Tibero를 최초 설치하는 경우 DB 생성문의 LOG_GROUP 개수
+                      </para><para>(기본값: 5)</para></entry>
+                    </row>
+
+                    <row>
+                      <entry>LOG_FILE_SIZE</entry>
+
+                      <entry><para>Tibero를 최초 설치하는 경우 DB 생성문의 LOG_FILE_SIZE 크기
+                      </para><para>(기본값: 200M)</para></entry>
+                    </row>
+
+                    <row>
+                      <entry>SYSTEM_FILE_SIZE</entry>
+
+                      <entry>Tibero를 최초 설치하는 경우 DB 생성문의 SYSTEM_FILE_SIZE 크기
+                      (기본값: 1G)</entry>
+                    </row>
+
+                    <row>
+                      <entry>TEMP_FILE_SIZE</entry>
+
+                      <entry><para>Tibero를 최초 설치하는 경우 DB 생성문의 TEMP_FILE_SIZE
+                      크기 </para><para>(기본값: 5G)</para></entry>
+                    </row>
+
+                    <row>
+                      <entry>UNDO_FILE_SIZE</entry>
+
+                      <entry><para>Tibero를 최초 설치하는 경우 DB 생성문의 UNDO_FILE_SIZE
+                      크기 </para><para>(기본값: 1G)</para></entry>
+                    </row>
+
+                    <row>
+                      <entry>USR_FILE_SIZE</entry>
+
+                      <entry><para>Tibero를 최초 설치하는 경우 DB 생성문의 USR_FILE_SIZE 크기
+                      </para><para>(기본값: 5G)</para></entry>
+                    </row>
+
+                    <row>
+                      <entry>DB_CHARACTER_SET</entry>
+
+                      <entry>Tibero를 최초 설치하는 경우 DB 생성문의 DB_CHARACTER_SET 타입
+                      (기본값: UTF8)</entry>
+                    </row>
+                  </tbody>
+                </tgroup>
+              </informaltable>
+            </listitem>
+
+            <listitem>
+              <para>컨테이너 포트 정보는 다음과 같다.</para>
+
+              <informaltable colsep="1" frame="topbot" rowsep="1">
+                <tgroup cols="2">
+                  <colspec align="left" colwidth="150" />
+
+                  <thead>
+                    <row>
+                      <entry>포트 이름</entry>
+
+                      <entry>설명</entry>
+                    </row>
+                  </thead>
+
+                  <tbody>
+                    <row>
+                      <entry>tb-lsnr</entry>
+
+                      <entry>Tibero 리스너 포트 (기본 포트: 8629)</entry>
+                    </row>
+
+                    <row>
+                      <entry>tb-sp</entry>
+
+                      <entry>Tibero 스페셜 포트 (기본 포트: 8630)</entry>
+                    </row>
+
+                    <row>
+                      <entry>ora-gw</entry>
+
+                      <entry>Oracle 게이트웨이 포트 (기본 포트: 9999)</entry>
+                    </row>
+
+                    <row>
+                      <entry>nz-gw</entry>
+
+                      <entry>Netezza 게이트웨이 포트 (기본 포트: 9095)</entry>
+                    </row>
+
+                    <row>
+                      <entry>iq-gw</entry>
+
+                      <entry>Sybase IQ 게이트웨이 포트 (기본 포트: 9093)</entry>
+                    </row>
+
+                    <row>
+                      <entry>ase-gw</entry>
+
+                      <entry>Sybase ASE 게이트웨이 포트 (기본 포트: 9091)</entry>
+                    </row>
+
+                    <row>
+                      <entry>my-gw</entry>
+
+                      <entry>MySQL 게이트웨이 포트 (기본 포트: 9777)</entry>
+                    </row>
+
+                    <row>
+                      <entry>gp-gw</entry>
+
+                      <entry>Greenplum 게이트웨이 포트 (기본 포트: 9097)</entry>
+                    </row>
+                  </tbody>
+                </tgroup>
+              </informaltable>
+            </listitem>
+
+            <listitem>
+              <para>spec.resources 부분은 사용자 환경에 맞게 설정한다.</para>
+            </listitem>
+
+            <listitem>
+              <para>이미지는 "도커 원격 레지스트리/이미지:태그" 형식으로 작성하며 Tibero 최신 이미지를
+              사용한다.</para>
+            </listitem>
+
+            <listitem>
+              <para>spec.volumes 내 persistentVolumeClaim 값은 배포한 Tibero 스토리지
+              퍼시스턴트 볼륨 클레임 네임과 동일하게 설정한다.</para>
+            </listitem>
+
+            <listitem>
+              <para>메타데이터의 labels 값은 lb-db.yaml의 selector의 값과 동일하게
+              설정한다.</para>
+            </listitem>
+          </itemizedlist>
+        </listitem>
+
+        <listitem>
+          <para>Tibero 파드를 배포한다.</para>
+
+          <para><programlisting><?db-font-size 90% ?>[root@master ~]# kubectl create -f db.yaml</programlisting></para>
+        </listitem>
+
+        <listitem>
+          <para>Tibero 파드 상태를 확인한다.</para>
+
+          <para><programlisting><?db-font-size 90% ?>[root@master ~]# kubectl get pods -n hyperdata
+NAME        READY   STATUS    RESTARTS   AGE
+pod-db-hd   1/1     Running   0          111m</programlisting></para>
+        </listitem>
+
+        <listitem>
+          <para>Tibero 파드로 접속하여 데이터베이스 상태를 확인한다.</para>
+
+          <para><programlisting><?db-font-size 90% ?>[root@master ~]# kubectl exec -ti -n hyperdata pod-db-hd -- /bin/bash</programlisting><itemizedlist
+              mark="circle" spacing="compact">
+              <listitem>
+                <para>컨테이너 내 프로세스를 확인하여 system.sh 프로세스의 여부를 확인한다. 정상적으로
+                데이터베이스가 완료하면 해당 프로세스가 없음을 확인할 수 있다.</para>
+
+                <para><programlisting><?db-font-size 90% ?>[root@tibero-pod:/deploy_src]# ps -ef
+UID        PID  PPID  C STIME TTY          TIME CMD
+root         1     0  0 Mar31 ?        00:00:05 /usr/bin/python /usr/bin/supervisord -c /etc/supervisor/supervisord.conf
+root        28     1  0 Mar31 ?        00:00:00 /usr/sbin/sshd
+root       629     1  0 Mar31 ?        00:00:11 tbsvr          -t NORMAL -SVR_SID tibero -c
+root       630   629  0 Mar31 ?        00:00:00 /db/tibero6/bin/tblistener -n 11 -t NORMAL -SVR_SID tibero
+root       631   629  0 Mar31 ?        00:00:19 tbsvr_MGWP     -t NORMAL -SVR_SID tibero -c
+root       632   629  0 Mar31 ?        00:00:42 tbsvr_FGWP000  -t NORMAL -SVR_SID tibero -c
+root       633   629  0 Mar31 ?        00:00:22 tbsvr_FGWP001  -t NORMAL -SVR_SID tibero -c
+root       634   629  0 Mar31 ?        00:00:19 tbsvr_FGWP002  -t NORMAL -SVR_SID tibero -c
+root       635   629  0 Mar31 ?        00:00:19 tbsvr_FGWP003  -t NORMAL -SVR_SID tibero -c
+root       636   629  0 Mar31 ?        00:00:19 tbsvr_FGWP004  -t NORMAL -SVR_SID tibero -c
+root       637   629  0 Mar31 ?        00:00:19 tbsvr_FGWP005  -t NORMAL -SVR_SID tibero -c
+root       638   629  0 Mar31 ?        00:00:19 tbsvr_FGWP006  -t NORMAL -SVR_SID tibero -c
+root       639   629  0 Mar31 ?        00:00:19 tbsvr_FGWP007  -t NORMAL -SVR_SID tibero -c
+root       640   629  0 Mar31 ?        00:00:19 tbsvr_FGWP008  -t NORMAL -SVR_SID tibero -c
+root       641   629  0 Mar31 ?        00:01:12 tbsvr_FGWP009  -t NORMAL -SVR_SID tibero -c
+root       642   629  0 Mar31 ?        00:00:19 tbsvr_PEWP000  -t NORMAL -SVR_SID tibero -c
+root       643   629  0 Mar31 ?        00:00:19 tbsvr_PEWP001  -t NORMAL -SVR_SID tibero -c
+root       644   629  0 Mar31 ?        00:00:19 tbsvr_PEWP002  -t NORMAL -SVR_SID tibero -c
+root       645   629  0 Mar31 ?        00:00:19 tbsvr_PEWP003  -t NORMAL -SVR_SID tibero -c
+root       646   629  0 Mar31 ?        00:00:50 tbsvr_AGNT     -t NORMAL -SVR_SID tibero -c
+root       647   629  0 Mar31 ?        00:01:01 tbsvr_DBWR     -t NORMAL -SVR_SID tibero -c
+root       648   629  0 Mar31 ?        00:00:01 tbsvr_RCWP     -t NORMAL -SVR_SID tibero -c
+root      2397     0  0 05:12 pts/0    00:00:00 /bin/bash
+root      2412  2397  0 05:12 pts/0    00:00:00 ps -ef</programlisting></para>
+              </listitem>
+
+              <listitem>
+                <para>Tibero 프로세스가 정상 동작하는지 확인하기 위해 tbprobe 명령어와 해당 리턴값을 확인한다.
+                0이 출력되면 정상 기동이며 이외의 숫자가 출력되면 Tibero 기동 문제가 발생한 것이므로 재설치가 필요할 수
+                있다.</para>
+
+                <para><programlisting><?db-font-size 90% ?>[root@tibero-pod:/deploy_src]# tbprobe
+[root@tibero-pod:/deploy_src]# echo $?
+<guibutton>0</guibutton></programlisting></para>
+              </listitem>
+            </itemizedlist></para>
+        </listitem>
+      </orderedlist>
+
+      <para></para>
+
+      <para></para>
+
+      <para></para>
+    </section>
+
+    <section>
+      <title>Recommend-Module 파드 생성</title>
+
+      <para>Recommend-Module 파드를 배포하기 위해 야믈 파일을 작성하고 배포한다.</para>
+
+      <orderedlist spacing="compact">
+        <listitem>
+          <para>다음은 Recommend-Module 파드 야믈 파일(recommendmodule.yaml)
+          템플릿이다.</para>
+
+          <para><programlisting><?db-font-size 90% ?>apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    lb: eda-lb
+  name: pod-rm-hd
+  namespace: hyperdata
+spec:
+  containers:
+  - image: 192.168.179.185:5000/hyperdata8.3_eda:20200626_v1
+    imagePullPolicy: IfNotPresent
+    name: con-rm-hd
+    ports:
+    - containerPort: 5000
+      name: rm-port
+      protocol: TCP
+    resources:
+      limits:
+        cpu: "2"
+        memory: 4Gi
+        nvidia.com/gpu: "0"
+      requests:
+        cpu: "2"
+        memory: 4Gi
+        nvidia.com/gpu: "0"
+    volumeMounts:
+    - name: tz-seoul
+      mountPath: /etc/localtime
+  volumes:
+  - name: tz-seoul
+    hostPath:
+      path: /usr/share/zoneinfo/Asia/Seoul</programlisting></para>
+
+          <para><itemizedlist mark="circle" spacing="compact">
+              <listitem>
+                <para>컨테이너 포트 정보는 다음과 같다.</para>
+
+                <informaltable colsep="1" frame="topbot" rowsep="1">
+                  <tgroup cols="2">
+                    <colspec align="left" colwidth="150" />
+
+                    <thead>
+                      <row>
+                        <entry>포트 이름</entry>
+
+                        <entry>설명</entry>
+                      </row>
+                    </thead>
+
+                    <tbody>
+                      <row>
+                        <entry>rm-port</entry>
+
+                        <entry>Recommend-Module 포트 정보 (기본 포트: 5000)</entry>
+                      </row>
+                    </tbody>
+                  </tgroup>
+                </informaltable>
+              </listitem>
+
+              <listitem>
+                <para>spec.resources 부분은 사용자 환경에 맞게 설정한다.</para>
+              </listitem>
+
+              <listitem>
+                <para>이미지는 "도커 원격 레지스트리/이미지:태그" 형식으로 작성하며 Recommend-Module 최신
+                이미지를 사용한다.</para>
+              </listitem>
+            </itemizedlist></para>
+        </listitem>
+
+        <listitem>
+          <para>Recommend-Module 파드를 배포한다.</para>
+
+          <para><programlisting><?db-font-size 90% ?>[root@master ~]# kubectl create -f recommendmodule.yaml</programlisting></para>
+        </listitem>
+
+        <listitem>
+          <para>Recommend-Module 파드 상태를 확인한다.</para>
+
+          <para><programlisting><?db-font-size 90% ?>[root@master ~]# kubectl get pods -n hyperdata
+NAME        READY   STATUS    RESTARTS   AGE
+pod-db-hd   1/1     Running   0          127m
+pod-rm-hd   1/1     Running   0          12s</programlisting></para>
+        </listitem>
+      </orderedlist>
+    </section>
+
+    <section>
+      <title>HyperData 파드 생성</title>
+
+      <para>HyperData 파드를 배포하기 위해 야믈 파일을 작성하고 배포한다.</para>
+
+      <orderedlist spacing="compact">
+        <listitem>
+          <para>Tibero, Recommend-Module 파드의 Backend IP를 조회한다.</para>
+
+          <para><programlisting><?db-font-size 90% ?>[root@master ~]# kubectl get pod -n hyperdata -o wide
+NAME        READY   STATUS    RESTARTS   AGE     IP               NODE        NOMINATED NODE   READINESS GATES
+pod-db-hd   1/1     Running   0          135m    10.244.107.201   k8s-node3   &lt;none&gt;           &lt;none&gt;
+pod-rm-hd   1/1     Running   0          8m18s   10.244.169.181   k8s-node2   &lt;none&gt;           &lt;none&gt;</programlisting></para>
+        </listitem>
+
+        <listitem>
+          <para>다음은 HyperData 파드 야믈 파일(hyperdata.yaml) 템플릿이다. <programlisting><?db-font-size 90% ?>apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    lb: hd-lb 
+  name: pod-hd-hd
+  namespace: hyperdata
+spec:
+  containers:
+  - env:
+    - name: TB_IP
+      value: 10.244.107.201
+    - name: TB_PORT
+      value: "8629"
+    - name: TB_SID
+      value: tibero
+    - name: RECOMMEND_SERVER_IP
+      value: 10.244.169.181
+    - name: RECOMMEND_SERVER_PORT
+      value: "5000"
+    - name: KUBEFLOW_IP
+      value: 192.168.179.172
+    - name: KUBEFLOW_PORT
+      value: "31380"
+    - name: KUBEFLOW_USER
+      value: root
+    - name: KUBEFLOW_PW
+      value: passwd
+    - name: SKIP_RECREATE_SCHEMA
+      value: "N"
+    - name: SKIP_RECREATE_ROLE_AND_PERMISSON
+      value: "N"
+    - name: SKIP_RECREATE_ADMIN
+      value: "N"
+    - name: USE_REALTIME
+      value: "Y"
+    - name: SSH_PORT
+      value: "22"
+    - name: IS_PRIVATE_DOCKER
+      value: "false"
+    - name: IS_HYPER_CLOUD
+      value: "false"
+    - name: PRIVATE_DOCKER_IP
+      value: "127.0.0.1"
+    - name: PRIVATE_DOCKER_PORT
+      value: "8080"
+    - name: SECRET_NAME
+      value: "no-secret"
+    - name: IS_HTTPS
+      value: "true"
+    - name: USE_AI
+      value: "true"
+    - name: AUTOML_FRONTEND
+      value: "192.168.179.184:8080/automl/frontend"
+    - name: AUTOML_BACKEND
+      value: "192.168.179.184:8080/automl/backend"
+    - name: AUTOML_NAMESPACE
+      value: "hyperdata"
+    - name: HADOOP_ALIAS
+      value: "127.0.0.1 alias1 alias2"
+    - name: MARKANY_DRM_ENABLE
+      value: "OFF"
+    - name: MARKANY_DRM_INFO
+      value: "/db/input/MarkAnyDrminfo.dat"
+    image: 192.168.179.185:5000/hyperdata8.3_hd:20201007_v1
+    imagePullPolicy: IfNotPresent
+    name: con-hd-hd
+    ports:
+    - containerPort: 20
+      name: hd-ftp1
+      protocol: TCP
+    - containerPort: 21
+      name: hd-ftp2
+      protocol: TCP
+    - containerPort: 22
+      name: hd-ssh
+      protocol: TCP
+    - containerPort: 8080
+      name: hd-http
+      protocol: TCP
+    - containerPort: 9736
+      name: jeus-http
+      protocol: TCP
+    - containerPort: 1883
+      name: msqt-lsnr1
+      protocol: TCP
+    - containerPort: 2883
+      name: msqt-lsnr2
+      protocol: TCP
+    - containerPort: 1408
+      name: hd-web
+      protocol: TCP
+    - containerPort: 18080
+      name: hdd-http
+      protocol: TCP
+    resources:
+      limits:
+        cpu: "8"
+        memory: 16Gi
+        nvidia.com/gpu: "0"
+      requests:
+        cpu: "8"
+        memory: 16Gi
+        nvidia.com/gpu: "0"
+    volumeMounts:
+    - name: tz-seoul
+      mountPath: /etc/localtime
+    - mountPath: /db
+      name: pv-storage
+  volumes:
+  - name: tz-seoul
+    hostPath:
+      path: /usr/share/zoneinfo/Asia/Seoul
+  - name: pv-storage
+    persistentVolumeClaim:
+      claimName: pvc-db</programlisting></para>
+
+          <para><itemizedlist mark="circle" spacing="compact">
+              <listitem>
+                <para>컨테이너 환경변수 정보는 다음과 같다.</para>
+
+                <informaltable colsep="1" frame="topbot" rowsep="1">
+                  <tgroup cols="2">
+                    <colspec align="left" colwidth="180" />
+
+                    <thead>
+                      <row>
+                        <entry>환경변수</entry>
+
+                        <entry>설명</entry>
+                      </row>
+                    </thead>
+
+                    <tbody>
+                      <row>
+                        <entry>TB_IP</entry>
+
+                        <entry>Repo DB의 IP 정보 (기본값: 127.0.0.1)</entry>
+                      </row>
+
+                      <row>
+                        <entry>TB_ PORT</entry>
+
+                        <entry>Repo DB의 리스너 포트 정보 (기본값: 8629)</entry>
+                      </row>
+
+                      <row>
+                        <entry>TB_SID</entry>
+
+                        <entry>Repo DB의 SID 정보 (기본값: tibero)</entry>
+                      </row>
+
+                      <row>
+                        <entry>RECOMMEND_SERVER_IP</entry>
+
+                        <entry>추천모듈 컨테이너의 Backend IP 정보 (기본값:
+                        127.0.0.1)</entry>
+                      </row>
+
+                      <row>
+                        <entry>RECOMMEND_SERVER_PORT</entry>
+
+                        <entry>추천 모듈 연동용 포트 정보 (기본값: 5000)</entry>
+                      </row>
+
+                      <row>
+                        <entry>KUBEFLOW_IP</entry>
+
+                        <entry>.kube 자동 복사를 위한 마스터 노드 접속용 IP 정보 (기본값:
+                        127.0.0.1)</entry>
+                      </row>
+
+                      <row>
+                        <entry>KUBEFLOW_PORT</entry>
+
+                        <entry>.kube 자동 복사를 위한 마스터 노드 접속용 포트 정보 (기본값:
+                        31380)</entry>
+                      </row>
+
+                      <row>
+                        <entry>KUBEFLOW_USER</entry>
+
+                        <entry>.kube 자동 복사를 위한 마스터 노드 접속용 계정 ID 정보 (기본값:
+                        root)</entry>
+                      </row>
+
+                      <row>
+                        <entry>KUBEFLOW_PW</entry>
+
+                        <entry>.kube 자동 복사를 위한 마스터 노드 접속용 계정 패스워드 정보 (기본값:
+                        passwd)</entry>
+                      </row>
+
+                      <row>
+                        <entry>SKIP_RECREATE_SCHEMA</entry>
+
+                        <entry>HyperData 메타 스키마 생성 여부</entry>
+                      </row>
+
+                      <row>
+                        <entry>SKIP_RECREATE_ROLE_AND_PERMISSON</entry>
+
+                        <entry>HyperData 역할 및 권한 생성 여부</entry>
+                      </row>
+
+                      <row>
+                        <entry>SKIP_RECREATE_ADMIN</entry>
+
+                        <entry>HyperData Admin 생성 여부</entry>
+                      </row>
+
+                      <row>
+                        <entry>SSH_PORT</entry>
+
+                        <entry>.kube 자동 복사 시 일반 유저 scp -P 접속용 ssh 포트 정보 (기본값:
+                        22)</entry>
+                      </row>
+
+                      <row>
+                        <entry>IS_PRIVATE_DOCKER</entry>
+
+                        <entry>Private Docker 사용 여부 (기본값: N)</entry>
+                      </row>
+
+                      <row>
+                        <entry>IS_HYPER_CLOUD</entry>
+
+                        <entry>Hyper cloud 사용 여부 (기본값: N)</entry>
+                      </row>
+
+                      <row>
+                        <entry>PRIVATE_DOCKER_IP</entry>
+
+                        <entry>Private Docker IP 정보 (기본값: 127.0.0.1)</entry>
+                      </row>
+
+                      <row>
+                        <entry>PRIVATE_DOCKER_PORT</entry>
+
+                        <entry>Private Docker 포트 정보 (기본값: 8080)</entry>
+                      </row>
+
+                      <row>
+                        <entry>SECRET_NAME</entry>
+
+                        <entry>Private Docker 접근용 secret name 정보 (기본값:
+                        no-secret)</entry>
+                      </row>
+
+                      <row>
+                        <entry>IS_HTTPS</entry>
+
+                        <entry>HTTPS 통신 여부</entry>
+                      </row>
+
+                      <row>
+                        <entry>USER_AI</entry>
+
+                        <entry>AI 모듈 사용 여부</entry>
+                      </row>
+
+                      <row>
+                        <entry>AUTOML_FRONTEND</entry>
+
+                        <entry>AutoML 환경설정용 환경변수 (기본값: {<emphasis>LB
+                        IP</emphasis>}:{<emphasis>PORT</emphasis>}/automl/frontend)</entry>
+                      </row>
+
+                      <row>
+                        <entry>AUTOML_BACKEND</entry>
+
+                        <entry>AutoML 환경설정용 환경변수 (기본값: {<emphasis>LB
+                        IP</emphasis>}:{<emphasis>PORT</emphasis>}/automl/backend)</entry>
+                      </row>
+
+                      <row>
+                        <entry>HADOOP_ALIAS</entry>
+
+                        <entry><para>/etc/hosts에 등록될 하둡 alias 설정용 환경변수
+                        </para><para>(기본값: 127.0.0.1 alias1
+                        alias2)</para></entry>
+                      </row>
+
+                      <row>
+                        <entry>MARKANY_DRM_ENABLE</entry>
+
+                        <entry>MarkAny DRM 사용 여부 (기본값:OFF)</entry>
+                      </row>
+
+                      <row>
+                        <entry>MARKANY_DRM_INFO</entry>
+
+                        <entry>MarkAnyDrminfo.dat 파일의 위치 경로 환경변수</entry>
+                      </row>
+                    </tbody>
+                  </tgroup>
+                </informaltable>
+              </listitem>
+
+              <listitem>
+                <para>컨테이너 포트 정보는 다음과 같다.</para>
+
+                <informaltable colsep="1" frame="topbot" rowsep="1">
+                  <tgroup cols="2">
+                    <colspec align="left" colwidth="180" />
+
+                    <thead>
+                      <row>
+                        <entry>포트 이름</entry>
+
+                        <entry>설명</entry>
+                      </row>
+                    </thead>
+
+                    <tbody>
+                      <row>
+                        <entry>hd-ftp1</entry>
+
+                        <entry>외부 접속을 위한 ftp1 포트 정보 (기본 포트: 20)</entry>
+                      </row>
+
+                      <row>
+                        <entry>hd-ftp2</entry>
+
+                        <entry>외부 접속을 위한 ftp2 포트 정보 (기본 포트: 21)</entry>
+                      </row>
+
+                      <row>
+                        <entry>hd-ssh</entry>
+
+                        <entry>외부 접속을 위한 ssh 포트 정보 (기본 포트: 22)</entry>
+                      </row>
+
+                      <row>
+                        <entry>hd-http</entry>
+
+                        <entry>HyperData 웹 접속 포트 (기본 포트: 8080)</entry>
+                      </row>
+
+                      <row>
+                        <entry>jeus-http</entry>
+
+                        <entry>JEUS 웹 접속 포트 (기본 포트: 9736)</entry>
+                      </row>
+
+                      <row>
+                        <entry>msqt-lsnr1</entry>
+
+                        <entry>모스키토 웹 접속 포트1 (기본 포트: 1883)</entry>
+                      </row>
+
+                      <row>
+                        <entry>msqt-lsnr2</entry>
+
+                        <entry>모스키토 웹 접속 포트2 (기본 포트: 2883)</entry>
+                      </row>
+
+                      <row>
+                        <entry>hdd-http</entry>
+
+                        <entry>DashBoard Iframe 웹 접속 포트 (기본 포트: 18080)</entry>
+                      </row>
+                    </tbody>
+                  </tgroup>
+                </informaltable>
+              </listitem>
+
+              <listitem>
+                <para>이미지는 "도커 원격 레지스트리/이미지:태그" 형식으로 작성하며 HyperData 최신 이미지를
+                사용한다.</para>
+              </listitem>
+
+              <listitem>
+                <para>KUBEFLOW_IP는 마스터 노드의 실제 IP로 작성한다.</para>
+              </listitem>
+
+              <listitem>
+                <para>TB_IP, RECOMMEND_SERVER_IP는 위에서 조회한 두 개 파드의 Backend
+                IP(10.244.x.x)로 작성한다.</para>
+              </listitem>
+
+              <listitem>
+                <para>SKIP_RECREATE_SCHEMA, SKIP_RECREATE_ROLE_AND_PERMISSION,
+                SKIP_RECREATE_ADMIN의 설정값에 대한 설명은 다음과 같다.</para>
+
+                <para><informaltable colsep="1" frame="topbot" rowsep="1">
+                    <tgroup cols="2">
+                      <colspec align="left" colwidth="100" />
+
+                      <thead>
+                        <row>
+                          <entry>설정값</entry>
+
+                          <entry>설명</entry>
+                        </row>
+                      </thead>
+
+                      <tbody>
+                        <row>
+                          <entry>Y</entry>
+
+                          <entry>Repo DB의 스키마는 건드리지 않고 HyperData만
+                          재설치(패치)한다.</entry>
+                        </row>
+
+                        <row>
+                          <entry>N</entry>
+
+                          <entry>스키마, 역할, 권한, Admin을 생성하며 설치한다. (최초 설치 및 재생성할
+                          때 사용)</entry>
+                        </row>
+                      </tbody>
+                    </tgroup>
+                  </informaltable></para>
+              </listitem>
+
+              <listitem>
+                <para>MARKANY_DRM_ENABLE 설정값에 대한 설명은 다음과 같다.</para>
+
+                <para><informaltable colsep="1" frame="topbot" rowsep="1">
+                    <tgroup cols="2">
+                      <colspec align="left" colwidth="100" />
+
+                      <thead>
+                        <row>
+                          <entry>설정값</entry>
+
+                          <entry>설명</entry>
+                        </row>
+                      </thead>
+
+                      <tbody>
+                        <row>
+                          <entry>ON</entry>
+
+                          <entry>DataSource, Data Job, Meta Management,
+                          Visualization 모듈에서 파일 업로드 및 다운로드할 때 MARKANY DRM 암호화된
+                          파일만 사용 가능</entry>
+                        </row>
+
+                        <row>
+                          <entry>OFF</entry>
+
+                          <entry>DataSource, Data Job, Meta Management,
+                          Visualization 모듈에서 파일 업로드 및 다운로드할 때 암호화되지 않은 파일 사용
+                          가능</entry>
+                        </row>
+                      </tbody>
+                    </tgroup>
+                  </informaltable></para>
+              </listitem>
+
+              <listitem>
+                <para>spec.resources 부분은 사용자 환경에 맞게 설정한다.</para>
+              </listitem>
+
+              <listitem>
+                <para>메타데이터의 labels 값은 lb-hd.yaml의 selector의 값과 동일하게
+                설정한다.</para>
+              </listitem>
+            </itemizedlist></para>
+        </listitem>
+
+        <listitem>
+          <para>HyperData 파드를 배포한다.</para>
+
+          <para><programlisting><?db-font-size 90% ?>[root@master ~]# kubectl create -f hyperdata.yaml</programlisting></para>
+        </listitem>
+
+        <listitem>
+          <para>HyperData 파드 상태를 확인한다.</para>
+
+          <para><programlisting><?db-font-size 90% ?>[root@master ~]# kubectl get pods -n hyperdata
+NAME        READY   STATUS    RESTARTS   AGE
+pod-db-hd   1/1     Running   0          170m
+pod-hd-hd   1/1     Running   0          54s
+pod-rm-hd   1/1     Running   0          43m</programlisting></para>
+        </listitem>
+
+        <listitem>
+          <para>HyperData 파드로 접속하여 JEUS 서버 상태를 확인한다.</para>
+
+          <para><programlisting><?db-font-size 90% ?>[root@master ~]# kubectl exec -ti -n hyperdata pod-hd-hd -- /bin/bash
+</programlisting></para>
+
+          <para></para>
+
+          <para>컨테이너 내 프로세스를 확인을 통해 JEUS 서버 상태(adminServer, hyperdata,
+          ProAuth)를 확인한다.</para>
+
+          <para><programlisting><?db-font-size 90% ?>[root@hyperdata-pod:/deploy_src]# ps -ef
+UID        PID  PPID  C STIME TTY          TIME CMD
+root         1     0  0 02:26 ?        00:00:00 /usr/bin/python /usr/bin/supervisord -c /etc/supervisor/supervisord.conf
+root        28     1  0 02:26 ?        00:00:00 /usr/sbin/sshd
+root      2637     1  1 02:32 ?        00:02:19 /usr/local/jdk1.8.0_172/jre/../bin/java -DadminServer -Xmx256m -XX:MaxPermSize=128m -s
+root      2735     1  0 02:32 ?        00:00:52 /usr/local/jdk1.8.0_172/jre/../bin/java -Dhyperdata -DPROOBJECT_HOME=/hyperdata/proobj
+root      2943     1  0 02:32 ?        00:00:51 /usr/local/jdk1.8.0_172/jre/../bin/java -DProAuth -Xms4096m -Xms1024m -DPROOBJECT_HOME
+mosquit+  4695     1  0 02:34 ?        00:00:01 /usr/sbin/mosquitto -c /etc/mosquitto/mosquitto.conf
+root      4859     0  0 05:11 pts/0    00:00:00 /bin/bash
+root      4869  4859  0 05:12 pts/0    00:00:00 ps -ef</programlisting></para>
+        </listitem>
+      </orderedlist>
+
+      <para></para>
+    </section>
+
+    <section>
+      <title>Nginx 파드 생성</title>
+
+      <para>Nginx 파드를 생성하기 위해 야믈 파일을 작성하고 배포한다.</para>
+
+      <para><orderedlist spacing="compact">
+          <listitem>
+            <para>Nginx 파드를 배포하기 위해 Nginx 설치 스크립트의 nginx_confing.properties
+            파일에 설정값을 입력한다.</para>
+
+            <para><programlisting><?db-font-size 90% ?># Nginx namespace
+NAMESPACE=hyperdata
+
+# Target service name.
+# Ingress uses this service name.
+TARGET_SVC_NAME=hyperdata-svc-hd
+
+# Nginx url setting.
+ENABLE_HTTPS=true
+
+# Loadbalancer setting.
+ENABLE_LOADBALANCER=true
+# if ENABLE_LOADBALANCER is true, set NGINX_IP as Loadbalancer IP and NGINX_PORT as Loadbalancer Port.
+# if ENABLE_LOADBALANCER is false, set NGINX_IP as MasterNode IP and NGINX_PORT as NodePort.
+NGINX_IP=192.168.179.184
+NGINX_PORT=8080
+
+# Timeout setting(seconds)
+PROXY_TIMEOUT=1800
+
+# Nginx images
+CONTROLLER_IMG=192.168.179.185:5000/ingress-nginx/controller:v0.44.0
+HOOKPATCH_IMG=192.168.179.185:5000/jettech/kube-webhook-certgen:v1.5.1</programlisting></para>
+
+            <para><itemizedlist mark="circle" spacing="compact">
+                <listitem>
+                  <para>입력한 설정값의 설명은 다음과 같다.</para>
+
+                  <para><informaltable colsep="1" frame="topbot" rowsep="1">
+                      <tgroup cols="2">
+                        <colspec align="left" colwidth="180" />
+
+                        <thead>
+                          <row>
+                            <entry>설정값</entry>
+
+                            <entry>설명</entry>
+                          </row>
+                        </thead>
+
+                        <tbody>
+                          <row>
+                            <entry>NAMESPACE</entry>
+
+                            <entry>HyperData가 설치된 Namespace</entry>
+                          </row>
+
+                          <row>
+                            <entry>TARGET_SVC_NAME</entry>
+
+                            <entry>Ingress가 사용할 타깃 서비스 이름</entry>
+                          </row>
+
+                          <row>
+                            <entry>ENABLE_HTTPS</entry>
+
+                            <entry>HTTPS 통신 사용 여부</entry>
+                          </row>
+
+                          <row>
+                            <entry>ENABLE_LOADBALANCER</entry>
+
+                            <entry>LoadBalancer 사용 여부</entry>
+                          </row>
+
+                          <row>
+                            <entry>NGINX_IP</entry>
+
+                            <entry>HyperData 접속 IP</entry>
+                          </row>
+
+                          <row>
+                            <entry>NGINX_PORT</entry>
+
+                            <entry>HyperData 접속 PORT</entry>
+                          </row>
+
+                          <row>
+                            <entry>CONTROLLER_IMG</entry>
+
+                            <entry>Nginx 설치를 위한 Controller IMG</entry>
+                          </row>
+
+                          <row>
+                            <entry>HOOKPATCH_IMG</entry>
+
+                            <entry>Nginx 설치를 위한 Hookpatch IMG</entry>
+                          </row>
+                        </tbody>
+                      </tgroup>
+                    </informaltable></para>
+                </listitem>
+              </itemizedlist></para>
+          </listitem>
+
+          <listitem>
+            <para>Nginx 파드를 배포하기 위해 설치 스크립트를 수행한다.</para>
+
+            <para><programlisting><?db-font-size 90% ?>#[root@master ~]# sh install_all.sh </programlisting></para>
+          </listitem>
+
+          <listitem>
+            <para>Nginx 파드 상태를 확인한다.</para>
+
+            <para><programlisting><?db-font-size 90% ?>[root@master ~]# kubectl get pods -n hyperdata
+NAME                   READY   STATUS    RESTARTS   AGE
+pod-db-hd              1/1     Running   0          170m
+pod-hd-hd              1/1     Running   0          54s
+pod-rm-hd              1/1     Running   0          43m
+nginx-controller-hd    1/1     Running   0          38m</programlisting></para>
+          </listitem>
+        </orderedlist></para>
+    </section>
+  </section>
+
+  <section xml:id="sect_install_validate">
+    <title>설치 확인</title>
+
+    <para>HyperData에 접속하여 정상 설치 여부를 확인한다.</para>
+
+    <para>웹 브라우저를 실행한 후 다음의 경로로 접속한다. IP는 서비스를 배포하는 경우 외부 통신이 가능한 IP
+    정보이다.</para>
+
+    <para><programlisting><?db-font-size 90% ?>https://[<emphasis>NGINX_IP</emphasis>]:[<emphasis>NGINX_PORT</emphasis>]/hyperdata8/</programlisting></para>
+
+    <para>HyperData 로그인 화면에서 사용자 ID와 패스워드를 입력한 후 <guibutton>[로그인]</guibutton>
+    버튼을 클릭한다.</para>
+
+    <figure xml:id="figure_web_ui_login">
+      <title>HyperData 로그인 화면</title>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata align="left" fileref="resources/figure_web_ui_login.png"
+                     width="750"></imagedata>
+        </imageobject>
+      </mediaobject>
+    </figure>
+
+    <para><note>
+        <para>1. 설치할 때 기본으로 제공되는 관리자 계정의 아이디와 패스워드는 admin/admin이다. HyperData
+        Web UI의 사용법은 "HyperData 사용자 안내서"를 참고한다.</para>
+
+        <para>2. ProAuth 또는 Repo DB의 스키마가 비정상 설치된 경우 로그인에 실패하는 경우가 있다. 이런 경우는
+        HyperData 야믈 파일의 Backend IP가 정확히 입력되었는지 확인하거나 HyperData 파드를
+        재배포한다.</para>
+      </note></para>
+  </section>
+</chapter>

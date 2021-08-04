@@ -1,0 +1,1661 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section version="5.0" xml:id="sect_data_datasource"
+         xmlns="http://docbook.org/ns/docbook"
+         xmlns:xlink222="http://www.w3.org/19999/xlink"
+         xmlns:xlink22="http://www.w3.or g/1999/xlink"
+         xmlns:xlink="http://www.w3.org/1999/xlink"
+         xmlns:xila="http://www.w3.org/2001/XInclude/local-attributes"
+         xmlns:xi="http://www.w3.org/2001/XInclude"
+         xmlns:trans="http://docbook.org/ns/transclusion"
+         xmlns:svg="http://www.w3.org/2000/svg"
+         xmlns:mml="http://www.w3.org/1998/Math/MathML"
+         xmlns:html="http://www.w3.org/1999/xhtml"
+         xmlns:db="http://docbook.org/ns/docbook">
+  <title>Data Source<indexterm>
+      <primary>데이터 카테고리</primary>
+
+      <secondary>[Data Source] 메뉴</secondary>
+    </indexterm></title>
+
+  <para><guibutton>[데이터] &gt; [Data Source]</guibutton> 메뉴를 선택하면 현재 프로젝트에 등록된
+  데이터소스와 객체 현황을 조회할 수 있다. <guibutton>데이터소스 화면</guibutton>에서
+  <guibutton>#Default DataSource</guibutton>와 <guibutton>#SQL</guibutton> 등의
+  디폴트 데이터소스 외에도 <guibutton>외부 소스</guibutton>를 등록해서 관리할 수 있다.</para>
+
+  <note>
+    <para>본 메뉴는 생성된 프로젝트에 진입한 상태여야 활성화되고 HyperData Web UI에 나타난다.</para>
+  </note>
+
+  <para><literallayout></literallayout></para>
+
+  <para><guibutton>[+데이터소스]</guibutton> 버튼을 클릭하면 외부 데이터소스를 등록할 수 있다.
+  <guibutton>데이터소스 트리</guibutton>에서 노드를 선택한 후 <guibutton>[삭제]</guibutton> 버튼을
+  클릭하면 객체와 외부 데이터소스를 삭제할 수 있다.</para>
+
+  <figure xml:id="figure_data_datasource">
+    <title>데이터소스 화면</title>
+
+    <mediaobject>
+      <imageobject>
+        <imagedata align="left" fileref="resources/figure_data_datasource.png"
+                   width="750"></imagedata>
+      </imageobject>
+    </mediaobject>
+  </figure>
+
+  <para><guibutton>데이터소스 화면</guibutton> 트리 위의 <guibutton>'검색'</guibutton>
+  입력항목에 검색할 데이터소스, 데이터 객체, 컬럼을 입력하고 <inlinemediaobject>
+      <imageobject>
+        <imagedata fileref="resources/icon_search.png" width="22"></imagedata>
+      </imageobject>
+    </inlinemediaobject> 아이콘을 클릭하거나 &lt;Enter&gt; 키를 누르면 트리 내부를 검색할 수 있다. 트리의
+  노드를 선택하면 해당 객체의 상세 정보가 오른쪽 영역에 조회된다.</para>
+
+  <figure xml:id="figure_data_datasource_detail">
+    <title>[Data Source] - 데이터소스 상세 화면</title>
+
+    <mediaobject>
+      <imageobject>
+        <imagedata align="left"
+                   fileref="resources/figure_data_datasource_detail.png"
+                   width="750"></imagedata>
+      </imageobject>
+    </mediaobject>
+  </figure>
+
+  <itemizedlist spacing="compact">
+    <listitem>
+      <para><guibutton>데이터소스 트리</guibutton></para>
+
+      <para>등록된 <guibutton>#Default DataSource</guibutton>와
+      <guibutton>#SQL</guibutton>, <guibutton>외부 소스</guibutton>의 목록을 조회한다. 각
+      노드의 하위에 생성된 테이블 정보가 트리로 구성되어 조회된다.</para>
+    </listitem>
+
+    <listitem>
+      <para><guibutton>상세조회 </guibutton></para>
+
+      <para>데이터소스 트리의 노드를 선택하면 오른쪽 영역에 해당 소스와 객체(테이블)에 대한 상세 정보가 조회된다.</para>
+
+      <para>다음은 각 트리 노드별 상세화면에 대한 설명이다.</para>
+
+      <para><informaltable colsep="1" frame="topbot" rowsep="1">
+          <tgroup cols="2">
+            <colspec align="left" colwidth="150" />
+
+            <thead>
+              <row>
+                <entry>노드</entry>
+
+                <entry>설명</entry>
+              </row>
+            </thead>
+
+            <tbody>
+              <row>
+                <entry>#Default DataSource</entry>
+
+                <entry><para> 처음 프로젝트를 생성하면, 기본값으로 <guibutton>#Default
+                DataSource</guibutton>가 등록된다. </para><para> 별도의 데이터소스를 등록하지
+                않아도 <guibutton>#Default DataSource</guibutton>를 통해 데이터 객체,
+                테이블을 등록할 수 있다. </para><para> <guibutton>[+데이터객체]</guibutton>,
+                <guibutton>[+테이블]</guibutton> 버튼을 클릭하면 각 객체를 등록할 수 있다. 자세한 내용은
+                <xref linkend="sect_dataobject_create" />, <xref
+                linkend="sect_default_table_create" />을 참고한다. </para></entry>
+              </row>
+
+              <row>
+                <entry>#SQL</entry>
+
+                <entry><para>SQL 데이터 객체를 조회하거나 SQL 데이터 객체를 등록할 수
+                있다.</para><para> <guibutton>[+SQL 데이터 객체]</guibutton> 버튼을 클릭하면
+                SQL 문을 작성해 DB 링크를 통해 데이터 객체를 생성할 수 있다. 자세한 내용은 <xref
+                linkend="sect_sql_data_create" />을 참고한다. </para></entry>
+              </row>
+
+              <row>
+                <entry>외부 데이터소스</entry>
+
+                <entry><para>사용자가 등록한 데이터소스의 정보를 조회할 수 있다.</para><para>
+                <guibutton>[+데이터 객체]</guibutton> 버튼을 클릭하면 데이터 객체를 등록할 수 있고,
+                <guibutton>[수정]</guibutton> 버튼을 클릭하면 등록된 소스 정보를 수정할 수 있다. 자세한
+                내용은 <xref linkend="sect_dataobject_create" />, <xref
+                linkend="sect_datasource_edit" />을 참고한다. </para></entry>
+              </row>
+
+              <row>
+                <entry>데이터 객체</entry>
+
+                <entry>소스 노드 하위의 <guibutton>[데이터 객체]</guibutton>를 선택하면
+                <guibutton>[Details]</guibutton>,
+                <guibutton>[스키마]</guibutton>,
+                <guibutton>[데이터미리보기]</guibutton>, <guibutton>[SQL]</guibutton>
+                탭에서 객체의 정보를 조회할 수 있다. 자세한 내용은 <xref
+                linkend="sect_dataobject_detail" />를 참고한다.</entry>
+              </row>
+
+              <row>
+                <entry>컬럼</entry>
+
+                <entry><guibutton>[소스] &gt; [데이터 객체]</guibutton> 노드 하위에
+                <guibutton>[컬럼]</guibutton> 노드를 선택하면 해당 컬럼의 정보를 조회하고 수정할 수 있다.
+                자세한 내용은 <xref linkend="sect_dataobject_column_edit" />를
+                참고한다.</entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </informaltable></para>
+
+      <para>다음은 상세 조회 항목에 대한 설명이다.</para>
+
+      <para><informaltable colsep="1" frame="topbot" rowsep="1">
+          <tgroup cols="2">
+            <colspec align="left" colwidth="150" />
+
+            <thead>
+              <row>
+                <entry>항목</entry>
+
+                <entry>설명</entry>
+              </row>
+            </thead>
+
+            <tbody>
+              <row>
+                <entry>객체명</entry>
+
+                <entry>데이터소스의 이름이다.</entry>
+              </row>
+
+              <row>
+                <entry>작성자</entry>
+
+                <entry>데이터소스를 생성한 사용자 이름이다. 사용자 ID가 아닌 이름이 표시된다.</entry>
+              </row>
+
+              <row>
+                <entry>생성/수정 날짜</entry>
+
+                <entry>데이터소스가 생성된 날짜와 시간과 마지막으로 수정된 날짜와 시간이다.</entry>
+              </row>
+
+              <row>
+                <entry>소스 타입</entry>
+
+                <entry><para>등록된 데이터소스의 유형이다.</para><para>#Default DataSource의
+                경우 HyperData가 기본적으로 사용하는 Tibero로 조회되고, DB 링크를 통해 데이터 객체를 생성하는
+                #SQL 소스는 유형이 공란으로 나온다. 사용자가 생성한 데이터소스는 Tibero, Oracle,
+                sam(File) 등 선택된 데이터소스 종류에 대응되서 출력된다.</para></entry>
+              </row>
+
+              <row>
+                <entry>소스 타입 상세 정보</entry>
+
+                <entry><para>데이터소스를 생성한 방식에 따라 상이하게 나타난다. </para><itemizedlist
+                    mark="circle" spacing="compact">
+                    <listitem>
+                      <para>연결 문자열 사용 : 데이터소스를 생성하는 경우 연결 문자열 사용 여부를
+                      보여준다.</para>
+
+                      <itemizedlist spacing="compact">
+                        <listitem>
+                          <para>yes : 연결 문자열을 사용하여 등록된 데이터소스임을 의미하며, 사용자 ID와
+                          연결 문자열이 이어져서 상세 정보에 나타난다.</para>
+                        </listitem>
+
+                        <listitem>
+                          <para>no : 연결 문자열을 쓰지 않고 직접 DB 정보를 입력하여 생성된 데이터소스임을
+                          의미하며, 사용자 ID, IP, 포트, SID가 이어진다. 연결 문자열은 Tibero가 설치된
+                          $TB_HOME의 client/config 디렉터리 내 'tbdsn.tbr'에서 지정할 수
+                          있다.</para>
+                        </listitem>
+                      </itemizedlist>
+                    </listitem>
+
+                    <listitem>
+                      <para>사용자 ID : 해당 DB의 사용자를 의미하며, 데이터소스를 등록할 때 지정한 ID가
+                      나타난다.</para>
+                    </listitem>
+
+                    <listitem>
+                      <para>연결 문자열 : 연결 문자열 사용이 'yes'인 경우 나타나며, 해당 데이터소스를 등록하는
+                      경우 사용한 연결 문자열을 보여준다.</para>
+
+                      <para>연결 문자열 사용이 'no'인 경우 다음의 상세 정보가 더 조회된다.</para>
+
+                      <itemizedlist spacing="compact">
+                        <listitem>
+                          <para>IP : 해당 DB의 IP 주소이다.</para>
+                        </listitem>
+
+                        <listitem>
+                          <para>포트 : 해당 DB의 포트 번호이다.</para>
+                        </listitem>
+
+                        <listitem>
+                          <para>SID : 해당 DB의 SID이다.</para>
+                        </listitem>
+                      </itemizedlist>
+                    </listitem>
+                  </itemizedlist></entry>
+              </row>
+
+              <row>
+                <entry>설명</entry>
+
+                <entry>데이터소스를 생성할 때 작성한 설명이다.</entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </informaltable></para>
+    </listitem>
+  </itemizedlist>
+
+  <para></para>
+
+  <section>
+    <title>데이터소스 등록</title>
+
+    <para>HyperData에서 등록 가능한 데이터소스 유형으로는 외부 Client DB, csv 등 SAM 파일, 하둡 분산형 파일
+    시스템(HDFS: Hadoop Distributed File System), Excel의 4가지가 있다. <indexterm
+        class="singular">
+        <primary>데이터소스 유형</primary>
+      </indexterm></para>
+
+    <para><guibutton>데이터소스 화면</guibutton>(<xref
+    linkend="figure_data_datasource" />)에서 <guibutton>[+데이터소스]</guibutton> 버튼을
+    클릭하면 데이터소스를 등록할 수 있다. 데이터소스 생성이 완료되면 왼쪽 데이터 트리에 생성된 데이터소스가 조회된다. 본 절에서는 각
+    데이터소스를 등록하는 방법을 설명한다.</para>
+
+    <para></para>
+
+    <para><literallayout></literallayout></para>
+
+    <?dbfo-need height="10in"?>
+
+    <section xml:id="sect_datasource_create_sam">
+      <title>sam (File)</title>
+
+      <para><guibutton>Create Data Source 화면</guibutton>의 <guibutton>'데이터소스
+      선택'</guibutton> 항목에서 <guibutton>[New File] &gt; [sam
+      (File)]</guibutton>을 선택하면 sam (File)을 등록할 수 있다. 각 항목을 입력한 후
+      <guibutton>[등록]</guibutton> 버튼을 클릭한다.</para>
+
+      <para></para>
+
+      <figure>
+        <title>[Data Source] - 데이터소스 등록 (sam (File))</title>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata align="left"
+                       fileref="resources/figure_datasource_sam_file.png"
+                       width="450"></imagedata>
+          </imageobject>
+        </mediaobject>
+      </figure>
+
+      <para></para>
+
+      <para>다음은 입력 항목에 대한 설명이다.</para>
+
+      <para><informaltable colsep="1" frame="topbot" rowsep="1">
+          <tgroup cols="2">
+            <colspec align="left" colwidth="150" />
+
+            <thead>
+              <row>
+                <entry>항목</entry>
+
+                <entry>설명</entry>
+              </row>
+            </thead>
+
+            <tbody>
+              <row>
+                <entry>이름</entry>
+
+                <entry>소스의 이름을 설정한다.</entry>
+              </row>
+
+              <row>
+                <entry>파일 경로</entry>
+
+                <entry><guibutton>[찾아보기]</guibutton> 버튼을 클릭해서 등록할 파일이 저장된 경로를
+                지정한다.</entry>
+              </row>
+
+              <row>
+                <entry>구분자</entry>
+
+                <entry>열을 나누는 기준을 선택한다. 선택 항목에 없는 구분자를 넣을 경우
+                <guibutton>'기타'</guibutton>를 선택하고 구분자를 직접 입력한다.</entry>
+              </row>
+
+              <row>
+                <entry>개행 문자</entry>
+
+                <entry>행을 나누는 기준을 선택한다. 엔터(\n) 외의 개행 문자를 넣을 경우
+                <guibutton>'기타'</guibutton>를 선택하고 개행 문자를 직접 입력한다.</entry>
+              </row>
+
+              <row>
+                <entry>첫 줄을 헤더로 사용</entry>
+
+                <entry>지정한 파일의 첫 라인이 헤더인 경우 <guibutton>'첫 줄을 헤더로
+                사용'</guibutton>을 선택해 첫 라인의 내용이 컬럼명으로 지정되게 한다.</entry>
+              </row>
+
+              <row>
+                <entry>필드명 자동 생성</entry>
+
+                <entry>첫 라인에 헤더가 없는 파일을 등록하려면 <guibutton> '필드명 자동
+                생성'</guibutton>을 선택한다. 이 경우 &lt;COL0&gt;, &lt;COL1&gt;, ...의
+                형태로 컬럼명이 자동으로 생성된다.</entry>
+              </row>
+
+              <row>
+                <entry>Enclosed By</entry>
+
+                <entry>데이터 내부에 구분자로 지정된 단어가 포함될 경우 해당 데이터를 감쌀 문자열을
+                의미한다.</entry>
+              </row>
+
+              <row>
+                <entry>문자셋</entry>
+
+                <entry>사용자가 원하는 문자셋을 지정할 수 있다. 현재는 utf-8과 utf-8(bom)만을
+                지원한다.</entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </informaltable></para>
+
+      <para></para>
+
+      <para><literallayout></literallayout></para>
+    </section>
+
+    <section xml:id="sect_datasource_create_sam_hdfs">
+      <title>sam (HDFS) <indexterm class="singular">
+          <primary>sam (HDFS)</primary>
+        </indexterm></title>
+
+      <para><guibutton>Create Data Source 화면</guibutton>의 <guibutton>'데이터소스
+      선택'</guibutton> 항목에서 <guibutton>[New File] &gt; [sam (HDFS)]</guibutton>
+      을 선택하면 HyperData를 통해 Apache의 HDFS(Hadoop Distributed File System)에 저장된
+      데이터를 소스로 등록하고 관리할 수 있다.</para>
+
+      <figure>
+        <title>[Data Source] - 데이터소스 등록 (sam (HDFS))</title>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata align="left"
+                       fileref="resources/figure_datasource_hdfs.png"
+                       width="450"></imagedata>
+          </imageobject>
+        </mediaobject>
+      </figure>
+
+      <para>다음은 화면의 입력 항목에 대한 설명이다.</para>
+
+      <itemizedlist spacing="compact">
+        <listitem>
+          <para><guibutton>기본 정보 </guibutton></para>
+
+          <para>설명되지 않은 항목에 대한 설명은 <link
+          linkend="sect_datasource_create_sam">"sam (File)"</link>을
+          참고한다.</para>
+
+          <para><informaltable colsep="1" frame="topbot" rowsep="1">
+              <tgroup cols="2">
+                <colspec align="left" colwidth="150" />
+
+                <thead>
+                  <row>
+                    <entry>항목</entry>
+
+                    <entry>설명</entry>
+                  </row>
+                </thead>
+
+                <tbody>
+                  <row>
+                    <entry>HDFS 경로</entry>
+
+                    <entry>파일 경로는 로컬이 아닌 HDFS에 저장되어 있으므로, 'hdfs://[
+                    <emphasis>IP 또는 호스트명</emphasis> ]:[
+                    <emphasis>포트</emphasis> ]/[ <emphasis>하둡 내 파일
+                    경로</emphasis> ]/[ <emphasis>파일 명</emphasis> ]' 형태의 HDFS
+                    경로를 통해 파일의 위치를 지정한다.</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </informaltable></para>
+        </listitem>
+
+        <listitem>
+          <para><guibutton>Kerberos Authentication</guibutton></para>
+
+          <para>하둡 시스템이 커버로스 인증 프로토콜을 사용 중이면, 커버로스 인증 프로토콜을 통해 하둡 파일 시스템에 접근할
+          수 있다. 이 경우 <guibutton>'Kerberos Authentication' </guibutton> 항목을 선택해
+          추가 정보를 입력한다.</para>
+
+          <para><informaltable colsep="1" frame="topbot" rowsep="1">
+              <tgroup cols="2">
+                <colspec align="left" colwidth="150" />
+
+                <thead>
+                  <row>
+                    <entry>항목</entry>
+
+                    <entry>설명</entry>
+                  </row>
+                </thead>
+
+                <tbody>
+                  <row>
+                    <entry>설정 파일 경로</entry>
+
+                    <entry>커버로스를 실행하는 데에 필요한 설정 정보들이 담겨있는 설정 파일의 경로이다. Keberos
+                    V5 라이브러리에 대해서는 krb5.conf에 해당한다.</entry>
+                  </row>
+
+                  <row>
+                    <entry>영역</entry>
+
+                    <entry>인증 받을 사용자 프린시플이 속해있는 영역이다.</entry>
+                  </row>
+
+                  <row>
+                    <entry>사용자 프린시플</entry>
+
+                    <entry>인증을 받을 사용자의 프린시플이다.</entry>
+                  </row>
+
+                  <row>
+                    <entry>Keytab 파일 경로</entry>
+
+                    <entry>사용자가 인증하려는 TGT(Ticket Granting Ticket)에 사용할 Keytab
+                    파일의 경로이다. Keytab 파일 안에는 사용자 프린시플과 이에 대응하는 암호가 들어있어야
+                    한다.</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </informaltable></para>
+        </listitem>
+      </itemizedlist>
+
+      <literallayout></literallayout>
+
+      <para><guibutton>[HDFS 컬럼 등록] </guibutton> 버튼을 클릭하면 sam (HDFS)를 새로운
+      데이터소스를 등록하면서 파일의 컬럼 정보를 입력할 수 있다. 다음 화면에서 컬럼을 생성하거나 지울 수 있고 컬럼의 타입을 지정할
+      수 있다. 항목을 설정한 후 <guibutton>[적용]</guibutton> 버튼을 클릭한다.</para>
+
+      <figure>
+        <title>[Data Source] - 데이터소스 등록 (sam (HDFS)의 컬럼 정보 입력)</title>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata align="left"
+                       fileref="resources/figure_datasource_hdfs_column_info.png"
+                       width="380"></imagedata>
+          </imageobject>
+        </mediaobject>
+      </figure>
+
+      <para></para>
+
+      <literallayout></literallayout>
+    </section>
+
+    <section xml:id="sect_datasource_create_xls">
+      <title>Excel</title>
+
+      <para><guibutton>Create Data Source 화면</guibutton>의 <guibutton>'데이터소스
+      선택'</guibutton> 항목에서 <guibutton>[New File] &gt; [Excel]</guibutton>을
+      선택하면 Excel 파일을 데이터소스로 등록할 수 있다. 데이터소스로 엑셀 파일을 등록하면, 엑셀 내 각 시트를 하나의 데이터
+      객체로 저장할 수 있다. 항목을 입력한 후 <guibutton>[등록]</guibutton> 버튼을 클릭한다.</para>
+
+      <figure xml:id="figure_excel_source_create">
+        <title>[Data Source] - 데이터소스 등록 (Excel)</title>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata align="left"
+                       fileref="resources/figure_excel_source_create.png"
+                       width="450"></imagedata>
+          </imageobject>
+        </mediaobject>
+      </figure>
+
+      <para>다음은 입력 항목에 대한 설명이다. 설명되지 않은 항목에 대한 설명은 <link
+      linkend="sect_datasource_create_sam">"sam (File)"</link>을 참고한다.</para>
+
+      <para><informaltable colsep="1" frame="topbot" rowsep="1">
+          <tgroup cols="2">
+            <colspec align="left" colwidth="150" />
+
+            <thead>
+              <row>
+                <entry>항목</entry>
+
+                <entry>설명</entry>
+              </row>
+            </thead>
+
+            <tbody>
+              <row>
+                <entry>이름</entry>
+
+                <entry>소스의 이름을 설정한다.</entry>
+              </row>
+
+              <row>
+                <entry>파일 경로</entry>
+
+                <entry><para>등록할 파일의 경로를 설정한다.</para><para>
+                <guibutton>[찾아보기]</guibutton> 버튼을 클릭해서 등록할 파일을 선택한다. 추가할 엑셀
+                파일의 시트 중 헤더가 지정되지 않은 경우 <guibutton>[헤더를 추가할 시트 번호]</guibutton>
+                버튼을 클릭해서 자동으로 헤더를 추가해서 데이터 객체를 생성할 수 있다(<xref
+                linkend="figure_excel_source_header_include" /> 참고).
+                </para></entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </informaltable></para>
+
+      <para>추가할 엑셀 파일 중 헤더가 지정되지 않은 시트가 있는 경우 <guibutton>[헤더를 추가할 시트
+      번호]</guibutton> 버튼을 클릭해서 헤더를 추가할 수 있다.</para>
+
+      <para><guibutton>Include Header 화면</guibutton>에서 설정하는 시트 번호는 등록할 엑셀 파일 내
+      시트 이름과 무관하고, 왼쪽부터 1번이다. <guibutton>[+시트]</guibutton> 버튼을 클릭해서 헤더를 추가할 시트
+      번호를 입력할 수 있다. 체크박스를 선택한 후 <guibutton>[삭제]</guibutton> 버튼을 클릭하면 등록된 시트
+      번호를 삭제할 수 있다. 설정을 완료한 후 <guibutton>[적용]</guibutton> 버튼을 클릭하면
+      <guibutton>'헤더를 추가할 시트 번호'</guibutton> 항목에 설정된 시트 번호를 확인할 수 있다(<xref
+      linkend="figure_excel_source_header_entered" /> 참고).</para>
+
+      <para></para>
+
+      <figure xml:id="figure_excel_source_header_include">
+        <title>[Data Source] - 데이터소스 등록 (Excel) - 시트에 헤더 추가 (1)</title>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata align="left"
+                       fileref="resources/figure_excel_source_header_include.png"
+                       width="260"></imagedata>
+          </imageobject>
+        </mediaobject>
+      </figure>
+
+      <para><guibutton>'헤더를 추가할 시트 번호'</guibutton> 항목에 설정한 정보를 확인한 후
+      <guibutton>[등록]</guibutton> 버튼을 클릭한다. 해당 시트로 생성된 객체는 &lt;COL0&gt;,
+      &lt;COL1&gt;, ...의 형태로 컬럼명이 자동으로 생성된다. 컬럼명은 데이터 객체를 생성할 때(<xref
+      linkend="figure_dataobject_create" />) 사용자가 원하는 값으로 변경할 수 있다.</para>
+
+      <figure xml:id="figure_excel_source_header_entered">
+        <title>[Data Source] - 데이터소스 등록 (Excel) - 시트에 헤더 추가 (2)</title>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata align="left"
+                       fileref="resources/figure_excel_source_header_entered.png"
+                       width="450"></imagedata>
+          </imageobject>
+        </mediaobject>
+      </figure>
+
+      <para><note>
+          <para>이미 헤더가 있는 시트에 <guibutton>[헤더를 추가할 시트 번호]</guibutton>를 지정한 경우
+          시트의 첫 번째 행에 &lt;COL0&gt;, &lt;COL1&gt;, ...의 형태로 헤더가 저장된다.
+          <guibutton>[헤더를 추가할 시트 번호]</guibutton>를 설정하지 않은 경우는 객체를 생성할 때 첫 번째
+          행의 데이터를 헤더로 저장한다.</para>
+        </note></para>
+
+      <para><literallayout></literallayout></para>
+    </section>
+
+    <section xml:id="sect_datasource_create_HDFS_Directory">
+      <title>HDFS</title>
+
+      <para><guibutton>Create Data Source 화면</guibutton>의 <guibutton>'데이터소스
+      선택'</guibutton> 항목에서 <guibutton>[New File] &gt; [HDFS]</guibutton>을 선택하면
+      HyperData를 통해 Apache의 HDFS(Hadoop Distributed File System)에 저장된 데이터를
+      디렉터리 단위로 소스를 등록하고 관리할 수 있다.</para>
+
+      <figure xml:id="figure_datasource_hdfs_directory">
+        <title>[Data Source] - 데이터소스 등록 (HDFS)</title>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata align="left"
+                       fileref="resources/figure_datasource_hdfs_directory.png"
+                       width="450"></imagedata>
+          </imageobject>
+        </mediaobject>
+      </figure>
+
+      <para><itemizedlist spacing="compact">
+          <listitem>
+            <para><guibutton>기본 정보 </guibutton></para>
+
+            <para>다음은 화면의 입력 항목에 대한 설명이다. 설명되지 않은 항목에 대한 설명은 <link
+            linkend="sect_datasource_create_sam">"sam (File)"</link>을
+            참고한다.</para>
+
+            <para><informaltable colsep="1" frame="topbot" rowsep="1">
+                <tgroup cols="2">
+                  <colspec align="left" colwidth="150" />
+
+                  <thead>
+                    <row>
+                      <entry>항목</entry>
+
+                      <entry>설명</entry>
+                    </row>
+                  </thead>
+
+                  <tbody>
+                    <row>
+                      <entry>HDFS 경로</entry>
+
+                      <entry>파일 경로는 로컬이 아닌 HDFS에 저장되어 있으므로, 'hdfs://[
+                      <emphasis>IP 또는 호스트명</emphasis> ]:[
+                      <emphasis>포트</emphasis> ]/[ <emphasis>하둡 내 파일
+                      경로</emphasis> ]/' 형태의 HDFS 경로를 통해 디렉터리의 위치를
+                      지정한다.</entry>
+                    </row>
+
+                    <row>
+                      <entry>검색할 파일 확장자</entry>
+
+                      <entry>해당 HDFS 디렉터리에서 검색할 파일 확장자를 입력한다. 현재 HDFS는 엑셀을 제외한
+                      모든 정형 데이터에 대한 등록을 지원한다.</entry>
+                    </row>
+                  </tbody>
+                </tgroup>
+              </informaltable></para>
+          </listitem>
+
+          <listitem>
+            <para><guibutton>Kerberos Authentication</guibutton></para>
+
+            <para>하둡 시스템이 커버로스 인증 프로토콜을 사용 중이면, SAM(HDFS)와 동일한 방법으로 커버로스 인증
+            프로토콜을 통해 하둡 파일시스템에 접근할 수 있다. 이 경우 <guibutton>'Kerberos
+            Authentication'</guibutton> 항목을 선택해 추가 정보를 입력한다. 이 추가 정보에 대한 자세한
+            사항은 <link linkend="sect_datasource_create_sam_hdfs">"sam
+            (HDFS)"</link>을 참고한다.</para>
+          </listitem>
+        </itemizedlist></para>
+
+      <para></para>
+
+      <para></para>
+
+      <para><literallayout></literallayout></para>
+
+      <para><guibutton>'HDFS 경로'</guibutton> 항목을 입력한 후 <guibutton>[HDFS 파일
+      선택]</guibutton> 버튼을 클릭하면 데이터 소스파일을 선택할 수 있다. <guibutton>Directory File
+      Selector 화면</guibutton>에서 목록의 체크박스를 선택하고 파일 정보를 미리보기를 통해서 확인한 후
+      <guibutton>[적용]</guibutton> 버튼을 클릭한다.</para>
+
+      <figure xml:id="figure_datasource_hdfs_directory_file_selector">
+        <title>[Data Source] - 데이터소스 등록 (HDFS) - 디렉터리에서 파일 선택</title>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata align="left"
+                       fileref="resources/figure_datasource_hdfs_directory_file_selector.png"
+                       width="750"></imagedata>
+          </imageobject>
+        </mediaobject>
+      </figure>
+
+      <para>다음은 입력 항목에 대한 설명이다. 설명되지 않은 항목에 대한 설명은 <link
+      linkend="sect_datasource_create_sam">"sam (File)"</link>을 참고한다.</para>
+
+      <para><informaltable colsep="1" frame="topbot" rowsep="1">
+          <tgroup cols="2">
+            <colspec align="left" colwidth="150" />
+
+            <thead>
+              <row>
+                <entry>항목</entry>
+
+                <entry>설명</entry>
+              </row>
+            </thead>
+
+            <tbody>
+              <row>
+                <entry>이름</entry>
+
+                <entry>파일의 HDFS 상에서의 이름이다.</entry>
+              </row>
+
+              <row>
+                <entry>파일 경로</entry>
+
+                <entry>해당 파일의 HDFS 내에서의 파일 경로를 보여준다.</entry>
+              </row>
+
+              <row>
+                <entry>크기</entry>
+
+                <entry>해당 파일의 크기를 나타낸다.</entry>
+              </row>
+
+              <row>
+                <entry>타입</entry>
+
+                <entry>해당 파일의 확장자를 나타낸다.</entry>
+              </row>
+
+              <row>
+                <entry>마지막 수정 날짜</entry>
+
+                <entry>해당 파일의 마지막 수정 날짜를 나타낸다.</entry>
+              </row>
+
+              <row>
+                <entry>구분자</entry>
+
+                <entry>열을 나누는 기준을 입력한다. (기본값: ",")</entry>
+              </row>
+
+              <row>
+                <entry>개행 문자</entry>
+
+                <entry>행을 나누는 기준을 입력한다. (기본값: \n)</entry>
+              </row>
+
+              <row>
+                <entry>헤더 생성</entry>
+
+                <entry><para>헤더를 생성할지에 대한 여부를 체크한다. </para><itemizedlist
+                    mark="circle" spacing="compact">
+                    <listitem>
+                      <para>n을 선택할 경우 : 첫 라인의 내용이 컬럼명으로 지정한다.</para>
+                    </listitem>
+
+                    <listitem>
+                      <para>y를 선택할 경우 : &lt;COL0&gt;, &lt;COL1&gt;, ...의 형태로
+                      컬럼명이 자동으로 생성된다.</para>
+                    </listitem>
+                  </itemizedlist></entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </informaltable></para>
+
+      <para>파일의 row를 선택한 후 조회할 행의 갯수를 입력하고 <guibutton>[보기]</guibutton> 버튼을
+      클릭하면 지정된 숫자만큼 앞서 지정된 구분자에 따라 row를 미리볼 수 있다. 현재 개행문자 \n, \r\n만 미리보기를
+      지원하고, 일반적인 csv 형태가 아닌 형식(xls, xlsx, jpg, jpeg, mp3, mp4, json, xml)은
+      미리보기를 지원하지 않는다.</para>
+
+      <para></para>
+
+      <para></para>
+
+      <para><literallayout></literallayout></para>
+
+      <para><guibutton>'HDFS 경로'</guibutton> 항목을 입력한 후 <guibutton>[파일
+      합치기]</guibutton> 버튼을 클릭하면 HDFS 파일을 합칠 수 있다. <guibutton>Merge File
+      화면</guibutton>에서 목록의 체크박스를 선택하고 파일 순서를 입력한 후 옵션을 확인하여
+      <guibutton>[합치기]</guibutton> 버튼을 클릭한다.</para>
+
+      <figure xml:id="figure_datasource_hdfs_directory_file_merge">
+        <title>[Data Source] - 데이터소스 등록 (HDFS) - 파일 합치기</title>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata align="left"
+                       fileref="resources/figure_datasource_hdfs_directory_file_merge.png"
+                       width="750"></imagedata>
+          </imageobject>
+        </mediaobject>
+      </figure>
+
+      <para>다음은 주요 항목에 대한 설명이다. 설명되지 않은 항목에 대한 내용은 <guibutton>Directory File
+      Selector 화면</guibutton>(<xref
+      linkend="figure_datasource_hdfs_directory_file_selector" />)을
+      참고한다.</para>
+
+      <para><informaltable colsep="1" frame="topbot" rowsep="1">
+          <tgroup cols="2">
+            <colspec align="left" colwidth="150" />
+
+            <thead>
+              <row>
+                <entry>항목</entry>
+
+                <entry>설명</entry>
+              </row>
+            </thead>
+
+            <tbody>
+              <row>
+                <entry>헤더 스킵</entry>
+
+                <entry><para>헤더를 스킵할지에 대한 여부를 체크한다. </para> <itemizedlist
+                    mark="circle" spacing="compact">
+                    <listitem>
+                      <para>n : 파일을 그대로 합친다.</para>
+                    </listitem>
+
+                    <listitem>
+                      <para>y : 해당 파일의 첫 번째 줄을 skip하고 합친다.</para>
+                    </listitem>
+                  </itemizedlist></entry>
+              </row>
+
+              <row>
+                <entry>순서</entry>
+
+                <entry>해당 파일이 합쳐질 순서를 의미한다. 1이상의 숫자가 들어가야 되며 숫자가 낮을수록 파일 위쪽에
+                위치한다.</entry>
+              </row>
+
+              <row>
+                <entry>합쳐질 파일 경로</entry>
+
+                <entry>HDFS 상에서 합쳐질 파일 경로를 입력한다. (예:
+                /data/test/work.csv)</entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </informaltable></para>
+
+      <para></para>
+
+      <para></para>
+
+      <para><literallayout></literallayout></para>
+    </section>
+
+    <section>
+      <title>DBMS</title>
+
+      <para><guibutton>Create Data Source 화면</guibutton>의 <guibutton>'데이터소스
+      선택'</guibutton> 항목의 <guibutton>[New Server]</guibutton>에서 DBMS 유형을 선택하면
+      소스로 등록할 수 있다.</para>
+
+      <para>항목을 모두 입력한 후 <guibutton>[테스트]</guibutton> 버튼을 클릭해서 DBMS 서버 등록 가능
+      여부를 확인할 수 있다. 잘못 입력된 내용이 있는 경우 화면 아래에 하단에 붉은 글씨로 에러 메시지가 나타난다. 테스트가
+      정상적으로 완료되면 <guibutton>[등록]</guibutton> 버튼을 클릭한다(테스트 과정은 생략 가능하며, 잘못 입력된
+      내용이 있는 상태로 <guibutton>[등록]</guibutton> 버튼을 클릭해도 에러 메시지가 출력된다).</para>
+
+      <figure>
+        <title>[Data Source] - 데이터소스 등록 (DBMS)</title>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata align="left"
+                       fileref="resources/figure_datasource_dbms.png"
+                       width="450"></imagedata>
+          </imageobject>
+        </mediaobject>
+      </figure>
+
+      <para>다음은 입력 항목에 대한 설명이다.</para>
+
+      <para><informaltable colsep="1" frame="topbot" rowsep="1">
+          <tgroup cols="2">
+            <colspec align="left" colwidth="150" />
+
+            <thead>
+              <row>
+                <entry>항목</entry>
+
+                <entry>설명</entry>
+              </row>
+            </thead>
+
+            <tbody>
+              <row>
+                <entry>데이터소스 선택</entry>
+
+                <entry><para>등록할 데이터소스를 선택한다. </para><para> 현재 HyperData에서 등록
+                가능한 DBMS 벤더를 <guibutton>[New Server]</guibutton> 하위에서 선택한다.
+                </para><para><itemizedlist mark="circle" spacing="compact">
+                    <listitem>
+                      <para>Tibero</para>
+                    </listitem>
+
+                    <listitem>
+                      <para>Oracle</para>
+                    </listitem>
+
+                    <listitem>
+                      <para>MySQL</para>
+                    </listitem>
+
+                    <listitem>
+                      <para>Sybase IQ</para>
+                    </listitem>
+
+                    <listitem>
+                      <para>Sybase ASE</para>
+                    </listitem>
+
+                    <listitem>
+                      <para>Netezza</para>
+                    </listitem>
+
+                    <listitem>
+                      <para>Greenplum</para>
+                    </listitem>
+                  </itemizedlist></para><para> 다음은 호환 가능한 DBMS 버전 정보이다(해당 버전들은
+                호환이 완료되었고, 기타 버전들도 호환 테스트를 진행 중이다). </para><para><itemizedlist
+                    mark="circle" spacing="compact">
+                    <listitem>
+                      <para>Tibero : Tibero 5, Tibero 6</para>
+                    </listitem>
+
+                    <listitem>
+                      <para>Oracle : Oracle 11g, Oracle 12c</para>
+                    </listitem>
+
+                    <listitem>
+                      <para>MySQL : MySQL 5.6</para>
+                    </listitem>
+
+                    <listitem>
+                      <para>Sybase IQ : Sybase IQ 15.2</para>
+                    </listitem>
+
+                    <listitem>
+                      <para>Sybase ASE : Sybase ASE 16.0</para>
+                    </listitem>
+
+                    <listitem>
+                      <para>Netezza : Netezza 7.2.1</para>
+                    </listitem>
+
+                    <listitem>
+                      <para>Greenplum : Greenplum 4.3</para>
+                    </listitem>
+                  </itemizedlist></para></entry>
+              </row>
+
+              <row>
+                <entry>프로젝트</entry>
+
+                <entry>현재 프로젝트가 나타난다. (타 프로젝트로 변경 기능은 추후 제공 예정)</entry>
+              </row>
+
+              <row>
+                <entry>이름</entry>
+
+                <entry>등록할 데이터소스의 이름을 설정한다.</entry>
+              </row>
+
+              <row>
+                <entry>사용자 ID</entry>
+
+                <entry>해당 DBMS의 사용자 계정을 설정한다.</entry>
+              </row>
+
+              <row>
+                <entry>비밀번호</entry>
+
+                <entry>사용자 ID에 대한 비밀번호를 입력한다.</entry>
+              </row>
+
+              <row>
+                <entry>연결 문자열 사용</entry>
+
+                <entry><para>DBMS 서버의 입력항목을 활성화/비활성화하는 스위치다. (기본값:
+                Off)</para><para>입력 항목은 등록할 DBMS 서버에 따라 다르게 구성된다.
+                </para></entry>
+              </row>
+
+              <row>
+                <entry>IP</entry>
+
+                <entry><para>소스로 등록할 데이터베이스의 IP 주소이다.</para><para>
+                <guibutton>'연결 문자열 사용'</guibutton> 항목이 'On'인 경우 입력이 비활성화된다.
+                </para></entry>
+              </row>
+
+              <row>
+                <entry>포트</entry>
+
+                <entry><para>소스로 등록할 데이터베이스의 포트 번호이다.</para><para>
+                <guibutton>'연결 문자열 사용'</guibutton> 항목이 'On'인 경우 입력이 비활성화된다.
+                </para></entry>
+              </row>
+
+              <row>
+                <entry>SID</entry>
+
+                <entry><para>소스로 등록할 데이터베이스의 시스템 식별자를 입력한다. 등록할 데이터베이스 벤더에 따라
+                항목 이름이 달라진다.</para><para> <guibutton>'연결 문자열 사용'</guibutton>
+                항목이 'On'인 경우 입력이 비활성화된다. </para></entry>
+              </row>
+
+              <row>
+                <entry>연결 문자열</entry>
+
+                <entry><para>등록할 데이터베이스의 정보를 담고 있는 문자열을 입력한다.
+                </para><para>문자열은 Tibero가 설치된 $TB_HOME의 client/config 디렉터리 내
+                'tbdsn.tbr'에서 지정할 수 있다. 문자열을 설정하면 직접 데이터베이스 정보를 입력하지 않아도 된다.
+                </para><para> <guibutton>'연결 문자열 사용'</guibutton> 항목이 'On'인
+                경우에만 활성화된다. </para></entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </informaltable></para>
+
+      <para></para>
+
+      <para></para>
+    </section>
+  </section>
+
+  <section xml:id="sect_datasource_edit">
+    <title>데이터소스 수정</title>
+
+    <para>트리에서 <guibutton>외부 소스</guibutton>를 선택한 후 <guibutton>데이터소스 상세
+    화면</guibutton>(<xref linkend="figure_data_datasource_detail" />)에서
+    <guibutton>[수정]</guibutton> 버튼을 클릭하면 등록된 데이터소스 정보를 수정할 수 있다. DBMS 데이터소스의
+    경우 <guibutton>'비밀번호'</guibutton> 항목은 <guibutton>'비밀번호 수정'</guibutton> 항목을
+    선택해야 수정할 수 있다.</para>
+
+    <para>수정 가능한 항목 정보를 수정한 후 <guibutton>[적용]</guibutton> 버튼을 클릭한다.</para>
+
+    <para></para>
+
+    <figure>
+      <title>[Data Source] - 데이터소스 수정</title>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata align="left"
+                     fileref="resources/figure_datasource_edit.png"
+                     width="600"></imagedata>
+        </imageobject>
+      </mediaobject>
+    </figure>
+
+    <para><note>
+        <para><guibutton>#Default DataSource</guibutton>와
+        <guibutton>#SQL</guibutton>은 수정할 수 없다.</para>
+      </note></para>
+
+    <para></para>
+  </section>
+
+  <section>
+    <title>데이터소스 삭제</title>
+
+    <para><guibutton>데이터소스 트리</guibutton>에서 데이터소스를 선택한 후
+    <guibutton>[삭제]</guibutton> 버튼을 클릭하면 외부 데이터소스를 삭제할 수 있다. 목록에서 삭제할 정보를 확인한
+    후 <guibutton>[삭제]</guibutton> 버튼을 클릭한다.</para>
+
+    <para></para>
+
+    <figure>
+      <title>[Data Source] - 데이터소스 삭제</title>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata align="left"
+                     fileref="resources/figure_datasource_delete.png"
+                     width="300"></imagedata>
+        </imageobject>
+      </mediaobject>
+    </figure>
+
+    <para><note>
+        <para><guibutton>외부 데이터소스</guibutton>의 경우 삭제될 때 하위 데이터 객체도 함께 삭제된다.
+        <guibutton>#Default DataSource</guibutton>와
+        <guibutton>#SQL</guibutton>는 삭제할 수 없다.</para>
+      </note></para>
+
+    <para></para>
+  </section>
+
+  <section xml:id="sect_datasource_obj_create">
+    <title>데이터소스 객체 생성</title>
+
+    <para><guibutton>#Default DataSource</guibutton>의 경우 데이터 객체, 테이블을 생성할 수
+    있고, <guibutton>#SQL</guibutton>의 경우 SQL 데이터 객체를 생성할 수 있다. 사용자가 등록한
+    <guibutton>외부 테이터소스</guibutton>의 경우 데이터 객체를 생성할 수 있다. 본 절에서는 각 데이터소스의 객체를
+    생성하는 방법을 설명한다.</para>
+
+    <para></para>
+
+    <literallayout></literallayout>
+
+    <section xml:id="sect_dataobject_create">
+      <title>데이터 객체 생성</title>
+
+      <para><guibutton>데이터소스 상세 화면</guibutton>(<xref
+      linkend="figure_data_datasource_detail" />)에서
+      <guibutton>[+데이터객체]</guibutton> 버튼을 클릭하면 데이터 객체를 생성할 수 있다. 외부의 데이터소스를
+      HyperData의 프로젝트 내에 등록하면 해당 소스에서 데이터 객체를 생성할 수 있다.</para>
+
+      <para><guibutton>Create Data Object 화면</guibutton>에서 현재 데이터소스가 제공하는 객체를
+      선택할 수 있다. <guibutton>'검색'</guibutton> 입력항목에 데이터소스명을 입력하고 &lt;Enter&gt;
+      키를 누르거나 <inlinemediaobject>
+          <imageobject>
+            <imagedata fileref="resources/icon_search.png" width="22"></imagedata>
+          </imageobject>
+        </inlinemediaobject> 아이콘을 클릭하면 데이터소스를 검색할 수 있다.</para>
+
+      <para>테이블을 선택하면 <guibutton>'데이터 객체명'</guibutton> 항목에 객체의 이름을 지정할 수 있다.
+      테이블을 선택 후 오른쪽 영역의 <guibutton>'논리명'</guibutton> 항목에서 컬럼의 논리명을 지정할 수 있다.
+      설정이 완료되면 <guibutton>[적용]</guibutton> 버튼을 클릭한다.</para>
+
+      <para></para>
+
+      <figure xml:id="figure_dataobject_create">
+        <title>[Data Source] - 데이터 객체 생성</title>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata align="left"
+                       fileref="resources/figure_datasource_dataobject_create.png"
+                       width="750"></imagedata>
+          </imageobject>
+        </mediaobject>
+      </figure>
+
+      <para><note>
+          <para>데이터소스의 데이터베이스 종류에 따라 데이터 객체로서 생성할 수 있는 오브젝트 종류가 일부 상이할 수 있다.
+          일례로 Public Synonym 타입은 Tibero 데이터소스에서만 지원된다.</para>
+        </note></para>
+
+      <para></para>
+
+      <literallayout></literallayout>
+    </section>
+
+    <section xml:id="sect_default_table_create">
+      <title>테이블 생성</title>
+
+      <para><guibutton>데이터소스 상세 화면</guibutton>(<xref
+      linkend="figure_data_datasource_detail" />)에서
+      <guibutton>[+테이블]</guibutton> 버튼을 클릭하면 테이블을 생성해서 스키마를 정의할 수 있다.
+      <guibutton>'테이블명'</guibutton>에 생성할 테이블 이름을 입력한 후
+      <guibutton>[+컬럼]</guibutton> 버튼을 클릭하면 컬럼을 추가할 수 있다.</para>
+
+      <para>등록된 컬럼은 목록에서 선택한 후 <guibutton>[삭제]</guibutton> 버튼을 클릭하면 삭제할 수 있다.
+      컬럼명과 타입을 입력한 후 <guibutton>[적용]</guibutton> 버튼을 클릭하면 테이블이 생성된다. 정의된 테이블은
+      새로운 데이터 객체를 생성할 때 사용된다(<xref linkend="figure_dataobject_create" />
+      참고).</para>
+
+      <figure>
+        <title>[Data Source] - 테이블 생성</title>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata align="left"
+                       fileref="resources/figure_default_datasource_table_create.png"
+                       width="400"></imagedata>
+          </imageobject>
+        </mediaobject>
+      </figure>
+
+      <para></para>
+
+      <literallayout></literallayout>
+    </section>
+
+    <section xml:id="sect_sql_data_create">
+      <title>SQL 데이터 객체 생성</title>
+
+      <para><guibutton>데이터소스 화면</guibutton>(<xref
+      linkend="figure_data_datasource" />)의 데이터소스 트리에서
+      <guibutton>#SQL</guibutton>을 선택한 후 <guibutton>데이터소스 상세
+      화면</guibutton>(<xref linkend="figure_data_datasource_detail" />)에서
+      <guibutton>[+SQL 데이터 객체]</guibutton> 버튼을 클릭하면 SQL문을 작성해 DB 링크를 통해 데이터
+      객체를 생성할 수 있다. 이는 특히 Data Job에서 제공되지 않는 기능이 필요한 경우 직접 SQL 문을 작성해 유용하게 활용할
+      수 있다. 각 항목을 설정한 후 <guibutton>[적용]</guibutton> 버튼을 클릭한다.</para>
+
+      <figure xml:id="figure_sqltodo">
+        <title>[Data Source] - SQL 데이터 객체 생성</title>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata align="left" fileref="resources/figure_sqltodo.png"
+                       width="600"></imagedata>
+          </imageobject>
+        </mediaobject>
+      </figure>
+
+      <para>다음은 입력 항목에 대한 설명이다.</para>
+
+      <itemizedlist spacing="compact">
+        <listitem>
+          <para><guibutton>기본 정보</guibutton></para>
+
+          <para><informaltable colsep="1" frame="topbot" rowsep="1">
+              <tgroup cols="2">
+                <colspec align="left" colwidth="150" />
+
+                <thead>
+                  <row>
+                    <entry>항목</entry>
+
+                    <entry>설명</entry>
+                  </row>
+                </thead>
+
+                <tbody>
+                  <row>
+                    <entry>데이터 객체명</entry>
+
+                    <entry>생성하는 데이터 객체의 이름을 입력한다.</entry>
+                  </row>
+
+                  <row>
+                    <entry>SQL</entry>
+
+                    <entry><para>직접 SQL문을 작성한다. </para><itemizedlist
+                        spacing="compact">
+                        <listitem>
+                          <para>형식<programlisting><?db-font-size 90%?>SELECT * FROM MY_TABLE@MY_DBLINK</programlisting></para>
+                        </listitem>
+                      </itemizedlist><para> <guibutton>SQL 문을 작성할 때 마지막의
+                    세미콜론(;)은 생략한다.</guibutton> </para></entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </informaltable></para>
+        </listitem>
+
+        <listitem>
+          <para><guibutton>HYPERDATA_EX의 DB Link 정보</guibutton></para>
+
+          <para>DB 링크 정보가 나타난다. 이는 데이터소스를 등록할 때 입력한 정보를 바탕으로 기록된 것이며, 이 정보를
+          참고하여 SQL을 작성할 수 있다. 현재 등록된 DB 소스에 대응되는 hyperdata_ex 계정 내 DB 링크 정보를
+          나열한다. DB 링크는 hyperdata_ex 계정에서 생성된 상태여야 한다.</para>
+
+          <para>다음은 조회되는 항목에 대한 설명이다.</para>
+
+          <para><informaltable colsep="1" frame="topbot" rowsep="1">
+              <tgroup cols="2">
+                <colspec align="left" colwidth="150" />
+
+                <thead>
+                  <row>
+                    <entry>항목</entry>
+
+                    <entry>설명</entry>
+                  </row>
+                </thead>
+
+                <tbody>
+                  <row>
+                    <entry>데이터소스명</entry>
+
+                    <entry>현재 등록된 DBMS 데이터소스들을 보여준다.</entry>
+                  </row>
+
+                  <row>
+                    <entry>DB Link 이름</entry>
+
+                    <entry>hyperdata_ex에서 지정된 각 데이터소스 링크 이름이다.</entry>
+                  </row>
+
+                  <row>
+                    <entry>타겟 DB 유저 이름</entry>
+
+                    <entry>데이터소스를 등록할 때 지정했던 사용자 ID를 의미한다.</entry>
+                  </row>
+
+                  <row>
+                    <entry>호스트</entry>
+
+                    <entry>등록된 데이터소스의 DBMS 정보를 나타낸다. 연결 문자열을 사용하여 등록된 소스의 경우
+                    사용된 연결 문자열이, 직접 DBMS 정보를 입력하여 등록된 소스는 입력된 DBMS 정보가
+                    출력된다.</entry>
+                  </row>
+
+                  <row>
+                    <entry>등록 날짜</entry>
+
+                    <entry>데이터소스를 등록한 날짜와 시간을 보여준다.</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </informaltable></para>
+        </listitem>
+      </itemizedlist>
+
+      <para><literallayout></literallayout></para>
+
+      <para>생성이 완료된 SQL 객체는 트리의 <guibutton>[#SQL]</guibutton>에서 조회할 수
+      있다.</para>
+
+      <para>다음 화면에서 <guibutton>TIBERO_NO_STRING</guibutton> 소스의
+      <guibutton>AGENT_INFO</guibutton> 객체에 대한 SQL 객체를 생성한 예제로 데이터 객체 리스트를 보면,
+      소스 테이블명이 <guibutton>NO_TABLE</guibutton>로 되어있음을 확인할 수 있다.</para>
+
+      <figure xml:id="figure_after_sqltodo_create">
+        <title>[Data Source] - SQL 객체 생성 후 #SQL 소스 상세 정보</title>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata align="left"
+                       fileref="resources/figure_after_sqltodo_create.png"
+                       width="750"></imagedata>
+          </imageobject>
+        </mediaobject>
+      </figure>
+
+      <para></para>
+    </section>
+  </section>
+
+  <section xml:id="sect_dataobject_detail">
+    <title>데이터 객체 상세 조회</title>
+
+    <para><guibutton>데이터소스 화면</guibutton>(<xref
+    linkend="figure_data_datasource" />)의 <guibutton>데이터소스 트리</guibutton>에서
+    데이터 객체를 선택하면 <guibutton>[Details]</guibutton>,
+    <guibutton>[스키마]</guibutton>, <guibutton>[데이터미리보기]</guibutton>,
+    <guibutton>[Downloads]</guibutton> 탭에서 객체의 정보를 조회할 수 있다.</para>
+
+    <figure xml:id="figure_dataobject_detail">
+      <title>[Data Source] - 데이터 객체 상세 조회</title>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata align="left"
+                     fileref="resources/figure_dataobject_detail.png"
+                     width="750"></imagedata>
+        </imageobject>
+      </mediaobject>
+    </figure>
+
+    <itemizedlist spacing="compact">
+      <listitem>
+        <para><guibutton>[Details]</guibutton> 탭</para>
+
+        <para>등록된 데이터 객체의 상세 정보를 조회하고 수정하거나 공유, 분석을 할 수 있다.
+        <guibutton>[공유]</guibutton> 버튼을 클릭해서 생성한 데이터 객체를 프로젝트 간 상호 공유할 수 있다.
+        <guibutton>[분석]</guibutton> 버튼을 클릭하면 분석 시나리오 추천 기능을 이용할 수 있다.</para>
+      </listitem>
+
+      <listitem>
+        <para><guibutton>[스키마] </guibutton> 탭</para>
+
+        <para>선택한 데이터 객체의 스키마 정보를 조회할 수 있다. SAM (File) 형식으로 등록한 데이터 객체는
+        <guibutton>[변환]</guibutton> 클릭해서 칼럼의 타입을 변경할 수 있다. 타입 변환이 완료되면 기존에
+        data flow와 visualization 차트에 등록해두었던 데이터 객체들을 재등록을 해주어야 한다.</para>
+
+        <para><figure xml:id="figure_dataobject_detail_schema">
+            <title>[Data Source] - 데이터 객체 상세 조회 - [스키마] 탭</title>
+
+            <mediaobject>
+              <imageobject>
+                <imagedata align="left"
+                           fileref="resources/figure_dataobject_detail_schema.png"
+                           width="700"></imagedata>
+              </imageobject>
+            </mediaobject>
+          </figure></para>
+      </listitem>
+
+      <listitem>
+        <para><guibutton>[데이터 미리보기]</guibutton> 탭</para>
+
+        <para><guibutton>'행 개수 입력'</guibutton>에 조회할 행을 입력한 후
+        <guibutton>[보기]</guibutton> 버튼을 클릭하면 선택한 데이터 객체에 저장된 데이터를 조회할 수 있다.
+        데이터 미리보기는 100개의 행까지 확인이 가능하다.</para>
+      </listitem>
+
+      <listitem>
+        <para><guibutton>[Downloads]</guibutton> 탭</para>
+
+        <para><guibutton>[Downloads]</guibutton> 탭에서 선택된 데이터 객체를 파일로 간편하게 저장할
+        수 있다. 다운로드된 파일 확장자는 csv이며, 데이터 객체의 내용을 파일로 출력할 때에 사용할 수 있다. 사용자는 다운로드한
+        csv 파일을 다시 새로운 데이터 객체로 업로드하여 HyperData에서 활용하거나 머신러닝 라이브러리의 input 파일
+        등으로 사용할 수 있다.</para>
+
+        <para><guibutton>'컬럼 선택 옵션'</guibutton>과 <guibutton>'로우 선택
+        옵션'</guibutton>에서 원하는 컬럼과 조건을 입력하고, <guibutton>'출력 파일명'</guibutton>에
+        원하는 이름을 지정한 후 <guibutton>[Downloads]</guibutton> 버튼을 클릭하면, 해당 이름으로 csv
+        파일을 다운받을 수 있다.</para>
+
+        <para><figure xml:id="figure_enter_reason_do_detail">
+            <title>[Data Source] - 데이터 객체 상세 조회 - [Download] 탭</title>
+
+            <mediaobject>
+              <imageobject>
+                <imagedata align="left"
+                           fileref="resources/figure_dataobject_detail_download.png"
+                           width="700"></imagedata>
+              </imageobject>
+            </mediaobject>
+          </figure></para>
+
+        <para><guibutton>[Downloads]</guibutton> 버튼을 클릭하면 데이터를 파일로 다운로드 받으려는
+        사유를 입력하는 화면이 나타난다. 사유를 입력한 후 <guibutton>[다운로드]</guibutton> 버튼을 클릭한다.
+        사유는 필수 항목으로 반드시 입력해야 다운로드 진행이 가능하다.</para>
+
+        <figure xml:id="figure_enter_reason_do_detail">
+          <title>데이터 객체 다운로드 - 사유서 입력</title>
+
+          <mediaobject>
+            <imageobject>
+              <imagedata align="left"
+                         fileref="resources/figure_enter_reason_do_detail.png"
+                         width="280"></imagedata>
+            </imageobject>
+          </mediaobject>
+        </figure>
+
+        <para>다운로드가 완료되면 결과가 Audit Log에 다음의 형태로 저장된다.</para>
+
+        <para><programlisting><?db-font-size 90%?>"Data Object {<emphasis>데이터 객체 이름</emphasis>} downloaded as file {<emphasis>다운로드 파일 이름</emphasis>} (Explanatory Statement)."</programlisting></para>
+
+        <para>기록된 로그 정보는 <guibutton>Audit Log 화면</guibutton>(<xref
+        linkend="figure_auditlog_main" />)에서 조회할 수 있다. 로그의 유형은 'FILE'로 저장된다.
+        로그 목록의 row를 클릭하면 다운로드할 때 입력한 사유서를 조회할 수 있다.</para>
+      </listitem>
+    </itemizedlist>
+
+    <para></para>
+
+    <para><literallayout></literallayout></para>
+
+    <section>
+      <title>데이터 객체 수정</title>
+
+      <para><guibutton>데이터 객체 상세조회 화면</guibutton>(<xref
+      linkend="figure_dataobject_detail" />)의 <guibutton>[Details]</guibutton>
+      탭에서 <guibutton>[수정]</guibutton> 버튼을 클릭하면 선택한 데이터 객체의 정보를 수정할 수 있다.
+      <guibutton>'태그' </guibutton> 항목에서 해당 객체의 태그 정보를 입력하고
+      <guibutton>[+]</guibutton> 버튼을 클릭한다. 수정할 정보를 입력한 후
+      <guibutton>[적용]</guibutton> 버튼을 클릭한다.</para>
+
+      <figure>
+        <title>[Data Source] - 데이터 객체 수정</title>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata align="left"
+                       fileref="resources/figure_dataobject_edit.png"
+                       width="550"></imagedata>
+          </imageobject>
+        </mediaobject>
+      </figure>
+
+      <literallayout></literallayout>
+
+      <?dbfo-need height="10in" ?>
+    </section>
+
+    <section>
+      <title>데이터 객체 삭제</title>
+
+      <para><guibutton>데이터소스 트리</guibutton>에서 데이터 객체를 선택한 후
+      <guibutton>[삭제]</guibutton> 버튼을 클릭하면 생성한 객체를 삭제할 수 있다. 목록에서 삭제할 정보를 확인한
+      후 <guibutton>[삭제]</guibutton> 버튼을 클릭한다.</para>
+
+      <figure>
+        <title>[Data Source] - 데이터 객체 삭제</title>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata align="left"
+                       fileref="resources/figure_dataobject_delete.png"
+                       width="300"></imagedata>
+          </imageobject>
+        </mediaobject>
+      </figure>
+
+      <literallayout></literallayout>
+    </section>
+
+    <section xml:id="sect_dataobject_sharing">
+      <title>데이터 객체 공유</title>
+
+      <para><guibutton>데이터 객체 상세조회 화면</guibutton>(<xref
+      linkend="figure_dataobject_detail" />)의 <guibutton>[Details]</guibutton>
+      탭에서 <guibutton>[공유]</guibutton> 버튼을 클릭하면 생성한 데이터 객체를 프로젝트 간 상호 공유할 수 있다.
+      이를 통해 다른 프로젝트에서 공유된 데이터 객체를 Data Source 메뉴에서 조회 및 사용할 수 있으며, Data Job 및
+      시각화 메뉴에서 사용할 수 있다.</para>
+
+      <para><guibutton>Sharing DataObject 화면</guibutton>에서 선택한 데이터 객체를 공유할
+      프로젝트를 선택한 후 <guibutton>[적용] </guibutton> 버튼을 클릭한다. 프로젝트 간 공유된 데이터 객체의
+      현황은 <guibutton>[데이터] &gt; [</guibutton><guibutton>Shared
+      Data]</guibutton> 메뉴의 <guibutton>공유 데이터 화면</guibutton>(<xref
+      linkend="figure_shared_data" />)에서 조회할 수 있다. 자세한 내용은 <xref
+      linkend="sect_data_shared_data" />를 참고한다.</para>
+
+      <figure>
+        <title>[Data Source] - 데이터 객체 공유</title>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata align="left"
+                       fileref="resources/figure_dataobject_share.png"
+                       width="550"></imagedata>
+          </imageobject>
+        </mediaobject>
+      </figure>
+
+      <para><literallayout></literallayout></para>
+
+      <?dbfo-need height="10in" ?>
+    </section>
+
+    <section version="5.0" xml:id="sect_datasource_do_anaysis">
+      <title>데이터 객체 분석</title>
+
+      <para><guibutton>데이터 객체 상세조회 화면</guibutton>(<xref
+      linkend="figure_dataobject_detail" />)의 <guibutton>[Details]</guibutton>
+      탭에서 <guibutton>[분석]</guibutton> 버튼을 클릭하면 분석 시나리오 추천 기능을 이용할 수 있다.
+      <guibutton>추천 분석 시나리오 화면</guibutton>(<xref
+      linkend="figure_scenario_recommend_dialog" />)에서 데이터소스 내의 테이블 정보를 분석하여
+      유의미한 분석 시나리오를 추천해 준다. 추천되는 시나리오는 최대 상위 10개이다.</para>
+
+      <para><guibutton>[분석하기]</guibutton> 버튼을 클릭하면 데이터 소스 내의 테이블 정보를 분석하여 유의미한
+      분석 시나리오를 추천해 준다. 결과가 조회되기까지 시간이 소요되며, 소요되는 시간은 데이터의 크기에 따라 길어질 수 있다. 데이터
+      객체의 상세 조회 화면에서 <guibutton>[분석하기]</guibutton> 버튼을 클릭하면
+      <guibutton>[분석중]</guibutton>으로 버튼 텍스트와 활성상태가 변경된다.</para>
+
+      <para>서버 내에서 데이터객체의 분석 상황에 맞춰 텍스트와 활성상태가 변경되며 분석이 완료되면
+      <guibutton>[분석결과]</guibutton> 버튼으로 텍스트와 활성상태가 변경된다.</para>
+
+      <figure>
+        <title>[Data Source] - 데이터 객체 상세 화면 - 분석 요청 및 진행 중</title>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata align="left"
+                       fileref="resources/figure_scenario_recommend_start.png"
+                       width="750"></imagedata>
+          </imageobject>
+        </mediaobject>
+      </figure>
+
+      <para></para>
+
+      <para><guibutton>[분석결과]</guibutton> 버튼을 클릭하면 <guibutton>추천 분석 시나리오
+      화면</guibutton>에서 분석 결과를 확인할 수 있다.</para>
+
+      <figure xml:id="figure_scenario_recommend_dialog">
+        <title>[Data Source] - 데이터 객체 상세조회 화면 - 분석</title>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata align="left"
+                       fileref="resources/figure_scenario_recommend_dialog.png"
+                       width="700"></imagedata>
+          </imageobject>
+        </mediaobject>
+      </figure>
+
+      <para><guibutton>추천 분석 시나리오 화면</guibutton>에서 왼쪽 시나리오 리스트에서 체크박스를 체크하면
+      <guibutton>[대시보드로 내보내기]</guibutton> 버튼이 활성화된다. 버튼을 클릭하면 <guibutton>대시보드로
+      내보내기 화면</guibutton>에서 시나리오 리스트에서 선택한 자료를 확인할 수 있으며 자료를 내보낼 대시보드를 선택하여
+      내보내기를 수행할 수 있다. 대시보드로 내보낸 시각화 자료는 <guibutton>대시보드 화면</guibutton>(<xref
+      linkend="figure_dashboard" />)의 목록에서 해당 대시보드를 클릭하면 조회할 수 있다.</para>
+
+      <para><guibutton>[추천 분석 시나리오 보기]</guibutton> 버튼을 클릭하는 경우 이전 추천 분석 시나리오
+      화면으로 전환된다.</para>
+
+      <figure>
+        <title>[Data Source] - 데이터 객체 상세조회 화면 - 분석 시나리오 내보내기</title>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata align="left"
+                       fileref="resources/figure_scenario_recommend_export.png"
+                       width="700"></imagedata>
+          </imageobject>
+        </mediaobject>
+      </figure>
+
+      <para></para>
+
+      <para></para>
+    </section>
+  </section>
+
+  <section xml:id="sect_dataobject_column_edit">
+    <title>컬럼 정보 상세 조회</title>
+
+    <para><guibutton>데이터소스 화면</guibutton>(<xref
+    linkend="figure_data_datasource" />)의 <guibutton>데이터소스 트리</guibutton>에서
+    데이터 객체의 하위 <guibutton>컬럼</guibutton> 을 선택하면 상세화면에서 해당 컬럼의 상세 정보를 조회하고 수정할
+    수 있다.</para>
+
+    <figure xml:id="figure_dataobject_column_detail">
+      <title>[Data Source] - 컬럼 정보 수정</title>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata align="left"
+                     fileref="resources/figure_dataobject_column_detail.png"
+                     width="750"></imagedata>
+        </imageobject>
+      </mediaobject>
+    </figure>
+
+    <para><guibutton>[수정]</guibutton> 버튼을 클릭하면 컬럼을 수정할 수 있다. <guibutton>컬럼 정보
+    수정 화면</guibutton>에서 항목을 수정한 후 <guibutton>[적용]</guibutton> 버튼을 클릭한다.
+    <guibutton>'태그'</guibutton> 항목에 컬럼의 태그 정보를 입력하고 <guibutton>[+]</guibutton>
+    버튼을 클릭한다.</para>
+
+    <figure>
+      <title>[Data Source] - 컬럼 정보 수정</title>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata align="left"
+                     fileref="resources/figure_dataobject_column_edit.png"
+                     width="600"></imagedata>
+        </imageobject>
+      </mediaobject>
+    </figure>
+  </section>
+</section>

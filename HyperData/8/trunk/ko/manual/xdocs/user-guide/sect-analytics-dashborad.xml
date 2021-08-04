@@ -1,0 +1,2362 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section version="5.0" xml:id="sect_analytics_dashboard"
+         xmlns="http://docbook.org/ns/docbook"
+         xmlns:xlink="http://www.w3.org/1999/xlink"
+         xmlns:xi="http://www.w3.org/2001/XInclude"
+         xmlns:svg="http://www.w3.org/2000/svg"
+         xmlns:mml="http://www.w3.org/1998/Math/MathML"
+         xmlns:html="http://www.w3.org/1999/xhtml"
+         xmlns:db="http://docbook.org/ns/docbook">
+  <title>Visualization<indexterm>
+      <primary>분석 카테고리</primary>
+
+      <secondary>[Visualization] 메뉴</secondary>
+    </indexterm></title>
+
+  <para><guibutton>분석 &gt; [Visualization]</guibutton> 메뉴를 선택하면 생성된 대시보드의 목록을
+  조회할 수 있다. 각 대시보드의 용도에 따라서 시각화 결과물들을 생성 및 분석하기 위한 화면을 구성할 수 있다.</para>
+
+  <para><guibutton>대시보드 화면</guibutton>의 목록에서 <guibutton>'이름'</guibutton> 항목을
+  선택하면 대시보드를 구성할 수 있는 <guibutton>대시보드 레이아웃 편집 화면</guibutton>(<xref
+  linkend="figure_card_setting" />)으로 이동한다. 자세한 내용은 <xref
+  linkend="sect_dashbord_card_setting" />을 참고한다.</para>
+
+  <para>목록 위에 <guibutton>'검색'</guibutton> 입력항목에 대시보드 이름을 입력하고 &lt;Enter&gt; 키를
+  누르거나 <inlinemediaobject>
+      <imageobject>
+        <imagedata fileref="resources/icon_search.png" width="22"></imagedata>
+      </imageobject>
+    </inlinemediaobject> 아이콘을 클릭하면 해당 이름의 대시보드를 검색할 수 있다. 목록 아래에 조회된 건수와 페이징
+  정보, 조회할 건수를 선택할 수 있다.</para>
+
+  <para></para>
+
+  <para><figure xml:id="figure_dashboard">
+      <title>대시보드 화면</title>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata align="left" fileref="resources/figure_dashboard.png"
+                     width="750"></imagedata>
+        </imageobject>
+      </mediaobject>
+    </figure></para>
+
+  <para></para>
+
+  <section>
+    <title>대시보드 등록</title>
+
+    <para><guibutton>대시보드 화면</guibutton>(<xref
+    linkend="figure_dashboard" />)에서 <guibutton>[+생성]</guibutton> 버튼을 클릭하면
+    대시보드를 생성할 수 있다.</para>
+
+    <para><guibutton>대시보드 등록 화면</guibutton>에서 대시보드의 정보를 입력한 후 <guibutton>
+    [등록]</guibutton> 버튼을 클릭한다. 대시보드를 생성한 후 해당 조회할 차트와 테이블을 추가해야 한다. 자세한 내용은
+    <xref linkend="sect_dashbord_card_setting" />을 참고한다.</para>
+
+    <para><figure>
+        <title>[Visualization] - 대시보드 등록</title>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata align="left"
+                       fileref="resources/figure_dashboard_create_dialog.png"
+                       width="450"></imagedata>
+          </imageobject>
+        </mediaobject>
+      </figure></para>
+  </section>
+
+  <section>
+    <title>대시보드 수정</title>
+
+    <para><guibutton>대시보드 화면</guibutton>(<xref
+    linkend="figure_dashboard" />)에서 수정할 대시보드의 <guibutton>'실행'</guibutton> 항목의
+    <inlinemediaobject>
+        <imageobject>
+          <imagedata fileref="resources/icon_edit.png" width="20"></imagedata>
+        </imageobject>
+      </inlinemediaobject> 아이콘을 클릭하면 해당 대시보드의 정보를 변경할 수 있다. <guibutton>대시보드 수정
+    화면</guibutton>에서 각 항목을 수정한 후 <guibutton>[수정]</guibutton> 버튼을 클릭한다.</para>
+
+    <para></para>
+
+    <figure>
+      <title>[Visualization] - 대시보드 수정</title>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata align="left"
+                     fileref="resources/figure_dashboard_modify_dialog.png"
+                     width="450"></imagedata>
+        </imageobject>
+      </mediaobject>
+    </figure>
+  </section>
+
+  <section>
+    <title>대시보드 삭제</title>
+
+    <para><guibutton>대시보드 화면</guibutton>(<xref linkend="figure_dashboard" />)의
+    목록에서 대시보드를 선택한 후 <guibutton>[삭제]</guibutton> 버튼을 클릭하거나
+    <guibutton>'실행'</guibutton> 항목에 <inlinemediaobject>
+        <imageobject>
+          <imagedata fileref="resources/icon_delete.png" width="20"></imagedata>
+        </imageobject>
+      </inlinemediaobject> 아이콘을 클릭하면 대시보드를 삭제할 수 있다. 목록에서 삭제 정보를 확인한 후
+    <guibutton>[삭제]</guibutton> 버튼을 클릭한다.</para>
+
+    <figure>
+      <title>[Visualization] - 대시보드 삭제</title>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata align="left"
+                     fileref="resources/figure_dashboard_delete_dialog.png"
+                     width="300"></imagedata>
+        </imageobject>
+      </mediaobject>
+    </figure>
+  </section>
+
+  <section xml:id="sect_dashbord_image">
+    <title>대시보드 이미지 관리</title>
+
+    <para><guibutton>대시보드 화면</guibutton>(<xref linkend="figure_dashboard" />)의
+    목록에 <guibutton>'실행'</guibutton> 항목의 <inlinemediaobject>
+        <imageobject>
+          <imagedata fileref="resources/icon_screenshot.png" width="20"></imagedata>
+        </imageobject>
+      </inlinemediaobject> 아이콘을 클릭하면 해당 대시보드 내 카드 이미지를 관리할 수 있는
+    <guibutton>대시보드 이미지 관리 화면</guibutton>으로 이동한다.</para>
+
+    <para><guibutton>'실행'</guibutton> 항목의 <inlinemediaobject>
+        <imageobject>
+          <imagedata fileref="resources/icon_copy.png" width="20"></imagedata>
+        </imageobject>
+      </inlinemediaobject> 아이콘을 클릭하면 해당 카드 이미지의 API 주소를 클립보드에 복사할 수 있고,
+    <inlinemediaobject>
+        <imageobject>
+          <imagedata fileref="resources/icon_download.png" width="20"></imagedata>
+        </imageobject>
+      </inlinemediaobject> 아이콘을 클릭하면 해당 카드 이미지를 파일로 저장할 수 있다. 목록에서 카드 이미지를 선택한
+    후 <guibutton>[삭제]</guibutton> 버튼을 클릭하거나 <guibutton>'실행'</guibutton> 항목에
+    <inlinemediaobject>
+        <imageobject>
+          <imagedata fileref="resources/icon_delete2.png" width="20"></imagedata>
+        </imageobject>
+      </inlinemediaobject> 아이콘을 클릭하면 카드 이미지들을 삭제할 수 있다.</para>
+
+    <para><figure xml:id="figure_dashboard_image_api">
+        <title>[Visualization] - 대시보드 이미지 관리 화면</title>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata align="left"
+                       fileref="resources/figure_dashboard_image_api.png"
+                       width="650"></imagedata>
+          </imageobject>
+        </mediaobject>
+      </figure></para>
+
+    <para></para>
+
+    <para></para>
+
+    <para></para>
+
+    <para></para>
+  </section>
+
+  <section xml:id="sect_dashbord_card_setting">
+    <title>대시보드 레이아웃 편집<indexterm class="singular">
+        <primary>대시보드 레이아웃 편집</primary>
+      </indexterm></title>
+
+    <para>대시보드를 생성한 후 조회할 시각화 개체인 차트와 테이블을 추가하거나 속성을 수정해서 화면의 레이아웃을 구성할 수
+    있다.사용자의 용도에 따라 다양한 대시보드를 생성하여 데이터 분석을 수행할 수 있다.</para>
+
+    <para><guibutton>대시보드 화면</guibutton>(<xref linkend="figure_dashboard" />)의
+    목록에서 <guibutton>'이름'</guibutton> 항목을 선택하면 <guibutton>대시보드 레이아웃 편집
+    초기화면</guibutton>으로 이동한다.</para>
+
+    <figure xml:id="figure_dashboard_setting">
+      <title>[Visualization] - 대시보드 레이아웃 편집 초기 화면</title>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata align="left"
+                     fileref="resources/figure_card_emptydashboard.png"
+                     width="750"></imagedata>
+        </imageobject>
+      </mediaobject>
+    </figure>
+
+    <para>대시보드 상단 버튼을 클릭해서 대시보드를 수정, 저장, 공유하는 기능을 설정할 수 있다.</para>
+
+    <para><informaltable colsep="1" frame="topbot" rowsep="1">
+        <tgroup cols="2">
+          <colspec align="left" colwidth="150" />
+
+          <thead>
+            <row>
+              <entry>버튼</entry>
+
+              <entry>설명</entry>
+            </row>
+          </thead>
+
+          <tbody>
+            <row>
+              <entry><guibutton>[수정] </guibutton></entry>
+
+              <entry>대시보드에서 조회할 차트, 테이블 등을 추가 및 삭제할 수 있다.</entry>
+            </row>
+
+            <row>
+              <entry><guibutton>[이미지 저장] </guibutton></entry>
+
+              <entry>대시보드를 이미지 파일(확장자: .png)로 저장할 수 있다.</entry>
+            </row>
+
+            <row>
+              <entry><guibutton>[엑셀 파일 저장]</guibutton></entry>
+
+              <entry>대시보드를 엑셀 파일(확장자: .xlsx)로 저장할 수 있다. 각각의 차트, 데이블은 이미지로
+              저장된다. 이때 트리 테이블, 원본 테이블의 경우 해당 테이블의 데이터는 새로운 시트로 추가되어 저장된다(파일
+              저장은 hd_config.properties에 지정한 값에 따라 해당 개수만 다운로드가 가능하다).</entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </informaltable></para>
+
+    <para><literallayout></literallayout></para>
+
+    <para></para>
+
+    <para><guibutton>대시보드 레이아웃 편집 화면</guibutton>에서 대시보드에 추가할 차트와 테이블을 추가하고
+    부가적인 속성을 설정한다. 레이아웃 구성이 완료되면 <guibutton> [저장]</guibutton> 버튼을 클릭한다.</para>
+
+    <figure xml:id="figure_card_setting">
+      <title>[Visualization] - 대시보드 레이아웃 편집 화면</title>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata align="left" fileref="resources/figure_card_setting.png"
+                     width="750"></imagedata>
+        </imageobject>
+      </mediaobject>
+    </figure>
+
+    <para><guibutton>[iframe Export]</guibutton> 스위치를 클릭하면 <guibutton>대시보드
+    레이아웃 편집 화면</guibutton>에서 대시보드를 외부로 공유하는 Iframe 기능을 활성화할 수 있다. 기능을 활성화하면
+    Iframe 태그로 이루어진 HTML 코드를 제공한다.</para>
+
+    <para>Iframe HTML 코드는 대시보드에 설정된 크기 및 스타일에 맞춰 생성된다.</para>
+
+    <figure xml:id="figure_card_iframeExport">
+      <title>[Visualization] - 대시보드 iframe export 설정 화면</title>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata align="left"
+                     fileref="resources/figure_card_iframe_export.png"
+                     width="750"></imagedata>
+        </imageobject>
+      </mediaobject>
+    </figure>
+
+    <para><guibutton>[Copy]</guibutton> 버튼을 클릭해서 해당 코드를 복사한 후 표시할 웹 페이지의 HTML
+    코드 내에 추가하면 브라우저 내에 HyperData 대시보드를 삽입할 수 있다.</para>
+
+    <figure xml:id="figure_card_iframe_connection">
+      <title>[Visualization] - 대시보드 iframe 접속화면</title>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata align="left"
+                     fileref="resources/figure_card_iframe_connection.png"
+                     width="750"></imagedata>
+        </imageobject>
+      </mediaobject>
+    </figure>
+
+    <para><literallayout></literallayout></para>
+
+    <para><bridgehead>대시보드 레이아웃 편집 화면 구성</bridgehead></para>
+
+    <para>다음은 화면 각 영역에 대한 설명이다.</para>
+
+    <para><figure xml:id="figure_card_composition">
+        <title>[Visualization] - 대시보드 레이아웃 편집 화면 - 화면 구성</title>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata align="left"
+                       fileref="resources/figure_card_composition.png"
+                       width="750"></imagedata>
+          </imageobject>
+        </mediaobject>
+      </figure></para>
+
+    <itemizedlist spacing="compact">
+      <listitem>
+        <para><guibutton>① 레이아웃 속성 영역 </guibutton></para>
+
+        <para>대시보드의 속성과 선택한 카드의 속성을 설정하는 영역이다. 대시보드의 가로, 세로 크기와 배경색을 설정할 수 있고
+        대시보드에 카드를 추가한 경우 선택한 카드의 속성을 설정할 수 있다. 카드 속성에 대한 설명은 각 절의 설명을
+        참고한다.</para>
+
+        <para><informaltable colsep="1" frame="topbot" rowsep="1">
+            <tgroup cols="2">
+              <colspec align="left" colwidth="130" />
+
+              <thead>
+                <row>
+                  <entry>유형</entry>
+
+                  <entry>설명</entry>
+                </row>
+              </thead>
+
+              <tbody>
+                <row>
+                  <entry>대시보드 크기</entry>
+
+                  <entry>대시보드의 가로, 세로 크기를 조절할 수 있다. 가로, 세로 각각 그리드 개수 30개가
+                  최소값이며 해당 값 이하인 경우 최소값으로 크기가 설정된다.</entry>
+                </row>
+
+                <row>
+                  <entry>배경 색상</entry>
+
+                  <entry>대시보드의 배경 색상을 설정할 수 있다. 팔레트 버튼을 클릭하면 Color Picker
+                  다이얼로그가 뜨며, 해당 다이얼로그에서 원하는 색상을 선택할 수 있다.</entry>
+                </row>
+
+                <row>
+                  <entry>배경 이미지</entry>
+
+                  <entry>대시보드에 배경 이미지를 삽입하는 기능이다. <guibutton>[Choose a
+                  file]</guibutton> 버튼을 클릭 후 나타나는 다이얼로그로 원하는 이미지를 선택할 수 있다.
+                  이미지 선택후에 나타나는 반복/맞춤 설정 라디오버튼을 통해 이미지를 반복하거나 대시보드 크기에 맞추도록
+                  설정할 수 있다.</entry>
+                </row>
+              </tbody>
+            </tgroup>
+          </informaltable></para>
+      </listitem>
+
+      <listitem>
+        <para><guibutton>② 카드 선택 영역 </guibutton></para>
+
+        <para>대시보드에 추가할 카드의 유형을 <guibutton>[카드 추가]</guibutton> 버튼 클릭 후 나타나는
+        드롭다운 메뉴에서 선택한다.<indexterm>
+            <primary>대시보드 레이아웃 편집</primary>
+
+            <secondary>카드 유형</secondary>
+          </indexterm> <mediaobject>
+            <imageobject>
+              <imagedata align="left"
+                         fileref="resources/figure_card_chartoption.png"
+                         width="280"></imagedata>
+            </imageobject>
+          </mediaobject></para>
+
+        <para><informaltable colsep="1" frame="topbot" rowsep="1">
+            <tgroup cols="2">
+              <colspec align="left" colwidth="150" />
+
+              <thead>
+                <row>
+                  <entry>카드 유형</entry>
+
+                  <entry>설명</entry>
+                </row>
+              </thead>
+
+              <tbody>
+                <row>
+                  <entry>차트</entry>
+
+                  <entry>데이터를 막대, 꺾은선, 원형, 계층, 분포 등 다양한 차트로 시각화하는 차트 카드를 선택한다.
+                  자세한 내용은 <xref linkend="sect_dashbordcard_chart" />를
+                  참고한다.</entry>
+                </row>
+
+                <row>
+                  <entry>테이블</entry>
+
+                  <entry>데이터를 표 형태로 시각화하는 경우 트리 테이블, 원본 데이터 중에서 선택한다. 자세한 내용은
+                  <xref linkend="sect_dashbordcard_table" />을 참고한다.</entry>
+                </row>
+
+                <row>
+                  <entry>글로벌 필터</entry>
+
+                  <entry>여러 차트 및 테이블에 동시에 필터를 적용, 조절하는 경우 선택한다. 자세한 내용은 <xref
+                  linkend="sect_dashbordcard_globalfilter" />를 참고한다.</entry>
+                </row>
+
+                <row>
+                  <entry>커스텀 카드</entry>
+
+                  <entry>Html을 통해 직접 카드를 제작하는 경우 선택한다. 자세한 내용은 <xref
+                  linkend="sect_dashbordcard_html" />를 참고한다.</entry>
+                </row>
+              </tbody>
+            </tgroup>
+          </informaltable></para>
+      </listitem>
+
+      <listitem>
+        <para><guibutton>③ 대시보드 구성 영역 </guibutton></para>
+
+        <para>선택한 카드가 생성되는 영역이다. 추가된 카드를 선택하면 이동하거나 사이즈 조절, 삭제할 수 있다. 변경된 설정
+        정보는 <guibutton>[저장]</guibutton> 버튼을 클릭해야 저장된다.</para>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata align="left" fileref="resources/figure_card.png"
+                       width="450"></imagedata>
+          </imageobject>
+        </mediaobject>
+
+        <para><itemizedlist spacing="compact">
+            <listitem>
+              <para>카드 이미지 공유</para>
+
+              <para>카드 위에 <inlinemediaobject>
+                  <imageobject>
+                    <imagedata fileref="resources/icon_camera.png" width="18"></imagedata>
+                  </imageobject>
+                </inlinemediaobject>(<guibutton>[촬영하기]</guibutton>) 아이콘을 클릭하면
+              카드 이미지와 이미지에 접근할 수 있는 외부 API 주소를 생성할 수 있다.</para>
+            </listitem>
+
+            <listitem>
+              <para>카드 z-축 조절</para>
+
+              <para>카드 위에 <inlinemediaobject>
+                  <imageobject>
+                    <imagedata fileref="resources/icon_btof.png" width="18"></imagedata>
+                  </imageobject>
+                </inlinemediaobject>(<guibutton>[가장 앞으로 보내기]</guibutton>),
+              <inlinemediaobject>
+                  <imageobject>
+                    <imagedata fileref="resources/icon_ftob.png" width="18"></imagedata>
+                  </imageobject>
+                </inlinemediaobject>(<guibutton>[가장 뒤로 보내기]</guibutton>) 아이콘을
+              클릭하면 여러 카드가 중첩되어진 경우 해당 카드의 위치를 조절할 수 있다.</para>
+            </listitem>
+
+            <listitem>
+              <para>카드 삭제</para>
+
+              <para>카드 위에 <inlinemediaobject>
+                  <imageobject>
+                    <imagedata fileref="resources/icon_trash.png" width="18"></imagedata>
+                  </imageobject>
+                </inlinemediaobject>(<guibutton>[삭제하기]</guibutton>)아이콘을 클릭하면
+              카드를 삭제할 수 있다.</para>
+            </listitem>
+
+            <listitem>
+              <para>카드 이동</para>
+
+              <para>카드 가장자리를 클릭하고 드래그 엔드 드롭으로 원하는 위치로 카드를 이동할 수 있다.</para>
+            </listitem>
+
+            <listitem>
+              <para>카드 사이즈 조절</para>
+
+              <para>카드 상하좌우에 마우스를 가져다 놓으면 카드의 height, width를 조절할 수 있다.</para>
+            </listitem>
+          </itemizedlist></para>
+      </listitem>
+    </itemizedlist>
+
+    <para><literallayout></literallayout></para>
+
+    <section xml:id="sect_dashbordcard_chart">
+      <title>대시보드 카드 - 차트<indexterm>
+          <primary>대시보드 레이아웃 편집</primary>
+
+          <secondary>차트</secondary>
+        </indexterm></title>
+
+      <para>데이터를 막대, 꺾은선, 원형, 계층, 분포 등 다양한 차트로 시각화하는 차트 카드를 생성할 수 있다.</para>
+
+      <para><guibutton>대시보드 레이아웃 편집 화면</guibutton>(<xref
+      linkend="figure_card_composition" />)에서 <guibutton>[카드 추가]</guibutton>
+      버튼을 클릭한 후 드롭다운 목록에서 생성할 차트 종류를 선택한다. 차트 종류를 선택하면 빈 차트 카드가 대시보드의 작업 영역에
+      생성된다. 생성된 차트를 선택하면 왼쪽에 레이아웃 설정 영역의 <guibutton>[차트 데이터]</guibutton>,
+      <guibutton>[차트 스타일]</guibutton> 탭에서 상세 정보를 설정할 수 있다.</para>
+
+      <figure>
+        <title>[Visualization] - 대시보드 레이아웃 편집 - 차트 카드 편집</title>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata align="left"
+                       fileref="resources/figure_card_emptycard_1.png"
+                       width="750"></imagedata>
+          </imageobject>
+        </mediaobject>
+      </figure>
+
+      <para></para>
+
+      <para></para>
+
+      <para><literallayout></literallayout></para>
+
+      <para><bridgehead xml:id="sect_dashbordcard_chart_chartdata"> [차트 데이터]
+      탭<indexterm>
+          <primary>대시보드 레이아웃 편집 - 차트</primary>
+
+          <secondary>[차트 데이터] 탭</secondary>
+        </indexterm> </bridgehead></para>
+
+      <para>레이아웃 설정 영역의 <guibutton>[차트 데이터]</guibutton> 탭을 선택하면 차트로 시각화할 대상
+      데이터 객체, 데이터 필드를 선택하여 차트를 구성할 수 있다.</para>
+
+      <para><figure xml:id="figure_card_chartdata_1">
+          <title>[Visualization] - 대시보드 레이아웃 편집 - 차트 데이터 (1)</title>
+
+          <mediaobject>
+            <imageobject>
+              <imagedata align="left"
+                         fileref="resources/figure_card_chartdata_1.png"
+                         width="330"></imagedata>
+            </imageobject>
+          </mediaobject>
+        </figure></para>
+
+      <para><guibutton>'데이터 객체'</guibutton> 항목에서 <guibutton> [선택]</guibutton>
+      버튼을 클릭해서 차트를 구성할 데이터 객체를 선택하면 <guibutton>'데이터 객체'</guibutton> 항목에 데이터
+      오브젝트 이름이 나타나며, <guibutton>분석 데이터</guibutton>의 <guibutton>'데이터
+      필드'</guibutton> 항목에 데이터 객체를 구성하는 필드의 이름과 자료형이 아이콘으로 표현된다.</para>
+
+      <para><figure>
+          <title>[Visualization] - 대시보드 레이아웃 편집 - 차트 데이터 (2)</title>
+
+          <mediaobject>
+            <imageobject>
+              <imagedata align="left"
+                         fileref="resources/figure_card_chartdata_2.png"
+                         width="330"></imagedata>
+            </imageobject>
+          </mediaobject>
+        </figure></para>
+
+      <para>차트 구성 요소(카테고리, 범례, 측정 값, 데이터 필터)는 선택한 차트의 종류에 따라 달라지며, 각 요소에 여러 개의
+      필드를 추가할 수 있다. 차트 요소 항목에 추가할 필드를 선택한 후 드래그 앤 드롭하면 필드가 속성에 설정된다.</para>
+
+      <para>다음은 각 차트별 설정 항목에 대한 설명이다. 각 항목에 대한 상세 설정방법은 <xref
+      linkend="sect_dashbordcard_chart_item" />을 참고한다.</para>
+
+      <para><itemizedlist spacing="compact">
+          <listitem>
+            <para>막대/꺽은선 차트(Bar/Line Chart)<indexterm>
+                <primary>대시보드 레이아웃 편집 - 차트</primary>
+
+                <secondary>막대/꺽은선 차트</secondary>
+              </indexterm></para>
+
+            <informaltable colsep="1" frame="topbot" rowsep="1">
+              <tgroup cols="2">
+                <colspec align="left" colwidth="150" />
+
+                <thead>
+                  <row>
+                    <entry>항목</entry>
+
+                    <entry>설명</entry>
+                  </row>
+                </thead>
+
+                <tbody>
+                  <row>
+                    <entry>Category</entry>
+
+                    <entry>카테고리(범주)를 설정한다. <guibutton>Dimension
+                    Option</guibutton>(<xref
+                    linkend="figure_card_dimops" />)에서 상세 설정을 한다.
+                    <guibutton>Component Option</guibutton>(<xref
+                    linkend="figure_card_compopt" />)에서 정렬 설정을 한다.</entry>
+                  </row>
+
+                  <row>
+                    <entry>Series</entry>
+
+                    <entry>차트의 계열을 설정한다. <guibutton>Dimension
+                    Option</guibutton>(<xref
+                    linkend="figure_card_dimops" />)에서 상세 설정을 한다.
+                    <guibutton>Component Option</guibutton>(<xref
+                    linkend="figure_card_compopt" />)에서 정렬 및 색상을 설정한다.</entry>
+                  </row>
+
+                  <row>
+                    <entry>Measure</entry>
+
+                    <entry>측정값을 설정한다. <guibutton>Measure
+                    Option</guibutton>(<xref
+                    linkend="figure_card_measureopt" />)에서 상세 설정을 한다.</entry>
+                  </row>
+
+                  <row>
+                    <entry>Filter</entry>
+
+                    <entry>필터를 설정한다. <guibutton>Filter
+                    Option</guibutton>(<xref
+                    linkend="figure_card_filteropt" />)에서 상세 설정을 한다.</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </informaltable>
+          </listitem>
+
+          <listitem>
+            <para>이중축 차트(Double Line Chart)<indexterm>
+                <primary>대시보드 레이아웃 편집 - 차트</primary>
+
+                <secondary>이중축 차트</secondary>
+              </indexterm></para>
+
+            <informaltable colsep="1" frame="topbot" rowsep="1">
+              <tgroup cols="2">
+                <colspec align="left" colwidth="150" />
+
+                <thead>
+                  <row>
+                    <entry>항목</entry>
+
+                    <entry>설명</entry>
+                  </row>
+                </thead>
+
+                <tbody>
+                  <row>
+                    <entry>Category</entry>
+
+                    <entry>카테고리(범주)를 설정한다. <guibutton>Dimension
+                    Option</guibutton>(<xref
+                    linkend="figure_card_dimops" />)에서 상세 설정을 한다.</entry>
+                  </row>
+
+                  <row>
+                    <entry>Measure L</entry>
+
+                    <entry>왼쪽 y축에 표시될 측정값을 설정한다. <guibutton>Measure
+                    Option</guibutton>(<xref
+                    linkend="figure_card_measureopt" />)에서 상세 설정을 한다.</entry>
+                  </row>
+
+                  <row>
+                    <entry>Measure R</entry>
+
+                    <entry>오른쪽 y축에 표시될 측정값을 설정한다. <guibutton>Measure
+                    Option</guibutton>(<xref
+                    linkend="figure_card_measureopt" />)에서 상세 설정을 한다.</entry>
+                  </row>
+
+                  <row>
+                    <entry>Filter</entry>
+
+                    <entry>필터를 설정한다. <guibutton>Filter
+                    Option</guibutton>(<xref
+                    linkend="figure_card_filteropt" />)에서 상세 설정을 한다.</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </informaltable>
+          </listitem>
+
+          <listitem>
+            <para>원형 차트(Pie Chart) - 기본<indexterm>
+                <primary>대시보드 레이아웃 편집 - 차트</primary>
+
+                <secondary>원형 차트 - 기본</secondary>
+              </indexterm></para>
+
+            <informaltable colsep="1" frame="topbot" rowsep="1">
+              <tgroup cols="2">
+                <colspec align="left" colwidth="150" />
+
+                <thead>
+                  <row>
+                    <entry>항목</entry>
+
+                    <entry>설명</entry>
+                  </row>
+                </thead>
+
+                <tbody>
+                  <row>
+                    <entry>Series</entry>
+
+                    <entry>차트의 계열을 설정한다. <guibutton>Dimension
+                    Option</guibutton>(<xref
+                    linkend="figure_card_dimops" />)에서 상세 설정을 한다.
+                    <guibutton>Component Option</guibutton>(<xref
+                    linkend="figure_card_compopt" />)에서 정렬 및 색상 설정을
+                    한다.</entry>
+                  </row>
+
+                  <row>
+                    <entry>Measure</entry>
+
+                    <entry>측정 값을 설정한다. <guibutton>Measure
+                    Option</guibutton>(<xref
+                    linkend="figure_card_measureopt" />)에서 상세 설정을 한다.</entry>
+                  </row>
+
+                  <row>
+                    <entry>Filter</entry>
+
+                    <entry>필터를 설정한다. <guibutton>Filter
+                    Option</guibutton>(<xref
+                    linkend="figure_card_filteropt" />)에서 상세 설정을 한다.</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </informaltable>
+          </listitem>
+
+          <listitem>
+            <para>원형 차트(Pie Chart) - 게이지<indexterm>
+                <primary>대시보드 레이아웃 편집 - 차트</primary>
+
+                <secondary>원형 차트 - 게이지</secondary>
+              </indexterm></para>
+
+            <informaltable colsep="1" frame="topbot" rowsep="1">
+              <tgroup cols="2">
+                <colspec align="left" colwidth="150" />
+
+                <thead>
+                  <row>
+                    <entry>항목</entry>
+
+                    <entry>설명</entry>
+                  </row>
+                </thead>
+
+                <tbody>
+                  <row>
+                    <entry>Measure</entry>
+
+                    <entry>측정 값을 설정한다. <guibutton>Measure
+                    Option</guibutton>(<xref
+                    linkend="figure_card_measureopt" />)에서 상세 설정을 한다.</entry>
+                  </row>
+
+                  <row>
+                    <entry>Target</entry>
+
+                    <entry>차트의 목표 값을 설정한다. <guibutton>Measure
+                    Option</guibutton>(<xref
+                    linkend="figure_card_dimops" />)에서 상세 설정을 한다.</entry>
+                  </row>
+
+                  <row>
+                    <entry>Filter</entry>
+
+                    <entry>필터를 설정한다. <guibutton>Filter
+                    Option</guibutton>(<xref
+                    linkend="figure_card_filteropt" />)에서 상세 설정을 한다.</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </informaltable>
+          </listitem>
+
+          <listitem>
+            <para>분포 차트(Scatter Chart) - 기본<indexterm>
+                <primary>대시보드 레이아웃 편집 - 차트</primary>
+
+                <secondary>분포 차트 - 기본</secondary>
+              </indexterm></para>
+
+            <informaltable colsep="1" frame="topbot" rowsep="1">
+              <tgroup cols="2">
+                <colspec align="left" colwidth="150" />
+
+                <thead>
+                  <row>
+                    <entry>항목</entry>
+
+                    <entry>설명</entry>
+                  </row>
+                </thead>
+
+                <tbody>
+                  <row>
+                    <entry>Series</entry>
+
+                    <entry>차트의 계열을 설정한다. <guibutton>Dimension
+                    Option</guibutton>(<xref
+                    linkend="figure_card_dimops" />)에서 상세 설정을 한다.
+                    <guibutton>Component Option</guibutton>(<xref
+                    linkend="figure_card_compopt" />)에서 정렬 및 색상 설정을
+                    한다.</entry>
+                  </row>
+
+                  <row>
+                    <entry>X value(가로축), Y value(세로축)</entry>
+
+                    <entry>X축(가로축), Y축(세로축) 값을 설정한다. <guibutton>Measure
+                    Option</guibutton>(<xref
+                    linkend="figure_card_measureopt" />)에서 상세 설정을 한다.</entry>
+                  </row>
+
+                  <row>
+                    <entry>Filter</entry>
+
+                    <entry>필터를 설정한다. <guibutton>Filter
+                    Option</guibutton>(<xref
+                    linkend="figure_card_filteropt" />)에서 상세 설정을 한다.</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </informaltable>
+          </listitem>
+
+          <listitem>
+            <para>분포 차트(Scatter Chart) - 버블<indexterm>
+                <primary>대시보드 레이아웃 편집 - 차트</primary>
+
+                <secondary>분포 차트 - 버블</secondary>
+              </indexterm></para>
+
+            <informaltable colsep="1" frame="topbot" rowsep="1">
+              <tgroup cols="2">
+                <colspec align="left" colwidth="150" />
+
+                <thead>
+                  <row>
+                    <entry>항목</entry>
+
+                    <entry>설명</entry>
+                  </row>
+                </thead>
+
+                <tbody>
+                  <row>
+                    <entry>Series</entry>
+
+                    <entry>차트의 계열을 설정한다. <guibutton>Dimension
+                    Option</guibutton>(<xref
+                    linkend="figure_card_dimops" />)에서 상세 설정을 한다.
+                    <guibutton>Component Option</guibutton>(<xref
+                    linkend="figure_card_compopt" />)에서 정렬 및 색상 설정을
+                    한다.</entry>
+                  </row>
+
+                  <row>
+                    <entry>X value(가로축), Y value(세로축)</entry>
+
+                    <entry>X축(가로축), Y축(세로축) 값을 설정한다. <guibutton>Measure
+                    Option</guibutton>(<xref
+                    linkend="figure_card_measureopt" />)에서 상세 설정을 한다.</entry>
+                  </row>
+
+                  <row>
+                    <entry>Bubble value</entry>
+
+                    <entry>버블의 크기를 설정한다. <guibutton>Measure
+                    Option</guibutton>(<xref
+                    linkend="figure_card_measureopt" />)에서 상세 설정을 한다.</entry>
+                  </row>
+
+                  <row>
+                    <entry>Filter</entry>
+
+                    <entry>필터를 설정한다. <guibutton>Filter
+                    Option</guibutton>(<xref
+                    linkend="figure_card_filteropt" />)에서 상세 설정을 한다.</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </informaltable>
+          </listitem>
+
+          <listitem>
+            <para>분포 차트(Scatter Chart) - 원본 데이터<indexterm>
+                <primary>대시보드 레이아웃 편집 - 차트</primary>
+
+                <secondary>분포 차트 - 원본 데이터</secondary>
+              </indexterm></para>
+
+            <informaltable colsep="1" frame="topbot" rowsep="1">
+              <tgroup cols="2">
+                <colspec align="left" colwidth="150" />
+
+                <thead>
+                  <row>
+                    <entry>항목</entry>
+
+                    <entry>설명</entry>
+                  </row>
+                </thead>
+
+                <tbody>
+                  <row>
+                    <entry>X value(가로축), Y value(세로축)</entry>
+
+                    <entry>X축(가로축), Y축(세로축) 값을 설정한다. <guibutton>Measure
+                    Option</guibutton>(<xref
+                    linkend="figure_card_measureopt" />)에서 상세 설정을 한다.</entry>
+                  </row>
+
+                  <row>
+                    <entry>Option</entry>
+
+                    <entry>최대 점 갯수를 제한하는 값을 설정한다.</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </informaltable>
+          </listitem>
+
+          <listitem>
+            <para>계층 차트(Hierarchical Chart) - 트리맵/썬버스트<indexterm>
+                <primary>대시보드 레이아웃 편집 - 차트</primary>
+
+                <secondary>계층 차트 - 트리맵/썬버스트</secondary>
+              </indexterm></para>
+
+            <informaltable colsep="1" frame="topbot" rowsep="1">
+              <tgroup cols="2">
+                <colspec align="left" colwidth="150" />
+
+                <thead>
+                  <row>
+                    <entry>항목</entry>
+
+                    <entry>설명</entry>
+                  </row>
+                </thead>
+
+                <tbody>
+                  <row>
+                    <entry>Hierarchy</entry>
+
+                    <entry>차트의 계층구조를 설정한다. <guibutton>Dimension
+                    Option</guibutton>(<xref
+                    linkend="figure_card_dimops" />)에서 상세 설정을 한다.</entry>
+                  </row>
+
+                  <row>
+                    <entry>Measure</entry>
+
+                    <entry>측정 값을 설정한다. <guibutton>Measure
+                    Option</guibutton>(<xref
+                    linkend="figure_card_measureopt" />)에서 상세 설정을 한다.</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </informaltable>
+          </listitem>
+        </itemizedlist></para>
+
+      <para></para>
+
+      <para><literallayout></literallayout></para>
+
+      <para><bridgehead xml:id="sect_dashbordcard_chart_chartstyle"> [차트 스타일]
+      탭<indexterm>
+          <primary>대시보드 레이아웃 편집 - 차트</primary>
+
+          <secondary>[차트 스타일] 탭</secondary>
+        </indexterm> </bridgehead></para>
+
+      <para>레이아웃 설정 영역의 <guibutton>[차트 스타일]</guibutton> 탭을 선택하면 차트 스타일을 설정할 수
+      있다.</para>
+
+      <itemizedlist spacing="compact">
+        <listitem>
+          <para><guibutton> 공통 속성 <indexterm class="singular">
+              <primary>공통 속성</primary>
+            </indexterm> </guibutton></para>
+
+          <para>차트 카드의 공통 스타일을 설정한다.</para>
+
+          <informaltable colsep="1" frame="topbot" rowsep="1">
+            <tgroup cols="2">
+              <colspec align="left" colwidth="150" />
+
+              <thead>
+                <row>
+                  <entry>항목</entry>
+
+                  <entry>설명</entry>
+                </row>
+              </thead>
+
+              <tbody>
+                <row>
+                  <entry>Margin<indexterm>
+                      <primary>공통 스타일</primary>
+
+                      <secondary>Margin</secondary>
+                    </indexterm></entry>
+
+                  <entry>카드의 여백을 픽셀 단위로 설정한다.</entry>
+                </row>
+
+                <row>
+                  <entry>Title<indexterm>
+                      <primary>공통 스타일</primary>
+
+                      <secondary>Title</secondary>
+                    </indexterm></entry>
+
+                  <entry>차트 제목의 표시 여부를 설정한다. 체크박스를 선택하는 경우 차트 제목을 직접 작성할 수 있고
+                  Alignment 목록에서 정렬 방향(left, center, right) 및 위치(Top, Bottom)을
+                  설정할 수 있다.</entry>
+                </row>
+
+                <row>
+                  <entry>Axis<indexterm>
+                      <primary>공통 스타일</primary>
+
+                      <secondary>Axis</secondary>
+                    </indexterm></entry>
+
+                  <entry><para>차트의 X, Y축을 설정한다. 체크박스를 선택하는 경우 축 제목, 접두/접미사 및 값
+                  범위를 설정할 수 있다.</para><itemizedlist spacing="compact">
+                      <listitem>
+                        <para>axis title : 차트 축 제목을 입력한다.</para>
+                      </listitem>
+
+                      <listitem>
+                        <para>prefix : 차트 축의 접두사를 설정한다.</para>
+                      </listitem>
+
+                      <listitem>
+                        <para>suffix : 차트 축의 접미사를 설정한다.</para>
+                      </listitem>
+
+                      <listitem>
+                        <para>Range : 차트의 Y축에 대한 범위를 조정할 수 있다.</para>
+                      </listitem>
+                    </itemizedlist></entry>
+                </row>
+
+                <row>
+                  <entry>Legend<indexterm>
+                      <primary>공통 스타일</primary>
+
+                      <secondary>Legend</secondary>
+                    </indexterm></entry>
+
+                  <entry><para>차트 범례의 표시 여부를 설정한다. 체크박스를 선택하는 경우 범례의 정렬 및 위치를
+                  설정할 수 있다.</para><itemizedlist spacing="compact">
+                      <listitem>
+                        <para>Orientation : 차트 범례를 차트 상/하단에 위치할지 혹은 좌/우측에
+                        위치할지를 설정한다.</para>
+                      </listitem>
+
+                      <listitem>
+                        <para>Position : 차트 범례 위치를 추가 조정한다. Orientation이 상/하단인
+                        경우 상단에 위치할지 혹은 하단에 위치할지를 결정하며, Orientation이 좌/우측일 경우
+                        좌측에 위치할지 우측에 위치할지를 설정한다.</para>
+                      </listitem>
+
+                      <listitem>
+                        <para>Detail Position : 차트 범례의 위치를 픽셀 단위로 조정한다.</para>
+                      </listitem>
+                    </itemizedlist></entry>
+                </row>
+
+                <row>
+                  <entry>Data Label<indexterm>
+                      <primary>공통 스타일</primary>
+
+                      <secondary>Data Label</secondary>
+                    </indexterm></entry>
+
+                  <entry><para>시각화된 데이터를 숫자, 텍스트 등으로 표시한다. 체크박스를 선택하는 경우 데이터
+                  라벨 위치 및 표시 스타일을 설정할 수 있다.</para><itemizedlist
+                      spacing="compact">
+                      <listitem>
+                        <para>Position : 각 데이터 라벨의 위치를 설정할 수 있다. Inside의 경우 차트
+                        요소 내부에 데이터 라벨이 위치하며, Outside의 경우 차트 요소 외부에 데이터 라벨을
+                        위치시킨다.</para>
+                      </listitem>
+
+                      <listitem>
+                        <para>Style : 각 데이터 라벨의 표시 종류를 설정할 수 있다.</para>
+
+                        <itemizedlist spacing="compact">
+                          <listitem>
+                            <para>value : 해당하는 데이터의 숫자 값을 표기한다.</para>
+                          </listitem>
+
+                          <listitem>
+                            <para>category : 해당하는 카테고리로 표기한다. (카테고리가 존재하는 차트 종류
+                            한정)</para>
+                          </listitem>
+
+                          <listitem>
+                            <para>legend : 해당하는 범례로 표기한다.</para>
+                          </listitem>
+
+                          <listitem>
+                            <para>percent : 차지하는 비율 값을 표기한다. (파이 차트만 한정)</para>
+                          </listitem>
+
+                          <listitem>
+                            <para>text : 범례, 데이터 값 및 비율을 모두 표기한다. (파이 차트만
+                            한정)</para>
+                          </listitem>
+                        </itemizedlist>
+                      </listitem>
+                    </itemizedlist></entry>
+                </row>
+              </tbody>
+            </tgroup>
+          </informaltable>
+        </listitem>
+
+        <listitem>
+          <para><guibutton> 막대 차트(Bar Chart) <indexterm class="singular">
+              <primary>막대 차트(Bar Chart) 스타일</primary>
+            </indexterm> </guibutton></para>
+
+          <para>막대 방향 등 막대 차트의 스타일을 설정한다.</para>
+
+          <informaltable colsep="1" frame="topbot" rowsep="1">
+            <tgroup cols="2">
+              <colspec align="left" colwidth="150" />
+
+              <thead>
+                <row>
+                  <entry>항목</entry>
+
+                  <entry>설명</entry>
+                </row>
+              </thead>
+
+              <tbody>
+                <row>
+                  <entry>Mode<indexterm>
+                      <primary>막대 차트(Bar Chart) 스타일</primary>
+
+                      <secondary>Bar Chart Mode</secondary>
+                    </indexterm></entry>
+
+                  <entry><para>Bar Chart의 형태를 설정한다.</para><itemizedlist
+                      mark="circle" spacing="compact">
+                      <listitem>
+                        <para>Comparision : 비교 차트</para>
+                      </listitem>
+
+                      <listitem>
+                        <para>Stack : 누적 차트</para>
+                      </listitem>
+                    </itemizedlist></entry>
+                </row>
+
+                <row>
+                  <entry>Orientation<indexterm>
+                      <primary>막대 차트(Bar Chart) 스타일</primary>
+
+                      <secondary>Bar Chart Orientation</secondary>
+                    </indexterm></entry>
+
+                  <entry><para>Bar Chart의 막대 방향을 설정한다.</para><itemizedlist
+                      mark="circle" spacing="compact">
+                      <listitem>
+                        <para>Vertical : 세로</para>
+                      </listitem>
+
+                      <listitem>
+                        <para>Horizontal : 가로</para>
+                      </listitem>
+                    </itemizedlist></entry>
+                </row>
+              </tbody>
+            </tgroup>
+          </informaltable>
+        </listitem>
+
+        <listitem>
+          <para><guibutton> 꺾은선 차트(Line Chart) <indexterm class="singular">
+              <primary>꺾은선 차트(Line Chart) 스타일</primary>
+            </indexterm> </guibutton></para>
+
+          <para>선 모양 등 꺾은선 차트의 스타일을 설정한다.</para>
+
+          <informaltable colsep="1" frame="topbot" rowsep="1">
+            <tgroup cols="2">
+              <colspec align="left" colwidth="150" />
+
+              <thead>
+                <row>
+                  <entry>항목</entry>
+
+                  <entry>설명</entry>
+                </row>
+              </thead>
+
+              <tbody>
+                <row>
+                  <entry>Line<indexterm>
+                      <primary>꺾은선 차트(Line Chart) 스타일</primary>
+
+                      <secondary>Line</secondary>
+                    </indexterm></entry>
+
+                  <entry><para>Line Chart의 형태를 설정한다.</para><itemizedlist
+                      mark="circle" spacing="compact">
+                      <listitem>
+                        <para>Shape : 선 모양을 설정한다.</para>
+
+                        <itemizedlist spacing="compact">
+                          <listitem>
+                            <para>solid : 직선</para>
+                          </listitem>
+
+                          <listitem>
+                            <para>dot : 점선</para>
+                          </listitem>
+
+                          <listitem>
+                            <para>dash : 대시</para>
+                          </listitem>
+
+                          <listitem>
+                            <para>dashdot : 대시와 점선 혼합</para>
+                          </listitem>
+                        </itemizedlist>
+                      </listitem>
+
+                      <listitem>
+                        <para>Accumulation : 누적 여부를 설정한다. On, Off를 통해 옵션 사용
+                        여부를 설정할 수 있다.</para>
+                      </listitem>
+                    </itemizedlist></entry>
+                </row>
+
+                <row>
+                  <entry>Marker<indexterm>
+                      <primary>꺾은선 차트(Line Chart) 스타일</primary>
+
+                      <secondary>Marker</secondary>
+                    </indexterm></entry>
+
+                  <entry><para>데이터를 어떤 모양의 마커로 표시할지 설정한다.</para><itemizedlist
+                      mark="circle" spacing="compact">
+                      <listitem>
+                        <para>none : 마커를 표시하지 않음</para>
+                      </listitem>
+
+                      <listitem>
+                        <para>circle : 원</para>
+                      </listitem>
+
+                      <listitem>
+                        <para>square : 정사각형</para>
+                      </listitem>
+
+                      <listitem>
+                        <para>diamond : 마름모</para>
+                      </listitem>
+
+                      <listitem>
+                        <para>triangle-up : 정삼각형</para>
+                      </listitem>
+
+                      <listitem>
+                        <para>triangle-down : 역삼각형</para>
+                      </listitem>
+
+                      <listitem>
+                        <para>star : 별</para>
+                      </listitem>
+                    </itemizedlist></entry>
+                </row>
+              </tbody>
+            </tgroup>
+          </informaltable>
+        </listitem>
+
+        <listitem>
+          <para><guibutton> 원형 차트(Pie Chart) - 기본 <indexterm class="singular">
+              <primary>원형 차트(Pie Chart) 스타일</primary>
+            </indexterm> </guibutton></para>
+
+          <para>다음은 파이 차트를 선택하는 경우 설정 항목에 대한 설명이다.</para>
+
+          <para><informaltable colsep="1" frame="topbot" rowsep="1">
+              <tgroup cols="2">
+                <colspec align="left" colwidth="150" />
+
+                <thead>
+                  <row>
+                    <entry>항목</entry>
+
+                    <entry>설명</entry>
+                  </row>
+                </thead>
+
+                <tbody>
+                  <row>
+                    <entry>Hole<indexterm>
+                        <primary>원형 차트(Pie Chart) 스타일</primary>
+
+                        <secondary>Hole</secondary>
+                      </indexterm></entry>
+
+                    <entry>원형 차트 내부 구멍 크기를 설정한다. 슬라이더를 이동시켜 구멍 크기를 변경할 수
+                    있다.</entry>
+                  </row>
+
+                  <row>
+                    <entry>Hole Text<indexterm>
+                        <primary>원형 차트(Pie Chart) 스타일</primary>
+
+                        <secondary>Title</secondary>
+                      </indexterm></entry>
+
+                    <entry>원형 차트 내부 텍스트를 입력 및 설정할 수 있다.</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </informaltable></para>
+        </listitem>
+
+        <listitem>
+          <para><guibutton> 원형 차트(Pie Chart) - 게이지 <indexterm class="singular">
+              <primary>원형 차트(Pie Chart) 스타일</primary>
+            </indexterm> </guibutton></para>
+
+          <para>다음은 게이지 차트를 선택하는 경우 설정 항목에 대한 설명이다.</para>
+
+          <para><informaltable colsep="1" frame="topbot" rowsep="1">
+              <tgroup cols="2">
+                <colspec align="left" colwidth="150" />
+
+                <thead>
+                  <row>
+                    <entry>항목</entry>
+
+                    <entry>설명</entry>
+                  </row>
+                </thead>
+
+                <tbody>
+                  <row>
+                    <entry>Range<indexterm>
+                        <primary>원형 차트(Pie Chart) 스타일</primary>
+
+                        <secondary>Range</secondary>
+                      </indexterm></entry>
+
+                    <entry><para>게이지 차트의 범위를 설정한다. </para><itemizedlist
+                        spacing="compact">
+                        <listitem>
+                          <para>min : 최소값</para>
+                        </listitem>
+
+                        <listitem>
+                          <para>max : 최대값</para>
+                        </listitem>
+                      </itemizedlist></entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </informaltable></para>
+        </listitem>
+
+        <listitem>
+          <para><guibutton> 분포 차트(Scatter Chart) - 기본, 버블 <indexterm
+              class="singular">
+              <primary>분포 차트(Scatter Chart) 스타일</primary>
+            </indexterm> </guibutton></para>
+
+          <para>다음은 분포 차트를 선택하는 경우 설정 항목에 대한 설명이다.</para>
+
+          <para><informaltable colsep="1" frame="topbot" rowsep="1">
+              <tgroup cols="2">
+                <colspec align="left" colwidth="150" />
+
+                <thead>
+                  <row>
+                    <entry>항목</entry>
+
+                    <entry>설명</entry>
+                  </row>
+                </thead>
+
+                <tbody>
+                  <row>
+                    <entry>Marker<indexterm>
+                        <primary>꺾은선 차트(Line Chart) 스타일</primary>
+
+                        <secondary>Marker</secondary>
+                      </indexterm></entry>
+
+                    <entry><para>데이터를 어떤 모양의 마커로 표시할지
+                    설정한다.</para><itemizedlist mark="circle" spacing="compact">
+                        <listitem>
+                          <para>circle: 원</para>
+                        </listitem>
+
+                        <listitem>
+                          <para>square : 정사각형</para>
+                        </listitem>
+
+                        <listitem>
+                          <para>diamond : 마름모</para>
+                        </listitem>
+
+                        <listitem>
+                          <para>triangle-up : 정삼각형</para>
+                        </listitem>
+
+                        <listitem>
+                          <para>triangle-down : 역삼각형</para>
+                        </listitem>
+
+                        <listitem>
+                          <para>star : 별</para>
+                        </listitem>
+                      </itemizedlist></entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </informaltable></para>
+        </listitem>
+      </itemizedlist>
+
+      <para></para>
+
+      <para><literallayout></literallayout></para>
+
+      <?dbfo-need height="10in" ?>
+    </section>
+
+    <section xml:id="sect_dashbordcard_table">
+      <title>대시보드 카드 - 테이블<indexterm>
+          <primary>대시보드 레이아웃 편집</primary>
+
+          <secondary>테이블</secondary>
+        </indexterm></title>
+
+      <para>데이터를 표 형태로 시각화하는 테이블 카드를 생성할 수 있다.</para>
+
+      <para><guibutton>대시보드 레이아웃 편집 화면</guibutton>(<xref
+      linkend="figure_card_composition" />)에서 <guibutton>[카드 추가]</guibutton>
+      버튼을 클릭한 후 드롭다운 목록에서 테이블 형태를 선택한다.</para>
+
+      <para><informaltable colsep="1" frame="topbot" rowsep="1">
+          <tgroup cols="2">
+            <colspec align="left" colwidth="150" />
+
+            <thead>
+              <row>
+                <entry>테이블 종류</entry>
+
+                <entry>설명</entry>
+              </row>
+            </thead>
+
+            <tbody>
+              <row>
+                <entry>트리 테이블</entry>
+
+                <entry>'측정수치:열'과 '측정 수치:행'을 기준으로 측정 값의 요약 정보를 테이블로
+                나타낸다.</entry>
+              </row>
+
+              <row>
+                <entry>원본 데이터</entry>
+
+                <entry>선택한 필드들에 대한 로우 데이터를 그대로 보여줄 수 있는 테이블이다.</entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </informaltable></para>
+
+      <literallayout></literallayout>
+
+      <para>선택을 완료하면 빈 테이블 카드가 대시보드의 작업 영역에 생성된다. 테이블을 선택하면 왼쪽에 레이아웃 설정 영역의
+      <guibutton>[차트 데이터]</guibutton> 탭에서 상세 정보를 설정할 수 있다.</para>
+
+      <figure>
+        <title>[Visualization] - 대시보드 레이아웃 편집 - 테이블 카드 편집</title>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata align="left"
+                       fileref="resources/figure_card_emptycard_2.png"
+                       width="750"></imagedata>
+          </imageobject>
+        </mediaobject>
+      </figure>
+
+      <para><literallayout></literallayout></para>
+
+      <para><bridgehead>[차트 데이터] 탭<indexterm>
+          <primary>대시보드 레이아웃 편집 - 테이블</primary>
+
+          <secondary>[차트 데이터] 탭</secondary>
+        </indexterm></bridgehead></para>
+
+      <para>레이아웃 설정 영역의 <guibutton>[차트 데이터]</guibutton> 탭을 선택하면 차트로 시각화할 대상
+      데이터 객체, 데이터 필드를 선택하여 차트를 구성할 수 있다.</para>
+
+      <para><guibutton>'데이터 객체'</guibutton> 항목에서 <guibutton> [선택]</guibutton>
+      버튼을 클릭하면 테이블을 구성할 데이터 객체를 선택할 수 있다. <guibutton>'데이터 객체'</guibutton> ,
+      <guibutton>'데이터 필드'</guibutton> 항목에 대한 자세한 내용은 <xref
+      linkend="sect_dashbordcard_chart" />의 <link
+      linkend="sect_dashbordcard_chart_chartdata"> "<guibutton>[차트
+      데이터]</guibutton> 탭"</link>을 참고한다.</para>
+
+      <para>다음은 각 테이블별 설정 항목에 대한 설명이다. 각 항목에 대한 상세 설정방법은 <xref
+      linkend="sect_dashbordcard_chart_item" />을 참고한다.</para>
+
+      <itemizedlist spacing="compact">
+        <listitem>
+          <para><guibutton>트리 테이블(Tree table)</guibutton><indexterm>
+              <primary>대시보드 레이아웃 편집 - 테이블</primary>
+
+              <secondary>트리 테이블</secondary>
+            </indexterm></para>
+
+          <informaltable colsep="1" frame="topbot" rowsep="1">
+            <tgroup cols="2">
+              <colspec align="left" colwidth="150" />
+
+              <thead>
+                <row>
+                  <entry>항목</entry>
+
+                  <entry>설명</entry>
+                </row>
+              </thead>
+
+              <tbody>
+                <row>
+                  <entry>Column</entry>
+
+                  <entry>열을 설정한다. <guibutton>Dimension
+                  Option</guibutton>(<xref linkend="figure_card_dimops" />)에서
+                  상세 설정을 한다. 체크박스를 통해 각 행별 요약 컬럼 표시 여부를 선택할 수 있으며, 체크박스를 선택한
+                  경우 맨 우측 컬럼에 주어진 측정 값으로 각 행별 계산된 요약 컬럼이 나타난다.</entry>
+                </row>
+
+                <row>
+                  <entry>Row</entry>
+
+                  <entry>행을 설정한다. <guibutton>Dimension
+                  Option</guibutton>(<xref linkend="figure_card_dimops" />)에서
+                  상세 설정을 한다. 체크박스를 통해 각 열별 요약 컬럼 표시 여부를 선택할 수 있으며, 체크박스를 선택한
+                  경우 맨 아래 고정되어 주어진 측정 값으로 각 열별 계산된 요약 행이 나타난다.</entry>
+                </row>
+
+                <row>
+                  <entry>Measure</entry>
+
+                  <entry>측정 값을 설정한다. <guibutton>Measure
+                  Option</guibutton>(<xref
+                  linkend="figure_card_measureopt" />)에서 상세 설정을 한다.</entry>
+                </row>
+
+                <row>
+                  <entry>Filter</entry>
+
+                  <entry>필터를 설정한다. <guibutton>Filter Option</guibutton>(<xref
+                  linkend="figure_card_filteropt" />)에서 상세 설정을 한다.</entry>
+                </row>
+              </tbody>
+            </tgroup>
+          </informaltable>
+        </listitem>
+
+        <listitem>
+          <para><guibutton>원본 데이터(Raw data)</guibutton><indexterm>
+              <primary>대시보드 레이아웃 편집 - 테이블</primary>
+
+              <secondary>원본 데이터</secondary>
+            </indexterm></para>
+
+          <para><informaltable colsep="1" frame="topbot" rowsep="1">
+              <tgroup cols="2">
+                <colspec align="left" colwidth="150" />
+
+                <thead>
+                  <row>
+                    <entry>항목</entry>
+
+                    <entry>설명</entry>
+                  </row>
+                </thead>
+
+                <tbody>
+                  <row>
+                    <entry>Columns</entry>
+
+                    <entry>원본 데이터 테이블로 보고 싶은 필드를 설정한다.</entry>
+                  </row>
+
+                  <row>
+                    <entry>Option</entry>
+
+                    <entry>디폴트 페이지와 한 페이지에 조회할 데이터 행 수를 설정한다.</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </informaltable></para>
+        </listitem>
+      </itemizedlist>
+
+      <para></para>
+
+      <para></para>
+
+      <literallayout></literallayout>
+
+      <para><bridgehead>[차트 스타일] 탭<indexterm>
+          <primary>대시보드 레이아웃 편집 - 테이블</primary>
+
+          <secondary>[차트 스타일] 탭</secondary>
+        </indexterm></bridgehead></para>
+
+      <para><guibutton>[차트 스타일]</guibutton> 탭에서 트리 테이블(Tree table), 원본 데이터(Raw
+      data)를 설정한다.</para>
+
+      <itemizedlist spacing="compact">
+        <listitem>
+          <para><guibutton>트리 테이블(Tree table) <indexterm class="singular">
+              <primary>트리 테이블(Tree table) 스타일</primary>
+            </indexterm></guibutton></para>
+
+          <para>트리 테이블 글자 크기, 정렬 스타일을 설정한다.</para>
+
+          <informaltable colsep="1" frame="topbot" rowsep="1">
+            <tgroup cols="2">
+              <colspec align="left" colwidth="150" />
+
+              <thead>
+                <row>
+                  <entry>항목</entry>
+
+                  <entry>설명</entry>
+                </row>
+              </thead>
+
+              <tbody>
+                <row>
+                  <entry>Font Size</entry>
+
+                  <entry>트리 테이블의 글자 크기를 설정한다.</entry>
+                </row>
+
+                <row>
+                  <entry>Alignment</entry>
+
+                  <entry>트리 테이블의 셀 안의 값의 좌우정렬을 설정한다.</entry>
+                </row>
+              </tbody>
+            </tgroup>
+          </informaltable>
+        </listitem>
+
+        <listitem>
+          <para><guibutton>원본 데이터(Raw data) <indexterm class="singular">
+              <primary>원본 데이터(Raw data) 스타일</primary>
+            </indexterm></guibutton></para>
+
+          <para>원본 데이터의 여백, 제목, 글자 크기 스타일을 설정한다.</para>
+
+          <informaltable colsep="1" frame="topbot" rowsep="1">
+            <tgroup cols="2">
+              <colspec align="left" colwidth="150" />
+
+              <thead>
+                <row>
+                  <entry>항목</entry>
+
+                  <entry>설명</entry>
+                </row>
+              </thead>
+
+              <tbody>
+                <row>
+                  <entry>Font Size</entry>
+
+                  <entry>원본 데이터의 글자 크기를 설정한다.</entry>
+                </row>
+
+                <row>
+                  <entry>Margin</entry>
+
+                  <entry>카드의 여백을 픽셀 단위로 설정한다.</entry>
+                </row>
+
+                <row>
+                  <entry>Title</entry>
+
+                  <entry>차트 제목의 표시 여부를 설정한다. 체크박스를 선택하는 경우 차트 제목을 직접 작성할 수 있고
+                  Alignment 목록에서 정렬 방향(left, center, right) 및 위치(Top, Bottom)을
+                  설정할 수 있다.</entry>
+                </row>
+              </tbody>
+            </tgroup>
+          </informaltable>
+        </listitem>
+      </itemizedlist>
+
+      <literallayout></literallayout>
+    </section>
+
+    <section xml:id="sect_dashbordcard_globalfilter">
+      <title>대시보드 카드 - 글로벌 필터<indexterm>
+          <primary>대시보드 레이아웃 편집</primary>
+
+          <secondary>글로벌 필터</secondary>
+        </indexterm></title>
+
+      <para>글로벌 필터는 원하는 데이터 객체들에 동시적으로 필터를 적용하는 카드이다. <guibutton>대시보드 레이아웃 편집
+      화면</guibutton>(<xref linkend="figure_card_composition" />)에서
+      <guibutton>[카드 추가]</guibutton> 버튼을 클릭한 후 드롭다운 목록에서 글로벌 필터를 선택한다.</para>
+
+      <para>선택을 완료하면 빈 글로벌 필터가 대시보드의 작업 영역에 생성된다. 글로벌 필터를 선택하면 왼쪽에 레이아웃 설정 영역의
+      <guibutton>[차트 데이터]</guibutton> 탭에서 상세 정보를 설정할 수 있다.</para>
+
+      <figure>
+        <title>[Visualization] - 대시보드 레이아웃 편집 - 글로벌 필터 편집</title>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata align="left"
+                       fileref="resources/figure_card_emptycard_3.png"
+                       width="750"></imagedata>
+          </imageobject>
+        </mediaobject>
+      </figure>
+
+      <para><literallayout></literallayout></para>
+
+      <para><bridgehead>[차트 데이터] 탭<indexterm>
+          <primary>대시보드 레이아웃 편집 - 글로벌 필터</primary>
+
+          <secondary>[차트 데이터] 탭</secondary>
+        </indexterm></bridgehead></para>
+
+      <para>레이아웃 설정 영역의 <guibutton>[차트 데이터]</guibutton> 탭을 선택하면 차트로 시각화할 대상
+      데이터 객체 및 데이터 필드들을 선택하여 차트를 구성할 수 있다.</para>
+
+      <para><guibutton>'데이터 객체'</guibutton> 항목에서 <guibutton> [선택]</guibutton>
+      버튼을 클릭하면 글로벌 필터를 구성할 데이터 객체를 선택할 수 있다. <guibutton>'데이터 객체'</guibutton>,
+      <guibutton>'데이터 필드'</guibutton> 항목에 대한 자세한 내용은 <xref
+      linkend="sect_dashbordcard_chart" />의 <link
+      linkend="sect_dashbordcard_chart_chartdata">" <guibutton>[차트
+      데이터]</guibutton> 탭"</link>을 참고한다.</para>
+
+      <para></para>
+
+      <para>다음은 글로벌 필터(Global Filter) 설정 항목에 대한 설명이다. 각 항목에 대한 상세 설정방법은 <xref
+      linkend="sect_dashbordcard_chart_item" />을 참고한다.<indexterm>
+          <primary>대시보드 레이아웃 편집 - 글로벌 필터</primary>
+
+          <secondary>글로벌 필터</secondary>
+        </indexterm></para>
+
+      <informaltable colsep="1" frame="topbot" rowsep="1">
+        <tgroup cols="2">
+          <colspec align="left" colwidth="150" />
+
+          <thead>
+            <row>
+              <entry>항목</entry>
+
+              <entry>설명</entry>
+            </row>
+          </thead>
+
+          <tbody>
+            <row>
+              <entry>Target Column</entry>
+
+              <entry>필터가 적용되는 컬럼을 설정한다.</entry>
+            </row>
+
+            <row>
+              <entry>option</entry>
+
+              <entry>필터의 옵션을 설정한다. 셀렉트박스 및 슬라이더(Number type인 경우) 형태를
+              지원한다.</entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </informaltable>
+
+      <para></para>
+
+      <literallayout></literallayout>
+
+      <para><bridgehead>[차트 스타일] 탭<indexterm>
+          <primary>대시보드 레이아웃 편집 - 글로벌 필터</primary>
+
+          <secondary>[차트 스타일] 탭</secondary>
+        </indexterm></bridgehead></para>
+
+      <para>다음은 글로벌 필터(Global Filter) 설정 항목에 대한 설명이다.</para>
+
+      <informaltable colsep="1" frame="topbot" rowsep="1">
+        <tgroup cols="2">
+          <colspec align="left" colwidth="150" />
+
+          <thead>
+            <row>
+              <entry>항목</entry>
+
+              <entry>설명</entry>
+            </row>
+          </thead>
+
+          <tbody>
+            <row>
+              <entry>Filter Alias</entry>
+
+              <entry>글로벌 필터 카드 안에 보일 별칭을 설정한다.</entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </informaltable>
+
+      <literallayout></literallayout>
+    </section>
+
+    <section xml:id="sect_dashbordcard_html">
+      <title>대시보드 카드 - 커스텀 카드<indexterm>
+          <primary>대시보드 레이아웃 편집</primary>
+
+          <secondary>커스텀 카드</secondary>
+        </indexterm></title>
+
+      <para><guibutton>대시보드 레이아웃 편집 화면</guibutton>(<xref
+      linkend="figure_card_composition" />)에서 <guibutton>[카드 추가]</guibutton>
+      버튼을 클릭한 후 드롭다운 목록에서 커스텀 카드를 선택하면 빈 커스텀 카드가 대시보드의 작업 영역에 생성된다. 커스텀 카드는
+      사용자가 자유롭게 대시보드에 나타낼 정보를 편집할 수 있도록 html 형식의 문서 작성을 지원한다.</para>
+
+      <para>레이아웃 설정 영역의 <guibutton>[카드 스타일]</guibutton> 탭을 선택하면 카드의 배경색, 테두리
+      스타일 등 카드에 대한 스타일 속성을 설정할 수 있다. 각 항목을 설정한 후 화면 오른쪽 상단의
+      <guibutton>[저장]</guibutton> 버튼을 클릭한다.</para>
+
+      <figure>
+        <title>[Visualization] - 대시보드 레이아웃 편집 - 커스텀 카드</title>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata align="left"
+                       fileref="resources/figure_card_htmlcard.png"
+                       width="750"></imagedata>
+          </imageobject>
+        </mediaobject>
+      </figure>
+
+      <para>다음은 각 설정항목에 대한 설명이다.</para>
+
+      <para><informaltable colsep="1" frame="topbot" rowsep="1">
+          <tgroup cols="2">
+            <colspec align="left" colwidth="150" />
+
+            <thead>
+              <row>
+                <entry>항목</entry>
+
+                <entry>설명</entry>
+              </row>
+            </thead>
+
+            <tbody>
+              <row>
+                <entry>카드 배경 색상</entry>
+
+                <entry><para> <guibutton>[Color picker]</guibutton> 버튼을 클릭하면
+                색상 설정화면에서 색을 지정할 수 있다. </para><para> 차트의 배경색을 선택하고
+                <guibutton>[OK]</guibutton> 버튼을 클릭하면 해당 색으로 차트의 배경색이 설정된다.
+                </para></entry>
+              </row>
+
+              <row>
+                <entry>카드 테두리</entry>
+
+                <entry><para>카드 테두리 스타일 지정을 위해 테두리 색상, 두께, 스타일 타입을 설정한다. 체크박스를
+                선택하는 경우 카드 테두리를 설정할 수 있다. </para><itemizedlist mark="circle"
+                    spacing="compact">
+                    <listitem>
+                      <para>두께 : 카드 테두리의 넓이를 선택한다.</para>
+                    </listitem>
+
+                    <listitem>
+                      <para>스타일 : 카드 테두리 스타일(solid, dotted, dashed, double)을
+                      선택한다.</para>
+                    </listitem>
+                  </itemizedlist></entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </informaltable></para>
+
+      <para></para>
+
+      <para>카드 오른쪽 위의 <inlinemediaobject>
+          <imageobject>
+            <imagedata fileref="resources/icon_edit.png" width="20"></imagedata>
+          </imageobject>
+        </inlinemediaobject> 아이콘을 클릭하면 <guibutton>Html 편집기 화면</guibutton>이
+      나타나며 이를 통해 자유롭게 html 형식의 문서를 작성할 수 있다. 작성 후
+      <guibutton>[Apply]</guibutton> 버튼을 클릭한다.</para>
+
+      <figure>
+        <title>[Visualization] - 대시보드 레이아웃 편집 - 커스텀 카드 편집기</title>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata align="left"
+                       fileref="resources/figure_card_htmlcard2.png"
+                       width="350"></imagedata>
+          </imageobject>
+        </mediaobject>
+      </figure>
+
+      <para><literallayout></literallayout></para>
+    </section>
+
+    <section xml:id="sect_dashbordcard_chart_item">
+      <title>대시보드 카드 상세 설정</title>
+
+      <para>차트, 테이블 요소에 필드를 추가한 후 각 요소를 클릭하면 오른쪽에 해당 요소의 상세 설정 화면이 생성된다. 설정이
+      완료되면 <guibutton>[Apply]</guibutton> 버튼을 클릭한다. 설정을 취소하려면
+      <guibutton>[Cancel]</guibutton> 버튼을 클릭한다.</para>
+
+      <para>다음은 각 요소의 상세 설정 화면에 대한 설명이다.</para>
+
+      <para><itemizedlist spacing="compact">
+          <listitem>
+            <para><guibutton> Dimension Option<indexterm>
+                <primary>대시보드 카드 상세 설정</primary>
+
+                <secondary>Dimension Option</secondary>
+              </indexterm> </guibutton></para>
+
+            <para>차트 요소에 필드를 추가한 후 각 요소를 클릭하면 <guibutton>Dimension
+            Option</guibutton>에서 선택한 데이터 필드의 자료형(data type)에 따라
+            <guibutton>'Group by Function'</guibutton>을 설정할 수 있다.</para>
+
+            <para><figure xml:id="figure_card_dimops">
+                <title>[Visualization] - 대시보드 레이아웃 편집 - 차트 데이터 설정 - Dimension
+                Option</title>
+
+                <mediaobject>
+                  <imageobject>
+                    <imagedata align="left"
+                               fileref="resources/figure_card_dimops.png"
+                               width="280"></imagedata>
+                  </imageobject>
+                </mediaobject>
+              </figure></para>
+
+            <para>다음은 각 자료형(data type)에 따라 선택할 수 있는 Group by Function에 대한
+            설명이다.</para>
+
+            <para><informaltable colsep="1" frame="topbot" rowsep="1">
+                <tgroup cols="2">
+                  <colspec align="left" colwidth="150" />
+
+                  <thead>
+                    <row>
+                      <entry>항목</entry>
+
+                      <entry>설명</entry>
+                    </row>
+                  </thead>
+
+                  <tbody>
+                    <row>
+                      <entry>DEFAULT</entry>
+
+                      <entry>데이터 필드의 자료형(data type)과 무관하게 해당 데이터 필드가 가진 값들을
+                      기준으로 그룹화한다.</entry>
+                    </row>
+
+                    <row>
+                      <entry>RANGE</entry>
+
+                      <entry><para>데이터 필드의 자료형(data type)이 숫자(numeric)인 경우 다음의
+                      항목을 직접 입력하여 그룹화 기준 범위를 설정할 수 있다.</para><itemizedlist
+                          spacing="compact">
+                          <listitem>
+                            <para>Start Number(범위 시작값)</para>
+                          </listitem>
+
+                          <listitem>
+                            <para>Size of Range(범위 크기)</para>
+                          </listitem>
+
+                          <listitem>
+                            <para>Num of Range(범위 개수)</para>
+                          </listitem>
+                        </itemizedlist></entry>
+                    </row>
+
+                    <row>
+                      <entry>TIME</entry>
+
+                      <entry><para>데이터 필드의 자료형(data type)이 시간(datetime)인 경우
+                      다음의 항목을 1개 이상을 선택하여 그룹화 기준 단위를 설정할 수
+                      있다.</para><itemizedlist spacing="compact">
+                          <listitem>
+                            <para>Year(년)</para>
+                          </listitem>
+
+                          <listitem>
+                            <para>Month(월)</para>
+                          </listitem>
+
+                          <listitem>
+                            <para>Date(날짜)</para>
+                          </listitem>
+
+                          <listitem>
+                            <para>Hour(시간)</para>
+                          </listitem>
+                        </itemizedlist></entry>
+                    </row>
+                  </tbody>
+                </tgroup>
+              </informaltable></para>
+          </listitem>
+
+          <listitem>
+            <para><guibutton>Measure Option<indexterm>
+                <primary>대시보드 카드 상세 설정</primary>
+
+                <secondary>Measure Option</secondary>
+              </indexterm> </guibutton></para>
+
+            <para>차트 요소에 추가한 필드의 자료형(data type)이 숫자(numeric)인 경우 해당 필드를
+            Measure(측정 값), X Axis(X축 값), Y Axis(Y축 값)에 추가할 수 있다. 필드를 요소에 추가한 후
+            클릭하면 <guibutton>Measure Option</guibutton>에서
+            <guibutton>'Aggregation Function'</guibutton>을 선택할 수 있다.
+            Aggregation Function은 카테고리 및 범례의 Group by function에 따른 범주 및 계열별
+            집계를 수행한다.</para>
+
+            <para><figure xml:id="figure_card_measureopt">
+                <title>[Visualization] - 대시보드 레이아웃 편집 - 차트 데이터 설정 - Measure
+                Option</title>
+
+                <mediaobject>
+                  <imageobject>
+                    <imagedata align="left"
+                               fileref="resources/figure_card_measureopt.png"
+                               width="260"></imagedata>
+                  </imageobject>
+                </mediaobject>
+              </figure></para>
+
+            <itemizedlist spacing="compact">
+              <listitem>
+                <para>Aggregation Function</para>
+
+                <para>다음은 Aggregation Function에 대한 설명이다. 데이터 필드의 자료형(data
+                type)이 숫자가 아닌 경우 COUNT로 고정된다.</para>
+
+                <para><informaltable colsep="1" frame="topbot" rowsep="1">
+                    <tgroup cols="2">
+                      <colspec align="left" colwidth="150" />
+
+                      <thead>
+                        <row>
+                          <entry>항목</entry>
+
+                          <entry>설명</entry>
+                        </row>
+                      </thead>
+
+                      <tbody>
+                        <row>
+                          <entry>SUM</entry>
+
+                          <entry>총 합</entry>
+                        </row>
+
+                        <row>
+                          <entry>MAX</entry>
+
+                          <entry>최대값</entry>
+                        </row>
+
+                        <row>
+                          <entry>MIN</entry>
+
+                          <entry>최소값</entry>
+                        </row>
+
+                        <row>
+                          <entry>COUNT</entry>
+
+                          <entry>데이터 개수</entry>
+                        </row>
+
+                        <row>
+                          <entry>AVERAGE</entry>
+
+                          <entry>평균값</entry>
+                        </row>
+                      </tbody>
+                    </tgroup>
+                  </informaltable></para>
+              </listitem>
+
+              <listitem>
+                <para>Number Format</para>
+
+                <para>다음은 Number Format에 대한 설명이다. 데이터 필드의 자료형(data type)이 숫자인
+                경우 설정이 가능하다.</para>
+
+                <para><informaltable colsep="1" frame="topbot" rowsep="1">
+                    <tgroup cols="2">
+                      <colspec align="left" colwidth="150" />
+
+                      <thead>
+                        <row>
+                          <entry>항목</entry>
+
+                          <entry>설명</entry>
+                        </row>
+                      </thead>
+
+                      <tbody>
+                        <row>
+                          <entry>general 1234</entry>
+
+                          <entry>일반 숫자</entry>
+                        </row>
+
+                        <row>
+                          <entry>number 1,234</entry>
+
+                          <entry>콤마(,)가 있는 숫자</entry>
+                        </row>
+
+                        <row>
+                          <entry>percent 123400%</entry>
+
+                          <entry>백분율로 표현된 숫자</entry>
+                        </row>
+                      </tbody>
+                    </tgroup>
+                  </informaltable></para>
+              </listitem>
+            </itemizedlist>
+          </listitem>
+
+          <listitem>
+            <para><guibutton> Filter Option<indexterm>
+                <primary>대시보드 카드 상세 설정</primary>
+
+                <secondary>Filter Option</secondary>
+              </indexterm> </guibutton></para>
+
+            <para>필드를 데이터 필터 요소에 추가한 후 클릭하면 <guibutton>Filter
+            Option</guibutton>에서 필터 이름과 기준을 설정할 수 있다.</para>
+
+            <para><figure xml:id="figure_card_filteropt">
+                <title>[Visualization] - 대시보드 레이아웃 편집 - 차트 데이터 설정 - Filter
+                Option</title>
+
+                <mediaobject>
+                  <imageobject>
+                    <imagedata align="left"
+                               fileref="resources/figure_card_filteropt.png"
+                               width="280"></imagedata>
+                  </imageobject>
+                </mediaobject>
+              </figure></para>
+
+            <para>다음은 각 항목에 대한 설명이다.</para>
+
+            <para><informaltable colsep="1" frame="topbot" rowsep="1">
+                <tgroup cols="2">
+                  <colspec align="left" colwidth="150" />
+
+                  <thead>
+                    <row>
+                      <entry>항목</entry>
+
+                      <entry>설명</entry>
+                    </row>
+                  </thead>
+
+                  <tbody>
+                    <row>
+                      <entry>Alias</entry>
+
+                      <entry>필터 이름을 설정할 수 있다. 기본값은 선택한 '(데이터 필드 이름)
+                      filter'이다.</entry>
+                    </row>
+
+                    <row>
+                      <entry>Filter</entry>
+
+                      <entry>한 개 이상의 필터 기준을 설정한다.</entry>
+                    </row>
+
+                    <row>
+                      <entry>Option {<emphasis>필터 기준으로 설정된 데이터 필드의
+                      이름</emphasis>}</entry>
+
+                      <entry><para> 두 개 이상의 필터 기준을 설정하는 경우 <guibutton>'add OR
+                      filter option'</guibutton>을 통해 OR 연산으로 필터를 추가할 수 있다(AND
+                      연산으로 추가할 경우 차트 데이터 사이드바의 Filter 칸에 추가로 데이터 필드 블록을
+                      위치시킨다). </para><para> 각 필터 설정 사항은
+                      <guibutton>[∧]</guibutton> , <guibutton>[∨]</guibutton>
+                      버튼을 클릭해서 숨기거나 보이게 할 수 있으며, 두 개 이상의 필터를 설정하는 경우 해당 필터 이름의
+                      오른쪽에 <guibutton>[X]</guibutton> 버튼을 클릭해서 삭제할 수 있다.
+                      </para><para><itemizedlist spacing="compact">
+                          <listitem>
+                            <para>Field : 드래그 앤 드롭으로
+                            <guibutton>'Field'</guibutton> 항목에 필터 기준으로 삼을 데이터
+                            필드를 위치시킬 수 있다.</para>
+                          </listitem>
+
+                          <listitem>
+                            <para>Function : 자료형(data type)에 따라 적절한 Function을
+                            드롭다운 목록에서 선택할 수 있다. 숫자에 대해 Equal, Not Equal, Range,
+                            그 외 자료형에 대해 Equal, Not Equal 함수를 지원한다.</para>
+
+                            <itemizedlist spacing="compact">
+                              <listitem>
+                                <para>Equal : 체크박스로 선택된 값에 해당하는 데이터를 카드에
+                                반영한다.</para>
+                              </listitem>
+
+                              <listitem>
+                                <para>Not Equal : 체크박스로 선택된 값을 제외한 데이터를 카드에
+                                반영한다.</para>
+                              </listitem>
+
+                              <listitem>
+                                <para>Range : 기입한 범위 내 데이터를 카드에 반영한다.</para>
+                              </listitem>
+                            </itemizedlist>
+                          </listitem>
+                        </itemizedlist> </para></entry>
+                    </row>
+                  </tbody>
+                </tgroup>
+              </informaltable></para>
+          </listitem>
+
+          <listitem>
+            <para><guibutton> Component Option<indexterm>
+                <primary>대시보드 카드 상세 설정</primary>
+
+                <secondary>Component Option</secondary>
+              </indexterm> </guibutton></para>
+
+            <para>차트 요소에 필드를 추가한 후 <inlinemediaobject>
+                <imageobject>
+                  <imagedata fileref="resources/icon_configuration.png"
+                             width="20"></imagedata>
+                </imageobject>
+              </inlinemediaobject> 버튼을 클릭하면 Component Option에서 데이터 정렬, 범례 색 등을
+            설정할 수 있다.</para>
+
+            <para><figure xml:id="figure_card_compopt">
+                <title>[Visualization] - 대시보드 레이아웃 편집 - 차트 데이터 설정 - Component
+                Option</title>
+
+                <mediaobject>
+                  <imageobject>
+                    <imagedata align="left"
+                               fileref="resources/figure_card_compopt.png"
+                               width="250"></imagedata>
+                  </imageobject>
+                </mediaobject>
+              </figure></para>
+
+            <para>다음은 각 항목에 대한 설명이다.</para>
+
+            <para><informaltable colsep="1" frame="topbot" rowsep="1">
+                <tgroup cols="2">
+                  <colspec align="left" colwidth="150" />
+
+                  <thead>
+                    <row>
+                      <entry>항목</entry>
+
+                      <entry>설명</entry>
+                    </row>
+                  </thead>
+
+                  <tbody>
+                    <row>
+                      <entry>Order Option</entry>
+
+                      <entry><para>정렬 기준을 설정할 수 있다. </para><itemizedlist
+                          spacing="compact">
+                          <listitem>
+                            <para>Order Type : ASC/DESC 설정에 따라 오름차순/내림차순으로
+                            정렬된다.</para>
+                          </listitem>
+
+                          <listitem>
+                            <para>Ordering By Column : 다른 컬럼에 대한 집계값으로 정렬할 수도
+                            있다.</para>
+                          </listitem>
+
+                          <listitem>
+                            <para>Aggregation Function : 정렬기준으로 이용할 컬럼을
+                            <guibutton>'Field'</guibutton> 항목에 드래그 앤 드롭으로 설정하면
+                            <guibutton>Measure Option</guibutton>(<xref
+                            linkend="figure_card_measureopt" />)와 같이 데이터 타입에 따라
+                            집계함수를 설정할 수 있다.</para>
+                          </listitem>
+                        </itemizedlist></entry>
+                    </row>
+
+                    <row>
+                      <entry>Color Option</entry>
+
+                      <entry><para> <guimenuitem>'Coloring By
+                      Column'</guimenuitem> 항목을 On/Off 토글로 설정한다.
+                      </para><itemizedlist spacing="compact">
+                          <listitem>
+                            <para>Off : 각 범례 오른쪽 팔레트를 클릭하면 생성되는 Color Picker
+                            다이얼로그를 통해 범례 개별 색상을 설정할 수 있다.</para>
+                          </listitem>
+
+                          <listitem>
+                            <para>On : 지정된 필드의 집계값을 기준으로 색상을 설정할 수 있다. 기준색상을
+                            선택하면 집계 값을 기준으로 값이 작으면 옅은 색상으로, 값이 크면 짙은 색상으로
+                            표시된다.</para>
+                          </listitem>
+                        </itemizedlist><para>막대그래프에서는 On/Off 설정이 가능하며, 꺾은선 -
+                      기본, 누적, 100%누적, 레이더 / 원형 - 기본 / 분포 - 기본, 버블 차트에서는 Off
+                      기능만 제공한다.</para></entry>
+                    </row>
+                  </tbody>
+                </tgroup>
+              </informaltable></para>
+          </listitem>
+        </itemizedlist></para>
+
+      <para></para>
+
+      <para></para>
+
+      <para></para>
+    </section>
+  </section>
+</section>

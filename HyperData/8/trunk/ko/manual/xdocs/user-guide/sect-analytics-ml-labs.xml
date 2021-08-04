@@ -1,0 +1,1000 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section version="5.0" xml:id="sect_analytics_ml_labs"
+         xmlns="http://docbook.org/ns/docbook"
+         xmlns:xlink="http://www.w3.org/1999/xlink"
+         xmlns:xi="http://www.w3.org/2001/XInclude"
+         xmlns:svg="http://www.w3.org/2000/svg"
+         xmlns:mml="http://www.w3.org/1998/Math/MathML"
+         xmlns:html="http://www.w3.org/1999/xhtml"
+         xmlns:db="http://docbook.org/ns/docbook">
+  <title>ML 실험실<indexterm>
+      <primary>분석 카테고리</primary>
+
+      <secondary>[ML Lab] 메뉴</secondary>
+    </indexterm></title>
+
+  <para><guibutton>분석 &gt; [ML Lab]</guibutton> 메뉴를 선택하면 <guibutton>ML 실험실
+  화면</guibutton>에서 기계학습을 이용한 분석을 수행할 수 있다.</para>
+
+  <para>왼쪽에 실험(Experiment) 목록을 선택하면 해당 실험 상세 정보를 조회할 수 있다(<xref
+  linkend="figure_experiment_detail" /> 참고).</para>
+
+  <para>목록의 <guibutton>'검색'</guibutton> 입력항목에 실험 이름을 입력하고 &lt;Enter&gt; 키를
+  누르거나 <inlinemediaobject>
+      <imageobject>
+        <imagedata fileref="resources/icon_search.png" width="22"></imagedata>
+      </imageobject>
+    </inlinemediaobject> 아이콘을 클릭하면 등록된 실험 정보를 검색할 수 있다.<guibutton> [+
+  실험]</guibutton> 버튼을 클릭해서 실험 정보를 생성할 수 있고, 실험 목록을 선택한 후
+  <guibutton>[삭제]</guibutton> 버튼을 클릭하면 선택한 정보를 삭제할 수 있다.</para>
+
+  <figure xml:id="figure_experiments">
+    <title>ML 실험실 화면</title>
+
+    <mediaobject>
+      <imageobject>
+        <imagedata align="left" fileref="resources/figure_experiments.png"
+                   width="750"></imagedata>
+      </imageobject>
+    </mediaobject>
+  </figure>
+
+  <para>목록에서 조회할 실험 정보를 선택하면 해당 실험에 대한 상세 정보가 조회된다.</para>
+
+  <figure>
+    <title>[ML Lab] - 실험 상세 조회</title>
+
+    <mediaobject>
+      <imageobject>
+        <imagedata align="left"
+                   fileref="resources/figure_experiment_detail.png"
+                   width="750"></imagedata>
+      </imageobject>
+    </mediaobject>
+  </figure>
+
+  <para></para>
+
+  <para></para>
+
+  <section>
+    <title>실험 생성</title>
+
+    <para><guibutton>ML 실험실 화면</guibutton>(<xref
+    linkend="figure_experiments" />)에서 <guibutton>[+실험]</guibutton> 버튼을 클릭하면
+    실험 정보를 생성할 수 있다. 각 항목을 입력한 후 <guibutton>[생성]</guibutton> 버튼을 클릭한다.</para>
+
+    <para><figure>
+        <title>[ML Lab] - 실험 정보 생성</title>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata align="left"
+                       fileref="resources/figure_experiment_create.png"
+                       width="600"></imagedata>
+          </imageobject>
+        </mediaobject>
+      </figure></para>
+
+    <para>다음은 각 항목에 대한 설명이다. (*은 필수 입력 항목)</para>
+
+    <para><informaltable colsep="1" frame="topbot" rowsep="1">
+        <tgroup cols="2">
+          <colspec align="left" colwidth="150" />
+
+          <thead>
+            <row>
+              <entry>항목</entry>
+
+              <entry>설명</entry>
+            </row>
+          </thead>
+
+          <tbody>
+            <row>
+              <entry>이름 *</entry>
+
+              <entry>생성할 실험 이름을 입력한다.</entry>
+            </row>
+
+            <row>
+              <entry>이미지 *</entry>
+
+              <entry>Docker 이미지를 선택한다.</entry>
+            </row>
+
+            <row>
+              <entry>자원 설정 *</entry>
+
+              <entry>CPU 사용량, 메모리 사용량, 저장소 크기를 설정한다.</entry>
+            </row>
+
+            <row>
+              <entry>비밀 번호</entry>
+
+              <entry>보안을 위해 코드 작성에 접근할 수 있는 Server Access Key를 설정한다.</entry>
+            </row>
+
+            <row>
+              <entry>설명</entry>
+
+              <entry>실험 정보에 대한 설명을 입력한다.</entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </informaltable></para>
+
+    <para></para>
+  </section>
+
+  <section>
+    <title>실험 삭제</title>
+
+    <para><guibutton>ML 실험실 화면</guibutton>(<xref
+    linkend="figure_experiments" />)에서 왼쪽 목록에서 삭제할 실험 정보를 선택한 후
+    <guibutton>[삭제]</guibutton> 버튼을 클릭하거나 <guibutton>ML 실험실 상세 조회
+    화면</guibutton>(<xref linkend="figure_experiment_detail" />)에서
+    <guibutton>[삭제]</guibutton> 버튼을 클릭하면 생성 및 실행 완료된 실험 정보를 삭제할 수 있다. 삭제할 목록을
+    확인한 후 <guibutton>[삭제]</guibutton> 버튼을 클릭한다.</para>
+
+    <para><figure>
+        <title>[ML Lab] - 실험 삭제</title>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata align="left"
+                       fileref="resources/figure_experiment_delete.png"
+                       width="300"></imagedata>
+          </imageobject>
+        </mediaobject>
+      </figure></para>
+  </section>
+
+  <section xml:id="sect_experiment_detail">
+    <title>실험 상세 조회</title>
+
+    <para><guibutton>ML 실험실 화면</guibutton>(<xref
+    linkend="figure_experiments" />)의 <guibutton>실험 목록</guibutton>에서 실험 정보를
+    선택하면 등록된 실험의 상세 정보와 모델 정보를 조회할 수 있다.</para>
+
+    <para><guibutton>[코드 수정]</guibutton> 버튼을 클릭하면 사용자가 직접 기계학습 코드를 작성(<link
+    linkend="sect_jupyter_code">"기계학습 코드 작성"</link> 참고)할 수 있고,
+    <guibutton>[삭제]</guibutton> 버튼을 클릭하면 해당 실험 정보를 삭제할 수 있다.</para>
+
+    <para><figure xml:id="figure_experiment_detail">
+        <title>[ML Lab] - 실험 상세 조회</title>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata align="left"
+                       fileref="resources/figure_experiment_detail.png"
+                       width="750"></imagedata>
+          </imageobject>
+        </mediaobject>
+      </figure></para>
+
+    <para></para>
+
+    <itemizedlist spacing="compact">
+      <listitem>
+        <para><guibutton>실험기본 정보</guibutton></para>
+
+        <para>실험의 기본 정보를 조회한다.</para>
+      </listitem>
+
+      <listitem>
+        <para><guibutton>[모델 목록] 탭</guibutton></para>
+
+        <para>해당 실험에서 생성된 모델의 상태를 확인할 수 있다. <guibutton>[모델 생성]</guibutton> 버튼을
+        클릭해서 학습할 모델을 생성할 수 있고, 모델을 선택한 후 <guibutton>[삭제]</guibutton> 버튼을 클릭하면
+        생성 및 학습 완료된 모델을 삭제할 수 있다.</para>
+
+        <figure xml:id="figure_experiment_detail_1">
+          <title>[ML Lab] - 실험 상세 조회 - [모델 목록] 탭</title>
+
+          <mediaobject>
+            <imageobject>
+              <imagedata align="left"
+                         fileref="resources/figure_experiment_detail_1.png"
+                         width="750"></imagedata>
+            </imageobject>
+          </mediaobject>
+        </figure>
+
+        <para>다음은 각 항목에 대한 설명이다.</para>
+
+        <para><informaltable colsep="1" frame="topbot" rowsep="1">
+            <tgroup cols="2">
+              <colspec align="left" colwidth="150" />
+
+              <thead>
+                <row>
+                  <entry>항목</entry>
+
+                  <entry>설명</entry>
+                </row>
+              </thead>
+
+              <tbody>
+                <row>
+                  <entry>모델 이름</entry>
+
+                  <entry>모델 이름을 클릭하면 <guibutton>Model Details
+                  화면</guibutton>(<xref linkend="figure_model_detail" />)에서 해당
+                  모델의 상세 정보와 Serving 결과로 생성된 Serve URL과 전처리와 훈련 과정의 로그 및 코드를
+                  확인할 수 있다.</entry>
+                </row>
+
+                <row>
+                  <entry>훈련 상태</entry>
+
+                  <entry><para>모델의 상태를 나타낸다.<indexterm class="singular">
+                      <primary>모델 상태</primary>
+                    </indexterm></para><itemizedlist spacing="compact">
+                      <listitem>
+                        <para>Training : 모델 생성 중인 상태</para>
+                      </listitem>
+
+                      <listitem>
+                        <para>Trained : 모델 생성이 완료된 상태</para>
+                      </listitem>
+
+                      <listitem>
+                        <para>Train fail : 모델 생성에 실패한 상태</para>
+                      </listitem>
+                    </itemizedlist></entry>
+                </row>
+
+                <row>
+                  <entry>배포 상태</entry>
+
+                  <entry><para>모델이 서비스화되어 데이터 추론이 가능한지 여부를 나타낸다.<indexterm
+                      class="singular">
+                      <primary>모델 서비스화 추론 가능 여부</primary>
+                    </indexterm></para><itemizedlist spacing="compact">
+                      <listitem>
+                        <para>Off : 모델이 서비스화되지 않아 데이터 추론이 불가능한 상태</para>
+                      </listitem>
+
+                      <listitem>
+                        <para>On : 모델이 서비스화되어 데이터 추론이 가능한 상태</para>
+                      </listitem>
+
+                      <listitem>
+                        <para>Failed : 모델의 서비스화가 실패한 상태</para>
+                      </listitem>
+                    </itemizedlist></entry>
+                </row>
+
+                <row>
+                  <entry>생성 시각</entry>
+
+                  <entry>모델의 생성일자이다.</entry>
+                </row>
+
+                <row>
+                  <entry>완료 시각</entry>
+
+                  <entry>훈련이 완료된 시점이다.</entry>
+                </row>
+
+                <row>
+                  <entry>동작</entry>
+
+                  <entry><para>모델에 대해 다음의 작업을 수행할 수 있다.</para><itemizedlist
+                      spacing="compact">
+                      <listitem>
+                        <para><inlinemediaobject>
+                            <imageobject>
+                              <imagedata fileref="resources/icon_serving.png"
+                                         width="22"></imagedata>
+                            </imageobject>
+                          </inlinemediaobject> : 모델을 서비스화한다. 자세한 내용은 <xref
+                        linkend="sect_model_serving" />를 참고한다.</para>
+                      </listitem>
+
+                      <listitem>
+                        <para><inlinemediaobject>
+                            <imageobject>
+                              <imagedata fileref="resources/icon_model_delete.png"
+                                         width="22"></imagedata>
+                            </imageobject>
+                          </inlinemediaobject> : 모델을 삭제한다. 자세한 내용은 <xref
+                        linkend="sect_model_delete" />를 참고한다.</para>
+                      </listitem>
+                    </itemizedlist></entry>
+                </row>
+              </tbody>
+            </tgroup>
+          </informaltable></para>
+      </listitem>
+
+      <listitem>
+        <para><guibutton>[추론 목록] 탭</guibutton></para>
+
+        <para>해당 실험에서 생성된 추론의 상태를 확인할 수 있다. <guibutton>[추론 생성]</guibutton> 버튼을
+        클릭해서 추론을 생성할 수 있고, 추론을 선택한 후 <guibutton>[삭제]</guibutton> 버튼을 클릭하면 추론을
+        삭제할 수 있다.</para>
+
+        <figure xml:id="figure_experiment_detail_2">
+          <title>[ML Lab] - 실험 상세 조회 - [추론 목록] 탭</title>
+
+          <mediaobject>
+            <imageobject>
+              <imagedata align="left"
+                         fileref="resources/figure_experiment_detail_2.png"
+                         width="750"></imagedata>
+            </imageobject>
+          </mediaobject>
+        </figure>
+
+        <para>다음은 각 항목에 대한 설명이다.</para>
+
+        <para><informaltable colsep="1" frame="topbot" rowsep="1">
+            <tgroup cols="2">
+              <colspec align="left" colwidth="150" />
+
+              <thead>
+                <row>
+                  <entry>항목</entry>
+
+                  <entry>설명</entry>
+                </row>
+              </thead>
+
+              <tbody>
+                <row>
+                  <entry>추론 이름</entry>
+
+                  <entry>추론 이름을 클릭하면 <guibutton>Inference Details
+                  화면</guibutton>(<xref
+                  linkend="figure_mllab_inference_detail" />)에서 해당 추론의 상세 정보와
+                  전처리와 추론 과정의 로그 및 코드를 확인할 수 있다.</entry>
+                </row>
+
+                <row>
+                  <entry>추론 상태</entry>
+
+                  <entry><para>추론의 상태를 나타낸다.<indexterm class="singular">
+                      <primary>추론 상태</primary>
+                    </indexterm></para><itemizedlist spacing="compact">
+                      <listitem>
+                        <para>Running : 추론중인 상태</para>
+                      </listitem>
+
+                      <listitem>
+                        <para>Succeeded : 추론 완료된 상태</para>
+                      </listitem>
+
+                      <listitem>
+                        <para>Failed : 추론에 실패한 상태</para>
+                      </listitem>
+                    </itemizedlist></entry>
+                </row>
+
+                <row>
+                  <entry>생성 시각</entry>
+
+                  <entry>추론의 생성일자이다.</entry>
+                </row>
+
+                <row>
+                  <entry>완료 시각</entry>
+
+                  <entry>추론이 완료된 시점이다.</entry>
+                </row>
+
+                <row>
+                  <entry>동작</entry>
+
+                  <entry><para>추론에 대해 다음의 작업을 수행할 수 있다.</para><itemizedlist
+                      spacing="compact">
+                      <listitem>
+                        <para><inlinemediaobject>
+                            <imageobject>
+                              <imagedata fileref="resources/icon_inference_download.png"
+                                         width="22"></imagedata>
+                            </imageobject>
+                          </inlinemediaobject> : 추론 결과를 다운로드한다.</para>
+                      </listitem>
+
+                      <listitem>
+                        <para><inlinemediaobject>
+                            <imageobject>
+                              <imagedata fileref="resources/icon_model_delete.png"
+                                         width="22"></imagedata>
+                            </imageobject>
+                          </inlinemediaobject> : 추론을 삭제한다. 자세한 내용은 <xref
+                        linkend="sect_mllab_inference_delete" />를 참고한다.</para>
+                      </listitem>
+                    </itemizedlist></entry>
+                </row>
+              </tbody>
+            </tgroup>
+          </informaltable></para>
+      </listitem>
+    </itemizedlist>
+
+    <para></para>
+
+    <para><literallayout></literallayout></para>
+
+    <para><bridgehead xml:id="sect_jupyter_code">기계학습 코드
+    작성</bridgehead></para>
+
+    <para><guibutton>실험 상세 조회 화면</guibutton>(<xref
+    linkend="figure_experiment_detail" />)에서 <guibutton>[코드 수정]</guibutton>
+    버튼을 클릭하면 사용자가 직접 기계학습 코드를 작성하고 실험할 수 있는 독립적인 개발 환경인 Jupyter Notebook 환경을
+    제공한다.</para>
+
+    <figure>
+      <title>[ML Lab] - Jupyter Notebook 환경</title>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata align="left"
+                     fileref="resources/figure_jupyternotebook.png"
+                     width="750"></imagedata>
+        </imageobject>
+      </mediaobject>
+    </figure>
+
+    <para><note>
+        <para>본 안내서에서는 Jupyter Notebook 환경에 대한 상세한 설명은 하지 않는다. 자세한 내용은 <link
+        xlink:href="https://nbviewer.jupyter.org/github/jupyter/notebook/blob/master/docs/source/examples/Notebook/Running%20Code.ipynb">https://nbviewer.jupyter.org/github/jupyter/notebook/blob/master/docs/source/examples/Notebook/Running%20Code.ipynb</link>를
+        참고한다.</para>
+      </note></para>
+
+    <para><literallayout></literallayout></para>
+
+    <para>실험을 생성한 직후에는 user_pre.py, user_train.py, user_inf_pre.py,
+    user_inf_predict.py 파일이 작성되어 있지 않기 때문에 <guibutton>[코드 수정]</guibutton> 버튼을
+    클릭해서 파일을 작성해야 한다. 실험 정보를 생성할 때 입력한 <guibutton>'비밀번호'</guibutton> 항목의 값을
+    입력하면 Jypyter Notebook에서 직접 코드를 작성해서 실험할 수 있다.</para>
+
+    <para>Jupyter Notebook에서 작성한 코드 파일이 있다면 <guibutton>실험 상세 조회
+    화면</guibutton>(<xref linkend="figure_experiment_detail" />)에서
+    <guibutton>[모델 생성]</guibutton> 버튼을 클릭해서 학습할 모델을 생성하거나 <guibutton>[추론
+    생성]</guibutton> 버튼을 클릭해서 추론을 생성할 수 있다.</para>
+
+    <para>모델이나 추론을 생성할 때 다음의 Hyper API를 사용할 수 있다.</para>
+
+    <para><informaltable colsep="1" frame="topbot" rowsep="1">
+        <tgroup cols="2">
+          <colspec align="left" colwidth="150" />
+
+          <thead>
+            <row>
+              <entry>API</entry>
+
+              <entry>설명</entry>
+            </row>
+          </thead>
+
+          <tbody>
+            <row>
+              <entry>list_do</entry>
+
+              <entry>데이터소스에 등록한 DO의 리스트(DO이름과 ID)를 가져온다.</entry>
+            </row>
+
+            <row>
+              <entry>load_do</entry>
+
+              <entry>데이터소스에 등록한 DO 중 선택한 DO를 불러온다.</entry>
+            </row>
+
+            <row>
+              <entry>save_model</entry>
+
+              <entry>모델을 저장한다.</entry>
+            </row>
+
+            <row>
+              <entry>list_model</entry>
+
+              <entry>같은 이미지를 사용하여 만들어진 모델들의 리스트를 가져온다.</entry>
+            </row>
+
+            <row>
+              <entry>load_do_meta</entry>
+
+              <entry>특정 do의 메타정보를 가져온다.</entry>
+            </row>
+
+            <row>
+              <entry>load_model</entry>
+
+              <entry>모델을 로드한다.</entry>
+            </row>
+
+            <row>
+              <entry>save_do</entry>
+
+              <entry>추론 결과를 지정한 DO에 저장한다.</entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </informaltable>다음은 Hyper API를 사용한 user_pre.py, user_train.py,
+    user_inf_pre.py, user_inf_predict.py 파일 코드 예제이다.</para>
+
+    <figure>
+      <title>[ML Lab] - Hyper API를 이용한 기계학습 코드 예제 (user_pre.py)</title>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata align="left"
+                     fileref="resources/figure_hyperapi_example_1.png"
+                     width="750"></imagedata>
+        </imageobject>
+      </mediaobject>
+    </figure>
+
+    <figure>
+      <title>[ML Lab] - Hyper API를 이용한 기계학습 코드 예제 (user_train.py)</title>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata align="left"
+                     fileref="resources/figure_hyperapi_example_2.png"
+                     width="750"></imagedata>
+        </imageobject>
+      </mediaobject>
+    </figure>
+
+    <figure>
+      <title>[ML Lab] - Hyper API를 이용한 기계학습 코드 예제 (user_inf_pre.py)</title>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata align="left"
+                     fileref="resources/figure_hyperapi_example_3.png"
+                     width="750"></imagedata>
+        </imageobject>
+      </mediaobject>
+    </figure>
+
+    <figure>
+      <title>[ML Lab] - Hyper API를 이용한 기계학습 코드 예제
+      (user_inf_predict.py)</title>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata align="left"
+                     fileref="resources/figure_hyperapi_example_4.png"
+                     width="750"></imagedata>
+        </imageobject>
+      </mediaobject>
+    </figure>
+
+    <para></para>
+
+    <para></para>
+
+    <para></para>
+  </section>
+
+  <section xml:id="sect_model_create">
+    <title>모델 생성</title>
+
+    <para><guibutton>실험 상세 조회 화면</guibutton>(<xref
+    linkend="figure_experiment_detail_1" />)에서 <guibutton>[모델 생성]</guibutton>
+    버튼을 클릭하면 모델을 생성할 수 있다. 각 항목을 입력한 후 <guibutton>[생성]</guibutton> 버튼을
+    클릭한다.</para>
+
+    <para><figure>
+        <title>[ML Lab] - 모델 생성</title>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata align="left"
+                       fileref="resources/figure_model_create.png" width="530"></imagedata>
+          </imageobject>
+        </mediaobject>
+      </figure></para>
+
+    <para>다음은 입력 항목에 대한 설명이다.</para>
+
+    <para><informaltable colsep="1" frame="topbot" rowsep="1">
+        <tgroup cols="2">
+          <colspec align="left" colwidth="150" />
+
+          <thead>
+            <row>
+              <entry>항목</entry>
+
+              <entry>설명</entry>
+            </row>
+          </thead>
+
+          <tbody>
+            <row>
+              <entry>CPU (core)</entry>
+
+              <entry>모델 훈련에 사용되는 CPU 사용량을 설정한다.</entry>
+            </row>
+
+            <row>
+              <entry>메모리 (Gi)</entry>
+
+              <entry>모델 훈련에 사용되는 메모리 사용량을 설정한다.</entry>
+            </row>
+
+            <row>
+              <entry>GPU (개)</entry>
+
+              <entry>모델 훈련에 사용되는 GPU 사용량을 설정한다.</entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </informaltable></para>
+
+    <para><note>
+        <para>모델을 생성하기 전에 사용자가 Jupyter Notebook에서 user_pre.py와 user_train.py
+        파일이 작성되어 있어야 한다. 파일 작성에 대한 자세한 내용은 <link
+        linkend="sect_jupyter_code">"기계학습 코드 작성"</link>을 참고한다.</para>
+      </note></para>
+
+    <para></para>
+
+    <para></para>
+  </section>
+
+  <section xml:id="sect_model_delete">
+    <title>모델 삭제</title>
+
+    <para><guibutton>실험 상세 조회 화면</guibutton>(<xref
+    linkend="figure_experiment_detail_1" />)의 <guibutton>[모델 목록]</guibutton>
+    탭의 목록에서 삭제할 모델을 선택한 후 <guibutton>[삭제]</guibutton> 버튼을 클릭하거나
+    <guibutton>'동작'</guibutton> 항목의 <inlinemediaobject>
+        <imageobject>
+          <imagedata fileref="resources/icon_model_delete.png" width="22"></imagedata>
+        </imageobject>
+      </inlinemediaobject> 버튼을 클릭하면 생성 및 실행 완료된 모델을 삭제할 수 있다. 삭제할 목록을 확인한 후
+    <guibutton>[삭제]</guibutton> 버튼을 클릭한다.</para>
+
+    <para><figure>
+        <title>[ML Lab] - 모델 삭제</title>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata align="left"
+                       fileref="resources/figure_model_delete.png" width="300"></imagedata>
+          </imageobject>
+        </mediaobject>
+      </figure></para>
+
+    <para></para>
+  </section>
+
+  <section xml:id="sect_mllabs_model_detail">
+    <title>모델 상세 조회</title>
+
+    <para><guibutton>실험 상세 조회 화면</guibutton>(<xref
+    linkend="figure_experiment_detail_1" />)의 <guibutton>[모델 목록]</guibutton>
+    탭의 목록에서 <guibutton>'모델 이름'</guibutton> 항목을 클릭하면 해당 모델의 상세 정보를 조회할 수 있다.
+    <guibutton>[모델 다운로드]</guibutton> 버튼을 클릭하면 모델을 다운로드할 수 있고,
+    <guibutton>[삭제]</guibutton> 버튼을 클릭하면 모델 정보를 삭제할 수 있다.</para>
+
+    <para><figure xml:id="figure_model_detail">
+        <title>[ML Lab] - Model Details 화면</title>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata align="left"
+                       fileref="resources/figure_model_detail.png" width="750"></imagedata>
+          </imageobject>
+        </mediaobject>
+      </figure></para>
+
+    <itemizedlist spacing="compact">
+      <listitem>
+        <para><guibutton>모델 기본 정보</guibutton></para>
+
+        <para>모델의 기본 정보를 조회한다. 다음은 각 항목에 대한 설명이다.</para>
+
+        <para><informaltable colsep="1" frame="topbot" rowsep="1">
+            <tgroup cols="2">
+              <colspec align="left" colwidth="150" />
+
+              <thead>
+                <row>
+                  <entry>항목</entry>
+
+                  <entry>설명</entry>
+                </row>
+              </thead>
+
+              <tbody>
+                <row>
+                  <entry>실험</entry>
+
+                  <entry>해당 모델이 속한 실험의 이름이다.</entry>
+                </row>
+
+                <row>
+                  <entry>생성 시각</entry>
+
+                  <entry>모델의 생성일자이다.</entry>
+                </row>
+
+                <row>
+                  <entry>훈련 상태</entry>
+
+                  <entry>모델의 상태를 나타낸다.</entry>
+                </row>
+
+                <row>
+                  <entry>배포 상태</entry>
+
+                  <entry>모델의 서빙 상태를 나타낸다.</entry>
+                </row>
+
+                <row>
+                  <entry>배포 URL</entry>
+
+                  <entry>모델을 서비스화한 상태일 때 URL을 통해 추론을 할 수 있다.</entry>
+                </row>
+              </tbody>
+            </tgroup>
+          </informaltable></para>
+      </listitem>
+
+      <listitem>
+        <para><guibutton>모델 추가 정보</guibutton></para>
+
+        <para><guibutton> [전처리 로그]</guibutton> 탭, <guibutton>[훈련
+        로그]</guibutton> 탭, <guibutton>[전처리 코드]</guibutton> 탭,
+        <guibutton>[학습코드]</guibutton> 탭에서 모델의 전처리와 학습 로그 및 코드를 조회할 수
+        있다.</para>
+      </listitem>
+    </itemizedlist>
+
+    <para><note>
+        <para><guibutton>[모델 다운로드]</guibutton> 버튼을 클릭하면 모델에 적용된 알고리즘[xgboost,
+        randomforest]별로 생성된 모델의 세부 정보(hyperparameter 내역, 사용된 알고리즘 내역 등등) 등을 메타
+        데이터 형태로 저장된다. 이때 각 파일의 확장자는 알고리즘별로 다르다. 다운로드된 파일은 사용자가 모델 내부정보를 읽을 수가
+        없기 때문에 사용할 수 있는 곳은 없으나 추후에 구현 예정인 HyperData API 서비스(모델 로드 서비스)를 통해서만
+        모델 정보를 확인할 수 있으며, 생성된 모델을 기반으로 다른 데이터에 테스트를 진행할 수 있다.</para>
+      </note></para>
+  </section>
+
+  <section xml:id="sect_model_serving">
+    <title>모델 서비스화</title>
+
+    <para><guibutton>실험 상세 조회 화면</guibutton>(<xref
+    linkend="figure_experiment_detail_1" />)에서 <guibutton>[모델 목록]</guibutton>
+    탭의 목록에서 <guibutton>'동작'</guibutton> 항목에 <inlinemediaobject>
+        <imageobject>
+          <imagedata fileref="resources/icon_serving.png" width="22"></imagedata>
+        </imageobject>
+      </inlinemediaobject>버튼을 클릭하면 학습된 기계학습 모델을 AI 서비스화할 수 있다. 각 항목을 설정한
+    후<guibutton> [Confirm] </guibutton>버튼을 클릭하면 서비스화가 진행된다.</para>
+
+    <para><figure>
+        <title>[ML Lab] - 모델서비스화</title>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata align="left"
+                       fileref="resources/figure_serve_create.png" width="300"></imagedata>
+          </imageobject>
+        </mediaobject>
+      </figure></para>
+
+    <para>다음은 각 항목에 대한 설명이다.</para>
+
+    <para><informaltable colsep="1" frame="topbot" rowsep="1">
+        <tgroup cols="2">
+          <colspec align="left" colwidth="150" />
+
+          <thead>
+            <row>
+              <entry>항목</entry>
+
+              <entry>설명</entry>
+            </row>
+          </thead>
+
+          <tbody>
+            <row>
+              <entry>Pod Number</entry>
+
+              <entry>서비스화에 사용되는 최소, 최대 파드의 수를 설정한다.</entry>
+            </row>
+
+            <row>
+              <entry>CPU(core)</entry>
+
+              <entry>서비스화에 사용되는 CPU를 설정한다.</entry>
+            </row>
+
+            <row>
+              <entry>Memory(GI)</entry>
+
+              <entry>서비스화에 사용되는 메모리를 설정한다.</entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </informaltable></para>
+
+    <para><note>
+        <para>모델의 서비스화가 성공하면 <guibutton>실험 상세 조회 화면</guibutton>(<xref
+        linkend="figure_experiment_detail_1" />)에서 <guibutton>모델
+        목록</guibutton>의 <guibutton>'배포 상태'</guibutton> 항목이 'On'으로 변경되고,
+        <guibutton>Model Details 화면</guibutton>(<xref
+        linkend="figure_model_detail" />)의 <guibutton>'배포 URL'</guibutton>에서
+        서비스 정보를 조회할 수 있다.</para>
+      </note></para>
+
+    <para></para>
+  </section>
+
+  <section xml:id="sect_mllab_inference_create">
+    <title>추론 생성</title>
+
+    <para><guibutton>실험 상세 조회 화면</guibutton>(<xref
+    linkend="figure_experiment_detail_2" />)에서 <guibutton>[추론 목록]</guibutton>
+    탭의 <guibutton>[추론 생성]</guibutton> 버튼을 클릭하면 모델을 생성할 수 있다. 각 항목을 입력한 후
+    <guibutton>[생성]</guibutton> 버튼을 클릭한다.</para>
+
+    <para><figure>
+        <title>[ML Lab] - 추론 생성</title>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata align="left"
+                       fileref="resources/figure_mllab_inference_create.png"
+                       width="500"></imagedata>
+          </imageobject>
+        </mediaobject>
+      </figure></para>
+
+    <para>다음은 입력 항목에 대한 설명이다.</para>
+
+    <para><informaltable colsep="1" frame="topbot" rowsep="1">
+        <tgroup cols="2">
+          <colspec align="left" colwidth="150" />
+
+          <thead>
+            <row>
+              <entry>항목</entry>
+
+              <entry>설명</entry>
+            </row>
+          </thead>
+
+          <tbody>
+            <row>
+              <entry>CPU (core)</entry>
+
+              <entry>모델 훈련에 사용되는 CPU 사용량을 설정한다.</entry>
+            </row>
+
+            <row>
+              <entry>메모리 (Gi)</entry>
+
+              <entry>모델 훈련에 사용되는 메모리 사용량을 설정한다.</entry>
+            </row>
+
+            <row>
+              <entry>GPU (개)</entry>
+
+              <entry>모델 훈련에 사용되는 GPU 사용량을 설정한다.</entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </informaltable></para>
+
+    <para><note>
+        <para>추론을 생성하기 전에 사용자가 Jupyter Notebook에서 user_inf_pre.py와
+        user_inf_predict.py 파일이 작성되어 있어야 한다. 파일 작성에 대한 자세한 내용은 <link
+        linkend="sect_jupyter_code">"기계학습 코드 작성"</link>을 참고한다.</para>
+      </note></para>
+
+    <para></para>
+
+    <para></para>
+  </section>
+
+  <section xml:id="sect_mllab_inference_delete">
+    <title>추론 삭제</title>
+
+    <para><guibutton>실험 상세 조회 화면</guibutton>(<xref
+    linkend="figure_experiment_detail_2" />)의 <guibutton>[추론 목록]</guibutton>
+    탭에서 <guibutton>[삭제]</guibutton> 버튼을 클릭하거나 목록의 <guibutton>'동작'</guibutton>
+    항목에 <inlinemediaobject>
+        <imageobject>
+          <imagedata fileref="resources/icon_model_delete.png" width="22"></imagedata>
+        </imageobject>
+      </inlinemediaobject> 버튼을 클릭하면 생성 및 실행 완료된 추론을 삭제할 수 있다. 삭제할 목록을 확인한 후
+    <guibutton>[삭제]</guibutton> 버튼을 클릭한다.</para>
+
+    <para><figure>
+        <title>[ML Lab] - 추론 삭제</title>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata align="left"
+                       fileref="resources/figure_mllab_inference_delete.png"
+                       width="300"></imagedata>
+          </imageobject>
+        </mediaobject>
+      </figure></para>
+
+    <para></para>
+  </section>
+
+  <section xml:id="sect_mllabs_inference_detail">
+    <title>추론 상세 조회</title>
+
+    <para><guibutton>실험 상세 조회 화면</guibutton>(<xref
+    linkend="figure_experiment_detail_2" />)에 <guibutton>[추론 목록]</guibutton>
+    탭의 목록에서 <guibutton>'추론 이름'</guibutton> 항목을 클릭하면 해당 추론의 상세 정보를 조회할 수 있다.
+    <guibutton>[결과 다운로드]</guibutton> 버튼을 클릭하면 추론 결과를 다운로드할 수 있고,
+    <guibutton>[삭제]</guibutton> 버튼을 클릭하면 해당 추론을 삭제할 수 있다.</para>
+
+    <para><figure xml:id="figure_mllab_inference_detail">
+        <title>[ML Lab] - Inference Details 화면</title>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata align="left"
+                       fileref="resources/figure_mllab_inference_detail.png"
+                       width="750"></imagedata>
+          </imageobject>
+        </mediaobject>
+      </figure></para>
+
+    <itemizedlist spacing="compact">
+      <listitem>
+        <para><guibutton>추론 기본 정보</guibutton></para>
+
+        <para>추론의 기본 정보를 조회한다. 다음은 각 항목에 대한 설명이다.</para>
+
+        <para><informaltable colsep="1" frame="topbot" rowsep="1">
+            <tgroup cols="2">
+              <colspec align="left" colwidth="150" />
+
+              <thead>
+                <row>
+                  <entry>항목</entry>
+
+                  <entry>설명</entry>
+                </row>
+              </thead>
+
+              <tbody>
+                <row>
+                  <entry>실험</entry>
+
+                  <entry>해당 추론이 속한 실험의 이름이다.</entry>
+                </row>
+
+                <row>
+                  <entry>추론 상태</entry>
+
+                  <entry>모델의 상태를 나타낸다.</entry>
+                </row>
+
+                <row>
+                  <entry>생성 시각</entry>
+
+                  <entry>모델의 생성일자이다.</entry>
+                </row>
+              </tbody>
+            </tgroup>
+          </informaltable></para>
+      </listitem>
+
+      <listitem>
+        <para><guibutton>추론 추가 정보</guibutton></para>
+
+        <para><guibutton> [전처리 로그]</guibutton> 탭, <guibutton>[추론
+        로그]</guibutton> 탭, <guibutton>[전처리 코드]</guibutton> 탭,
+        <guibutton>[추론코드]</guibutton> 탭에서 추론의 전처리와 추론 로그 및 코드를 조회할 수
+        있다.</para>
+      </listitem>
+    </itemizedlist>
+  </section>
+</section>

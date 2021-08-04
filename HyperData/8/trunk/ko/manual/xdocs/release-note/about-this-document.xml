@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<preface version="5.0" xml:id="about" xmlns="http://docbook.org/ns/docbook"
+         xmlns:xlink2="http://www.w3.org/1999/xlink"
+         xmlns:xila="http://www.w3.org/2001/XInclude/local-attributes"
+         xmlns:xi="http://www.w3.org/2001/XInclude"
+         xmlns:trans="http://docbook.org/ns/transclusion"
+         xmlns:svg="http://www.w3.org/2000/svg"
+         xmlns:mml="http://www.w3.org/1998/Math/MathML"
+         xmlns:html="http://www.w3.org/1999/xhtml"
+         xmlns:db="http://docbook.org/ns/docbook">
+  <title>안내서에 대하여</title>
+
+  <bridgehead>안내서의 대상</bridgehead>
+
+  <para></para>
+
+  <para>본 안내서는 HyperData™(이하 HyperData)의 새로운 기능과 이전 버전에 대한 변경 사항에 대해서 설명한다. 본
+  안내서에서는 변경된 기능에 대해서 간단히 언급하며, 자세한 내용은 해당 안내서를 참고한다.</para>
+
+  <para></para>
+
+  <para><bridgehead>안내서의 전제 조건</bridgehead></para>
+
+  <para>본 안내서는 다음 제품의 지식을 배경으로 작성되었다. 따라서 본 안내서의 내용을 원활히 이해하기 위해서는 다음 사항에 대한
+  사전지식을 미리 습득하고 있어야 한다.</para>
+
+  <para><itemizedlist spacing="compact">
+      <listitem>
+        <para>데이터베이스의 이해</para>
+      </listitem>
+
+      <listitem>
+        <para>클라우드 환경의 이해</para>
+      </listitem>
+
+      <listitem>
+        <para>빅데이터 환경의 이해</para>
+      </listitem>
+
+      <listitem>
+        <para>운영체제 및 시스템 환경의 이해</para>
+      </listitem>
+    </itemizedlist></para>
+
+  <para></para>
+
+  <para></para>
+
+  <para></para>
+
+  <para><bridgehead>안내서의 제한 조건</bridgehead></para>
+
+  <para>본 안내서는 <phrase condition="uprdb">HyperData</phrase> 실무에 적용하거나 운용하는 데
+  필요한 모든 사항을 포함하지 않는다. 또한, OS에 대한 이해를 필요로 한다.</para>
+
+  <?dbfo-need height="10in" ?>
+
+  <xi:include href="../common/convention.xml" />
+
+  <para></para>
+
+  <para></para>
+
+  <para></para>
+
+  <para></para>
+
+  <para></para>
+
+  <para></para>
+</preface>

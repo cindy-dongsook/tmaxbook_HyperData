@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<targetset xmlns:xi="http://www.w3.org/2001/XInclude">
+    <sitemap>
+        <dir name="xdocs">
+            <dir name="installation-guide">
+                <document targetdoc="installation-guide">
+                    <xi:include href="installation-guide/target.db"/>
+                </document>
+            </dir>
+	         <dir name="user-guide">
+                <document targetdoc="user-guide">
+                    <xi:include href="user-guide/target.db"/>
+                </document>
+            </dir>
+	         <dir name="release-note">
+                <document targetdoc="release-note">
+                    <xi:include href="release-note/target.db"/>
+                </document>
+            </dir>
+        </dir>
+    </sitemap>
+</targetset>

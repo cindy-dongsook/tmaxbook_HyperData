@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<chapter version="5.0" xml:id="chapter1" xmlns="http://docbook.org/ns/docbook"
+         xmlns:xlink="http://www.w3.org/1999/xlink"
+         xmlns:xi="http://www.w3.org/2001/XInclude"
+         xmlns:svg="http://www.w3.org/2000/svg"
+         xmlns:m="http://www.w3.org/1998/Math/MathML"
+         xmlns:html="http://www.w3.org/1999/xhtml"
+         xmlns:db="http://docbook.org/ns/docbook">
+  <title>설치 소개 및 준비사항</title>
+
+  <para>본 장에 HyperData의 설치를 위한 시스템 사용환경과 준비사항에 대해 설명한다.</para>
+
+  <section>
+    <title>개요</title>
+
+    <para>HyperData는 가상 통합된 데이터 환경과 자동화된 데이터 분석 서비스를 기반으로 데이터에 대한 가시성과 통찰력을
+    제공해 주는 플랫폼이다.</para>
+
+    <para>HyperData는 새로운 데이터 접근 방식으로 데이터 가상화 기술을 기반으로 각종 IoT 센서 데이터, 네트워크
+    장치/서버/애플리케이션에서 생성된 로그, SAM 파일, 이기종 RDBMS 등의 종류에 상관없이 데이터를 통합하여 수집/저장할 수
+    있을뿐만 아니라 원하는 데이터를 실시간으로 검색 및 분석할 수 있다.</para>
+
+    <para>본 안내서에서는 HyperData를 Kubernetes에 설치하는 과정에 대해서 설명한다(본 안내서는 Ubuntu
+    18.04 환경에서 설치를 진행한다).</para>
+
+    <para><note>
+        <para>1. 제품 납품 시 매뉴얼(설치 및 사용자 가이드), 이미지를 함께 제공하며 제품 설치는 사내 엔지니어를 통해서
+        기술 지원 서비스를 제공 받을 수 있다.</para>
+
+        <para>2. 제품 유지보수는 프로젝트 시작 지점부터 1년동안 무상 유지보수를 제공한다.</para>
+      </note></para>
+  </section>
+
+  <section>
+    <title>시스템 사용 환경</title>
+
+    <para>다음은 HyperData 기동을 위한 최소 및 권장 사양이다.</para>
+
+    <informaltable colsep="1" frame="topbot" rowsep="1">
+      <tgroup cols="2">
+        <colspec align="left" colwidth="150"/>
+
+        <thead>
+          <row>
+            <entry/>
+
+            <entry>요구 사항</entry>
+          </row>
+        </thead>
+
+        <tbody>
+          <row>
+            <entry>Platform</entry>
+
+            <entry><para>deb / rpm 호환 Linux OS를 실행하는 하나 이상의 64Bit
+            시스템</para><itemizedlist mark="circle" spacing="compact">
+                <listitem>
+                  <para>Red Hat Enterprise Linux 7(CentOS 7) 이상</para>
+                </listitem>
+
+                <listitem>
+                  <para>Ubuntu 18 이상</para>
+                </listitem>
+              </itemizedlist></entry>
+          </row>
+
+          <row>
+            <entry>Hardware</entry>
+
+            <entry><para>Node 서버별 하드웨어 권장 사양이며, 최소 3개의 Node로 Kubernetes 환경 구성이
+            필요하다.</para><itemizedlist mark="circle" spacing="compact">
+                <listitem>
+                  <para>최소사양 : Node 서버당 CPU 8 Core, 메모리 8GB 이상, Disk 500GB
+                  이상</para>
+                </listitem>
+
+                <listitem>
+                  <para>권장사양 : Node 서버당 CPU 12 Core, 메모리 16GB 이상, Disk 1TB
+                  이상</para>
+                </listitem>
+              </itemizedlist></entry>
+          </row>
+
+          <row>
+            <entry>Software</entry>
+
+            <entry><itemizedlist spacing="compact">
+                <listitem>
+                  <para>공통</para>
+
+                  <itemizedlist spacing="compact">
+                    <listitem>
+                      <para>Calico : Kubernetes의 Network Plugin으로 version
+                      3.9.5 이상 설치 필요</para>
+                    </listitem>
+                  </itemizedlist>
+                </listitem>
+
+                <listitem>
+                  <para>HyperData 환경</para>
+
+                  <para><itemizedlist spacing="compact">
+                      <listitem>
+                        <para>On Kubernetes : Kubernetes version 1.15.3 이상 설치
+                        필요</para>
+
+                        <itemizedlist spacing="compact">
+                          <listitem>
+                            <para>Metallb : HyperData 퍼블릭 IP 구성을 위해 version
+                            0.7.3 이상 설치 필요</para>
+                          </listitem>
+
+                          <listitem>
+                            <para>Rook-ceph : HyperData 스토리지 생성을 위해 version 1.2
+                            이상 설치 필요</para>
+                          </listitem>
+
+                          <listitem>
+                            <para>Kubeflow : HyperData AI 모듈 사용을 위해 version
+                            1.0.2 이상 설치 필요</para>
+                          </listitem>
+                        </itemizedlist>
+                      </listitem>
+                    </itemizedlist></para>
+                </listitem>
+              </itemizedlist></entry>
+          </row>
+
+          <row>
+            <entry>WebBrowser</entry>
+
+            <entry>Chrome 최신 버전</entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+
+    <para/>
+  </section>
+
+  <section xml:id="sect_install_ready">
+    <title>설치 전 준비사항</title>
+
+    <para>Kubernetes, Calico, Kubeflow, metallb, Rook-ceph은 사전에 설치가 되어 있어야 한다.
+    HyperData를 설치하기 전에 관련된 제품 이미지를 준비하고 커널 파라미터를 설정해야 한다.</para>
+
+    <section xml:base="" xml:id="sect_image_push">
+      <title>HyperData 이미지 업로드</title>
+
+      <para>다음은 HyperData 이미지를 도커 레지스트리 서버에 이미지를 업로드하는 과정에 대한 설명이다.</para>
+
+      <orderedlist spacing="compact">
+        <listitem>
+          <para>이미지가 로컬 도커에 존재하는지 확인한다.</para>
+
+          <para>HyperData를 설치하기 위해서는 5개의 이미지가 필요하고 사전에 도커 레지스트리 서버에 이미지를
+          업로드해놓아야 한다.</para>
+
+          <para><informaltable colsep="1" frame="topbot" rowsep="1">
+              <tgroup cols="2">
+                <colspec align="left" colwidth="180"/>
+
+                <thead>
+                  <row>
+                    <entry>구분</entry>
+
+                    <entry>설명</entry>
+                  </row>
+                </thead>
+
+                <tbody>
+                  <row>
+                    <entry>Tibero 이미지</entry>
+
+                    <entry>HyperData의 메타 DB 저장 및 로직을 수행한다.</entry>
+                  </row>
+
+                  <row>
+                    <entry>HyperData 이미지</entry>
+
+                    <entry>HyperData 웹 서버 및 로직 수행한다.</entry>
+                  </row>
+
+                  <row>
+                    <entry>Recommend-Module 이미지</entry>
+
+                    <entry>AI 추천 모듈이다.</entry>
+                  </row>
+
+                  <row>
+                    <entry>Nginx-Controller 이미지</entry>
+
+                    <entry>Ingress-nginx를 수행한다.</entry>
+                  </row>
+
+                  <row>
+                    <entry>Kube-webhook 이미지</entry>
+
+                    <entry>Kubernetes webhook 인증서를 생성한다.</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </informaltable></para>
+
+          <para>다음의 명령어로 준비된 이미지를 확인한다.</para>
+
+          <programlisting><?db-font-size 90%?>[root@master ~]# docker images</programlisting>
+
+          <para><note>
+              <para>HyperData를 설치하기 위해 필요한 이미지 및 스크립트는 TmaxData(BI 사업본부 QA 팀)에
+              요청하여 안내를 받도록 한다.</para>
+            </note></para>
+        </listitem>
+
+        <listitem>
+          <para>업로드를 위해 daemon.json 파일에 이미지 서버를 설정한다.</para>
+
+          <para><programlisting><?db-font-size 90%?>("insecure-registries": ["도커 레지스트리 서버 IP:PORT"])</programlisting>도커
+          레지스트리 서버의 정보를 미리 받아야한다. 아래 소스 코드는 예제이므로 시스템 환경에 따라 다를 수 있으며, 도커를
+          디폴트로 설치하는 경우 서버 정보는 /etc/docker/damon.json에서 확인한다.</para>
+
+          <para><programlisting><?db-font-size 90%?>[root@master ~]# cat /etc/docker/daemon.json 
+{
+   "exec-opts": ["native.cgroupdriver=systemd"],
+   "log-driver": "json-file",
+   "log-opts": {
+       "max-size": "100m"
+   },
+   "iptables": false,
+   "storage-driver": "overlay2",
+   "insecure-registries": [ <guibutton>"192.168.188.106:5000"</guibutton>,
+                            "192.168.6.110:5000",
+                            "192.168.17.131:5000"],
+   "default-runtime": "nvidia",
+   "runtimes": {
+       "nvidia": {
+       "path": "nvidia-container-runtime",
+       "runtimeArgs": []
+    }
+  }
+}</programlisting></para>
+
+          <para/>
+        </listitem>
+
+        <listitem>
+          <para>도커를 재시작한다.</para>
+
+          <programlisting><?db-font-size 90%?>[root@master ~]# systemctl restart docker</programlisting>
+        </listitem>
+
+        <listitem>
+          <para>업로드할 이미지를 도커 레지스트리 서버에 도커를 푸쉬한다.</para>
+
+          <programlisting><?db-font-size 90%?>[root@master ~]# docker push 192.168.188.106:5000/hyperdata8.3_eda:20200626_v1
+[root@master ~]# docker push 192.168.188.106:5000/hyperdata8.3_hd:20201007_v1
+[root@master ~]# docker push 192.168.188.106:5000/hyperdata8.3_tb:20200824_v1
+[root@master ~]# docker push 192.168.188.106:5000/ingress-nginx/controller:v0.44.0
+[root@master ~]# docker push 192.168.188.106:5000/jettech/kube-webhook-certgen:v1.5.1</programlisting>
+        </listitem>
+      </orderedlist>
+    </section>
+
+    <section>
+      <title>커널 파라미터 설정</title>
+
+      <para>다음은 Tibero를 기동하기 위해서 시스템 커널 파라미터를 설정하는 과정에 대한 설명이다.</para>
+
+      <para/>
+
+      <orderedlist spacing="compact">
+        <listitem>
+          <para>10-kubeadm.conf 파일에 kernel.sem 설정한다(소스 코드에
+          --allowed-unsafe-sysctls=kernel.sem 추가). Kubernetes가 클러스터로 구성되어 있다면
+          마스터, 워커 노드들에 설정해주어야 한다.</para>
+
+          <programlisting language="XML"><?db-font-size 89%?>[root@master ~]# cat  /lib/systemd/system/kubelet.service.d/10-kubeadm.conf
+# Note: This dropin only works with kubeadm and kubelet v1.11+
+[Service]
+Environment="KUBELET_KUBECONFIG_ARGS=--bootstrap-kubeconfig=
+/etc/kubernetes/bootstrap-kubelet.conf
+ --kubeconfig=/etc/kubernetes/kubelet.conf"
+Environment="KUBELET_CONFIG_ARGS=--config=/var/lib/kubelet/config.yaml"
+# This is a file that "kubeadm init" and "kubeadm join" generates at runtime, 
+populating the 
+KUBELET_KUBEADM_ARGS variable dynamically
+EnvironmentFile=-/var/lib/kubelet/kubeadm-flags.env
+# This is a file that the user can use for overrides of the kubelet args as a last 
+resort. Preferably,
+ the user should use
+# the .NodeRegistration.KubeletExtraArgs object in the configuration files instead. 
+KUBELET_EXTRA_ARGS should be sourced from this file.
+EnvironmentFile=-/etc/sysconfig/kubelet
+ExecStart=
+ExecStart=/usr/bin/kubelet $KUBELET_KUBECONFIG_ARGS $KUBELET_CONFIG_ARGS 
+$KUBELET_KUBEADM_ARGS 
+$KUBELET_EXTRA_ARGS <guibutton>--allowed-unsafe-sysctls=kernel.sem</guibutton></programlisting>
+        </listitem>
+
+        <listitem>
+          <para>kubelet를 재기동한다.</para>
+
+          <para><programlisting><?db-font-size 90%?>[root@master ~]# systemctl daemon-reload
+[root@master ~]# systemctl restart kubelet</programlisting></para>
+        </listitem>
+      </orderedlist>
+    </section>
+  </section>
+</chapter>

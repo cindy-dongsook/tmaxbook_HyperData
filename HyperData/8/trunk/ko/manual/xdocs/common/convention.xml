@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<para version="5.0" xmlns="http://docbook.org/ns/docbook"
+xmlns:xlink2="http://www.w3.org/1999/xlink"
+xmlns:xlink="http://www.w3.org/1999/xlink"
+xmlns:xi="http://www.w3.org/2001/XInclude"
+xmlns:svg="http://www.w3.org/2000/svg"
+xmlns:mml="http://www.w3.org/1998/Math/MathML"
+xmlns:html="http://www.w3.org/1999/xhtml"
+xmlns:db="http://docbook.org/ns/docbook"><bridgehead>안내서 규약</bridgehead><para>
+    <informaltable colsep="1" frame="topbot" rowsep="1">
+      <tgroup cols="2">
+        <colspec align="left" colwidth="180" />
+
+        <thead>
+          <row>
+            <entry>표기</entry>
+
+            <entry>의미</entry>
+          </row>
+        </thead>
+
+        <tbody>
+          <row>
+            <entry>&lt;&lt;AaBbCc123&gt;&gt;</entry>
+
+            <entry>프로그램 소스 코드의 파일명</entry>
+          </row>
+
+          <row>
+            <entry>&lt;Ctrl&gt;+C</entry>
+
+            <entry>Ctrl과 C를 동시에 누름</entry>
+          </row>
+
+          <row>
+            <entry>
+              <guibutton>[Button]</guibutton>
+            </entry>
+
+            <entry>GUI의 버튼 또는 메뉴 이름</entry>
+          </row>
+
+          <row>
+            <entry>
+              <guibutton>진하게</guibutton>
+            </entry>
+
+            <entry>강조</entry>
+          </row>
+
+          <row>
+            <entry>" "(따옴표)</entry>
+
+            <entry>다른 관련 안내서 또는 안내서 내의 다른 장 및 절 언급</entry>
+          </row>
+
+          <row>
+            <entry>
+              <guibutton>'입력항목'</guibutton>
+            </entry>
+
+            <entry>화면 UI에서 입력 항목에 대한 설명</entry>
+          </row>
+
+          <row>
+            <entry>
+              <email>하이퍼링크</email>
+            </entry>
+
+            <entry>메일 계정, 웹 사이트</entry>
+          </row>
+
+          <row>
+            <entry>&gt;</entry>
+
+            <entry>메뉴의 진행 순서</entry>
+          </row>
+
+          <row>
+            <entry>+----</entry>
+
+            <entry>하위 디렉터리 또는 파일 있음</entry>
+          </row>
+
+          <row>
+            <entry>|----</entry>
+
+            <entry>하위 디렉터리 또는 파일 없음</entry>
+          </row>
+
+          <row>
+            <entry>
+              <note>
+                <para />
+              </note>
+            </entry>
+
+            <entry>참고 또는 주의사항</entry>
+          </row>
+
+          <row>
+            <entry>
+              <caution>
+                <para />
+              </caution>
+            </entry>
+
+            <entry>주의할 사항</entry>
+          </row>
+
+          <row>
+            <entry>
+              <guibutton>[그림 1.1]</guibutton>
+            </entry>
+
+            <entry>그림 이름</entry>
+          </row>
+
+          <row>
+            <entry>
+              <guibutton>[예 1.1]</guibutton>
+            </entry>
+
+            <entry>예제 이름</entry>
+          </row>
+
+          <row>
+            <entry>
+              <programlisting><?db-font-size 90% ?>AaBbCc123</programlisting>
+            </entry>
+
+            <entry>Java 코드, XML 문서</entry>
+          </row>
+
+          <row>
+            <entry>[<emphasis>command argument</emphasis>]</entry>
+
+            <entry>옵션 파라미터</entry>
+          </row>
+
+          <row>
+            <entry>&lt; xyz &gt;</entry>
+
+            <entry>‘&lt;’와 ‘&gt;’ 사이의 내용이 실제 값으로 변경됨</entry>
+          </row>
+
+          <row>
+            <entry>|</entry>
+
+            <entry>선택 사항. 예) A|B: A나 B 중 하나</entry>
+          </row>
+
+          <row>
+            <entry>…</entry>
+
+            <entry>파라미터 등이 반복되어서 나옴</entry>
+          </row>
+
+          <row>
+            <entry>${ }</entry>
+
+            <entry>환경변수</entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para><para /></para>

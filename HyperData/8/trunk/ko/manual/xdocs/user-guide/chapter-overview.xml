@@ -1,0 +1,566 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<chapter version="5.0" xmlns="http://docbook.org/ns/docbook"
+         xmlns:xlink="http://www.w3.org/1999/xlink"
+         xmlns:xila="http://www.w3.org/2001/XInclude/local-attributes"
+         xmlns:xi="http://www.w3.org/2001/XInclude"
+         xmlns:trans="http://docbook.org/ns/transclusion"
+         xmlns:svg="http://www.w3.org/2000/svg"
+         xmlns:mml="http://www.w3.org/1998/Math/MathML"
+         xmlns:html="http://www.w3.org/1999/xhtml"
+         xmlns:db="http://docbook.org/ns/docbook">
+  <title>소개</title>
+
+  <para>본 장에서는 HyperData의 전반적인 기능과 특장점에 대해서 기술한다. 전체 시스템 아키텍쳐에 대한 소개와 함께 제품의
+  구조를 설명한다.</para>
+
+  <para></para>
+
+  <section>
+    <title>개요</title>
+
+    <para>HyperData는 가상 통합된 데이터 환경과 자동화된 데이터 분석 서비스를 기반으로 데이터에 대한 가시성과 통찰력을
+    제공해 주는 플랫폼이다.</para>
+
+    <para>현재 BI 시장은 기존 솔루션의 한계를 넘어 실시간, 통합 분석을 통해 사전 대응이 가능한 지능형 솔루션으로 발전하고
+    있다. 기존 BI 솔루션이 갖는 한계점으로는 데이터 수집, 저장, 처리, 분석, 시각화 등 BI에 필요한 요소 기술 및 기능들이
+    각각의 개별 시스템을 기반으로 독립적으로 구성되고, 복잡한 연계 단계를 거쳐야만 가치 있는 정보 분석이 가능하는 점이다. 또한 다양한
+    종류의 데이터 및 대용량 데이터의 처리 능력 부족, 실시간 분석 구현 한계 등의 수동적인 대응만 가능하다는 문제점을 안고
+    있다.</para>
+
+    <para>HyperData는 이러한 한계를 극복할 수 있도록 각종 IoT 센서 데이터, 네트워크 장치/서버/애플리케이션에서 생성된
+    로그, SAM 파일, 이기종 RDBMS 등의 다양한 데이터를 통합하여 수집/저장할 수 있을 뿐만 아니라, 데이터 가상화 기술을
+    기반으로 원하는 데이터를 실시간으로 검색 및 분석할 수 있다.</para>
+
+    <para>HyperData는 가상 통합된 데이터 환경에서 사용자에게 다양한 데이터 분석 방법론을 제공한다. 사용자가 직접 Flow를
+    통해 데이터 변환 과정을 체험할 수 있으며, 다차원 분석 기능을 통해 데이터에 대한 다각도의 분석을 수행할 수 있다. 또한 지능화된
+    데이터 특징 분석 기술을 통해 데이터 시각화 자료를 추천받을 수 있고, 자연어 질의를 통한 데이터 시각화 자료를 요청할 수 있다.
+    AutoML 서비스를 제공해 AI 비전문가도 양질의 머신러닝 결과를 손쉽게 얻을 수 있고, 전문가들은 직접 개발환경을 구성하고 손수
+    모델링과 학습을 할 수 있는 도구들도 제공한다.</para>
+
+    <para></para>
+
+    <para><literallayout></literallayout></para>
+
+    <para><bridgehead>시스템 구조 및 주요 기능<indexterm class="singular">
+        <primary>시스템 구조</primary>
+      </indexterm></bridgehead></para>
+
+    <para>HyperData는 데이터를 분산 저장/처리하는 DB 엔진, 통합개발도구를 위한 Web Studio, 지능화 분석 서비스를
+    위한 AI 엔진, 그리고 데이터에 대한 통합 조회를 수행하고 전체 시스템을 관리할 수 있는 웹 서버로 구성되어 있다.</para>
+
+    <para>다음은 HyperData의 주요 기능에 대한 설명이다.<indexterm class="singular">
+        <primary>주요 기능</primary>
+      </indexterm></para>
+
+    <itemizedlist spacing="compact">
+      <listitem>
+        <para><guibutton>Tibero</guibutton></para>
+
+        <para>DB 엔진을 통해서 다양한 분석 대상에 대한 데이터 가상화하는 작업을 수행한다. 이기종 RDBMS
+        Connector, Hadoop Data Connector 기능을 한다.</para>
+      </listitem>
+
+      <listitem>
+        <para><guibutton>AI 엔진<indexterm class="singular">
+            <primary>AI 엔진</primary>
+          </indexterm></guibutton></para>
+
+        <para>AI 엔진은 지능화 분석 서비스를 위한 Total AI 엔진으로 인사이트를 위한 EDA와 분석 자동화를 위한
+        AutoML을 지원한다.<indexterm class="singular">
+            <primary>AutoML</primary>
+          </indexterm></para>
+      </listitem>
+
+      <listitem>
+        <para><guibutton>통합개발도구</guibutton></para>
+
+        <para>A.I, DataFlow, Visualization, Information Sharing을 통해서
+        Self-service Analysis를 위한 통합개발도구를 지원한다. 통합개발도구는 손쉬운 데이터 조회, 추출을 위한
+        Flow 기반 처리 메커니즘과 분석결과 시각화 및 리포트 구성을 위한 도구 제공한다. 또한 AI 모델 정의 학습을 위한 Web
+        IDE를 제공한다.</para>
+      </listitem>
+    </itemizedlist>
+
+    <figure>
+      <title>시스템 구성도</title>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata align="left"
+                     fileref="resources/figure_system_architecture.png"
+                     width="750"></imagedata>
+        </imageobject>
+      </mediaobject>
+    </figure>
+
+    <para></para>
+  </section>
+
+  <section>
+    <title>시작하기</title>
+
+    <para>HyperData에 접속한 후 로그인 화면에서 사용자 정보를 입력한다. 설치할 때 기본으로 제공되는 관리자 계정의 아이디와
+    비밀번호는 admin/admin이다. 신규 계정은 admin 계정을 통해 관리자 권한으로만 생성할 수 있다. 계정 생성 방식에 대한
+    자세한 내용은 <xref linkend="sect_user_create" />을 참고한다.</para>
+
+    <note>
+      <para>HyperData의 사용자는 Administrator 권한과 일반 사용자 계정으로 나뉘고 그에 따라 메뉴 구성이
+      달라진다. 본 안내서는 Administrator 권한으로 로그인한 사용자를 기준으로 기술한다.</para>
+    </note>
+
+    <para><literallayout></literallayout></para>
+
+    <para>로그인 화면에서 사용자 아이디와 비밀번호를 입력한 후 <guibutton>[로그인]</guibutton> 버튼을
+    클릭한다.</para>
+
+    <figure xml:id="figure_web_ui_login">
+      <title>HyperData 로그인 화면</title>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata align="left" fileref="resources/figure_web_ui_login.png"
+                     width="750"></imagedata>
+        </imageobject>
+      </mediaobject>
+    </figure>
+
+    <para>만약 로그인을 5회 이상 실패하면, 경고창과 함께 계정이 잠겨진다. 잠금을 해제하려면, 시스템 관리자에게 요청해야 한다.
+    요청을 받은 시스템 관리자는 해당 사용자의 계정 정보를 수정해 잠금을 해제한다.</para>
+
+    <figure>
+      <title>로그인 5회 이상 실패</title>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata align="left" fileref="resources/figure_user_locked.png"
+                     width="300"></imagedata>
+        </imageobject>
+      </mediaobject>
+    </figure>
+
+    <para>시스템 관리자 계정(제품 설치하는 경우 ID는 admin으로 생성)으로 최초 로그인 시 보안을 위해 비밀번호 변경을
+    유도한다.</para>
+
+    <figure>
+      <title>시스템 관리자 최초 로그인 시 비밀번호 변경 경고창</title>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata align="left"
+                     fileref="resources/figure_admin_initial_login.png"
+                     width="300"></imagedata>
+        </imageobject>
+      </mediaobject>
+    </figure>
+
+    <para>경고창에서 <guibutton>[확인]</guibutton> 버튼을 클릭하면, admin 계정의 정보를 수정할 수 있는
+    창으로 전환된다. 보안 강화를 위해 admin 계정의 비밀번호를 변경 후 HyperData 사용을 권장한다. 계정 정보 수정 화면에서
+    대한 자세한 내용은 <xref linkend="sect_user_edit" />을 참고한다.</para>
+
+    <figure>
+      <title>시스템 관리자 최초 로그인 시 비밀번호 변경</title>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata align="left"
+                     fileref="resources/figure_admin_first_login_edit_rel.png"
+                     width="350"></imagedata>
+        </imageobject>
+      </mediaobject>
+    </figure>
+
+    <para>로그인에 성공하면 HyperData 메인화면이 실행된다.</para>
+
+    <para>다음은 생성된 프로젝트가 없는 경우 실행되는 초기화면으로 프로젝트를 생성한 경우 해당 <guibutton>프로젝트
+    상세화면</guibutton>이 실행된다. 메인화면의 각 구성에 대한 자세한 내용은 <xref
+    linkend="sect_main_composition" />을 참고한다.</para>
+
+    <para><figure xml:id="figure_main">
+        <title>HyperData 메인화면</title>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata align="left" fileref="resources/figure_main.png"
+                       width="750"></imagedata>
+          </imageobject>
+        </mediaobject>
+      </figure></para>
+  </section>
+
+  <section xml:id="sect_main_composition">
+    <title>화면 구성</title>
+
+    <para>다음은 HyperData 화면의 각 구성에 대한 설명이다.</para>
+
+    <figure xml:id="figure_main_composition">
+      <title>HyperData 메인화면 구성</title>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata align="left"
+                     fileref="resources/figure_main_composition.png"
+                     width="750"></imagedata>
+        </imageobject>
+      </mediaobject>
+    </figure>
+
+    <para><itemizedlist spacing="compact">
+        <listitem>
+          <para><guimenuitem>① 메뉴 영역</guimenuitem></para>
+
+          <para>로그인된 사용자의 권한별로 메뉴가 구성된다. HyperData는 Administrator 권한 사용자와 일반
+          사용자에게 각기 다른 화면과 기능을 제공한다. Administrator 권한 사용자는 일반 사용자의 모든 기능을 사용할 수
+          있을 뿐만 아니라 추가적인 관리 기능을 사용할 수 있다.</para>
+
+          <para>HyperData의 메뉴는 <guibutton>시스템 관리</guibutton>,
+          <guibutton>프로젝트</guibutton>,<guibutton> 데이터</guibutton>,
+          <guibutton>JOB</guibutton>, <guibutton>분석</guibutton> 카테고리로 구성된다. 각
+          기능별 하위 메뉴에 대한 자세한 설명은 해당 절을 참고한다.</para>
+
+          <itemizedlist spacing="compact">
+            <listitem>
+              <para><guibutton>시스템 관리</guibutton></para>
+
+              <para>시스템 관리 카테고리는 로그인한 사용자가 Administrator 권한을 가진 경우만 메뉴가
+              구성된다.</para>
+
+              <para>다음은 관리자의 주요 작업을 하는 메뉴에 대한 설명이다.</para>
+
+              <para><informaltable colsep="1" frame="topbot" rowsep="1">
+                  <tgroup cols="2">
+                    <colspec align="left" colwidth="150" />
+
+                    <thead>
+                      <row>
+                        <entry>메뉴</entry>
+
+                        <entry>설명</entry>
+                      </row>
+                    </thead>
+
+                    <tbody>
+                      <row>
+                        <entry><guibutton><link
+                        linkend="sect_admin_users">[Users]</link></guibutton></entry>
+
+                        <entry>사용자를 등록, 수정, 삭제한다.</entry>
+                      </row>
+
+                      <row>
+                        <entry><guibutton><link
+                        linkend="sect_admin_user_groups">[User
+                        Groups]</link></guibutton></entry>
+
+                        <entry>사용자 그룹을 등록, 수정, 삭제한다.</entry>
+                      </row>
+
+                      <row>
+                        <entry><guibutton><link
+                        linkend="sect_admin_proj">[Project
+                        Management]</link></guibutton></entry>
+
+                        <entry>사용자가 생성한 프로젝트 목록을 조회하고 생성, 수정, 삭제한다.</entry>
+                      </row>
+
+                      <row>
+                        <entry><guibutton><link
+                        linkend="sect_admin_mornitoring">[System
+                        Monitoring]</link></guibutton></entry>
+
+                        <entry>HyperData 내 작업 수행 중 시스템 상황을 실시간으로 조회한다.</entry>
+                      </row>
+
+                      <row>
+                        <entry><guibutton><link
+                        linkend="sect_admin_auditlog">[Audit Log]
+                        </link></guibutton></entry>
+
+                        <entry>HyperData 내 수행된 action 기록을 남기며, 관리자가
+                        조회한다.</entry>
+                      </row>
+                    </tbody>
+                  </tgroup>
+                </informaltable></para>
+
+              <para></para>
+            </listitem>
+
+            <listitem>
+              <para><guibutton>프로젝트</guibutton></para>
+
+              <para><guibutton>[Project Details]</guibutton> 메뉴를 선택하면 현재 프로젝트의
+              상세 정보를 조회할 수 있다. 자세한 내용은 <xref linkend="chapter_project" />를
+              참고한다.</para>
+            </listitem>
+
+            <listitem>
+              <para><guibutton>데이터</guibutton></para>
+
+              <para>분산되어 있는 데이터를 가상화를 통해 통합하고 가공할 수 있다.</para>
+
+              <para><informaltable colsep="1" frame="topbot" rowsep="1">
+                  <tgroup cols="2">
+                    <colspec align="left" colwidth="150" />
+
+                    <thead>
+                      <row>
+                        <entry>메뉴</entry>
+
+                        <entry>설명</entry>
+                      </row>
+                    </thead>
+
+                    <tbody>
+                      <row>
+                        <entry><guibutton><link
+                        linkend="sect_data_datasource">[Data
+                        Source]</link></guibutton></entry>
+
+                        <entry>자체적인 디폴트 데이터소스 외에도 외부 소스를 등록하여 관리한다.</entry>
+                      </row>
+
+                      <row>
+                        <entry><guibutton><link
+                        linkend="sect_data_meta_mgmt">[Meta
+                        Management]</link></guibutton></entry>
+
+                        <entry>프로젝트 내 등록된 데이터 객체와 컬럼에 대한 메타 데이터를 관리한다.</entry>
+                      </row>
+
+                      <row>
+                        <entry><guibutton><link
+                        linkend="sect_data_shared_data">[Shared
+                        Data]</link></guibutton></entry>
+
+                        <entry>공유된 데이터 객체 현황을 조회한다.</entry>
+                      </row>
+
+                      <row>
+                        <entry><guibutton><link
+                        linkend="sect_data_data_asset">[Data
+                        Asset]</link></guibutton></entry>
+
+                        <entry>프로젝트 내 등록된 데이터 객체에 대한 검색을 수행한다.</entry>
+                      </row>
+                    </tbody>
+                  </tgroup>
+                </informaltable></para>
+            </listitem>
+
+            <listitem>
+              <para><guibutton>JOB</guibutton></para>
+
+              <para>Data Job, Service Job을 관리하고 Data Flow, Service Flow를 만들고
+              분석한다.</para>
+
+              <para><informaltable colsep="1" frame="topbot" rowsep="1">
+                  <tgroup cols="2">
+                    <colspec align="left" colwidth="150" />
+
+                    <thead>
+                      <row>
+                        <entry>메뉴</entry>
+
+                        <entry>설명</entry>
+                      </row>
+                    </thead>
+
+                    <tbody>
+                      <row>
+                        <entry><guibutton><link
+                        linkend="sect_job_data_job">[Data
+                        Job]</link></guibutton></entry>
+
+                        <entry>등록된 데이터소스로부터 데이터 가공 및 분석을 작업을 수행한다. 작성된 Data
+                        Job은 Service Job에서 사용된다.</entry>
+                      </row>
+
+                      <row>
+                        <entry><guibutton><link
+                        linkend="sect_job_service_job">[Service
+                        Job]</link></guibutton></entry>
+
+                        <entry>Service Job을 생성하고 작성한 후 그룹 분석/가공 작업을 정의하고 작업을
+                        수행한다. Service Job을 정의한 후 Scheduler 등에서 활용
+                        가능하다.</entry>
+                      </row>
+
+                      <row>
+                        <entry><guibutton><link
+                        linkend="sect_job_job_mornitoring">[Job
+                        Monitoring]</link></guibutton></entry>
+
+                        <entry>Data Job, Service Job의 수행 히스토리를 확인한다.</entry>
+                      </row>
+                    </tbody>
+                  </tgroup>
+                </informaltable></para>
+            </listitem>
+
+            <listitem>
+              <para><guibutton>분석 </guibutton></para>
+
+              <para>데이터를 시각화하여 인사이트를 추출하고 리포트를 작성한다. 제공되는 AI 모델을 활용하여 데이터를
+              학습하고 학습된 모델을 활용하여 데이터를 분석한다.</para>
+
+              <para><informaltable colsep="1" frame="topbot" rowsep="1">
+                  <tgroup cols="2">
+                    <colspec align="left" colwidth="150" />
+
+                    <thead>
+                      <row>
+                        <entry>메뉴</entry>
+
+                        <entry>설명</entry>
+                      </row>
+                    </thead>
+
+                    <tbody>
+                      <row>
+                        <entry><guibutton><link
+                        linkend="sect_analytics_dashboard">[Visualization]</link></guibutton></entry>
+
+                        <entry><guibutton>대시보드 화면</guibutton>(<xref
+                        linkend="figure_dashboard" />)에서 시각화 결과물들을 생성 및
+                        분석한다.</entry>
+                      </row>
+
+                      <row>
+                        <entry><guibutton><link
+                        linkend="sect_analytics_ml_labs">[ML
+                        Lab]</link></guibutton></entry>
+
+                        <entry>기계학습을 이용한 분석을 수행한다.</entry>
+                      </row>
+
+                      <row>
+                        <entry><guibutton><link
+                        linkend="sect_analytics_ml_auto">[AutoML]</link></guibutton></entry>
+
+                        <entry>데이터와 분석 목표만을 입력해서 자동으로 모델을 생성한다.</entry>
+                      </row>
+
+                      <row>
+                        <entry><guibutton><link
+                        linkend="sect_analytics_ml_experiment">[Experiments]</link></guibutton></entry>
+
+                        <entry>생성한 실험과 모델을 관리한다.</entry>
+                      </row>
+
+                      <row>
+                        <entry><guibutton><link
+                        linkend="sect_analytics_ml_predefined">[Predefined
+                        AI]</link></guibutton></entry>
+
+                        <entry>사전 정의된 모델들을 바탕으로 등록된 서비스를 다양하게 제공한다.</entry>
+                      </row>
+                    </tbody>
+                  </tgroup>
+                </informaltable></para>
+            </listitem>
+          </itemizedlist>
+        </listitem>
+
+        <listitem>
+          <para><guibutton>② 프로젝트 목록 영역</guibutton></para>
+
+          <para>생성된 프로젝트가 없는 경우 <guibutton>'프로젝트가 없습니다'</guibutton>로 표기되고
+          프로젝트가 생성된 경우 <guibutton>'프로젝트 선택'</guibutton>으로 표기된다. 해당 영역을 클릭하면
+          생성된 프로젝트 목록을 조회할 수 있다. 왼쪽에 위치한 사각형 아이콘은 프로젝트를 의미하며, 클릭과 관련된 별도의 기능은
+          없다. </para>
+
+          <para>목록에서 프로젝트를 선택하면 <guibutton>프로젝트 정보 화면</guibutton>(<xref
+          linkend="figure_project_detail" />)에서 상세 정보를 조회할 수 있다. 해당 화면에 대한 자세한
+          내용은 <xref linkend="chapter_project" />를 참고한다.</para>
+
+          <para>프로젝트를 생성하려면 <guibutton>[새 프로젝트 생성]</guibutton> 버튼을 클릭한다. 프로젝트
+          생성에 대한 자세한 내용은 <xref linkend="sect_project_create" />을 참고한다.</para>
+        </listitem>
+
+        <listitem>
+          <para><guibutton>③ 언어 선택 영역 </guibutton></para>
+
+          <para>화면의 언어 구성을 변경할 수 있다(한국어, English). 언어를 전환하는 경우 웹 페이지가 새로고침되므로
+          주의한다.</para>
+        </listitem>
+
+        <listitem>
+          <para><guibutton>④ 인포메이션 영역</guibutton></para>
+
+          <para>프로젝트나 사용자 생성 등의 사용자 액션이 완료되면 결과에 대해서 알람이 뜬다.<indexterm
+              class="singular">
+              <primary>사용자 작업 알람</primary>
+            </indexterm></para>
+
+          <para><figure>
+              <title>사용자 작업 알람</title>
+
+              <mediaobject>
+                <imageobject>
+                  <imagedata align="left" fileref="resources/figure_alert.png"
+                             width="260"></imagedata>
+                </imageobject>
+              </mediaobject>
+            </figure></para>
+
+          <para><inlinemediaobject>
+              <imageobject>
+                <imagedata fileref="resources/icon_alram.png" width="19"></imagedata>
+              </imageobject>
+            </inlinemediaobject> 아이콘을 클릭하면 제품 내의 주요 작업 결과를 조회할 수 있다. 초기에는 최근
+          5개의 활동 기록이 열람된다. 하단의 <emphasis role="underline"><guibutton>5개 더
+          보기...</guibutton></emphasis>를 클릭하면 5개의 활동 기록이 추가로 보여진다.</para>
+
+          <figure>
+            <title>사용자 작업 목록 조회</title>
+
+            <mediaobject>
+              <imageobject>
+                <imagedata align="left"
+                           fileref="resources/figure_notification_see_all.png"
+                           width="260"></imagedata>
+              </imageobject>
+            </mediaobject>
+          </figure>
+        </listitem>
+
+        <listitem>
+          <para><guibutton>⑤ 사용자 정보 영역 </guibutton></para>
+
+          <para>현재 로그인된 사용자의 정보와 제품의 상세 정보를 조회한다.</para>
+
+          <figure>
+            <title>사용자 정보 조회</title>
+
+            <mediaobject>
+              <imageobject>
+                <imagedata align="left"
+                           fileref="resources/figure_userinfo.png" width="230"></imagedata>
+              </imageobject>
+            </mediaobject>
+          </figure>
+
+          <para><guibutton>[사용자 설정]</guibutton> 버튼을 클릭하면 사용자의 정보를 수정할 수 있다.
+          사용자 정보 수정에 대한 자세한 내용은 <xref linkend="sect_user_edit" />을 참고한다.
+          <guibutton>[로그아웃]</guibutton> 버튼을 클릭하면 HyperData Web UI에 로그아웃되고
+          <guibutton>로그인 화면</guibutton>(<xref
+          linkend="figure_web_ui_login" />)으로 이동한다.</para>
+        </listitem>
+
+        <listitem>
+          <para><guibutton>⑥ 프로젝트 생성</guibutton></para>
+
+          <para>신규 프로젝트를 생성한다. 프로젝트 생성에 대한 자세한 내용은 <xref
+          linkend="sect_project_create" />을 참고한다.</para>
+        </listitem>
+
+        <listitem>
+          <para><guibutton>⑦ 작업 선택 </guibutton></para>
+
+          <para>HyperData Web UI의 주요 작업에 대한 가이드를 제공한다.</para>
+        </listitem>
+      </itemizedlist></para>
+
+    <para></para>
+  </section>
+</chapter>

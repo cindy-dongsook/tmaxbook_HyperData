@@ -1,0 +1,683 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section version="5.0" xml:id="sect_analytics_ml_experiment"
+         xmlns="http://docbook.org/ns/docbook"
+         xmlns:xlink="http://www.w3.org/1999/xlink"
+         xmlns:xi="http://www.w3.org/2001/XInclude"
+         xmlns:svg="http://www.w3.org/2000/svg"
+         xmlns:mml="http://www.w3.org/1998/Math/MathML"
+         xmlns:html="http://www.w3.org/1999/xhtml"
+         xmlns:db="http://docbook.org/ns/docbook">
+  <title>Experiment<indexterm>
+      <primary>분석 카테고리</primary>
+
+      <secondary>[Experiment] 메뉴</secondary>
+    </indexterm></title>
+
+  <para><guibutton>분석 &gt; [Experiment]</guibutton> 메뉴를 선택하면 생성한 실험과 모델을 관리할 수
+  있다. 목록에서 Experiment를 선택한 후 <guibutton>[삭제]</guibutton> 버튼을 클릭하면 실험을 삭제할 수
+  있다.</para>
+
+  <para><figure xml:id="figure_automl_experiment">
+      <title>[Experiment] - Experiments 목록 화면</title>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata align="left"
+                     fileref="resources/figure_automl_experiment.png"
+                     width="750"></imagedata>
+        </imageobject>
+      </mediaobject>
+    </figure></para>
+
+  <para>다음은 각 항목에 대한 설명이다.</para>
+
+  <para><informaltable colsep="1" frame="topbot" rowsep="1">
+      <tgroup cols="2">
+        <colspec align="left" colwidth="150" />
+
+        <thead>
+          <row>
+            <entry>항목</entry>
+
+            <entry>설명</entry>
+          </row>
+        </thead>
+
+        <tbody>
+          <row>
+            <entry>실험 이름</entry>
+
+            <entry><para>실험의 이름이다. 다음의 아이콘을 클릭해서 모델 정보를 조회하거나 다양한 기능을 수행할 수
+            있다.</para><para><itemizedlist mark="circle" spacing="compact">
+                <listitem>
+                  <para><guibutton>[∨]</guibutton> : 아이콘을 클릭하면 실험에 사용된 모델 정보가
+                  조회된다(<xref linkend="figure_automl_list_1" /> 참고).<!--∧∨--></para>
+                </listitem>
+
+                <listitem>
+                  <para><inlinemediaobject>
+                      <imageobject>
+                        <imagedata fileref="resources/icon_retrain.png"
+                                   width="20"></imagedata>
+                      </imageobject>
+                    </inlinemediaobject> : 실험에 사용된 모델을 재학습할 수 있으며, 기존 실험 이름에
+                  인덱싱이 추가되어 새로운 모델을 생성한다(<xref
+                  linkend="figure_automl_retrain" /> 참고).</para>
+                </listitem>
+
+                <listitem>
+                  <para><inlinemediaobject>
+                      <imageobject>
+                        <imagedata fileref="resources/icon_automl_scheduling.png"
+                                   width="20"></imagedata>
+                      </imageobject>
+                    </inlinemediaobject> : 학습 스케줄링 활성화 여부를 확인할 수 있다(<xref
+                  linkend="figure_automl_expscheduling" /> 참고).</para>
+                </listitem>
+
+                <listitem>
+                  <para><inlinemediaobject>
+                      <imageobject>
+                        <imagedata fileref="resources/icon_automl_serving.png"
+                                   width="20"></imagedata>
+                      </imageobject>
+                    </inlinemediaobject> : 최신 모델 서빙에 활용할 수 있는 URL과 예시코드를 조회할 수
+                  있다(<xref linkend="figure_automl_list_2" /> 참고).</para>
+                </listitem>
+
+                <listitem>
+                  <para><inlinemediaobject>
+                      <imageobject>
+                        <imagedata fileref="resources/icon_automl_inference.png"
+                                   width="20"></imagedata>
+                      </imageobject>
+                    </inlinemediaobject> : 학습 완료된 모델을 활용하여 추론 수행 및 추론 결과 조회를 할
+                  수 있다(<xref linkend="figure_automl_list_3" /> 참고).</para>
+                </listitem>
+              </itemizedlist></para></entry>
+          </row>
+
+          <row>
+            <entry>상태</entry>
+
+            <entry><para>모델의 실험의 진척도를 나타낸다.</para><itemizedlist mark="circle"
+                spacing="compact">
+                <listitem>
+                  <para>수행 중</para>
+                </listitem>
+
+                <listitem>
+                  <para>완료</para>
+                </listitem>
+
+                <listitem>
+                  <para>실패</para>
+                </listitem>
+              </itemizedlist></entry>
+          </row>
+
+          <row>
+            <entry>실험 종류</entry>
+
+            <entry><para>실험의 종류를 나타낸다.</para><itemizedlist mark="circle"
+                spacing="compact">
+                <listitem>
+                  <para>AutoML Classification / Regression</para>
+                </listitem>
+
+                <listitem>
+                  <para>Timeseries Classification / Regression</para>
+                </listitem>
+
+                <listitem>
+                  <para>Predefiend AI Classification</para>
+                </listitem>
+              </itemizedlist></entry>
+          </row>
+
+          <row>
+            <entry>생성 시각</entry>
+
+            <entry>실험의 생성일자이다.</entry>
+          </row>
+
+          <row>
+            <entry>완료 시각</entry>
+
+            <entry>실험이 완료된 시점이다.</entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable></para>
+
+  <para></para>
+
+  <para><bridgehead> 실험 모델 조회</bridgehead></para>
+
+  <para><guibutton>Experiments 목록 화면</guibutton>(<xref
+  linkend="figure_automl_experiment" />)에 <guibutton>'실험 이름'</guibutton> 항목의
+  <guibutton>[∨]</guibutton> 버튼을 클릭하면 실험에 사용된 모델 정보가 조회된다. 조회된 목록에서 모델 이름을
+  선택하면 실험 결과(<xref linkend="figure_automl_model_1" />)를 확인할 수 있다.
+  <guibutton>[∧]</guibutton> 버튼을 클릭하면 모델 정보를 숨길 수 있다.</para>
+
+  <para><figure xml:id="figure_automl_list_1">
+      <title>[Experiment] - 실험 모델 조회 화면</title>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata align="left" fileref="resources/figure_automl_list_1.png"
+                     width="750"></imagedata>
+        </imageobject>
+      </mediaobject>
+    </figure></para>
+
+  <para></para>
+
+  <para><bridgehead> 실험 재학습</bridgehead></para>
+
+  <para><guibutton>Experiments 목록 화면</guibutton>(<xref
+  linkend="figure_automl_experiment" />)에 <guibutton>'실험 이름'</guibutton> 항목의
+  <inlinemediaobject>
+      <imageobject>
+        <imagedata fileref="resources/icon_retrain.png" width="20"></imagedata>
+      </imageobject>
+    </inlinemediaobject> 아이콘을 클릭하면 실험에 사용된 모델을 재학습할 수 있으며, 기존 실험 이름에 인덱싱이 추가되어
+  새로운 모델을 생성한다.</para>
+
+  <para><figure xml:id="figure_automl_retrain">
+      <title>[Experiment] - 재학습</title>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata align="left"
+                     fileref="resources/figure_automl_retrain.png" width="750"></imagedata>
+        </imageobject>
+      </mediaobject>
+    </figure></para>
+
+  <para></para>
+
+  <para><bridgehead> 실험 재학습 스케줄링</bridgehead></para>
+
+  <para><guibutton>Experiments 목록 화면</guibutton>(<xref
+  linkend="figure_automl_experiment" />)에 <guibutton>'실험 이름'</guibutton> 항목의
+  <inlinemediaobject>
+      <imageobject>
+        <imagedata fileref="resources/icon_automl_scheduling.png" width="20"></imagedata>
+      </imageobject>
+    </inlinemediaobject> 아이콘을 클릭하면 재학습 스케줄링 활성화 여부를 확인할 수 있다.</para>
+
+  <figure xml:id="figure_automl_expscheduling">
+    <title>[Experiment] - 재학습 스케줄링 (1)</title>
+
+    <mediaobject>
+      <imageobject>
+        <imagedata align="left"
+                   fileref="resources/figure_automl_expscheduling.png"
+                   width="750"></imagedata>
+      </imageobject>
+    </mediaobject>
+  </figure>
+
+  <para>재학습을 시작할 날짜와 시간, 종료할 날짜와 시간, 주기를 설정한 후 토글 버튼을 클릭해서 재학습 스케줄링 기능을 활성화할 수
+  있다.</para>
+
+  <para></para>
+
+  <para><figure xml:id="figure_automl_scheduling">
+      <title>[Experiment] - 재학습 스케줄링 (2)</title>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata align="left"
+                     fileref="resources/figure_automl_scheduling.png"
+                     width="750"></imagedata>
+        </imageobject>
+      </mediaobject>
+    </figure></para>
+
+  <para></para>
+
+  <para></para>
+
+  <para><bridgehead>모델 서빙 URL과 예시코드</bridgehead></para>
+
+  <para><guibutton>Experiments 목록 화면</guibutton>(<xref
+  linkend="figure_automl_experiment" />)에 <guibutton>'실험 이름'</guibutton> 항목의
+  <inlinemediaobject>
+      <imageobject>
+        <imagedata fileref="resources/icon_automl_serving.png" width="20"></imagedata>
+      </imageobject>
+    </inlinemediaobject> 아이콘을 클릭하면 최신 모델 서빙에 활용할 수 있는 URL과 예시코드를 조회할 수 있다. 시계열
+  데이터 오브젝트를 이용한 실험의 경우에는 서빙 기능이 제공되지 않는다.</para>
+
+  <para><figure xml:id="figure_automl_list_2">
+      <title>[Experiment] - 최신 모델 서빙</title>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata align="left" fileref="resources/figure_automl_list_2.png"
+                     width="750"></imagedata>
+        </imageobject>
+      </mediaobject>
+    </figure></para>
+
+  <para>다음은 최신 모델 서빙에 활용할 수 있는 기본화면이다. 처음 화면은 <guibutton>'배포중인
+  모델'</guibutton>이 선택되어 있지 않으며, 학습된 여러가지 모델 중 원 하는 모델을 선택하여
+  <guibutton>'Action'</guibutton> 항목의<guibutton> [Off/On]</guibutton> 버튼을 클릭하여
+  해당 모델을 활성화시킨다.</para>
+
+  <para><figure>
+      <title>[Experiment] - 최신 모델 서빙 기본화면</title>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata align="left"
+                     fileref="resources/figure_automl_serving_1.png"
+                     width="750"></imagedata>
+        </imageobject>
+      </mediaobject>
+    </figure></para>
+
+  <para>또한, 서빙된 모델을 테스트 할 예시코드를 아래와 같이
+  <guibutton>[JAVASCRIPT]</guibutton>,<guibutton>
+  [PYTHON]</guibutton>,<guibutton> [CURL]</guibutton> 탭을 클릭하면 각 언어별 명령어로 된
+  예시코드를 조회할 수 있다.</para>
+
+  <para><figure>
+      <title>[Experiment] - 최신 모델 서빙 예시코드</title>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata align="left"
+                     fileref="resources/figure_automl_serving_2.png"
+                     width="750"></imagedata>
+        </imageobject>
+      </mediaobject>
+    </figure></para>
+
+  <para>특정 모델이 <guibutton>[Off/On]</guibutton> 버튼을 통해 활성화되었을 경우
+  <guibutton>'Serving Status'</guibutton> 항목이 'Creating'으로 변경되어 서빙될 모델과 URL을
+  생성중임을 확인할 수 있다.</para>
+
+  <para><figure>
+      <title>[Experiment] - 특정 모델 서빙 예시 (1)</title>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata align="left"
+                     fileref="resources/figure_automl_modelserving_1.png"
+                     width="750"></imagedata>
+        </imageobject>
+      </mediaobject>
+    </figure>서빙 모델이 생성되고 나면, <guibutton>'Serving Status'</guibutton> 항목이 'On'
+  상태로 변경되며, 특정 모델에 대해 서빙에 활용할 수 있는 URL을 <guibutton>'URL'</guibutton> 항목에 제공한다.
+  또한, 가장 최근에 서빙되었던 모델을 <guibutton>'Name'</guibutton> 항목이 'Latest'로
+  표시된다.</para>
+
+  <para><figure>
+      <title>[Experiment] - 특정 모델 서빙 예시 (2)</title>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata align="left"
+                     fileref="resources/figure_automl_modelserving_2.png"
+                     width="750"></imagedata>
+        </imageobject>
+      </mediaobject>
+    </figure></para>
+
+  <para></para>
+
+  <para></para>
+
+  <para><bridgehead>모델 인퍼런스</bridgehead></para>
+
+  <para><guibutton>Experiments 목록 화면</guibutton>(<xref
+  linkend="figure_automl_experiment" />)에 <guibutton>'실험 이름'</guibutton> 항목의
+  <inlinemediaobject>
+      <imageobject>
+        <imagedata fileref="resources/icon_automl_inference.png" width="22"></imagedata>
+      </imageobject>
+    </inlinemediaobject> 아이콘을 클릭하면 학습이 완료된 모델을 이용하여 대상 열 (target column)이 지워진
+  데이터셋의 대상 열을 추론할 수 있다. 시계열 데이터 오브젝트를 이용한 실험의 경우 인퍼런스 기능이 제공되지 않는다.</para>
+
+  <para><figure xml:id="figure_automl_list_3">
+      <title>[Experiment] - 최신 모델 추론</title>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata align="left" fileref="resources/figure_automl_list_3.png"
+                     width="750"></imagedata>
+        </imageobject>
+      </mediaobject>
+    </figure></para>
+
+  <para>기본 조회 화면은 다음과 같으며, <guibutton>[+추론]</guibutton> 버튼을 클릭해서 원하는 모델을 선택하는
+  화면으로 이동한다.</para>
+
+  <para><figure xml:id="figure_automl_inference_1">
+      <title>[Experiment] - 최신 모델 추론 기본화면</title>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata align="left"
+                     fileref="resources/figure_automl_inference_1.png"
+                     width="750"></imagedata>
+        </imageobject>
+      </mediaobject>
+    </figure></para>
+
+  <para></para>
+
+  <para>학습이 완료된 다양한 모델 중 대상 열(target column)을 추론할 모델을 선택하여
+  <guibutton>[다음]</guibutton> 버튼을 클릭한다. 처음으로 돌아가려면
+  <guibutton>[뒤로가기]</guibutton> 버튼을 클릭한다.</para>
+
+  <para><figure>
+      <title>[Experiment] - 최신 모델 추론 예시 (1)</title>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata align="left"
+                     fileref="resources/figure_automl_inference_2.png"
+                     width="750"></imagedata>
+        </imageobject>
+      </mediaobject>
+    </figure></para>
+
+  <para></para>
+
+  <para>모델이 선택되고 나면, <guibutton>'데이터 예시'</guibutton>를 통해 대상열(target column)을
+  제외한 모델의 구성 컬럼을 확인할 수 있으며, <guibutton>'데이터 선택'</guibutton>을 통해 추론을 진행할 데이터(=
+  같은 컬럼을 갖고 대상열이 지워진 데이터)을 선택한다. 추론할 데이터를 선택한 후 <guibutton>[추론]</guibutton>
+  버튼을 클릭한다. 이전화면으로 돌아가려면 <guibutton>[뒤로가기]</guibutton> 버튼을 클릭한다.</para>
+
+  <para></para>
+
+  <para><figure>
+      <title>[Experiment] - 최신 모델 추론 예시 (2)</title>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata align="left"
+                     fileref="resources/figure_automl_inference_3.png"
+                     width="750"></imagedata>
+        </imageobject>
+      </mediaobject>
+    </figure></para>
+
+  <para></para>
+
+  <para><guibutton>[추론]</guibutton> 버튼을 버튼을 클릭하면 다음 화면에서 추론이 진행되고 있는 모습을 확인할 수
+  있다.</para>
+
+  <para><figure>
+      <title>[Experiment] - 최신 모델 추론 예시 (3)</title>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata align="left"
+                     fileref="resources/figure_automl_inference_4.png"
+                     width="750"></imagedata>
+        </imageobject>
+      </mediaobject>
+    </figure></para>
+
+  <para>다음은 추론 결과에 따른 화면 설명이다.</para>
+
+  <itemizedlist spacing="compact">
+    <listitem>
+      <para><guibutton>추론 성공</guibutton></para>
+
+      <para>추론이 성공하였을 경우 <guibutton>'추론 상태'</guibutton> 항목은 'Finished'로 표시된다.
+      <guibutton>'동작'</guibutton> 항목의 <inlinemediaobject>
+          <imageobject>
+            <imagedata fileref="resources/icon_automl_inference_save.png"
+                       width="22"></imagedata>
+          </imageobject>
+        </inlinemediaobject> 아이콘을 클릭하면 엑셀 파일(<xref
+      linkend="figure_automl_inference_7" />)이 다운되며 해당 파일을 통해 대상열(target
+      column)이 모델을 통해 추론된 것을 확인할 수 있다.</para>
+
+      <para><figure>
+          <title>[Experiment] - 최신 모델 추론 예시 (4)</title>
+
+          <mediaobject>
+            <imageobject>
+              <imagedata align="left"
+                         fileref="resources/figure_automl_inference_5.png"
+                         width="750"></imagedata>
+            </imageobject>
+          </mediaobject>
+        </figure></para>
+
+      <para>다음은 추론에 성공하였을 경우 액셀 파일 예제로 선택된 모델을 기반으로 예측된
+      <guibutton>'class'</guibutton> 컬럼이 생성된 것을 확인할 수 있다.</para>
+
+      <para><figure xml:id="figure_automl_inference_7">
+          <title>[Experiment] - 최신 모델 성공 예시</title>
+
+          <mediaobject>
+            <imageobject>
+              <imagedata align="left"
+                         fileref="resources/figure_automl_inference_7.png"
+                         width="750"></imagedata>
+            </imageobject>
+          </mediaobject>
+        </figure></para>
+    </listitem>
+
+    <listitem>
+      <para><guibutton>추론 실패</guibutton></para>
+
+      <para>추론이 실패하였을 경우 <guibutton>'추론 상태'</guibutton> 항목이 'Failed'로 표시된다.
+      <guibutton>'동작'</guibutton> 항목의 <inlinemediaobject>
+          <imageobject>
+            <imagedata fileref="resources/icon_automl_inference_save.png"
+                       width="22"></imagedata>
+          </imageobject>
+        </inlinemediaobject> 아이콘을 클릭하면 엑셀 파일(<xref
+      linkend="figure_automl_inference_8" />)이 다운되며 해당 파일을 통해 에러 메시지 확인이 가능하다.
+      <inlinemediaobject>
+          <imageobject>
+            <imagedata fileref="resources/icon_automl_inference_delete.png"
+                       width="22"></imagedata>
+          </imageobject>
+        </inlinemediaobject> 아이콘을 통해 추론을 진행한 해당 추론 내역을 삭제할 수 있다.</para>
+
+      <para><figure>
+          <title>[Experiment] - 특정 모델 추론 예시 (5)</title>
+
+          <mediaobject>
+            <imageobject>
+              <imagedata align="left"
+                         fileref="resources/figure_automl_inference_6.png"
+                         width="750"></imagedata>
+            </imageobject>
+          </mediaobject>
+        </figure></para>
+
+      <para>다음은 추론에 실패하였을 경우 액셀 파일에 나타나는 에러 메시지의 예제이다.</para>
+
+      <para><figure xml:id="figure_automl_inference_8">
+          <title>[Experiment] - 특정 모델 실패 예시</title>
+
+          <mediaobject>
+            <imageobject>
+              <imagedata align="left"
+                         fileref="resources/figure_automl_inference_8.png"
+                         width="750"></imagedata>
+            </imageobject>
+          </mediaobject>
+        </figure></para>
+    </listitem>
+  </itemizedlist>
+
+  <para></para>
+
+  <para></para>
+
+  <para></para>
+
+  <section>
+    <title>모델 실험 결과</title>
+
+    <para><guibutton>Experiment 화면</guibutton>(<xref
+    linkend="figure_automl_list_1" />)에서 <guibutton>'실험 이름'</guibutton> 항목의
+    <guibutton>모델 이름</guibutton>을 클릭하면 모델의 실험 결과를 <guibutton>[실험
+    요약]</guibutton>, <guibutton>[데이터 처리 결과]</guibutton>, <guibutton>[최적
+    모델]</guibutton> 탭에서 조회할 수 있다.</para>
+
+    <para><figure xml:id="figure_automl_model_1">
+        <title>[Experiment] - 모델 실험 결과</title>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata align="left"
+                       fileref="resources/figure_automl_model_1.png"
+                       width="750"></imagedata>
+          </imageobject>
+        </mediaobject>
+      </figure></para>
+
+    <para><informaltable colsep="1" frame="topbot" rowsep="1">
+        <tgroup cols="2">
+          <colspec align="left" colwidth="150" />
+
+          <thead>
+            <row>
+              <entry>탭</entry>
+
+              <entry>설명</entry>
+            </row>
+          </thead>
+
+          <tbody>
+            <row>
+              <entry><guibutton>[실험 요약] </guibutton>탭</entry>
+
+              <entry>모델의 기본 정보를 확인할 수 있다.</entry>
+            </row>
+
+            <row>
+              <entry><guibutton>[데이터 처리 결과]</guibutton> 탭</entry>
+
+              <entry>데이터 구조와 전처리 수행 결과를 확인할 수 있다. Predefined AI 서비스의 경우
+              <guibutton>[데이터 처리 결과]</guibutton> 탭은 조회되지 않는다.</entry>
+            </row>
+
+            <row>
+              <entry><guimenuitem>[최적 모델]</guimenuitem> 탭</entry>
+
+              <entry>모델링이 끝난 후 가장 정확도가 높은 모델의 accuracy와 confusion matrix,
+              feature importance를 확인할 수 있다. Time Series의 경우에는 결과 그래프인
+              Timeseries Vis Graph를 확인할 수 있다.</entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </informaltable></para>
+
+    <para><guibutton>[데이터 처리 결과]</guibutton> 탭과 <guibutton>[최적 모델]</guibutton>
+    탭은 <guibutton>Experiment 화면</guibutton>(<xref
+    linkend="figure_automl_list_1" />)에서 <guibutton>'상태'</guibutton> 항목에 따라서
+    조회되는 내용이 달라진다.</para>
+
+    <itemizedlist spacing="compact">
+      <listitem>
+        <para><guibutton>수행 중 </guibutton></para>
+
+        <para>실험 상태가 <guibutton>'수행 중'</guibutton>인 경우 <guibutton>[데이터 처리
+        결과]</guibutton> 탭과 <guibutton>[최적 모델]</guibutton> 탭은 대기화면이
+        조회된다.</para>
+
+        <para><figure>
+            <title>[Experiment] - 모델 결과 - [데이터 처리 결과] 탭 (1)</title>
+
+            <mediaobject>
+              <imageobject>
+                <imagedata align="left"
+                           fileref="resources/figure_automl_model_2.png"
+                           width="750"></imagedata>
+              </imageobject>
+            </mediaobject>
+          </figure></para>
+      </listitem>
+
+      <listitem>
+        <para><guibutton>완료</guibutton></para>
+
+        <para>실험 상태가 <guibutton>'완료'</guibutton>인 경우 <guibutton>[데이터 처리
+        결과]</guibutton> 탭에서 실제 데이터에 적용된 전처리 수행 결과를 확인할 수 있다.</para>
+
+        <para><figure>
+            <title>[Experiment] - 모델 결과 - [데이터 처리 결과] 탭 (2)</title>
+
+            <mediaobject>
+              <imageobject>
+                <imagedata align="left"
+                           fileref="resources/figure_automl_model_3.png"
+                           width="750"></imagedata>
+              </imageobject>
+            </mediaobject>
+          </figure></para>
+
+        <para><guibutton>[최적 모델]</guibutton> 탭에서 실제 생성된 모델의 성능을 정확도를 통해 확인 할 수
+        있다. 또한, 분류 결과표와 특징 중요도를 통해 생성된 모델이 테스트 데이터를 실제 분류한 내역과 모델이 판단한 테스트
+        데이터의 주요 특징 열을 추가적으로 확인할 수 있다.</para>
+
+        <figure>
+          <title>[Experiment] - 모델 결과 - [최적 모델] 탭 (1)</title>
+
+          <mediaobject>
+            <imageobject>
+              <imagedata align="left"
+                         fileref="resources/figure_automl_model_4.png"
+                         width="750"></imagedata>
+            </imageobject>
+          </mediaobject>
+        </figure>
+      </listitem>
+
+      <listitem>
+        <para><guibutton>실패</guibutton></para>
+
+        <para>실험 상태가 <guibutton>'실패'</guibutton>인 경우 <guibutton>[데이터 처리
+        결과]</guibutton> 탭에서 전처리 수행에 있어 발생된 오류 로그 내역을 확인할 수 있다.</para>
+
+        <para><figure>
+            <title>[Experiment] - 모델 결과 - [데이터 처리 결과] 탭 (3)</title>
+
+            <mediaobject>
+              <imageobject>
+                <imagedata align="left"
+                           fileref="resources/figure_automl_model_5.png"
+                           width="750"></imagedata>
+              </imageobject>
+            </mediaobject>
+          </figure><guibutton>[최적 모델]</guibutton> 탭에서는 모델링이 수행되지 않아
+        <inlinemediaobject>
+            <imageobject>
+              <imagedata fileref="resources/icon_error.png" width="20"></imagedata>
+            </imageobject>
+          </inlinemediaobject> 아이콘이 출력된다.</para>
+
+        <para><figure>
+            <title>[Experiment] - 모델 결과 - [최적 모델] 탭 (2)</title>
+
+            <mediaobject>
+              <imageobject>
+                <imagedata align="left"
+                           fileref="resources/figure_automl_model_6.png"
+                           width="750"></imagedata>
+              </imageobject>
+            </mediaobject>
+          </figure></para>
+      </listitem>
+    </itemizedlist>
+
+    <para></para>
+
+    <para></para>
+  </section>
+</section>

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<chapter version="5.0" xmlns="http://docbook.org/ns/docbook"
+         xmlns:xlink="http://www.w3.org/1999/xlink"
+         xmlns:xila="http://www.w3.org/2001/XInclude/local-attributes"
+         xmlns:xi="http://www.w3.org/2001/XInclude"
+         xmlns:trans="http://docbook.org/ns/transclusion"
+         xmlns:svg="http://www.w3.org/2000/svg"
+         xmlns:mml="http://www.w3.org/1998/Math/MathML"
+         xmlns:html="http://www.w3.org/1999/xhtml"
+         xmlns:db="http://docbook.org/ns/docbook">
+  <title>시스템 관리<indexterm>
+      <primary>카테고리</primary>
+
+      <secondary>시스템 관리</secondary>
+    </indexterm></title>
+
+  <para>본 장에서는 HyperData Web UI의 <guibutton>시스템 관리</guibutton> 카테고리 하위 각 메뉴의
+  사용법에 대해서 설명한다.</para>
+
+  <para></para>
+
+  <section>
+    <title>개요</title>
+
+    <para><guibutton>시스템 관리</guibutton> 카테고리에서는 관리자의 주요 작업을 하는 메뉴를 선택할 수 있다.
+    해당 카테고리는 로그인된 사용자가 Administrator 권한인 경우에만 생성된다.</para>
+
+    <para>다음은 <guibutton>시스템 관리</guibutton> 카테고리의 하위 메뉴에 대한 설명이다.</para>
+
+    <para><informaltable colsep="1" frame="topbot" rowsep="1">
+        <tgroup cols="2">
+          <colspec align="left" colwidth="150" />
+
+          <thead>
+            <row>
+              <entry>메뉴</entry>
+
+              <entry>설명</entry>
+            </row>
+          </thead>
+
+          <tbody>
+            <row>
+              <entry><guibutton><link
+              linkend="sect_admin_users">[Users]</link></guibutton></entry>
+
+              <entry>사용자를 등록, 수정, 삭제한다.</entry>
+            </row>
+
+            <row>
+              <entry><guibutton><link linkend="sect_admin_user_groups">[User
+              Groups]</link></guibutton></entry>
+
+              <entry>사용자 그룹을 등록, 수정, 삭제한다.</entry>
+            </row>
+
+            <row>
+              <entry><guibutton><link linkend="sect_admin_proj">[Project
+              Management]</link></guibutton></entry>
+
+              <entry>사용자가 생성한 프로젝트 목록을 조회하고 생성, 수정, 삭제한다.</entry>
+            </row>
+
+            <row>
+              <entry><guibutton><link linkend="sect_admin_mornitoring">[System
+              Monitoring]</link></guibutton></entry>
+
+              <entry>HyperData 내 작업 수행 중 시스템 상황을 실시간으로 조회한다.</entry>
+            </row>
+
+            <row>
+              <entry><guibutton><link linkend="sect_admin_auditlog">[Audit
+              Log] </link></guibutton></entry>
+
+              <entry>HyperData 내 수행된 action 기록을 남기며, 관리자가 조회한다.</entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </informaltable></para>
+  </section>
+
+  <!-- Users -->
+
+  <xi:include href="sect-admin-users.xml" />
+
+  <!-- User Groups -->
+
+  <xi:include href="sect-admin-user-groups.xml" />
+
+  <!-- Project Management -->
+
+  <xi:include href="sect-admin-proj.xml" />
+
+  <!-- System Monitoring -->
+
+  <xi:include href="sect-admin-mornitoring.xml" />
+
+  <!-- Audit Log -->
+
+  <xi:include href="sect-admin-auditlog.xml" />
+</chapter>

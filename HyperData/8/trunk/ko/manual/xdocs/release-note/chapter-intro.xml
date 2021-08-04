@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<chapter version="" xml:id="chapter_intro" xml:lang="ko-KR"
+         xmlns="http://docbook.org/ns/docbook"
+         xmlns:xlink="http://www.w3.org/1999/xlink"
+         xmlns:xi="http://www.w3.org/2001/XInclude"
+         xmlns:svg="http://www.w3.org/2000/svg"
+         xmlns:mml="http://www.w3.org/1998/Math/MathML"
+         xmlns:html="http://www.w3.org/1999/xhtml"
+         xmlns:db="http://docbook.org/ns/docbook">
+  <title>소개</title>
+
+  <para></para>
+
+  <para>본 안내서는 릴리즈 대상 제품의 새로운 기능과 이전 버전과 다른 변경된 사항을 정리한 안내서이다. 본 안내서는
+  HyperData의 전체 내용을 다루기 어려우므로 자세한 내용은 해당 안내서를 참고한다.</para>
+
+  <para></para>
+
+  <section>
+    <title>릴리즈 이력</title>
+
+    <informaltable colsep="1" frame="topbot" rowsep="1">
+      <tgroup cols="2">
+        <colspec align="left" colwidth="150" />
+
+        <thead>
+          <row>
+            <entry>일자</entry>
+
+            <entry>버전</entry>
+          </row>
+        </thead>
+
+        <tbody>
+          <row>
+            <entry>2020-06-26</entry>
+
+            <entry>HyperData 8.3</entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+
+    <para></para>
+
+    <para></para>
+
+    <para></para>
+  </section>
+</chapter>

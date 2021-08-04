@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<preface version="5.0" xml:id="about" xmlns="http://docbook.org/ns/docbook"
+         xmlns:xila="http://www.w3.org/2001/XInclude/local-attributes"
+         xmlns:xi="http://www.w3.org/2001/XInclude"
+         xmlns:trans="http://docbook.org/ns/transclusion"
+         xmlns:svg="http://www.w3.org/2000/svg"
+         xmlns:ns="http://www.w3.org/1999/xlink"
+         xmlns:mml="http://www.w3.org/1998/Math/MathML"
+         xmlns:html="http://www.w3.org/1999/xhtml"
+         xmlns:db="http://docbook.org/ns/docbook">
+  <title>안내서에 대하여</title>
+
+  <bridgehead>안내서의 대상</bridgehead>
+
+  <para>본 안내서는 TmaxData의 HyperData™(이하 HyperData) Web UI의 구조와 사용법에 대해서 설명한다.
+  설치에 대한 자세한 내용은 "HyperData 설치 안내서"를 참고한다.</para>
+
+  <para></para>
+
+  <para><bridgehead>안내서의 전제 조건</bridgehead>본 안내서는 HyperData의 관리 및 운영 방법을 설명한
+  안내서이다. 따라서 본 안내서를 원할히 이해하기 위해서는 다음과 같은 사항을 미리 알고 있어야 한다.</para>
+
+  <para><itemizedlist spacing="compact">
+      <listitem>
+        <para>데이터베이스의 이해</para>
+      </listitem>
+
+      <listitem>
+        <para>클라우드 환경의 이해</para>
+      </listitem>
+
+      <listitem>
+        <para>빅데이터 환경의 이해</para>
+      </listitem>
+
+      <listitem>
+        <para>운영체제 및 시스템 환경의 이해</para>
+      </listitem>
+    </itemizedlist></para>
+
+  <para></para>
+
+  <?dbfo-need height="10in" ?>
+
+  <bridgehead>안내서 구성</bridgehead>
+
+  <para>시작하기 안내서는 총 6개의 장으로 구성되어 있다.</para>
+
+  <para>각 장의 주요 내용은 다음과 같다.</para>
+
+  <itemizedlist spacing="compact">
+    <listitem>
+      <para>제 1장: 소개</para>
+
+      <para>HyperData의 전반적인 기능과 특장점에 대해서 기술한다. 전체 시스템 아키텍쳐에 대한 소개와 함께 제품의 구조를
+      설명한다.</para>
+    </listitem>
+
+    <listitem>
+      <para>제 2장: 시스템 관리</para>
+
+      <para>HyperData Web UI의 <guibutton>시스템 관리</guibutton> 카테고리 하위 각 메뉴의 사용법에
+      대해서 설명한다.</para>
+    </listitem>
+
+    <listitem>
+      <para>제 3장: 프로젝트</para>
+
+      <para>HyperData Web UI의 <guibutton>프로젝트</guibutton> 카테고리 하위 각 메뉴의 사용법에
+      대해서 설명한다.</para>
+    </listitem>
+
+    <listitem>
+      <para>제 4장: 데이터</para>
+
+      <para>HyperData Web UI의 <guibutton>데이터</guibutton> 카테고리 하위 각 메뉴의 사용법에
+      대해서 설명한다.</para>
+    </listitem>
+
+    <listitem>
+      <para>제 5장: JOB</para>
+
+      <para>HyperData Web UI의 <guibutton>JOB</guibutton> 카테고리 하위 각 메뉴의 사용법에
+      대해서 설명한다.</para>
+    </listitem>
+
+    <listitem>
+      <para>제 6장: 분석</para>
+
+      <para>HyperData Web UI의 <guibutton>분석</guibutton> 카테고리 하위 각 메뉴의 사용법에 대해서
+      설명한다.</para>
+    </listitem>
+  </itemizedlist>
+
+  <?dbfo-need height="10in" ?>
+
+  <xi:include href="../common/convention.xml" />
+</preface>

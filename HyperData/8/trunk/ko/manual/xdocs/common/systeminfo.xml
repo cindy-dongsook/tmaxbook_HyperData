@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<para version="5.0" xmlns="http://docbook.org/ns/docbook"
+xmlns:xlink22="http://www.w3.or g/1999/xlink"
+xmlns:xlink2="http://www.w3.org/1999/xlink"
+xmlns:xi="http://www.w3.org/2001/XInclude"
+xmlns:svg="http://www.w3.org/2000/svg"
+xmlns:mml="http://www.w3.org/1998/Math/MathML"
+xmlns:html="http://www.w3.org/1999/xhtml"
+xmlns:db="http://docbook.org/ns/docbook"><bridgehead>시스템
+사용환경</bridgehead><para>
+    <informaltable colsep="1" frame="topbot" rowsep="1">
+      <tgroup cols="2">
+        <colspec align="left" colwidth="150" />
+
+        <thead>
+          <row>
+            <entry align="left" />
+
+            <entry align="left">요구 사항</entry>
+          </row>
+        </thead>
+
+        <tbody>
+          <row>
+            <entry morerows="0">Hardware</entry>
+
+            <entry>CPU 8 Core 및 메모리 32GB 이상 (3EA 이상) <remark>(PS : QA에서 하드웨어
+            검토필요...)</remark></entry>
+          </row>
+
+          <row>
+            <entry>Software</entry>
+
+            <entry>
+              <itemizedlist spacing="compact">
+                <listitem>
+                  <para>공통</para>
+
+                  <itemizedlist>
+                    <listitem>
+                      <para>Kubeflow 0.7.0 : HyperData의 ML lab 사용을 위해 선행 구축이
+                      필요</para>
+                    </listitem>
+                  </itemizedlist>
+                </listitem>
+
+                <listitem>
+                  <para>HyperData 환경</para>
+
+                  <para>
+                    <itemizedlist spacing="compact">
+                      <listitem>
+                        <para>On Kubernetes : Kubernetes 1.15.3 버전으로 설치
+                        필요</para>
+
+                        <itemizedlist>
+                          <listitem>
+                            <para>Metallb : HyperData 퍼블릭 IP 구성을 위해 설치 필요</para>
+                          </listitem>
+
+                          <listitem>
+                            <para>rook-ceph : HyperData 스토리지 생성을 위해 설치 필요</para>
+                          </listitem>
+                        </itemizedlist>
+                      </listitem>
+                    </itemizedlist>
+                  </para>
+                </listitem>
+              </itemizedlist>
+            </entry>
+          </row>
+
+          <row>
+            <entry>WebBrowser</entry>
+
+            <entry>Chrome</entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </para></para>

@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<chapter version="5.0" xml:id="chapter_project"
+         xmlns="http://docbook.org/ns/docbook"
+         xmlns:xlink="http://www.w3.org/1999/xlink"
+         xmlns:xi="http://www.w3.org/2001/XInclude"
+         xmlns:svg="http://www.w3.org/2000/svg"
+         xmlns:mml="http://www.w3.org/1998/Math/MathML"
+         xmlns:html="http://www.w3.org/1999/xhtml"
+         xmlns:db="http://docbook.org/ns/docbook">
+  <title>프로젝트<indexterm>
+      <primary>카테고리</primary>
+
+      <secondary>프로젝트</secondary>
+    </indexterm></title>
+
+  <para>본 장에서는 HyperData Web UI의 <guibutton>프로젝트</guibutton> 카테고리 메뉴의 사용법에 대해서
+  설명한다.</para>
+
+  <para></para>
+
+  <section xml:id="sect_proj_details">
+    <title>Project Details<indexterm>
+        <primary>프로젝트</primary>
+
+        <secondary>[Project Details] 메뉴</secondary>
+      </indexterm></title>
+
+    <para><guibutton>메인화면</guibutton>의 <guibutton>프로젝트 목록 영역</guibutton>에서
+    프로젝트를 선택하거나 <guibutton>[프로젝트] &gt; [Project Details]</guibutton> 메뉴를 선택하면
+    프로젝트 상세 정보와 현재 작업수행 내역을 조회할 수 있다. <guibutton>[수정]</guibutton> 또는
+    <guibutton>[삭제]</guibutton> 버튼을 클릭하면 프로젝트를 수정하거나 삭제할 수 있다.</para>
+
+    <para><inlinemediaobject>
+        <imageobject>
+          <imagedata fileref="resources/icon_query.png" width="20"></imagedata>
+        </imageobject>
+      </inlinemediaobject> 아이콘을 클릭하면 <guibutton>자연어 쿼리 분석 시스템</guibutton>에서
+    프로젝트 내에서 자연어를 통해 시각 분석 결과물을 조회할 수 있다. 자세한 내용은 <xref
+    linkend="sect_natual_language_analysis" />을 참고한다.</para>
+
+    <para><figure xml:id="figure_project_detail">
+        <title>프로젝트 정보 화면</title>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata align="left"
+                       fileref="resources/figure_project_detail.png"
+                       width="750"></imagedata>
+          </imageobject>
+        </mediaobject>
+      </figure></para>
+
+    <itemizedlist spacing="compact">
+      <listitem>
+        <para><guibutton>기본정보</guibutton></para>
+
+        <para>프로젝트의 이름, 참여자, 날짜, 설명 등의 기본 정보를 조회한다.</para>
+      </listitem>
+
+      <listitem>
+        <para><guibutton>최근 작업 </guibutton></para>
+
+        <para>프로젝트 내에서 등록된 데이터 및 수행된 Data Job 내역을 요약해서 조회한다. 데이터소스, 데이터 객체를
+        클릭하면 <guibutton>데이터소스 화면</guibutton>(<xref
+        linkend="figure_data_datasource" />)으로 이동해서 해당 데이터의 정보를 조회할 수 있다. Data
+        Job을 클릭하면 <guibutton>Data Job 화면</guibutton>(<xref
+        linkend="figure_datajob" />)으로 이동해서 Job의 상세 정보를 조회할 수 있다.</para>
+      </listitem>
+
+      <listitem>
+        <para><guibutton>자원 </guibutton></para>
+
+        <para>현재 선택된 프로젝트의 각 데이터소스별 데이터 객체의 작업 수행에 대한 결과와 상태를 조회할 수 있다.
+        <emphasis role="underline"> <guibutton>보기</guibutton></emphasis>를 클릭하면
+        <guibutton>데이터소스 화면</guibutton>(<xref
+        linkend="figure_data_datasource" />)과 <guibutton>Data Job
+        화면</guibutton>(<xref linkend="figure_datajob" />)으로 이동한다.</para>
+      </listitem>
+    </itemizedlist>
+
+    <para></para>
+
+    <section xml:id="sect_natual_language_analysis">
+      <title>자연어 쿼리 분석 시스템<indexterm class="singular">
+          <primary>자연어 쿼리 분석 시스템</primary>
+        </indexterm></title>
+
+      <para><guibutton>프로젝트 정보 화면</guibutton>(<xref
+      linkend="figure_project_detail" />)의 <inlinemediaobject>
+          <imageobject>
+            <imagedata fileref="resources/icon_query.png" width="20"></imagedata>
+          </imageobject>
+        </inlinemediaobject> 아이콘을 클릭하면 프로젝트 내의 데이터를 자연어로 검색해서 시각 분석 결과물로 구성할 수
+      있다.</para>
+
+      <para>프로젝트의 데이터 객체들의 메타 정보(필드 이름, Column Candidates)을 지정하여 자연어 질의를 할 수
+      있다. 선택한 메타 정보에 따라서 <link linkend="sect_request_template">질의 템플릿</link>을
+      제공한다. 질의 입력항목에 분석할 질의를 입력한 후 &lt;Enter&gt; 키를 누른다. 해당 기능을 사용하려면
+      <guibutton>[데이터] &gt; [Meta Management]</guibutton> 메뉴의 컬럼값 관리에서 사용하려는
+      DO 컬럼 값을 Import해야 한다.</para>
+
+      <para><figure>
+          <title>[Project Details] - 자연어 쿼리 분석 시스템 화면</title>
+
+          <mediaobject>
+            <imageobject>
+              <imagedata align="left"
+                         fileref="resources/figure_natural_language_dialog.png"
+                         width="750"></imagedata>
+            </imageobject>
+          </mediaobject>
+        </figure></para>
+
+      <para>예를 들어 "교통사고" 데이터 객체에 '사고유형' 컬럼과 '부상자수' 컬럼이 있을 때 사용자는 "사고유형별 부상자수
+      합계를 보여줘"라고 질의할 수 있으며, 이에 따른 결과는 다음과 같다.</para>
+
+      <para><figure xml:id="figure_natural_language_result">
+          <title>[Project Details] - 자연어 쿼리 분석 시스템 - 질의 예</title>
+
+          <mediaobject>
+            <imageobject>
+              <imagedata align="left"
+                         fileref="resources/figure_natural_language_result.png"
+                         width="750"></imagedata>
+            </imageobject>
+          </mediaobject>
+        </figure></para>
+
+      <para><literallayout></literallayout></para>
+
+      <para></para>
+
+      <para><bridgehead xml:id="sect_request_template">질의 템플릿<indexterm>
+          <primary>자연어 쿼리 분석 시스템</primary>
+
+          <secondary>질의 템플릿</secondary>
+        </indexterm> </bridgehead></para>
+
+      <para>다음은 제공되는 템플릿에 대한 설명이다.<!--(TD : 아래 내용이 깨지지 않도록 주의해주세요.) --></para>
+
+      <para><itemizedlist spacing="compact">
+          <listitem>
+            <para>올해의 고객사별 매출 합계를 바차트로 보여줘요</para>
+
+            <programlisting><?db-font-size 86% ?>[<emphasis>element_keyword</emphasis>]의 [<emphasis>dimension_keyword</emphasis>]별 [<emphasis>measure_keyword</emphasis>] [<emphasis>aggregation_keyword</emphasis>]를 
+[<emphasis>chart_type</emphasis>](차트/그래프)로 보여[<emphasis>ending_keyword</emphasis>]</programlisting>
+          </listitem>
+
+          <listitem>
+            <para>올해의 고객사별 매출 합계 보여줘요</para>
+
+            <para><programlisting><?db-font-size 86% ?>[<emphasis>element_keyword</emphasis>]의 [<emphasis>dimension_keyword</emphasis>]별 [<emphasis>measure_keyword</emphasis>] [<emphasis>aggregation_keyword</emphasis>] 
+보여[<emphasis>ending_keyword</emphasis>]</programlisting></para>
+          </listitem>
+
+          <listitem>
+            <para>올해의 고객사별 매출 보여줘요</para>
+
+            <para><programlisting><?db-font-size 86% ?>[<emphasis>element_keyword</emphasis>]의 [<emphasis>dimension_keyword</emphasis>]별 [<emphasis>measure_keyword</emphasis>] 보여[<emphasis>ending_keyword</emphasis>]</programlisting></para>
+          </listitem>
+
+          <listitem>
+            <para>고객사별 매출 합계를 바차트로 보여줘요</para>
+
+            <para><programlisting><?db-font-size 86% ?>[<emphasis>dimension_keyword</emphasis>]별 [<emphasis>measure_keyword</emphasis>] [<emphasis>aggregation_keyword</emphasis>]를 [<emphasis>chart_type</emphasis>]
+(차트/그래프)로 보여[<emphasis>ending_keyword</emphasis>]</programlisting></para>
+          </listitem>
+
+          <listitem>
+            <para>고객사별 매출 합계 보여줘요</para>
+
+            <para><programlisting><?db-font-size 86% ?>[<emphasis>dimension_keyword</emphasis>]별 [<emphasis>measure_keyword</emphasis>] [<emphasis>aggregation_keyword</emphasis>] 보여[<emphasis>ending_keyword</emphasis>]</programlisting></para>
+          </listitem>
+
+          <listitem>
+            <para>매출 보여줘요</para>
+
+            <para><programlisting><?db-font-size 86% ?>[<emphasis>measure_keyword</emphasis>] 보여[<emphasis>ending_keyword</emphasis>]</programlisting></para>
+          </listitem>
+
+          <listitem>
+            <para>월별 제품별 판매량 합계를 바차트로 보여줘요</para>
+
+            <para><programlisting><?db-font-size 86% ?>[<emphasis>dimension_keyword</emphasis>]별 [<emphasis>dimension_keyword</emphasis>]별 [<emphasis>measure_keyword</emphasis>] [<emphasis>aggregation_keyword</emphasis>]를 
+[<emphasis>chart_type</emphasis>](차트/그래프)로 보여[<emphasis>ending_keyword</emphasis>]</programlisting></para>
+          </listitem>
+
+          <listitem>
+            <para>월별 제품별 판매량 합계를 보여줘요</para>
+
+            <para><programlisting><?db-font-size 86% ?>[<emphasis>dimension_keyword</emphasis>]별 [<emphasis>dimension_keyword</emphasis>]별 [<emphasis>measure_keyword</emphasis>] [<emphasis>aggregation_keyword</emphasis>]를 
+보여[<emphasis>ending_keyword</emphasis>]</programlisting></para>
+          </listitem>
+
+          <listitem>
+            <para>제품별 판매량 보여줘요</para>
+
+            <para><programlisting><?db-font-size 86% ?>[<emphasis>dimension_keyword</emphasis>]별 [<emphasis>measure_keyword</emphasis>] 보여[<emphasis>ending_keyword</emphasis>]</programlisting></para>
+          </listitem>
+        </itemizedlist></para>
+
+      <para></para>
+
+      <para>각 템플릿에는 aggregation keyword, chart type, ending keyword, element
+      keyword, dimension keyword, measure keyword 키워드가 사용된다. 각 키워드별로 설정된 값으로
+      템플릿을 구성하면 자연어로 데이터를 분석할 수 있다.</para>
+
+      <itemizedlist spacing="compact">
+        <listitem>
+          <para>aggregation keyword, chart type, ending keyword<indexterm>
+              <primary>자연어 쿼리 분석 시스템</primary>
+
+              <secondary>aggregation keyword,</secondary>
+            </indexterm><indexterm>
+              <primary>자연어 쿼리 분석 시스템</primary>
+
+              <secondary>chart type</secondary>
+            </indexterm><indexterm>
+              <primary>자연어 쿼리 분석 시스템</primary>
+
+              <secondary>ending keyword</secondary>
+            </indexterm></para>
+
+          <para>아래 표와 같이 미리 지정된 값들 중에서 하나를 지정한다.</para>
+
+          <informaltable colsep="1" frame="topbot" rowsep="1">
+            <tgroup cols="3">
+              <thead>
+                <row>
+                  <entry>aggregation keyword</entry>
+
+                  <entry>chart type</entry>
+
+                  <entry>ending keyword</entry>
+                </row>
+              </thead>
+
+              <tbody>
+                <row>
+                  <entry>합</entry>
+
+                  <entry>바</entry>
+
+                  <entry>줘요</entry>
+                </row>
+
+                <row>
+                  <entry>합계</entry>
+
+                  <entry>라인</entry>
+
+                  <entry>줄래</entry>
+                </row>
+
+                <row>
+                  <entry>평균</entry>
+
+                  <entry>파이</entry>
+
+                  <entry>주라</entry>
+                </row>
+
+                <row>
+                  <entry>최댓값(최대값)</entry>
+
+                  <entry></entry>
+
+                  <entry>봐</entry>
+                </row>
+
+                <row>
+                  <entry>최솟값(최소값)</entry>
+
+                  <entry></entry>
+
+                  <entry>주세요</entry>
+                </row>
+
+                <row>
+                  <entry>개수</entry>
+
+                  <entry></entry>
+
+                  <entry>줄래요</entry>
+                </row>
+              </tbody>
+            </tgroup>
+          </informaltable>
+        </listitem>
+
+        <listitem>
+          <para>element keyword, dimension keyword, measure keyword<indexterm>
+              <primary>자연어 쿼리 분석 시스템</primary>
+
+              <secondary>element keyword</secondary>
+            </indexterm><indexterm>
+              <primary>자연어 쿼리 분석 시스템</primary>
+
+              <secondary>dimension keyword</secondary>
+            </indexterm><indexterm>
+              <primary>자연어 쿼리 분석 시스템</primary>
+
+              <secondary>measure keyword</secondary>
+            </indexterm></para>
+
+          <para>질의하고자 하는 데이터 객체에 따라 달라지게 된다.</para>
+
+          <para>dimension keyword, measure keyword는 데이터 객체의 컬럼명이며, element
+          keyword는 데이터 객체 컬럼 Candidates 값 중에서 지정 할 수 있다. 컬럼 Candidates와 관련된
+          자세한 내용은 <xref linkend="sect_meta_column" />를 참고한다.</para>
+        </listitem>
+      </itemizedlist>
+    </section>
+
+    <section xml:id="sect_proj_edit">
+      <title>프로젝트 수정</title>
+
+      <para><guibutton>프로젝트 정보 화면</guibutton>(<xref
+      linkend="figure_project_detail" />)의 <guibutton>[수정]</guibutton> 버튼을
+      클릭하면 프로젝트 정보를 수정할 수 있다. 자세한 내용은 <xref linkend="sect_admin_proj_edit" />
+      을 참고한다.</para>
+
+      <para></para>
+    </section>
+
+    <section xml:id="sect_proj_delete">
+      <title>프로젝트 삭제</title>
+
+      <para><guibutton>프로젝트 정보 화면</guibutton>(<xref
+      linkend="figure_project_detail" />)의 <guibutton>[삭제]</guibutton> 버튼을
+      클릭하면 프로젝트 정보를 삭제할 수 있다. 자세한 내용은 <xref
+      linkend="sect_admin_proj_delete" />를 참고한다.</para>
+
+      <para></para>
+    </section>
+  </section>
+</chapter>

@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section version="5.0" xml:id="sect_admin_auditlog"
+         xmlns="http://docbook.org/ns/docbook"
+         xmlns:xlink="http://www.w3.org/1999/xlink"
+         xmlns:xi="http://www.w3.org/2001/XInclude"
+         xmlns:svg="http://www.w3.org/2000/svg"
+         xmlns:mml="http://www.w3.org/1998/Math/MathML"
+         xmlns:html="http://www.w3.org/1999/xhtml"
+         xmlns:db="http://docbook.org/ns/docbook">
+  <title>Audit Log<indexterm>
+      <primary>시스템 관리 카테고리</primary>
+
+      <secondary>[Audit Log] 메뉴</secondary>
+    </indexterm></title>
+
+  <para><guibutton>[시스템 관리] &gt; [Audit Log]</guibutton> 메뉴를 선택하면 HyperData
+  내에서 발생한 작업들의 기록을 조회할 수 있다.</para>
+
+  <para></para>
+
+  <para><figure xml:id="figure_auditlog_main">
+      <title>Audit Log 화면</title>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata align="left" fileref="resources/figure_auditlog_main.png"
+                     width="750"></imagedata>
+        </imageobject>
+      </mediaobject>
+    </figure></para>
+
+  <itemizedlist spacing="compact">
+    <listitem>
+      <para><guibutton>검색조건 </guibutton></para>
+
+      <para><guibutton>'기간'</guibutton>, <guibutton>'시작 시간'</guibutton>,
+      <guibutton>'종료 시간'</guibutton>, <guibutton>'프로젝트'</guibutton>,
+      <guibutton>'유형'</guibutton>, <guibutton>'사용자 ID'</guibutton> 항목에 조회할 값을
+      입력한 후 <guibutton>[검색]</guibutton> 버튼을 클릭하면 조건에 맞는 Audit Log 기록을 선별해서 조회할
+      수 있다. <guibutton>'기간'</guibutton> 검색은 1시간, 6시간, 24시간, 1주, 1개월 중 선택 가능하다.
+      설정된 검색조건은 <emphasis
+      role="underline"><guibutton>초기화</guibutton></emphasis>를 클릭해서
+      초기화한다.</para>
+    </listitem>
+
+    <listitem>
+      <para><guibutton>로그 목록 </guibutton></para>
+
+      <para>다음은 각 항목에 대한 설명이다.</para>
+
+      <informaltable colsep="1" frame="topbot" rowsep="1">
+        <tgroup cols="2">
+          <colspec align="left" colwidth="150" />
+
+          <thead>
+            <row>
+              <entry>항목</entry>
+
+              <entry>설명</entry>
+            </row>
+          </thead>
+
+          <tbody>
+            <row>
+              <entry>이벤트 발생 시간</entry>
+
+              <entry>Action의 수행 날짜와 시간을 기록한다.</entry>
+            </row>
+
+            <row>
+              <entry>프로젝트</entry>
+
+              <entry>Action이 수행된 프로젝트를 나타낸다. 로그인 이력, 사용자 및 사용자 그룹 관리 등 프로젝트에
+              종속되지 않는 Action은 공란으로 표기된다.</entry>
+            </row>
+
+            <row>
+              <entry>사용자 ID</entry>
+
+              <entry>Action을 실행한 계정 정보를 기록한다.</entry>
+            </row>
+
+            <row>
+              <entry>유형</entry>
+
+              <entry><para>HyperData Web UI에서 수행한 Action의 종류를 나타낸다.
+              </para><para>다음의 Action 종류를 제공한다. <indexterm class="singular">
+                  <primary>Action 종류</primary>
+                </indexterm></para><itemizedlist mark="circle"
+                  spacing="compact">
+                  <listitem>
+                    <para>CONNECTION : 관리자와 일반 사용자의 HyperData 로그인 이력을
+                    기록한다.</para>
+                  </listitem>
+
+                  <listitem>
+                    <para>USER : 계정에 대한 CUD(Create, Update, Delete) 이력을
+                    기록한다.</para>
+                  </listitem>
+
+                  <listitem>
+                    <para>JOB : Data Job과 Service Job 관련 기록을 남긴다. Job에 대한
+                    CUD(Create, Update, Delete)를 수행하거나, Job을 실행한 경우 JOB
+                    Component로 Audit Log가 남는다.</para>
+                  </listitem>
+
+                  <listitem>
+                    <para>FILE : 데이터를 다운로드 받는 경우, Job 수행 결과로 파일 쓰기를 진행한 경우,
+                    SAM 파일을 데이터소스로 등록하는 경우 이력을 남긴다. 다운로드의 경우 해당 row를 클릭하면 다운로드
+                    사유가 조회된다(<xref linkend="figure_reason_audit_check" />
+                    참고).</para>
+                  </listitem>
+
+                  <listitem>
+                    <para>PROJECT : 프로젝트에 대한 CUD(Create, Update, Delete) 이력을
+                    기록한다.</para>
+                  </listitem>
+
+                  <listitem>
+                    <para>DATA : 데이터소스 및 오브젝트에 대한 CUD 이력을 기록한다.</para>
+                  </listitem>
+                </itemizedlist></entry>
+            </row>
+
+            <row>
+              <entry>상세 설명</entry>
+
+              <entry>Action에 대한 상세 설명이다.</entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </informaltable>
+
+      <para><guibutton> '유형'</guibutton> 항목이 'FILE'인 경우 해당 row를 클릭하면 다운로드 사유를
+      조회할 수 있다.</para>
+
+      <para><figure xml:id="figure_reason_audit_check">
+          <title>[Audit Log] - 기록 및 사유서 확인</title>
+
+          <mediaobject>
+            <imageobject>
+              <imagedata align="left"
+                         fileref="resources/figure_reason_audit_check.png"
+                         width="300"></imagedata>
+            </imageobject>
+          </mediaobject>
+        </figure></para>
+    </listitem>
+  </itemizedlist>
+</section>

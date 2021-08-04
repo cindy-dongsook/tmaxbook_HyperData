@@ -1,0 +1,3116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section version="5.0" xml:id="sect_job_data_job"
+         xmlns="http://docbook.org/ns/docbook"
+         xmlns:xlink222="http://www.w3.org/19999/xlink"
+         xmlns:xlink="http://www.w3.org/1999/xlink"
+         xmlns:xila="http://www.w3.org/2001/XInclude/local-attributes"
+         xmlns:xi="http://www.w3.org/2001/XInclude"
+         xmlns:trans="http://docbook.org/ns/transclusion"
+         xmlns:svg="http://www.w3.org/2000/svg"
+         xmlns:mml="http://www.w3.org/1998/Math/MathML"
+         xmlns:html="http://www.w3.org/1999/xhtml"
+         xmlns:db="http://docbook.org/ns/docbook">
+  <title>Data Job<indexterm>
+      <primary>JOB 카테고리</primary>
+
+      <secondary>[Data Job] 메뉴</secondary>
+    </indexterm></title>
+
+  <para>Data Job은 등록된 데이터소스로부터 데이터 가공 및 분석을 작업을 수행한다. Data Job을 생성하고 작성함으로서 단위
+  분석작업을 정의할 수 있고, 작성된 Data Job을 동작함으로서 분석 작업을 수행한다. 작성된 Data Job은 Service
+  Job에서 사용된다.</para>
+
+  <para><guibutton>[JOB] &gt; </guibutton><guibutton>[Data Job]</guibutton>
+  메뉴를 선택하면 Data Job을 조회하거나 생성, 수정, 삭제할 수 있다. <guibutton>[생성]</guibutton> 버튼을
+  클릭하면 Data Job을 생성할 수 있고, 생성 후 초기상태는 Draft로 나타난다. Draft란 작업 수행 전의 Job을
+  뜻한다.</para>
+
+  <para>목록의 <guibutton>'동작'</guibutton> 항목에서 <inlinemediaobject>
+      <imageobject>
+        <imagedata fileref="resources/icon_edit.png" width="20"/>
+      </imageobject>
+    </inlinemediaobject> 아이콘을 클릭하면 Data Job을 수정할 수 있다. 목록에서 Data Job을 선택한 후
+  <guibutton>[삭제]</guibutton> 버튼을 클릭하거나 <guibutton>'동작'</guibutton> 항목에
+  <inlinemediaobject>
+      <imageobject>
+        <imagedata fileref="resources/icon_delete.png" width="20"/>
+      </imageobject>
+    </inlinemediaobject> 아이콘을 클릭하면 Data Job을 삭제할 수 있다. 목록에서 Data Job을 선택한 후
+  <inlinemediaobject>
+      <imageobject>
+        <imagedata fileref="resources/icon_export.png" width="20"/>
+      </imageobject>
+    </inlinemediaobject> 아이콘을 클릭하면 Data Job을 다른 프로젝트에 공유할 수 있다. 목록 위에
+  <guibutton>'검색'</guibutton> 입력항목에 검색할 Job 이름을 입력하고 &lt;Enter&gt; 키를 누르거나
+  <inlinemediaobject>
+      <imageobject>
+        <imagedata fileref="resources/icon_search.png" width="22"/>
+      </imageobject>
+    </inlinemediaobject> 아이콘을 클릭하면 Job을 조회할 수 있다. 목록 아래에 조회된 건수와 페이징 정보, 조회할
+  건수를 선택할 수 있다.</para>
+
+  <para>목록에서 Data Job을 선택하면 Data Flow와 Data Job에 대한 내용이 화면 아래 영역에 조회되고,
+  <guibutton>'JOB 이름'</guibutton> 항목을 클릭하면 <guibutton>Data Flow
+  화면</guibutton>(<xref linkend="figure_datajob_detail"/>)으로 이동해서 Flow를 생성하거나
+  수정할 수 있다. 자세한 내용은 <xref linkend="sect_datajob_detail"/>을 참고한다.</para>
+
+  <para><figure xml:id="figure_datajob">
+      <title>Data Job 화면</title>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata align="left" fileref="resources/figure_datajob.png"
+                     width="750"/>
+        </imageobject>
+      </mediaobject>
+    </figure></para>
+
+  <para><note>
+      <para>여러 사용자가 동일한 Data Job을 동시에 실행할 수는 없지만 동일한 Data Flow를 가진 다른 Data
+      Job은 동시에 수행할 수 있다.</para>
+    </note></para>
+
+  <para/>
+
+  <para/>
+
+  <section>
+    <title>Data Job 생성</title>
+
+    <para><guibutton>Data Job 화면</guibutton>(<xref
+    linkend="figure_datajob"/>)에서 <guibutton>[생성]</guibutton> 버튼을 클릭하면 Data
+    Job을 등록할 수 있다. 각 항목을 입력한 후 <guibutton>[확인]</guibutton> 버튼을 클릭한다.</para>
+
+    <figure>
+      <title>[Data Job] - Data Job 생성</title>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata align="left"
+                     fileref="resources/figure_datajob_create.png" width="400"/>
+        </imageobject>
+      </mediaobject>
+    </figure>
+
+    <para/>
+  </section>
+
+  <section>
+    <title>Data Job 수정</title>
+
+    <para><guibutton>Data Job 화면</guibutton>(<xref
+    linkend="figure_datajob"/>)의 목록에 <guibutton>'동작'</guibutton> 항목에서
+    <inlinemediaobject>
+        <imageobject>
+          <imagedata fileref="resources/icon_edit.png" width="20"/>
+        </imageobject>
+      </inlinemediaobject> 아이콘을 클릭하면 Data Job의 이름과 설명을 수정할 수 있다(등록된 프로젝트 정보는
+    변경할 수 없다). 각 항목을 수정한 후 <guibutton>[확인]</guibutton> 버튼을 클릭한다.</para>
+
+    <figure>
+      <title>[Data Job] - Data Job 수정</title>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata align="left" fileref="resources/figure_datajob_edit.png"
+                     width="400"/>
+        </imageobject>
+      </mediaobject>
+    </figure>
+
+    <para/>
+  </section>
+
+  <section>
+    <title>Data Job 삭제</title>
+
+    <para><guibutton>Data Job 화면</guibutton>(<xref
+    linkend="figure_datajob"/>)의 목록에서 Data Job을 선택한 후
+    <guibutton>[삭제]</guibutton> 버튼을 클릭하거나 <guibutton>'동작'</guibutton> 항목에
+    <inlinemediaobject>
+        <imageobject>
+          <imagedata fileref="resources/icon_delete.png" width="20"/>
+        </imageobject>
+      </inlinemediaobject> 아이콘을 클릭하면 Data Job을 삭제할 수 있다. 목록에서 삭제정보를 확인한 후
+    <guibutton>[삭제]</guibutton> 버튼을 클릭한다.</para>
+
+    <para/>
+
+    <figure>
+      <title>[Data Job] - Data Job 삭제</title>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata align="left"
+                     fileref="resources/figure_delete_datajob.png" width="300"/>
+        </imageobject>
+      </mediaobject>
+    </figure>
+
+    <para/>
+
+    <para/>
+  </section>
+
+  <section>
+    <title>Data Job 공유</title>
+
+    <para><guibutton>Data Job 화면</guibutton>(<xref
+    linkend="figure_datajob"/>)의 목록에서 Data Job을 선택한 후
+    <guibutton>'동작'</guibutton> 항목에 <inlinemediaobject>
+        <imageobject>
+          <imagedata fileref="resources/icon_export.png" width="20"/>
+        </imageobject>
+      </inlinemediaobject> 아이콘을 클릭하면 Data Job을 다른 프로젝트에 공유할 수 있다. 프로젝트 목록 위에
+    <guibutton>'검색'</guibutton> 입력항목에 검색할 프로젝트를 입력하고 <inlinemediaobject>
+        <imageobject>
+          <imagedata fileref="resources/icon_search.png" width="22"/>
+        </imageobject>
+      </inlinemediaobject> 아이콘을 클릭하면 프로젝트를 조회할 수 있다. 공유할 Job 이름을 입력하고 프로젝트를
+    선택한 후 <guibutton>[적용]</guibutton> 버튼을 클릭한다.</para>
+
+    <figure>
+      <title>[Data Job] - Data Job 공유</title>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata align="left"
+                     fileref="resources/figure_datajob_export.png" width="450"/>
+        </imageobject>
+      </mediaobject>
+    </figure>
+
+    <para/>
+
+    <para/>
+  </section>
+
+  <section xml:id="sect_datajob_detail">
+    <title>Data Flow 생성 및 수정<indexterm class="singular">
+        <primary>Data Flow</primary>
+      </indexterm></title>
+
+    <para><guibutton>Data Job 화면</guibutton>(<xref
+    linkend="figure_datajob"/>)의 목록에서 <guibutton>'JOB 이름'</guibutton> 항목을 클릭하면
+    Data Flow을 생성하고 그에 따른 결과를 얻을 수 있다.</para>
+
+    <figure xml:id="figure_datajob_detail">
+      <title>Data Flow 화면</title>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata align="left"
+                     fileref="resources/figure_datajob_detail.png" width="750"/>
+        </imageobject>
+      </mediaobject>
+    </figure>
+
+    <para/>
+
+    <para>다음은 Data Flow 화면 구성에 대한 설명이다.</para>
+
+    <figure xml:id="figure_datajob_detail_func_tab">
+      <title>Data Flow 화면 구성</title>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata align="left"
+                     fileref="resources/figure_datajob_detail_composition.png"
+                     width="750"/>
+        </imageobject>
+      </mediaobject>
+    </figure>
+
+    <para>다음은 각 영역에 대한 설명이다.</para>
+
+    <itemizedlist spacing="compact">
+      <listitem>
+        <para><guibutton>① 작업선택 영역</guibutton></para>
+
+        <informaltable colsep="1" frame="topbot" rowsep="1">
+          <tgroup cols="2">
+            <colspec align="left" colwidth="150"/>
+
+            <thead>
+              <row>
+                <entry>탭</entry>
+
+                <entry>설명</entry>
+              </row>
+            </thead>
+
+            <tbody>
+              <row>
+                <entry><guibutton>[Data]</guibutton> 탭<indexterm>
+                    <primary>Data Flow</primary>
+
+                    <secondary>[Data] 탭</secondary>
+                  </indexterm></entry>
+
+                <entry><para>등록된 데이터 객체의 목록을 조회한다. 목록 위에
+                <guibutton>'검색'</guibutton> 항목에 키워드를 입력하고 &lt;Enter&gt; 키를
+                누르거나 <inlinemediaobject>
+                    <imageobject>
+                      <imagedata fileref="resources/icon_search.png"
+                                 width="22"/>
+                    </imageobject>
+                  </inlinemediaobject> 아이콘을 클릭하면 현재 조회 중인 프로젝트에 등록된 데이터 객체 중
+                입력한 키워드를 포함한 데이터 객체를 검색할 수 있다. 키워드에 매칭되는 정보에는 데이터 객체에 대한 논리명,
+                물리명, 설명, 태그, 작성자, 소속 카테고리, 소속 데이터소스 위치와 데이터 객체에 포함된 컬럼의 설명,
+                태그, 개별값이 있다. 각 데이터 객체 노드는 데이터소스별로 구분되어 있으며, 데이터 객체 노드를 선택한 후
+                <guibutton>(5) 작업영역</guibutton>으로 드래그하면 Flow를 작성할 수 있다.
+                </para><para><guibutton>다른 프로젝트에서 공유 권한을 부여 받은 데이터 객체는 선택할 수
+                있다.</guibutton></para></entry>
+              </row>
+
+              <row>
+                <entry><guibutton>[Function]</guibutton> 탭<indexterm>
+                    <primary>Data Flow</primary>
+
+                    <secondary>[Function] 탭</secondary>
+                  </indexterm></entry>
+
+                <entry><para><guibutton>[Data]</guibutton> 탭에서 데이터 객체를 작업영역으로
+                드래그한 이후 <guibutton>[Function]</guibutton> 탭에서 노드를
+                <guibutton>(5) 작업영역</guibutton>으로 드래그해서 Data flow를 작성한다.
+                </para><para>작업 영역에 Function이 추가되면
+                <guibutton>[Input]</guibutton>,
+                <guibutton>[Output]</guibutton> 탭에서 해당 기능을 설정하고 수행 결과를 조회할 수
+                있다.</para><para><itemizedlist spacing="compact">
+                    <listitem>
+                      <para><guibutton>[Input]</guibutton> 탭 : 추가된 Function을
+                      조회하거나 설정할 수 있다. 각 Function별 설정 화면에 대한 자세한 내용은 <xref
+                      linkend="sect_dataflow_function_tab"/>을 참고한다.</para>
+                    </listitem>
+
+                    <listitem>
+                      <para><guibutton>[Output]</guibutton> 탭 : Function별 설정된
+                      Data Flow의 수행 결과를 조회한다. <guibutton>[Data
+                      Preview]</guibutton>, <guibutton>[SQL],</guibutton>
+                      <guibutton>[Summary]</guibutton>,
+                      <guibutton>[Correlation]</guibutton>,
+                      <guibutton>[Ad-Hoc]</guibutton> 버튼을 클릭해서 설정한 결과를 조회할 수
+                      있다. 자세한 내용은 <xref linkend="sect_dataflow_output_tab"/>를
+                      참고한다.</para>
+                    </listitem>
+                  </itemizedlist></para></entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </informaltable>
+      </listitem>
+
+      <listitem>
+        <para><guibutton>② 작업선택 영역 확대/축소 </guibutton></para>
+
+        <para>작업선택 영역을 확대하거나 축소한다.</para>
+      </listitem>
+
+      <listitem>
+        <para><guibutton>③ 열린 Data Job 목록</guibutton></para>
+
+        <para>열린 Data Job의 이름으로 탭이 구성된다.</para>
+      </listitem>
+
+      <listitem>
+        <para><guibutton>④ 작업 툴바<indexterm>
+            <primary>Data Flow</primary>
+
+            <secondary>작업 툴바</secondary>
+          </indexterm></guibutton></para>
+
+        <para><informaltable colsep="1" frame="topbot" rowsep="1">
+            <tgroup cols="2">
+              <colspec align="left" colwidth="180"/>
+
+              <thead>
+                <row>
+                  <entry>버튼</entry>
+
+                  <entry>설명</entry>
+                </row>
+              </thead>
+
+              <tbody>
+                <row>
+                  <entry><inlinemediaobject>
+                      <imageobject>
+                        <imagedata fileref="resources/icon_undo.png"
+                                   width="16"/>
+                      </imageobject>
+                    </inlinemediaobject>(Undo) / <inlinemediaobject>
+                      <imageobject>
+                        <imagedata fileref="resources/icon_redo.png"
+                                   width="16"/>
+                      </imageobject>
+                    </inlinemediaobject>(Redo)</entry>
+
+                  <entry>되돌리기/ 앞으로 가기 버튼이다. Data Flow를 생성하는 과정에서 사용할 수
+                  있다.</entry>
+                </row>
+
+                <row>
+                  <entry><inlinemediaobject>
+                      <imageobject>
+                        <imagedata fileref="resources/icon_save.png"
+                                   width="16"/>
+                      </imageobject>
+                    </inlinemediaobject>(Save)</entry>
+
+                  <entry>Data Flow를 저장한다. <guibutton> 저장하지 않은 경우 현재까지 작성한
+                  Flow는 보존되지 않는다. </guibutton></entry>
+                </row>
+
+                <row>
+                  <entry><inlinemediaobject>
+                      <imageobject>
+                        <imagedata fileref="resources/icon_run.png" width="22"/>
+                      </imageobject>
+                    </inlinemediaobject>(Run)</entry>
+
+                  <entry>Data Flow를 수행한다. 수행 결과는
+                  <guibutton>[Output]</guibutton> 탭에서 조회할 수 있다.</entry>
+                </row>
+
+                <row>
+                  <entry><inlinemediaobject>
+                      <imageobject>
+                        <imagedata fileref="resources/icon_stop.png"
+                                   width="16"/>
+                      </imageobject>
+                    </inlinemediaobject>(Stop)</entry>
+
+                  <entry>Data Flow를 수행을 중지한다. (현재 지원하지 않음)</entry>
+                </row>
+
+                <row>
+                  <entry><inlinemediaobject>
+                      <imageobject>
+                        <imagedata fileref="resources/icon_valiables.png"
+                                   width="16"/>
+                      </imageobject>
+                    </inlinemediaobject>(Show Variable)</entry>
+
+                  <entry>Data Flow를 수행하는 경우 각 노드를 설정할 때 동일값 반복입력이 필요한 경우 변수를
+                  사용할 수 있다. <guibutton>Variable 화면</guibutton>(<xref
+                  linkend="figure_datajob_variable"/>)에서 변수를 선택할 수 있다.</entry>
+                </row>
+
+                <row>
+                  <entry><inlinemediaobject>
+                      <imageobject>
+                        <imagedata fileref="resources/icon_sql.png" width="16"/>
+                      </imageobject>
+                    </inlinemediaobject>(Show SQL View)</entry>
+
+                  <entry>Data Flow를 작동한 이후 성공적으로 작동한 Job에 대한 SQL문을 볼 수
+                  있다.</entry>
+                </row>
+
+                <row>
+                  <entry><inlinemediaobject>
+                      <imageobject>
+                        <imagedata fileref="resources/icon_zoomout.png"
+                                   width="16"/>
+                      </imageobject>
+                    </inlinemediaobject>(Zoom In) / <inlinemediaobject>
+                      <imageobject>
+                        <imagedata fileref="resources/icon_zoomin.png"
+                                   width="16"/>
+                      </imageobject>
+                    </inlinemediaobject>(Zoom Out)</entry>
+
+                  <entry>Data Flow 작업영역을 확대, 축소한다.</entry>
+                </row>
+
+                <row>
+                  <entry><inlinemediaobject>
+                      <imageobject>
+                        <imagedata fileref="resources/icon_panmode.png"
+                                   width="16"/>
+                      </imageobject>
+                    </inlinemediaobject>(Pan Mode)</entry>
+
+                  <entry>Pan Mode를 선택하면 마우스 클릭만으로 화면을 움직일 수 있다. 해당 아이콘을 한번더
+                  눌리면 Pan Mode를 해제할 수 있다.</entry>
+                </row>
+
+                <row>
+                  <entry><inlinemediaobject>
+                      <imageobject>
+                        <imagedata fileref="resources/icon_fit.png" width="16"/>
+                      </imageobject>
+                    </inlinemediaobject>(Fit)</entry>
+
+                  <entry>작업공간에 만든 Data Flow 영역을 가르킨다.</entry>
+                </row>
+
+                <row>
+                  <entry><inlinemediaobject>
+                      <imageobject>
+                        <imagedata fileref="resources/icon_acturalsize.png"
+                                   width="20"/>
+                      </imageobject>
+                    </inlinemediaobject>(Actual Size)</entry>
+
+                  <entry>처음에 Data Flow을 생성했던 size로 볼 수 있다.</entry>
+                </row>
+
+                <row>
+                  <entry><inlinemediaobject>
+                      <imageobject>
+                        <imagedata fileref="resources/icon_minimap.png"
+                                   width="16"/>
+                      </imageobject>
+                    </inlinemediaobject>(Mini Map)</entry>
+
+                  <entry>해당 아이콘을 클릭하면 미니맵이 사라진다. 한번더 클릭하면 미니맵을 볼 수 있다.</entry>
+                </row>
+              </tbody>
+            </tgroup>
+          </informaltable></para>
+
+        <para>툴바에서 <inlinemediaobject>
+            <imageobject>
+              <imagedata fileref="resources/icon_valiables.png" width="16"/>
+            </imageobject>
+          </inlinemediaobject> (<guibutton>[Show Variable]</guibutton>) 버튼을
+        클릭하면 Data Job을 수행하는 경우 각 노드를 설정할 때 동일값 반복입력이 필요한 변수 조회할 수 있다.
+        <guibutton>Variable 화면</guibutton>의 <guibutton>[변수 추가]</guibutton> 버튼을
+        클릭하면 변수를 추가할 수 있다.</para>
+
+        <para><figure xml:id="figure_datajob_variable">
+            <title>[Data Job] - Data Flow - Variable 화면</title>
+
+            <mediaobject>
+              <imageobject>
+                <imagedata align="left"
+                           fileref="resources/figure_datajob_variable.png"
+                           width="500"/>
+              </imageobject>
+            </mediaobject>
+          </figure></para>
+
+        <para><guibutton>Add Variable 화면</guibutton>에서 ID에는 원하는 변수의 이름을, 값에는
+        변수에 해당하는 값을 입력한 후 <guibutton>[적용] </guibutton>버튼을 클릭한다.</para>
+
+        <figure>
+          <title>[Data Job] - Data Flow - Add Variable 화면</title>
+
+          <mediaobject>
+            <imageobject>
+              <imagedata align="left"
+                         fileref="resources/figure_datajob_variable_add_1.png"
+                         width="450"/>
+            </imageobject>
+          </mediaobject>
+        </figure>
+
+        <para>저장된 변수는 GroupBy 노드의 Having 절, Selector 노드의 로우 선택 옵션, Validation
+        노드의 Condition을 추가할 때 <guibutton>[변수]</guibutton> 버튼을 클릭하여 조회해서 사용할 수
+        있다.</para>
+
+        <figure>
+          <title>[Data Job] - Data Flow - Add Variable 적용 화면</title>
+
+          <mediaobject>
+            <imageobject>
+              <imagedata align="left"
+                         fileref="resources/figure_datajob_variable_add_2.png"
+                         width="500"/>
+            </imageobject>
+          </mediaobject>
+        </figure>
+      </listitem>
+
+      <listitem>
+        <para>⑤ 작업영역</para>
+
+        <para><guibutton>작업선택 영역</guibutton>에서 선택한 데이터 객체와 Function을 드래그해서 작업
+        영역에 추가할 수 있다. 추가한 노드에 따라서 작업영역 아래에 상세 정보가 조회된다. 툴바에 현재 작업 중인 Data Job의
+        상태를 표시되고, 오른쪽 <guibutton>미니맵</guibutton>에서 작업 영역에 추가된 데이터 객체와
+        Function을 축소해서 조회한다.</para>
+      </listitem>
+    </itemizedlist>
+
+    <para/>
+
+    <para><literallayout/></para>
+
+    <para><bridgehead>Data Flow의 Timeout</bridgehead></para>
+
+    <para>일반적으로 Data Flow의 단위 실행은 많은 시간이 소요된다. 이에 HyperData는 Data Flow의 단위 실행의
+    타임아웃을 지정하여 해당 시간이 넘어가면 강제로 작업을 종료하고 타임아웃 에러를 반환하는 기능이 있다. HyperData를 부팅하기
+    전
+    $PROOBJECT_HOME/application/hyperdata/servicegroup/web-service/config/servicegroup.properties에서
+    SERVICE_DATAFLOWDIRECTCREATE_TIMEOUT을 지정하여 타임아웃을 관리자 임의로 설정할 수 있다. (단위:
+    ms)</para>
+
+    <para>다음은 8000ms로 타임아웃을 지정한 예이다.</para>
+
+    <para><programlisting><?db-font-size 90% ?>SERVICE_DATAFLOWDIRECTCREATE_TIMEOUT = 8000 </programlisting></para>
+
+    <para>SERVICE_DATAFLOWDIRECTCREATE_TIMEOUT 항목을 -1로 설정하면 타임아웃을 적용하지
+    않는다.</para>
+
+    <para><programlisting><?db-font-size 90% ?>SERVICE_DATAFLOWDIRECTCREATE_TIMEOUT = -1</programlisting></para>
+
+    <!--<para>Data Flow의 타임아웃 경우 $HD_HOME/config/po/config/system.properties의
+    system_timeout을 설정해야 타임아웃 기능을 사용할 수 있다. (단위: ms)</para> -->
+
+    <para/>
+
+    <literallayout/>
+
+    <?dbfo-need height="10in" ?>
+
+    <section>
+      <title>[Data] 탭<indexterm>
+          <primary>Data Flow</primary>
+
+          <secondary>[Data] 탭</secondary>
+        </indexterm></title>
+
+      <para><guibutton>Data Flow 화면</guibutton>의 <guibutton>[Data]</guibutton>
+      탭에서 데이터 객체를 작업영역으로 드래그해서 Flow를 작성한다.</para>
+
+      <para>데이터 객체 목록 위에 <guibutton>'검색'</guibutton> 입력항목에 검색할 데이터 객체 이름을 입력하면
+      해당 이름의 데이터 객체를 검색할 수 있다. 각 데이터 객체 노드는 데이터소스별로 구분되어 있으며, 데이터 객체 노드를 선택한 후
+      작업영역으로 드래그하면 테이블명, 컬럼정보를 확인할 수 있다. 또한 <guibutton>OUT 영역</guibutton>에서
+      데이터 객체의 데이터 일부를 미리볼 수 있다.</para>
+
+      <figure xml:id="figure_datajob_detail_func_tab" xml:lang="">
+        <title>[Data Job] - Data Flow 생성 - [Data] 탭</title>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata align="left"
+                       fileref="resources/figure_datajob_detail_data_tab.png"
+                       width="750"/>
+          </imageobject>
+        </mediaobject>
+      </figure>
+
+      <literallayout/>
+    </section>
+
+    <section xml:id="sect_dataflow_function_tab">
+      <title>[Function] 탭<indexterm>
+          <primary>Data Flow</primary>
+
+          <secondary>[Function] 탭</secondary>
+        </indexterm></title>
+
+      <para><guibutton>Data Flow 화면</guibutton>의 <guibutton>[Data]</guibutton>
+      탭에서 데이터 객체를 작업영역으로 드래그하고 <guibutton>[Function]</guibutton> 탭에서 노드를 추가한 후
+      아래 <guibutton>[Input]</guibutton> 탭에서 각 Function별 정보를 설정해서 Data Flow를
+      작성한다.</para>
+
+      <figure xml:id="figure_datajob_detail_func_tab" xml:lang="">
+        <title>[Data Job] - Data Flow 생성 - [Function] 탭</title>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata align="left"
+                       fileref="resources/figure_datajob_detail_func_tab.png"
+                       width="750"/>
+          </imageobject>
+        </mediaobject>
+      </figure>
+
+      <para>다음은 <guibutton>[Function]</guibutton> 탭에서 선택할 수 있는 함수 목록이다.</para>
+
+      <para><itemizedlist spacing="compact">
+          <listitem>
+            <para><guibutton>Data Manipulation</guibutton></para>
+
+            <para><informaltable colsep="1" frame="topbot" rowsep="1">
+                <tgroup cols="2">
+                  <colspec align="left" colwidth="160"/>
+
+                  <thead>
+                    <row>
+                      <entry>구분</entry>
+
+                      <entry>설명</entry>
+                    </row>
+                  </thead>
+
+                  <tbody>
+                    <row>
+                      <entry><link
+                      linkend="sect_datajob_dataflow_groupby">GroupBy</link></entry>
+
+                      <entry>SQL의 Group by 문과 동일하게 테이블 내 하나의 컬럼에 대해 동일한 값을 갖는
+                      데이터들을 집계한다.</entry>
+                    </row>
+
+                    <row>
+                      <entry><link
+                      linkend="sect_datajob_dataflow_join">Join</link></entry>
+
+                      <entry>관련 있는 테이블의 컬럼 기준으로 행을 합쳐주는 연산이며 여러 테이블을
+                      조합한다.</entry>
+                    </row>
+
+                    <row>
+                      <entry><link
+                      linkend="sect_datajob_dataflow_sort">Sort</link></entry>
+
+                      <entry>테이블을 컬럼 기준으로 정렬한다.</entry>
+                    </row>
+
+                    <row>
+                      <entry><link
+                      linkend="sect_datajob_dataflow_selection">Selector</link></entry>
+
+                      <entry>테이블에서 원하는 컬럼을 선택하여 출력한다.</entry>
+                    </row>
+
+                    <row>
+                      <entry><link
+                      linkend="sect_datajob_dataflow_pivot">Pivot</link></entry>
+
+                      <entry>테이블 형태를 변경하여 광범위한 데이터를 요약한다.</entry>
+                    </row>
+
+                    <row>
+                      <entry><link
+                      linkend="sect_datajob_dataflow_setoperators">Set
+                      Operators</link></entry>
+
+                      <entry>Union, Intersect, Minus 기능을 제공한다.</entry>
+                    </row>
+
+                    <row>
+                      <entry><link
+                      linkend="sect_datajob_dataflow_deidentification">Deidentification</link></entry>
+
+                      <entry>Masking, Suppression 기능을 제공한다.</entry>
+                    </row>
+                  </tbody>
+                </tgroup>
+              </informaltable></para>
+          </listitem>
+
+          <listitem>
+            <para><guibutton>User Defined Node</guibutton></para>
+
+            <para><informaltable colsep="1" frame="topbot" rowsep="1">
+                <tgroup cols="2">
+                  <colspec align="left" colwidth="160"/>
+
+                  <thead>
+                    <row>
+                      <entry>구분</entry>
+
+                      <entry>설명</entry>
+                    </row>
+                  </thead>
+
+                  <tbody>
+                    <row>
+                      <entry><link
+                      linkend="sect_datajob_dataflow_userdefinedquey">User
+                      Defined Query</link></entry>
+
+                      <entry>쿼리를 직접 작성한다.</entry>
+                    </row>
+                  </tbody>
+                </tgroup>
+              </informaltable></para>
+          </listitem>
+
+          <listitem>
+            <para><guibutton>Save</guibutton></para>
+
+            <para><informaltable colsep="1" frame="topbot" rowsep="1">
+                <tgroup cols="2">
+                  <colspec align="left" colwidth="160"/>
+
+                  <thead>
+                    <row>
+                      <entry>구분</entry>
+
+                      <entry>설명</entry>
+                    </row>
+                  </thead>
+
+                  <tbody>
+                    <row>
+                      <entry><link
+                      linkend="sect_datajob_dataflow_saveoutputdb">Save Output
+                      Database</link></entry>
+
+                      <entry>플로우 실행 결과를 데이터베이스에 저장한다.</entry>
+                    </row>
+
+                    <row>
+                      <entry><link
+                      linkend="sect_datajob_dataflow_saveoutputfile">Save
+                      Output File</link></entry>
+
+                      <entry>플로우 실행 결과를 파일로 저장한다.</entry>
+                    </row>
+
+                    <row>
+                      <entry><link
+                      linkend="sect_datajob_dataflow_saveoutputdo">Save Output
+                      DataObject</link></entry>
+
+                      <entry>플로우 실행 결과를 새로운 데이터 객체로 등록한다.</entry>
+                    </row>
+
+                    <row>
+                      <entry><link
+                      linkend="sect_datajob_dataflow_saveoutputhadoop">Save
+                      Output Hadoop</link></entry>
+
+                      <entry>플로우 실행 결과를 하둡 파일시스템에 저장한다.</entry>
+                    </row>
+                  </tbody>
+                </tgroup>
+              </informaltable></para>
+          </listitem>
+
+          <listitem>
+            <para><guibutton>Validation</guibutton></para>
+
+            <para><informaltable colsep="1" frame="topbot" rowsep="1">
+                <tgroup cols="2">
+                  <colspec align="left" colwidth="160"/>
+
+                  <thead>
+                    <row>
+                      <entry>구분</entry>
+
+                      <entry>설명</entry>
+                    </row>
+                  </thead>
+
+                  <tbody>
+                    <row>
+                      <entry><link
+                      linkend="sect_datajob_dataflow_validation">Validation</link></entry>
+
+                      <entry>경고 및 오류조건을 설정하여 플로우 실행 결과에 대한 경고 및 오류 관련 정보를
+                      제공한다.</entry>
+                    </row>
+                  </tbody>
+                </tgroup>
+              </informaltable></para>
+          </listitem>
+
+          <listitem>
+            <para><guibutton>Prep</guibutton></para>
+
+            <para><informaltable colsep="1" frame="topbot" rowsep="1">
+                <tgroup cols="2">
+                  <colspec align="left" colwidth="160"/>
+
+                  <thead>
+                    <row>
+                      <entry>구분</entry>
+
+                      <entry>설명</entry>
+                    </row>
+                  </thead>
+
+                  <tbody>
+                    <row>
+                      <entry><link
+                      linkend="sect_datajob_dataflow_missingvalue">MissingValue</link></entry>
+
+                      <entry>테이블 데이터에 null 값이 존재하는 경우 해당 데이터를 처리한다.</entry>
+                    </row>
+
+                    <row>
+                      <entry><link
+                      linkend="sect_datajob_dataflow_normalization">Normalization</link></entry>
+
+                      <entry>테이블 데이터의 상대적 크기에 대한 영향을 줄이기 위해 데이터의 범위를 0과 1 사이로
+                      변환한다.</entry>
+                    </row>
+
+                    <row>
+                      <entry><link
+                      linkend="sect_datajob_dataflow_sample">Sample</link></entry>
+
+                      <entry>테이블 데이터 상위부터 일부를 추출한다.</entry>
+                    </row>
+
+                    <row>
+                      <entry><link
+                      linkend="sect_datajob_dataflow_outlier">Outlier</link></entry>
+
+                      <entry>테이블 데이터의 전체적인 패턴에서 벗어나는 데이터를 처리한다.</entry>
+                    </row>
+                  </tbody>
+                </tgroup>
+              </informaltable></para>
+          </listitem>
+        </itemizedlist></para>
+
+      <literallayout/>
+
+      <para><bridgehead
+      xml:id="sect_datajob_dataflow_groupby">GroupBy<indexterm>
+          <primary>Data Flow([Function] 탭)</primary>
+
+          <secondary>GroupBy</secondary>
+        </indexterm></bridgehead></para>
+
+      <para>GroupBy는 SQL의 Group by 문과 동일하게 테이블 내 하나의 컬럼에 대해 동일한 값을 갖는 데이터들을
+      집계하는 기능을 제공한다. <guibutton>[Data Manipulation] &gt;
+      [GroupBy]</guibutton>을 선택한 후 작업 영역에 드래그해서 추가해서 GroupBy에 대한 내용을 설정하거나 조회할
+      수 있다.</para>
+
+      <para><figure>
+          <title>[Data Job] - Data Flow 생성 - GroupBy 설정 (1)</title>
+
+          <mediaobject>
+            <imageobject>
+              <imagedata align="left"
+                         fileref="resources/figure_data_manipulation_groupby_1.png"
+                         width="650"/>
+            </imageobject>
+          </mediaobject>
+        </figure></para>
+
+      <itemizedlist spacing="compact">
+        <listitem>
+          <para><guibutton>Group By 키</guibutton></para>
+
+          <para><guibutton>'입력 테이블명</guibutton>'에서 테이블을 선택하면<guibutton> Group
+          By 키</guibutton>에 해당 테이블의 컬럼들이 조회된다. 왼쪽 목록에서 Group By 키로 설정할 컬럼을
+          선택하고 <guibutton>[&gt;] </guibutton>버튼을 클릭하면 해당 컬럼을 키로 설정한다.
+          <guibutton>[&gt;&gt;]</guibutton> 버튼을 클릭하면 모든 컬럼이 선택된다.</para>
+
+          <para><guibutton>ROLLUP, CUBE</guibutton>와 같은 함수를 사용하려면
+          <guibutton>[+]</guibutton> 버튼을 클릭하고, 함수를 키 목록에서 제거하려면
+          <guibutton>[-]</guibutton> 버튼을 클릭한다.</para>
+
+          <para><guibutton>ROLLUP</guibutton>을 사용할 경우 컬럼간의 순서로 인해 결과가 달라질 수
+          있음으로 컬럼 순서를 주의하여 선택한다. 왼쪽 목록에서 Group By Function 에 사용할 키로 설정할 컬럼을
+          선택하고 <guibutton>[&gt;]</guibutton> 버튼을 클릭하면 해당 컬럼을 키로 설정한다.
+          <guibutton>[&gt;&gt;]</guibutton> 버튼을 클릭하면 모든 컬럼이 선택된다. ROLLUP 혹은
+          CUBE 함수를 사용하는 경우 <guibutton>[Output]</guibutton> 탭의 data preview에서
+          100개의 행까지 최대로 조회할 수 있기 때문에 100개 이상인 결과를 모두 확인하려면 save output file을
+          사용한다.</para>
+
+          <para><figure>
+              <title>[Data Job] - Data Flow 생성 - GroupBy 설정 (2)</title>
+
+              <mediaobject>
+                <imageobject>
+                  <imagedata align="left"
+                             fileref="resources/figure_data_manipulation_groupby_2.png"
+                             width="650"/>
+                </imageobject>
+              </mediaobject>
+            </figure></para>
+        </listitem>
+
+        <listitem>
+          <para><guibutton>출력 컬럼</guibutton></para>
+
+          <para><guibutton>출력 컬럼</guibutton>에서는 키로 설정한 컬럼에 대해 동일한 값을 갖는 데이터 중
+          집계할 컬럼과 집계 함수를 설정한다. <guibutton>[+Output Column]</guibutton>을 클릭하면
+          설정화면에서 각 항목을 설정한 후 <guibutton>[등록]</guibutton> 버튼을 클릭한다.</para>
+
+          <para><figure>
+              <title>[Data Job] - Data Flow 생성 - GroupBy 설정 (3)</title>
+
+              <mediaobject>
+                <imageobject>
+                  <imagedata align="left"
+                             fileref="resources/figure_data_manipulation_groupby_3.png"
+                             width="500"/>
+                </imageobject>
+              </mediaobject>
+            </figure></para>
+
+          <para>다음은 각 항목에 대한 설명이다.</para>
+
+          <para><informaltable colsep="1" frame="topbot" rowsep="1">
+              <tgroup cols="2">
+                <colspec align="left" colwidth="150"/>
+
+                <thead>
+                  <row>
+                    <entry>항목</entry>
+
+                    <entry>설명</entry>
+                  </row>
+                </thead>
+
+                <tbody>
+                  <row>
+                    <entry>컬럼</entry>
+
+                    <entry>집계할 컬럼을 선택한다.</entry>
+                  </row>
+
+                  <row>
+                    <entry>집계함수</entry>
+
+                    <entry><para>집계 함수를 선택한다.</para><para><itemizedlist
+                        spacing="compact">
+                        <listitem>
+                          <para>NONE</para>
+                        </listitem>
+
+                        <listitem>
+                          <para>AVG</para>
+                        </listitem>
+
+                        <listitem>
+                          <para>COUNT</para>
+                        </listitem>
+
+                        <listitem>
+                          <para>MAX</para>
+                        </listitem>
+
+                        <listitem>
+                          <para>MIN</para>
+                        </listitem>
+
+                        <listitem>
+                          <para>SUM</para>
+                        </listitem>
+                      </itemizedlist></para></entry>
+                  </row>
+
+                  <row>
+                    <entry>별칭</entry>
+
+                    <entry>컬럼과 집계 함수를 선택하면 Alias가 자동생성된다.</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </informaltable></para>
+        </listitem>
+
+        <listitem>
+          <para><guibutton>Having</guibutton></para>
+
+          <para>SQL의 Having 절과 동일하게 Out Column에서의 집계 결과에 대한 조건을 설정한다.
+          <guibutton>[+Having Statement]</guibutton>를 클릭한 후 설정화면에서 각 항목을 설정한 후
+          <guibutton>[등록]</guibutton> 버튼을 클릭한다.</para>
+
+          <figure>
+            <title>[Data Job] - Data Flow 생성 - GroupBy 설정 (4)</title>
+
+            <mediaobject>
+              <imageobject>
+                <imagedata align="left"
+                           fileref="resources/figure_data_manipulation_groupby_4.png"
+                           width="500"/>
+              </imageobject>
+            </mediaobject>
+          </figure>
+
+          <para>다음은 각 항목에 대한 설명이다.</para>
+
+          <para><informaltable colsep="1" frame="topbot" rowsep="1">
+              <tgroup cols="2">
+                <colspec align="left" colwidth="150"/>
+
+                <thead>
+                  <row>
+                    <entry>항목</entry>
+
+                    <entry>설명</entry>
+                  </row>
+                </thead>
+
+                <tbody>
+                  <row>
+                    <entry>컬럼</entry>
+
+                    <entry>설정할 조건에 해당하는 Out Column 내 컬럼을 선택한다.</entry>
+                  </row>
+
+                  <row>
+                    <entry>연산자</entry>
+
+                    <entry>조건에서 사용할 비교 연산자를 선택한다.</entry>
+                  </row>
+
+                  <row>
+                    <entry>값</entry>
+
+                    <entry>조건에서 사용할 비교 연산의 비교값을 선택한다.</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </informaltable></para>
+        </listitem>
+
+        <listitem>
+          <para><guibutton>출력 테이블명 </guibutton></para>
+
+          <para>Data Flow를 연결한 다음 단계의 input에 <guibutton>'출력 테이블명'</guibutton>에
+          설정한 테이블명이 사용된다.</para>
+        </listitem>
+
+        <listitem>
+          <para><guibutton>결과 출력 </guibutton></para>
+
+          <para><guibutton>'결과 출력'</guibutton> 항목을 체크하면 결과를
+          <guibutton>[Output]</guibutton> 탭의 <guibutton>[Data
+          Preview]</guibutton>에서 조회할 수 있다.</para>
+        </listitem>
+      </itemizedlist>
+
+      <para/>
+
+      <para><literallayout/></para>
+
+      <?dbfo-need height="10in" ?>
+
+      <para><bridgehead xml:id="sect_datajob_dataflow_join">Join<indexterm>
+          <primary>Data Flow([Function] 탭)</primary>
+
+          <secondary>Join</secondary>
+        </indexterm></bridgehead></para>
+
+      <para>Join은 관련 있는 테이블의 컬럼 기준으로 행을 합쳐주는 연산이며 여러 테이블을 조합하는 기능을 제공한다.
+      <guibutton>[Data Manipulation] &gt; [Join]</guibutton>을 선택한 후 작업 영역에
+      추가하면 Join에 대한 내용을 설정하거나 조회할 수 있다.</para>
+
+      <para><figure>
+          <title>[Data Job] - Data Flow 생성 - Join 설정 (1)</title>
+
+          <mediaobject>
+            <imageobject>
+              <imagedata align="left"
+                         fileref="resources/figure_data_manipulation_join_1.png"
+                         width="750"/>
+            </imageobject>
+          </mediaobject>
+        </figure></para>
+
+      <itemizedlist spacing="compact">
+        <listitem>
+          <para><guibutton>Join Keys</guibutton></para>
+
+          <para><guibutton>'입력 테이블명'</guibutton>에서 테이블을 선택한 후
+          <guibutton>[+Join Key]</guibutton> 버튼을 클릭하면 설정화면에서 Join Type, 테이블,
+          테이블 별칭, 컬럼, 연산자 설정할 수 있다. 각 항목을 설정한 후 <guibutton>[등록]</guibutton>
+          버튼을 클릭한다.</para>
+
+          <para><figure>
+              <title>[Data Job] - Data Flow 생성 - Join 설정 (2)</title>
+
+              <mediaobject>
+                <imageobject>
+                  <imagedata align="left"
+                             fileref="resources/figure_data_manipulation_join_2.png"
+                             width="500"/>
+                </imageobject>
+              </mediaobject>
+            </figure></para>
+
+          <para>다음은 주요 항목에 대한 설명이다.</para>
+
+          <para><informaltable colsep="1" frame="topbot" rowsep="1">
+              <tgroup cols="2">
+                <colspec align="left" colwidth="150"/>
+
+                <thead>
+                  <row>
+                    <entry>항목</entry>
+
+                    <entry>설명</entry>
+                  </row>
+                </thead>
+
+                <tbody>
+                  <row>
+                    <entry>Join 타입</entry>
+
+                    <entry><para>Join 타입을 선택한다.</para><itemizedlist
+                        spacing="compact">
+                        <listitem>
+                          <para>INNER</para>
+                        </listitem>
+
+                        <listitem>
+                          <para>LEFT OUTER</para>
+                        </listitem>
+
+                        <listitem>
+                          <para>RIGHT OUTER</para>
+                        </listitem>
+
+                        <listitem>
+                          <para>FULL OUTER</para>
+                        </listitem>
+
+                        <listitem>
+                          <para>NATURAL OUTER</para>
+                        </listitem>
+
+                        <listitem>
+                          <para>CROSS OUTER</para>
+                        </listitem>
+                      </itemizedlist></entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </informaltable></para>
+        </listitem>
+
+        <listitem>
+          <para><guibutton>출력 테이블명</guibutton></para>
+
+          <para>Data Flow를 연결한 다음 단계의 input에 <guibutton>'출력 테이블명'</guibutton>에
+          설정한 테이블명이 사용된다.</para>
+        </listitem>
+
+        <listitem>
+          <para><guibutton>결과출력</guibutton></para>
+
+          <para><guibutton>'결과출력'</guibutton> 항목을 체크하면 결과를
+          <guibutton>[Output]</guibutton> 탭의 <guibutton>[Data
+          Preview]</guibutton>에서 조회할 수 있다.</para>
+        </listitem>
+      </itemizedlist>
+
+      <para/>
+
+      <para><literallayout/></para>
+
+      <bridgehead xml:id="sect_datajob_dataflow_sort">Sort<indexterm>
+          <primary>Data Flow([Function] 탭)</primary>
+
+          <secondary>Sort</secondary>
+        </indexterm></bridgehead>
+
+      <para>Sort는 테이블을 컬럼 기준으로 정렬하는 기능을 제공한다.</para>
+
+      <para><guibutton>[Data Manipulation] &gt; [Sort]</guibutton>를 선택한 후 작업
+      영역에 드래그해서 추가하면 Sort에 대한 내용을 설정하거나 조회할 수 있다.</para>
+
+      <itemizedlist spacing="compact">
+        <listitem>
+          <para><guibutton>Sort Key</guibutton></para>
+
+          <para><guibutton>'입력 테이블명'</guibutton>에서 테이블을 선택한 후
+          <guibutton>[+Sort Key]</guibutton> 버튼을 클릭한 후 설정화면에서 우선 순위, 컬럼, 정렬
+          순서, Null 순서를 설정한다. 각 항목을 설정한 후 <guibutton>[등록]</guibutton> 버튼을
+          클릭한다.</para>
+
+          <para><figure>
+              <title>[Data Job] - Data Flow 생성 - Sort 설정</title>
+
+              <mediaobject>
+                <imageobject>
+                  <imagedata align="left"
+                             fileref="resources/figure_data_manipulation_sort.png"
+                             width="600"/>
+                </imageobject>
+              </mediaobject>
+            </figure></para>
+
+          <para>다음은 각 항목에 대한 설명이다.</para>
+
+          <para><informaltable colsep="1" frame="topbot" rowsep="1">
+              <tgroup cols="2">
+                <colspec align="left" colwidth="150"/>
+
+                <thead>
+                  <row>
+                    <entry>항목</entry>
+
+                    <entry>설명</entry>
+                  </row>
+                </thead>
+
+                <tbody>
+                  <row>
+                    <entry>컬럼</entry>
+
+                    <entry>정렬할 기준이 될 컬럼을 선택한다.</entry>
+                  </row>
+
+                  <row>
+                    <entry>정렬 순서</entry>
+
+                    <entry><para>정렬 순서를 선택한다.</para><itemizedlist
+                        spacing="compact">
+                        <listitem>
+                          <para>ASC(오름차순)</para>
+                        </listitem>
+
+                        <listitem>
+                          <para>DESC(내림차순)</para>
+                        </listitem>
+                      </itemizedlist></entry>
+                  </row>
+
+                  <row>
+                    <entry>Null 순서</entry>
+
+                    <entry><para>Null 값의 위치를 선택할 수
+                    있다.</para><para><itemizedlist spacing="compact">
+                        <listitem>
+                          <para>LAST</para>
+                        </listitem>
+
+                        <listitem>
+                          <para>FIRST</para>
+                        </listitem>
+                      </itemizedlist></para></entry>
+                  </row>
+
+                  <row>
+                    <entry>액션</entry>
+
+                    <entry>추가된 Sort Key는 정렬기준 목록의 <guibutton>'액션'</guibutton>
+                    항목의 아이콘을 클릭해서 수정하거나 삭제할 수 있다.</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </informaltable></para>
+        </listitem>
+
+        <listitem>
+          <para><guibutton>출력 테이블명</guibutton></para>
+
+          <para>Data Flow를 연결한 다음 단계의 input에 <guibutton>'출력 테이블명'</guibutton>에
+          설정한 테이블명이 사용된다.</para>
+        </listitem>
+
+        <listitem>
+          <para><guibutton>결과출력</guibutton></para>
+
+          <para><guibutton>'결과출력'</guibutton> 항목을 체크하면 결과를
+          <guibutton>[Output]</guibutton> 탭의 <guibutton>[Data
+          Preview]</guibutton>에서 조회할 수 있다.</para>
+        </listitem>
+      </itemizedlist>
+
+      <para/>
+
+      <para><literallayout/></para>
+
+      <bridgehead xml:id="sect_datajob_dataflow_selection">Selector<indexterm>
+          <primary>Data Flow([Function] 탭)</primary>
+
+          <secondary>Selector</secondary>
+        </indexterm></bridgehead>
+
+      <para>Selector은 테이블에서 원하는 컬럼을 선택하여 출력하는 기능을 제공한다.</para>
+
+      <para><guibutton>[Data Manipulation] &gt; [Selector]</guibutton>을 선택한 후
+      작업 영역에 드래그해서 추가하면 Selector에 대한 내용을 설정하거나 조회할 수 있다.</para>
+
+      <para><figure>
+          <title>[Data Job] - Data Flow 생성 - Selector 설정 (1)</title>
+
+          <mediaobject>
+            <imageobject>
+              <imagedata align="left"
+                         fileref="resources/figure_data_manipulation_selection_1.png"
+                         width="600"/>
+            </imageobject>
+          </mediaobject>
+        </figure></para>
+
+      <itemizedlist spacing="compact">
+        <listitem>
+          <para><guibutton>컬럼 선택 옵션</guibutton></para>
+
+          <para><guibutton>'입력 테이블명'</guibutton>에서 테이블을 선택한 후 <guibutton>컬럼 선택
+          옵션</guibutton>에서 <guibutton>[+Column]</guibutton> 버튼을 클릭하면 컬럼을 선택해서
+          추가할 수 있고, <guibutton>[+All]</guibutton> 버튼을 클릭하면 해당 테이블의 모든 컬럼을 추가할
+          수 있다. 각 항목을 설정한 후 <guibutton>[등록]</guibutton> 버튼을 클릭한다.</para>
+
+          <itemizedlist spacing="compact">
+            <listitem>
+              <para><guibutton>[Column]</guibutton> 탭</para>
+
+              <para>해당 테이블의 컬럼 중에서 선택하는 방식으로 선택할 컬럼을 추가할 수 있다. 다중 선택이 가능하고 컬럼을
+              선택하는 경우 자동으로 별칭이 생성된다. 각 컬럼에 대한 별칭을 지정하고
+              <guibutton>[등록]</guibutton> 버튼을 클릭하면 해당 컬럼이 추가된다.</para>
+
+              <para><figure>
+                  <title>[Data Job] - Data Flow 생성 - Selector 설정 (2)</title>
+
+                  <mediaobject>
+                    <imageobject>
+                      <imagedata align="left"
+                                 fileref="resources/figure_data_manipulation_selection_2.png"
+                                 width="500"/>
+                    </imageobject>
+                  </mediaobject>
+                </figure></para>
+            </listitem>
+
+            <listitem>
+              <para><guibutton>[Custom]</guibutton> 탭</para>
+
+              <para>선택할 컬럼과 Min 또는 Max와 같은 연산을 필요에 맞게 조합하여 직접 작성하는 방식으로 추가할 수
+              있다.</para>
+
+              <figure>
+                <title>[Data Job] - Data Flow 생성 - Selector 설정 (3)</title>
+
+                <mediaobject>
+                  <imageobject>
+                    <imagedata align="left"
+                               fileref="resources/figure_data_manipulation_selection_4.png"
+                               width="500"/>
+                  </imageobject>
+                </mediaobject>
+              </figure>
+
+              <para>다음은 각 항목에 대한 설명이다.</para>
+
+              <para><informaltable colsep="1" frame="topbot" rowsep="1">
+                  <tgroup cols="2">
+                    <colspec align="left" colwidth="150"/>
+
+                    <thead>
+                      <row>
+                        <entry>항목</entry>
+
+                        <entry>설명</entry>
+                      </row>
+                    </thead>
+
+                    <tbody>
+                      <row>
+                        <entry>컬럼</entry>
+
+                        <entry>선택한 테이블의 컬럼이다.</entry>
+                      </row>
+
+                      <row>
+                        <entry>별칭</entry>
+
+                        <entry>컬럼을 클릭하면 Alias가 생성된다.</entry>
+                      </row>
+                    </tbody>
+                  </tgroup>
+                </informaltable></para>
+            </listitem>
+          </itemizedlist>
+        </listitem>
+
+        <listitem>
+          <para><guibutton>로우 선택 옵션</guibutton></para>
+
+          <para><guibutton>로우 선택 옵션</guibutton>에서는 출력할 데이터에 대한 조건을 조회한다.
+          <guibutton>[+Condition]</guibutton> 버튼을 클릭한 후 설정화면에서 각 항목을 설정한 후
+          <guibutton>[등록]</guibutton> 버튼을 클릭한다.</para>
+
+          <para><figure>
+              <title>[Data Job] - Data Flow 생성 - Selector 설정 (4)</title>
+
+              <mediaobject>
+                <imageobject>
+                  <imagedata align="left"
+                             fileref="resources/figure_data_manipulation_selection_3.png"
+                             width="500"/>
+                </imageobject>
+              </mediaobject>
+            </figure></para>
+
+          <para>다음은 각 항목에 대한 설명이다.</para>
+
+          <para><informaltable colsep="1" frame="topbot" rowsep="1">
+              <tgroup cols="2">
+                <colspec align="left" colwidth="150"/>
+
+                <thead>
+                  <row>
+                    <entry>항목</entry>
+
+                    <entry>설명</entry>
+                  </row>
+                </thead>
+
+                <tbody>
+                  <row>
+                    <entry>논리연산자</entry>
+
+                    <entry><para>각각 조건에서 사용할 논리연산자를 선택한다.</para><itemizedlist
+                        spacing="compact">
+                        <listitem>
+                          <para>AND</para>
+                        </listitem>
+
+                        <listitem>
+                          <para>OR</para>
+                        </listitem>
+                      </itemizedlist></entry>
+                  </row>
+
+                  <row>
+                    <entry>컬럼</entry>
+
+                    <entry>설정할 조건에 해당하는 컬럼을 선택한다.</entry>
+                  </row>
+
+                  <row>
+                    <entry>연산자</entry>
+
+                    <entry>각각 조건에서 사용할 비교 연산자를 선택한다.</entry>
+                  </row>
+
+                  <row>
+                    <entry>값</entry>
+
+                    <entry>각각 조건에서 사용할 비교 연산의 비교값을 입력한다.</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </informaltable></para>
+        </listitem>
+
+        <listitem>
+          <para><guibutton>출력 테이블명</guibutton></para>
+
+          <para>Data Flow를 연결한 다음 단계의 input에 <guibutton>'출력 테이블명'</guibutton>에
+          설정한 테이블명이 사용된다.</para>
+        </listitem>
+
+        <listitem>
+          <para><guibutton>결과출력</guibutton></para>
+
+          <para><guibutton>'결과출력'</guibutton> 항목을 체크하면 결과를
+          <guibutton>[Output]</guibutton> 탭의 <guibutton>[Data
+          Preview]</guibutton>에서 조회할 수 있다.</para>
+        </listitem>
+      </itemizedlist>
+
+      <para><literallayout/></para>
+
+      <para><bridgehead xml:id="sect_datajob_dataflow_pivot">Pivot<indexterm>
+          <primary>Data Flow([Function] 탭)</primary>
+
+          <secondary>Pivot</secondary>
+        </indexterm></bridgehead></para>
+
+      <para>Pivot은 테이블 형태를 변경하여 광범위한 데이터를 요약하는 기능을 제공한다.</para>
+
+      <para><guibutton>[Data Manipulation] &gt; [Pivot]</guibutton>을 선택한 후 작업
+      영역에 드래그해서 추가하면 Pivot에 대한 내용을 설정하거나 조회할 수 있다.</para>
+
+      <para><figure>
+          <title>[Data Job] - Data Flow 생성 - Pivot 설정</title>
+
+          <mediaobject>
+            <imageobject>
+              <imagedata align="left"
+                         fileref="resources/figure_pivot_property.png"
+                         width="650"/>
+            </imageobject>
+          </mediaobject>
+        </figure></para>
+
+      <itemizedlist spacing="compact">
+        <listitem>
+          <para><guibutton>Fields</guibutton></para>
+
+          <para><guibutton>'입력 테이블명'</guibutton>에서 테이블을 선택하면 왼쪽 <guibutton>컬럼
+          후보</guibutton>에 사용할 수 있는 컬럼 리스트가 조회된다.</para>
+
+          <para>새 테이블의 Row로 사용할 컬럼을 피봇 로우로 설정하려면 왼쪽 <guibutton>'컬럼
+          후보'</guibutton>에서 사용할 컬럼을 선택한 후 <guibutton>'피봇 로우' </guibutton> 항목의
+          <guibutton>[+]</guibutton>을 클릭한다. 동일한 방법으로 새 테이블의 Column, Value로 사용될
+          컬럼을 선택하여 <guibutton>'피봇 컬럼'</guibutton>, <guibutton>'피봇
+          값'</guibutton> 항목으로 설정한다. Value에 집계함수가 필요한 경우 <guibutton>'집계
+          함수'</guibutton> 항목을 설정한다.</para>
+
+          <para><note>
+              <para>현재 Pivot 노드 뒤에는 <link
+              linkend="sect_datajob_dataflow_saveoutputfile">Save Output
+              File</link> Function만 사용할 수 있다.</para>
+            </note></para>
+        </listitem>
+
+        <listitem>
+          <para><guibutton>출력 테이블명</guibutton></para>
+
+          <para>Data Flow를 연결한 다음 단계의 input에 <guibutton>'출력 테이블명'</guibutton>에
+          설정한 테이블명이 사용된다.</para>
+        </listitem>
+
+        <listitem>
+          <para><guibutton>결과출력</guibutton></para>
+
+          <para><guibutton>'결과출력'</guibutton> 항목을 체크하면 결과를
+          <guibutton>[Output]</guibutton> 탭의 <guibutton>[Data
+          Preview]</guibutton>에서 조회할 수 있다.</para>
+        </listitem>
+      </itemizedlist>
+
+      <para><literallayout/></para>
+
+      <para><bridgehead xml:id="sect_datajob_dataflow_setoperators">Set
+      Operators<indexterm>
+          <primary>Data Flow([Function] 탭)</primary>
+
+          <secondary>Set Operators</secondary>
+        </indexterm></bridgehead></para>
+
+      <para><guibutton>[Data Manipulation] &gt; [Set Operators]</guibutton>을
+      선택한 후 작업 영역에 드래그해서 추가하면 Set Operators에 대한 내용을 설정하거나 조회할 수 있다.</para>
+
+      <para/>
+
+      <para><figure>
+          <title>[Data Job] - Data Flow 생성 - Set Operators 설정 (1)</title>
+
+          <mediaobject>
+            <imageobject>
+              <imagedata align="left"
+                         fileref="resources/figure_data_manipulation_setoperators.png"
+                         width="650"/>
+            </imageobject>
+          </mediaobject>
+        </figure></para>
+
+      <itemizedlist spacing="compact">
+        <listitem>
+          <para><guibutton>집합 연산자 타입</guibutton></para>
+
+          <para><guibutton>'집합 연산자 타입'</guibutton> 항목에 선택한 값에 따라 기능을 설정할 수
+          있다.</para>
+
+          <para><informaltable colsep="1" frame="topbot" rowsep="1">
+              <tgroup cols="2">
+                <colspec align="left" colwidth="150"/>
+
+                <thead>
+                  <row>
+                    <entry>구분</entry>
+
+                    <entry>설명</entry>
+                  </row>
+                </thead>
+
+                <tbody>
+                  <row>
+                    <entry>UNION, UNION ALL</entry>
+
+                    <entry>두 개 이상의 테이블을 결합하는 데 사용한다. 중복 데이터 허용 여부에 따라 UNION과
+                    UNION ALL을 선택할 수 있고, UNION ALL의 경우 중복 데이터를 허용한다.</entry>
+                  </row>
+
+                  <row>
+                    <entry>INTERSECT</entry>
+
+                    <entry>두 개 이상의 테이블의 공통된 부분을 알 수 있다. 교집합과 같은 기능이다.</entry>
+                  </row>
+
+                  <row>
+                    <entry>MINUS</entry>
+
+                    <entry>차집합의 기능을 제공하며 테이블 연결 순서가 반대로 될 경우 원하는 결과가 나오지 않기
+                    때문에 <guibutton>[테이블 연결 순서]</guibutton>가 중요하다. Set
+                    Operators Type으로 Minus를 선택하면 연결된 테이블 간의 순서를 확인할 수 있다. 연결
+                    순서를 바꿀 경우 테이블에서 Set Operators 노드로 연결된 화살표를 지우고 원하는 순서로 다시
+                    연결한다.</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </informaltable></para>
+        </listitem>
+
+        <listitem>
+          <para><guibutton>집합 연산자 키</guibutton></para>
+
+          <para><guibutton>'입력 테이블명'</guibutton>에서 테이블을 선택한 후 <guibutton>[+Set
+          Operators Key]</guibutton> 버튼을 클릭하면 각 테이블에서 서로 결합될 컬럼을 선택할 수 있다.
+          <guibutton>'별칭'</guibutton> 항목을 입력하면 결합된 테이블에서의 컬럼명을 설정할 수 있다. 이때 각
+          테이블에서 가져오는 컬럼은 모두 동일 타입이어야 한다. 각 항목을 설정하고
+          <guibutton>[등록]</guibutton> 버튼을 클릭한다.</para>
+
+          <para><figure>
+              <title>[Data Job] - Data Flow 생성 - Set Operators 설정 (2)</title>
+
+              <mediaobject>
+                <imageobject>
+                  <imagedata align="left"
+                             fileref="resources/figure_data_manipulation_setoperators_key.png"
+                             width="500"/>
+                </imageobject>
+              </mediaobject>
+            </figure></para>
+        </listitem>
+
+        <listitem>
+          <para><guibutton>출력 테이블명</guibutton></para>
+
+          <para>Data Flow를 연결한 다음 단계의 input에 <guibutton>'출력 테이블명'</guibutton>에
+          설정한 테이블명이 사용된다.</para>
+        </listitem>
+
+        <listitem>
+          <para><guibutton>결과출력</guibutton></para>
+
+          <para><guibutton>'결과출력'</guibutton> 항목을 체크하면 결과를
+          <guibutton>[Output]</guibutton> 탭의 <guibutton>[Data
+          Preview]</guibutton>에서 조회할 수 있다.</para>
+        </listitem>
+      </itemizedlist>
+
+      <para/>
+
+      <para><literallayout/></para>
+
+      <para><bridgehead
+      xml:id="sect_datajob_dataflow_deidentification">Deidentification
+      <indexterm>
+          <primary>Data Flow([Function] 탭)</primary>
+
+          <secondary>Deidentification</secondary>
+        </indexterm></bridgehead></para>
+
+      <para>Deidentification은 데이터에서 식별정보를 제거함으로써 개인 정보를 특정 인물/대상과 연결할 수 없도록
+      정보를 희석시키는 기능을 제공한다.</para>
+
+      <para><guibutton>[Data Manipulation] &gt;
+      [Deidentification]</guibutton>을 선택한 후 작업 영역에 드래그해서 추가하면
+      Deidentification에 대한 내용을 설정하거나 조회할 수 있다.</para>
+
+      <para><figure>
+          <title>[Data Job] - Data Flow 생성 - Deidentification 설정 (1)</title>
+
+          <mediaobject>
+            <imageobject>
+              <imagedata align="left"
+                         fileref="resources/figure_data_manipulation_deidentification.png"
+                         width="650"/>
+            </imageobject>
+          </mediaobject>
+        </figure></para>
+
+      <itemizedlist spacing="compact">
+        <listitem>
+          <para><guibutton>컬럼 선택</guibutton></para>
+
+          <para><guibutton>'컬럼 선택' </guibutton>항목에서 사용할 수 있는 컬럼 리스트가
+          조회된다.</para>
+        </listitem>
+
+        <listitem>
+          <para><guibutton>옵션 선택</guibutton></para>
+
+          <para><guibutton>'옵션 선택'</guibutton> 항목에서 원하는 Deidentification 기능을
+          선택할 수 있다.</para>
+
+          <para><informaltable colsep="1" frame="topbot" rowsep="1">
+              <tgroup cols="2">
+                <colspec align="left" colwidth="150"/>
+
+                <thead>
+                  <row>
+                    <entry>구분</entry>
+
+                    <entry>설명</entry>
+                  </row>
+                </thead>
+
+                <tbody>
+                  <row>
+                    <entry>Masking</entry>
+
+                    <entry><para>Masking이란 문장 혹은 단어의 일부를 가려 정보를 희석시키는 기법이다.
+                    </para><para>Masking Option의 <guibutton>'마스킹
+                    넘버'</guibutton>를 설정해 각 인스턴스 값에서 남기기를 원하는 글자만 갯수를 정하면 나머지를
+                    애스터리스크(*)로 변환하여 개인 식별을 방지한다.
+                    </para><para><guibutton>'별칭'</guibutton>을 설정해 적용된 결과 컬럼의
+                    이름을 정할 수 있다. 각 항목을 설정하고 추가 버튼을 <guibutton>[추가]</guibutton>
+                    버튼을 클릭하면 <guibutton>마스킹 옵션</guibutton>(<xref
+                    linkend="figure_data_manipulation_deidentification_optiontable"/>)에
+                    설정한 옵션이 등록된다.</para></entry>
+                  </row>
+
+                  <row>
+                    <entry>Suppression</entry>
+
+                    <entry><para>Suppression은 특정 정보를 해당 그룹의 대표값으로 변환하거나, 구간값으로
+                    변환하여 개인 식별을 방지한다. </para><para>Suppression Option의
+                    <guibutton>'인터벌'</guibutton> 항목 값을 통해 각 인스턴스의 값을 묶는 기준을
+                    설정하고, <guibutton>'접미사'</guibutton> 단어를 지정해 뒤에 붙일 단어를
+                    설정한다.</para><para><guibutton>'별칭'</guibutton> 항목을 설정해 적용된
+                    결과 칼럼의 이름을 정할 수 있다. 각 항목을 설정하고 추가 버튼을
+                    <guibutton>[추가]</guibutton> 버튼을 클릭하면 <guibutton>범주화
+                    옵션</guibutton>(<xref
+                    linkend="figure_data_manipulation_deidentification_optiontable"/>)에
+                    설정한 옵션이 등록된다.</para></entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </informaltable></para>
+
+          <para><guibutton>'마스킹 옵션'</guibutton> 테이블에서 등록된 옵션들을 확인할 수 있다. 원하지
+          않는 옵션이 있을 경우 해당하는 옵션의 체크박스를 체크한 후 <guibutton>[삭제]</guibutton> 버튼을
+          클릭하면 해당 옵션이 <guibutton>'마스킹 옵션'</guibutton>에서 제거된다.</para>
+
+          <para><figure
+              xml:id="figure_data_manipulation_deidentification_optiontable">
+              <title>[Data Job] - Data Flow 생성 - Deidentification 설정
+              (2)</title>
+
+              <mediaobject>
+                <imageobject>
+                  <imagedata align="left"
+                             fileref="resources/figure_data_manipulation_deidentification_optiontable.png"
+                             width="720"/>
+                </imageobject>
+              </mediaobject>
+            </figure></para>
+        </listitem>
+
+        <listitem>
+          <para><guibutton>출력 테이블명</guibutton></para>
+
+          <para>Data Flow를 연결한 다음 단계의 input에 <guibutton>'출력 테이블명'</guibutton>에
+          설정한 테이블명이 사용된다.</para>
+        </listitem>
+
+        <listitem>
+          <para><guibutton>결과출력</guibutton></para>
+
+          <para><guibutton>'결과출력'</guibutton> 항목을 체크하면 결과를
+          <guibutton>[Output]</guibutton> 탭의 <guibutton>[Data
+          Preview]</guibutton>에서 조회할 수 있다.</para>
+        </listitem>
+      </itemizedlist>
+
+      <para/>
+
+      <para/>
+
+      <literallayout/>
+
+      <para><bridgehead xml:id="sect_datajob_dataflow_userdefinedquey">User
+      Defined Query<indexterm>
+          <primary>Data Flow([Function] 탭)</primary>
+
+          <secondary>User Defined Query</secondary>
+        </indexterm></bridgehead></para>
+
+      <para><guibutton>[User Defined Node] &gt; [User Defined
+      Query]</guibutton>을 선택한 후 작업 영역에 드래그해서 추가하면 쿼리를 직접 작성할 수 있다.
+      <guibutton>'입력 테이블명'</guibutton>, <guibutton>'컬럼'</guibutton>의 각 항목을
+      더블클릭하면 테이블 이름, 컬럼 이름이 입력된다. 쿼리를 작성한 후 <guibutton>[등록]</guibutton> 버튼을
+      클릭한다.</para>
+
+      <para><figure>
+          <title>[Data Job] - Data Flow 생성 - User Defined Query 설정</title>
+
+          <mediaobject>
+            <imageobject>
+              <imagedata align="left"
+                         fileref="resources/figure_user_defined_query.png"
+                         width="650"/>
+            </imageobject>
+          </mediaobject>
+        </figure></para>
+
+      <para><itemizedlist spacing="compact">
+          <listitem>
+            <para><guibutton>출력 테이블명</guibutton></para>
+
+            <para>Data Flow를 연결한 다음 단계의 input에 <guibutton>'출력
+            테이블명'</guibutton>에 설정한 테이블명이 사용된다.</para>
+          </listitem>
+        </itemizedlist></para>
+
+      <para/>
+
+      <literallayout/>
+
+      <para><bridgehead xml:id="sect_datajob_dataflow_saveoutputdb">Save
+      Output Database<indexterm>
+          <primary>Data Flow([Function] 탭)</primary>
+
+          <secondary>Save Output Database</secondary>
+        </indexterm></bridgehead></para>
+
+      <para>Save Output Database 노드를 활용하면 Data Job 노드의 결과물을 데이터베이스의 테이블에 저장할 수
+      있다. <guibutton>[Save] &gt; [Save Output Database]</guibutton>을 선택한 후 작업
+      영역에 드래그해서 추가하면 플로우 실행 결과를 저장할 데이터베이스와 테이블을 설정할 수 있다.</para>
+
+      <para/>
+
+      <para><figure>
+          <title>[Data Job] - Data Flow 생성 - Save Output Database 설정</title>
+
+          <mediaobject>
+            <imageobject>
+              <imagedata align="left"
+                         fileref="resources/figure_save_database.png"
+                         width="750"/>
+            </imageobject>
+          </mediaobject>
+        </figure></para>
+
+      <para>다음은 각 항목에 대한 설명이다.</para>
+
+      <para><informaltable colsep="1" frame="topbot" rowsep="1">
+          <tgroup cols="2">
+            <colspec align="left" colwidth="150"/>
+
+            <thead>
+              <row>
+                <entry>항목</entry>
+
+                <entry>설명</entry>
+              </row>
+            </thead>
+
+            <tbody>
+              <row>
+                <entry>데이터베이스</entry>
+
+                <entry><guibutton>[선택]</guibutton> 버튼을 클릭한 후 데이터베이스를
+                선택한다.</entry>
+              </row>
+
+              <row>
+                <entry>테이블</entry>
+
+                <entry>데이터베이스에 생성된 테이블을 선택한다. <guibutton>[선택]</guibutton> 버튼을
+                클릭해서 테이블을 선택한다.</entry>
+              </row>
+
+              <row>
+                <entry>타겟 테이블 컬럼</entry>
+
+                <entry>데이터베이스에 생성된 테이블을 선택하면, 저장할 목적지 테이블의 컬럼 이름과 타입 목록이 나타난다.
+                타겟 테이블 컬럼의 하나의 행을 클릭하여 저장할 테이블의 컬럼과 맵핑할 수 있다.</entry>
+              </row>
+
+              <row>
+                <entry>컬럼 맵핑 정보</entry>
+
+                <entry><para>플로우 실행 결과로서 저장될 테이블 정보와 매핑 정보를
+                나타낸다.</para><para><guibutton>'실행'</guibutton> 항목의 아이콘을 클릭하면 해당
+                열의 컬럼 맵핑 정보를 삭제할 수 있다.</para><itemizedlist mark="circle"
+                    spacing="compact">
+                    <listitem>
+                      <para><guibutton>[Map]</guibutton> 버튼 : 컬럼 맵핑 정보와 목적지
+                      테이블 컬럼 정보의 행을 선택한 후 <guibutton>[Map]</guibutton> 버튼을
+                      클릭하면 데이터베이스에 저장하고 저장될 컬럼을 하나하나 맵핑할 수 있다.</para>
+                    </listitem>
+
+                    <listitem>
+                      <para><guibutton>[+All]</guibutton> 버튼 : 컬럼 맵핑 정보의 테이블
+                      컬럼과 타겟 테이블의 컬럼을 차례대로 자동 맵핑한다. 저장될 컬럼의 순서와 타입이 저장하려는 목적지
+                      데이터베이스 테이블의 순서와 타입이 일치하지 않을 경우 사용을 주의해야 한다.</para>
+                    </listitem>
+
+                    <listitem>
+                      <para><guibutton>[Reset]</guibutton> 버튼 : 컬럼 맵핑 정보를 전체를
+                      초기화시킬 수 있다.</para>
+                    </listitem>
+                  </itemizedlist></entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </informaltable></para>
+
+      <para>Save Output Database 기능을 사용하기 위해서는 저장할 데이터가 삽입될 테이블을 목적지 데이터베이스에
+      먼저 생성한 이후에 목적지 데이터베이스와 타겟 테이블을 순차적으로 선택해야 한다. 타겟 테이블을 선택하고 나면, 컬럼 맵핑을
+      진행할 수 있도록 타겟 테이블의 컬럼 정보가 화면에 나타난다. 컬럼 맵핑(일대일대응)은 저장할 테이블과 목적지 데이터베이스의 타겟
+      테이블의 컬럼 타입과 사이즈를 고려하여 유효한 값들만 삽입될 수 있도록 해야 한다.</para>
+
+      <para><literallayout/></para>
+
+      <para>다음은 에러 메시지가 발생할 수 있는 상황들에 대한 설명이다.</para>
+
+      <itemizedlist spacing="compact">
+        <listitem>
+          <para><programlisting><?db-font-size 90% ?>JDBC-12126 : Given string does not represent a number in proper format.</programlisting></para>
+
+          <para>목적지 테이블 컬럼과 저장할 컬럼의 타입이 맞지 않는 경우이다. (예: 저장할 컬럼의 타입이 NUMBER가
+          아닌데 목적지 테이블 타입이 NUMBER일 경우)</para>
+        </listitem>
+
+        <listitem>
+          <para><programlisting><?db-font-size 90% ?>JDBC-12126 : The Values is too large for the column.</programlisting></para>
+
+          <para>목적지 테이블 컬럼의 사이즈보다 플로우를 통해 저장할 테이블 컬럼의 사이즈가 더 크다. (예: 목적지 컬럼의
+          VARCHAR 타입의 사이즈는 10인데 저장할 플로우 데이터의 VARCHAR 컬럼 데이터 크기가 20일 경우)</para>
+        </listitem>
+      </itemizedlist>
+
+      <literallayout/>
+
+      <?dbfo-need height="10in" ?>
+
+      <para><bridgehead xml:id="sect_datajob_dataflow_saveoutputfile">Save
+      Output File<indexterm>
+          <primary>Data Flow([Function] 탭)</primary>
+
+          <secondary>Save Output File</secondary>
+        </indexterm></bridgehead></para>
+
+      <para><guibutton>[Save] &gt; [Save Output File]</guibutton> 을 선택한 후 작업
+      영역에 드래그해서 추가하면 플로우 실행 결과를 파일로 저장할 수 있다. <guibutton>'컬럼 이름
+      저장'</guibutton> 항목을 체크하면 플로우의 결과를 컬럼 이름과 함께 저장한다. 설정 이후 <guibutton>Data
+      Flow 화면</guibutton>(<xref linkend="figure_datajob_detail"/>) 툴바의
+      <inlinemediaobject>
+          <imageobject>
+            <imagedata fileref="resources/icon_run.png" width="22"/>
+          </imageobject>
+        </inlinemediaobject>(<guibutton>[Run]</guibutton>)을 클릭한다.</para>
+
+      <para><figure>
+          <title>[Data Job] - Data Flow 생성 - Save Output File 설정</title>
+
+          <mediaobject>
+            <imageobject>
+              <imagedata align="left"
+                         fileref="resources/figure_save_output_file_1.png"
+                         width="400"/>
+            </imageobject>
+          </mediaobject>
+        </figure></para>
+
+      <para>다음은 각 항목에 대한 설명이다.</para>
+
+      <para><informaltable colsep="1" frame="topbot" rowsep="1">
+          <tgroup cols="2">
+            <colspec align="left" colwidth="150"/>
+
+            <thead>
+              <row>
+                <entry>항목</entry>
+
+                <entry>설명</entry>
+              </row>
+            </thead>
+
+            <tbody>
+              <row>
+                <entry>저장할 파일 이름</entry>
+
+                <entry>저장할 파일 이름을 입력한다.</entry>
+              </row>
+
+              <row>
+                <entry>저장할 파일 형식</entry>
+
+                <entry><para>저장할 파일 형식을 선택한다. </para><itemizedlist
+                    mark="circle" spacing="compact">
+                    <listitem>
+                      <para>csv</para>
+                    </listitem>
+
+                    <listitem>
+                      <para>xlsx</para>
+                    </listitem>
+                  </itemizedlist></entry>
+              </row>
+
+              <row>
+                <entry>컬럼 구분자</entry>
+
+                <entry><para>컬럼 구분자를 선택한다.</para><itemizedlist mark="circle"
+                    spacing="compact">
+                    <listitem>
+                      <para>comma</para>
+                    </listitem>
+
+                    <listitem>
+                      <para>semicolon</para>
+                    </listitem>
+
+                    <listitem>
+                      <para>colon</para>
+                    </listitem>
+
+                    <listitem>
+                      <para>tab</para>
+                    </listitem>
+
+                    <listitem>
+                      <para>other</para>
+                    </listitem>
+                  </itemizedlist></entry>
+              </row>
+
+              <row>
+                <entry>선 구분자</entry>
+
+                <entry><para>선 구분자를 선택한다.</para><itemizedlist mark="circle"
+                    spacing="compact">
+                    <listitem>
+                      <para>enter</para>
+                    </listitem>
+
+                    <listitem>
+                      <para>tab</para>
+                    </listitem>
+
+                    <listitem>
+                      <para>other</para>
+                    </listitem>
+                  </itemizedlist></entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </informaltable></para>
+
+      <para/>
+
+      <para><literallayout/></para>
+
+      <para><bridgehead xml:id="sect_datajob_dataflow_saveoutputdo">Save
+      Output DataObject<indexterm>
+          <primary>Data Flow([Function] 탭)</primary>
+
+          <secondary>Save Output DataObject</secondary>
+        </indexterm></bridgehead></para>
+
+      <para><guibutton>[Save] &gt; [Save Output DataObject]</guibutton>을 선택한 후
+      작업 영역에 드래그해서 추가하면 플로우 실행 결과를 새로운 데이터 객체로 등록할 수 있다.</para>
+
+      <para>새로 만들어질 데이터 객체의 이름을 <guibutton>'데이터 객체 이름'</guibutton> 항목에 입력한 후
+      <guibutton>[적용]</guibutton> 버튼을 클릭한다. 만들어진 데이터 객체는 <guibutton>#Default
+      DataSource</guibutton>에 생성되며 플로우 수행 이후부터 데이터 객체로 사용할 수 있다.</para>
+
+      <para><figure>
+          <title>[Data Job] - Data Flow 생성 - Save Output DataObject 설정</title>
+
+          <mediaobject>
+            <imageobject>
+              <imagedata align="left"
+                         fileref="resources/figure_save_data_object.png"
+                         width="400"/>
+            </imageobject>
+          </mediaobject>
+        </figure></para>
+
+      <para/>
+
+      <para><literallayout/></para>
+
+      <para><bridgehead xml:id="sect_datajob_dataflow_saveoutputhadoop">Save
+      Output Hadoop<indexterm>
+          <primary>Data Flow([Function] 탭)</primary>
+
+          <secondary>Save Output Hadoop</secondary>
+        </indexterm></bridgehead></para>
+
+      <para><guibutton>[Save] &gt; [Save Output Hadoop]</guibutton>을 선택한 후 작업
+      영역에 드래그해서 추가하면 플로우 실행 결과를 하둡 파일시스템으로 저장할 수 있다. <guibutton>'컬럼 이름
+      저장'</guibutton> 항목을 체크하면 플로우의 결과를 컬럼 이름과 함께 저장한다. 설정 이후 <guibutton>Data
+      Flow 화면</guibutton>(<xref linkend="figure_datajob_detail"/>) 툴바의
+      <inlinemediaobject>
+          <imageobject>
+            <imagedata fileref="resources/icon_run.png" width="22"/>
+          </imageobject>
+        </inlinemediaobject>(<guibutton>[Run]</guibutton>)을 클릭한다.</para>
+
+      <para><figure>
+          <title>[Data Job] - Data Flow 생성 - Save Output Hadoop 설정</title>
+
+          <mediaobject>
+            <imageobject>
+              <imagedata align="left"
+                         fileref="resources/figure_save_output_hadoop.png"
+                         width="700"/>
+            </imageobject>
+          </mediaobject>
+        </figure></para>
+
+      <itemizedlist spacing="compact">
+        <listitem>
+          <para><guibutton>기본 정보 </guibutton></para>
+
+          <para>다음은 각 항목에 대한 설명이다.</para>
+
+          <para><informaltable colsep="1" frame="topbot" rowsep="1">
+              <tgroup cols="2">
+                <colspec align="left" colwidth="150"/>
+
+                <thead>
+                  <row>
+                    <entry>항목</entry>
+
+                    <entry>설명</entry>
+                  </row>
+                </thead>
+
+                <tbody>
+                  <row>
+                    <entry>HDFS URL</entry>
+
+                    <entry>저장할 하둡 파일시스템의 주소를 입력한다.</entry>
+                  </row>
+
+                  <row>
+                    <entry>파일 경로</entry>
+
+                    <entry><para>하둡 파일시스템 내에서 저장할 경로를 입력한다. 또한 저장할 파일 형식을
+                    선택한다. </para><itemizedlist mark="circle" spacing="compact">
+                        <listitem>
+                          <para>csv</para>
+                        </listitem>
+
+                        <listitem>
+                          <para>xlsx</para>
+                        </listitem>
+                      </itemizedlist></entry>
+                  </row>
+
+                  <row>
+                    <entry>컬럼 구분자</entry>
+
+                    <entry><para>컬럼 구분자를 선택한다.</para><itemizedlist
+                        mark="circle" spacing="compact">
+                        <listitem>
+                          <para>comma</para>
+                        </listitem>
+
+                        <listitem>
+                          <para>semicolon</para>
+                        </listitem>
+
+                        <listitem>
+                          <para>colon</para>
+                        </listitem>
+
+                        <listitem>
+                          <para>tab</para>
+                        </listitem>
+
+                        <listitem>
+                          <para>other</para>
+                        </listitem>
+                      </itemizedlist></entry>
+                  </row>
+
+                  <row>
+                    <entry>선 구분자</entry>
+
+                    <entry><para>선 구분자를 선택한다.</para><itemizedlist
+                        mark="circle" spacing="compact">
+                        <listitem>
+                          <para>enter</para>
+                        </listitem>
+
+                        <listitem>
+                          <para>tab</para>
+                        </listitem>
+
+                        <listitem>
+                          <para>other</para>
+                        </listitem>
+                      </itemizedlist></entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </informaltable></para>
+        </listitem>
+
+        <listitem>
+          <para><guibutton>Kerberos Authentication</guibutton></para>
+
+          <para>다음은 Kerberos (커버로스)로 보안이 관리되고 있는 하둡 시스템에 추가로 지정해야 하는 항목에 대한
+          설명이다.</para>
+
+          <para><informaltable colsep="1" frame="topbot" rowsep="1">
+              <tgroup cols="2">
+                <colspec align="left" colwidth="150"/>
+
+                <thead>
+                  <row>
+                    <entry>항목</entry>
+
+                    <entry>설명</entry>
+                  </row>
+                </thead>
+
+                <tbody>
+                  <row>
+                    <entry>설정 파일 경로</entry>
+
+                    <entry>저장할 하둡 파일 시스템의 보안을 관리하는 커버로스의 설정 내용이 담긴 설정 파일의
+                    경로이다.</entry>
+                  </row>
+
+                  <row>
+                    <entry>영역</entry>
+
+                    <entry>인증 받을 사용자 프린시플이 속해있는 영역이다.</entry>
+                  </row>
+
+                  <row>
+                    <entry>사용자 프린시플</entry>
+
+                    <entry>인증 받을 사용자의 프린시플이다.</entry>
+                  </row>
+
+                  <row>
+                    <entry>Keytab 파일 경로</entry>
+
+                    <entry>사용자가 인증하려는 TGT(Ticket Granting Ticket)에 사용할 Keytab
+                    파일의 경로이다. Keytab 파일 안에는 사용자 프린시플과 이에 대응하는 암호가 들어있어야
+                    한다.</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </informaltable></para>
+        </listitem>
+      </itemizedlist>
+
+      <para/>
+
+      <para/>
+
+      <para><literallayout/></para>
+
+      <para><bridgehead
+      xml:id="sect_datajob_dataflow_validation">Validation<indexterm>
+          <primary>Data Flow([Function] 탭)</primary>
+
+          <secondary>Validation</secondary>
+        </indexterm></bridgehead></para>
+
+      <para><guibutton>[Validation] &gt; [Validation]</guibutton>을 선택한 후 작업
+      영역에 드래그해서 추가하면 플로우 실행 결과에 대한 경고 및 오류 관련 정보를 등록할 수 있다.</para>
+
+      <para><figure xml:id="figure_validation_1">
+          <title>[Data Job] - Data Flow 생성 - Validation 설정 (1)</title>
+
+          <mediaobject>
+            <imageobject>
+              <imagedata align="left"
+                         fileref="resources/figure_validation_1.png"
+                         width="650"/>
+            </imageobject>
+          </mediaobject>
+        </figure></para>
+
+      <itemizedlist spacing="compact">
+        <listitem>
+          <para><guibutton>경고조건 </guibutton></para>
+
+          <para><guibutton>'입력 테이블명'</guibutton>에서 테이블을 선택한 후
+          <guibutton>[+Warning Condition]</guibutton> 버튼을 클릭하면 설정화면에서 논리 연산자,
+          컬럼, 집계함수, 연산자, 값을 설정할 수 있다. 각 항목을 설정한 후 <guibutton>[등록]</guibutton>
+          버튼을 클릭한다.</para>
+
+          <para><figure>
+              <title>[Data Job] - Data Flow 생성 - Validation 설정 (2)</title>
+
+              <mediaobject>
+                <imageobject>
+                  <imagedata align="left"
+                             fileref="resources/figure_validation_2.png"
+                             width="550"/>
+                </imageobject>
+              </mediaobject>
+            </figure></para>
+
+          <para>다음은 각 항목에 대한 설명이다.</para>
+
+          <para><informaltable colsep="1" frame="topbot" rowsep="1">
+              <tgroup cols="2">
+                <colspec align="left" colwidth="150"/>
+
+                <thead>
+                  <row>
+                    <entry>항목</entry>
+
+                    <entry>설명</entry>
+                  </row>
+                </thead>
+
+                <tbody>
+                  <row>
+                    <entry>논리연산자</entry>
+
+                    <entry><para>추가할 조건의 다른 조건에 대한 논리 연산자를
+                    선택한다.</para><itemizedlist spacing="compact">
+                        <listitem>
+                          <para>AND</para>
+                        </listitem>
+
+                        <listitem>
+                          <para>OR</para>
+                        </listitem>
+                      </itemizedlist></entry>
+                  </row>
+
+                  <row>
+                    <entry>컬럼</entry>
+
+                    <entry>Warning 여부를 확인하는 컬럼을 Aggregation에서 선택한 컬럼의 집계함수를
+                    선택한다.</entry>
+                  </row>
+
+                  <row>
+                    <entry>집계 함수</entry>
+
+                    <entry><para>집계함수를 선택한다.</para><itemizedlist
+                        spacing="compact">
+                        <listitem>
+                          <para>NONE</para>
+                        </listitem>
+
+                        <listitem>
+                          <para>AVG</para>
+                        </listitem>
+
+                        <listitem>
+                          <para>COUNT</para>
+                        </listitem>
+
+                        <listitem>
+                          <para>MAX</para>
+                        </listitem>
+
+                        <listitem>
+                          <para>MIN</para>
+                        </listitem>
+
+                        <listitem>
+                          <para>SUM</para>
+                        </listitem>
+                      </itemizedlist></entry>
+                  </row>
+
+                  <row>
+                    <entry>연산자</entry>
+
+                    <entry>각각 조건에서 사용할 비교 연산자를 선택한다.</entry>
+                  </row>
+
+                  <row>
+                    <entry>값</entry>
+
+                    <entry>각각 조건에서 사용할 비교 연산의 비교값을 입력한다.</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </informaltable></para>
+        </listitem>
+
+        <listitem>
+          <para><guibutton>에러조건 </guibutton></para>
+
+          <para><guibutton>[+Error Condition]</guibutton> 버튼을 클릭하면 Warning
+          Condition과 동일한 방법으로 원하는 오류 조건을 설정할 수 있다. 각 항목을 설정하고
+          <guibutton>[등록]</guibutton> 버튼을 클릭한다.</para>
+
+          <figure>
+            <title>[Data Job] - Data Flow 생성 - Validation 설정 (3)</title>
+
+            <mediaobject>
+              <imageobject>
+                <imagedata align="left"
+                           fileref="resources/figure_validation_3.png"
+                           width="550"/>
+              </imageobject>
+            </mediaobject>
+          </figure>
+        </listitem>
+
+        <listitem>
+          <para><guibutton>검사 결과 </guibutton></para>
+
+          <para>플로우 실행 결과 중 설정한 경고 및 오류 조건에 해당하는 횟수를 출력한다. <inlinemediaobject>
+              <imageobject>
+                <imagedata fileref="resources/icon_showpopup.png" width="22"/>
+              </imageobject>
+            </inlinemediaobject> 아이콘을 클릭하면 조건에 해당하는 데이터를 확인할 수 있다. 오류 조건에
+          필터링되어 오류 상황으로 집계된 데이터는 경고 조건에서 필터링 되지 않는다.</para>
+        </listitem>
+      </itemizedlist>
+
+      <para/>
+
+      <para><literallayout/></para>
+
+      <para><bridgehead
+      xml:id="sect_datajob_dataflow_missingvalue">MissingValue<indexterm>
+          <primary>Data Flow([Function] 탭)</primary>
+
+          <secondary>MissingValue</secondary>
+        </indexterm></bridgehead></para>
+
+      <para><guibutton>[Prep] &gt; [MissingValue]</guibutton>을 선택한 후 작업 영역에
+      드래그해서 추가하면 테이블 데이터에 null 값이 존재하는 경우 해당 데이터를 처리하는 기능을 설정할 수 있다.</para>
+
+      <para><figure xml:id="figure_prep_missingvalue_1">
+          <title>[Data Job] - Data Flow 생성 - MissingValue 설정 (1)</title>
+
+          <mediaobject>
+            <imageobject>
+              <imagedata align="left"
+                         fileref="resources/figure_prep_missingvalue_1.png"
+                         width="380"/>
+            </imageobject>
+          </mediaobject>
+        </figure></para>
+
+      <para><guibutton>'컬럼 선택'</guibutton> 항목의 <inlinemediaobject>
+          <imageobject>
+            <imagedata fileref="resources/icon_showpopup.png" width="22"/>
+          </imageobject>
+        </inlinemediaobject> 아이콘을 클릭하면 Strategy를 설정할 수 있다. <guibutton>Missing
+      Value 화면</guibutton>에서 적용할 컬럼을 선택한 후 Strategy를 선택한 후<guibutton> [Apply]
+      </guibutton>버튼을 클릭하면 null 값이 해당 Strategy로 채워진다.</para>
+
+      <para><figure xml:id="figure_prep_missingvalue_2">
+          <title>[Data Job] - Data Flow 생성 - MissingValue 설정 (2)</title>
+
+          <mediaobject>
+            <imageobject>
+              <imagedata align="left"
+                         fileref="resources/figure_prep_missingvalue_2.png"
+                         width="550"/>
+            </imageobject>
+          </mediaobject>
+        </figure></para>
+
+      <para/>
+
+      <para><literallayout/></para>
+
+      <para><bridgehead
+      xml:id="sect_datajob_dataflow_normalization">Normalization<indexterm>
+          <primary>Data Flow([Function] 탭)</primary>
+
+          <secondary>Normalization</secondary>
+        </indexterm></bridgehead></para>
+
+      <para><guibutton>[Prep] &gt; [Normalization]</guibutton>을 선택한 후 작업 영역에
+      드래그해서 추가하면 테이블 데이터의 상대적 크기에 대한 영향을 줄이기 위해 데이터의 범위를 0과 1 사이로 변환하는 기능을 설정할
+      수 있다.<figure xml:id="figure_prep_normalization_1">
+          <title>[Data Job] - Data Flow 생성 - Normalization 설정 (1)</title>
+
+          <mediaobject>
+            <imageobject>
+              <imagedata align="left"
+                         fileref="resources/figure_prep_normalization_1.png"
+                         width="380"/>
+            </imageobject>
+          </mediaobject>
+        </figure></para>
+
+      <para><guibutton>'컬럼 선택'</guibutton> 항목의 <inlinemediaobject>
+          <imageobject>
+            <imagedata fileref="resources/icon_showpopup.png" width="22"/>
+          </imageobject>
+        </inlinemediaobject> 아이콘을 클릭하면 Scaler를 설정할 수 있다.
+      <guibutton>Normalization 화면</guibutton>에서 적용할 컬럼을 선택한 후 Scaler(Min-Max,
+      Z-Score)를 선택한 후 <guibutton>[Apply]</guibutton> 버튼을 클릭하면 데이터의 범위를 변환할 수
+      있다.</para>
+
+      <para><figure xml:id="figure_prep_normalization_2">
+          <title>[Data Job] - Data Flow 생성 - Normalization 설정 (2)</title>
+
+          <mediaobject>
+            <imageobject>
+              <imagedata align="left"
+                         fileref="resources/figure_prep_normalization_2.png"
+                         width="550"/>
+            </imageobject>
+          </mediaobject>
+        </figure></para>
+
+      <para/>
+
+      <para/>
+
+      <para><literallayout/></para>
+
+      <para><bridgehead xml:id="sect_datajob_dataflow_sample">Sample<indexterm>
+          <primary>Data Flow([Function] 탭)</primary>
+
+          <secondary>Sample</secondary>
+        </indexterm></bridgehead></para>
+
+      <para><guibutton>[Prep] &gt; [Sample]</guibutton>을 선택한 후 작업 영역에 드래그해서
+      추가하면 테이블 데이터 상위부터 일부를 추출하는 기능을 설정할 수 있다. <guibutton>'크기'</guibutton> 항목에
+      조회할 행의 갯수를 지정하여 추출할 수 있다. 단, 테이블 행을 넘는 행의 갯수를 요청할 경우 테이블 전체를
+      추출한다.</para>
+
+      <para><figure xml:id="figure_prep_sample">
+          <title>[Data Job] - Data Flow 생성 - Sample 설정</title>
+
+          <mediaobject>
+            <imageobject>
+              <imagedata align="left"
+                         fileref="resources/figure_prep_sample.png"
+                         width="400"/>
+            </imageobject>
+          </mediaobject>
+        </figure></para>
+
+      <para/>
+
+      <para/>
+
+      <para><literallayout/></para>
+
+      <para><bridgehead
+      xml:id="sect_datajob_dataflow_outlier">Outlier<indexterm>
+          <primary>Data Flow([Function] 탭)</primary>
+
+          <secondary>Outlier</secondary>
+        </indexterm></bridgehead></para>
+
+      <para><guibutton>[Prep] &gt; [Outlier]</guibutton>을 선택한 후 작업 영역에 드래그해서
+      추가하면 테이블 데이터의 전체적인 패턴에서 벗어나는 데이터를 처리하는 기능을 설정할 수 있다.</para>
+
+      <para><figure xml:id="figure_prep_outlier_1">
+          <title>[Data Job] - Data Flow 생성 - Outlier 설정 (1)</title>
+
+          <mediaobject>
+            <imageobject>
+              <imagedata align="left"
+                         fileref="resources/figure_prep_outlier_1.png"
+                         width="400"/>
+            </imageobject>
+          </mediaobject>
+        </figure></para>
+
+      <para>다음은 각 항목에 대한 설명이다.</para>
+
+      <para><informaltable colsep="1" frame="topbot" rowsep="1">
+          <tgroup cols="2">
+            <colspec align="left" colwidth="150"/>
+
+            <thead>
+              <row>
+                <entry>항목</entry>
+
+                <entry>설명</entry>
+              </row>
+            </thead>
+
+            <tbody>
+              <row>
+                <entry>컬럼 선택</entry>
+
+                <entry>Outlier 알고리즘을 적용할 컬럼을 선택한다. 단, 컬럼 타입이 NUMBER인 경우만 리스트에서
+                확인할 수 있다.</entry>
+              </row>
+
+              <row>
+                <entry>알고리즘 선택</entry>
+
+                <entry><para>적용할 알고리즘을 선택한다. </para><itemizedlist
+                    mark="circle" spacing="compact">
+                    <listitem>
+                      <para>IQR</para>
+                    </listitem>
+
+                    <listitem>
+                      <para>Z-Score</para>
+                    </listitem>
+                  </itemizedlist></entry>
+              </row>
+
+              <row>
+                <entry>Outlier 제거</entry>
+
+                <entry>체크박스를 설정하면 Outlier로 판별된 데이터가 제거되어 조회된다.</entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </informaltable></para>
+
+      <para>Data Flow의 Run 수행 후 결과를 <guibutton>[Output]</guibutton> 탭의
+      <guibutton>[Data Preview]</guibutton>에서 조회할 수 있다. 해당 컬럼에 대한 Outlier 판별
+      여부를 <guibutton>'해당 컬럼명_OUTLIER'</guibutton> 컬럼을 통해 확인할 수 있다. Outlier로
+      판별되면 'TRUE'로 표기되고, 판별되지 않으면 'FALSE'로 표시된다.</para>
+
+      <para><figure xml:id="figure_prep_outlier_2">
+          <title>[Data Job] - Data Flow 생성 - Outlier 설정 (2)</title>
+
+          <mediaobject>
+            <imageobject>
+              <imagedata align="left"
+                         fileref="resources/figure_prep_outlier_2.png"
+                         width="700"/>
+            </imageobject>
+          </mediaobject>
+        </figure></para>
+
+      <para><guibutton>'Outlier 제거' </guibutton>체크박스를 설정하면 Outlier로 판별된 데이터가
+      제거되어 조회된다. <xref linkend="figure_prep_outlier_2"/>과 달리 <guibutton>'해당
+      컬럼명_OUTLIER' </guibutton>컬럼은 표시되지 않는다.</para>
+
+      <para><figure xml:id="figure_prep_outlier_3">
+          <title>[Data Job] - Data Flow 생성 - Outlier 설정 (3)</title>
+
+          <mediaobject>
+            <imageobject>
+              <imagedata align="left"
+                         fileref="resources/figure_prep_outlier_3.png"
+                         width="700"/>
+            </imageobject>
+          </mediaobject>
+        </figure></para>
+
+      <para/>
+    </section>
+  </section>
+
+  <section xml:id="sect_dataflow_additional_function">
+    <title>Data Flow 수행</title>
+
+    <para>Data Flow의 생성이 완료되면 <guibutton>Data Flow 화면</guibutton>(<xref
+    linkend="figure_datajob_detail"/>) 툴바의 <inlinemediaobject>
+        <imageobject>
+          <imagedata fileref="resources/icon_run.png" width="22"/>
+        </imageobject>
+      </inlinemediaobject>(<guibutton>[Run]</guibutton>) 버튼을 클릭한다. Data Flow
+    수행할 때 <guibutton>Bind Parameter</guibutton>와 <guibutton>Status
+    Monitoring</guibutton> 부가적인 기능을 제공한다.</para>
+
+    <para><literallayout/></para>
+
+    <?dbfo-need height="10in" ?>
+
+    <section>
+      <title>Bind Parameter<indexterm class="singular">
+          <primary>Bind Parameter</primary>
+        </indexterm></title>
+
+      <para>Data Job의 GroupBy, Selector, Validation의 Condition을 설정할 때 Value로
+      Bind Paramter를 사용할 수 있다. <guibutton>Condition 설정 화면</guibutton>에서
+      <guibutton>'Value'</guibutton> 항목에 '콜론(:)+ Bind Parameter의 이름'을 입력하면 추가할
+      수 있다.</para>
+
+      <para><figure>
+          <title>[Data Job] - Data Flow 수행 - Bind Parameter (1)</title>
+
+          <mediaobject>
+            <imageobject>
+              <imagedata align="left"
+                         fileref="resources/figure_bind_parameter_1.png"
+                         width="550"/>
+            </imageobject>
+          </mediaobject>
+        </figure></para>
+
+      <para>함수에 Bind Parameter가 설정된 경우 Data Flow를 수행할 때 Bind Parameter의 값을 입력할
+      수 있다. <guibutton>Bind Parameter 화면</guibutton>에 값을 입력한 후
+      <guibutton>[Apply]</guibutton> 버튼을 클릭한다. Data Job에서 Bind Parameter를 설정한
+      후 Service Job에서 해당 Data Job을 사용할 경우 Bind Parameter를 사용할 수 있다.</para>
+
+      <para><figure>
+          <title>[Data Job] - Data Flow 수행 - Bind Parameter (2)</title>
+
+          <mediaobject>
+            <imageobject>
+              <imagedata align="left"
+                         fileref="resources/figure_bind_parameter_2.png"
+                         width="350"/>
+            </imageobject>
+          </mediaobject>
+        </figure></para>
+
+      <para><literallayout/></para>
+    </section>
+
+    <section>
+      <title>Status Monitoring<indexterm class="singular">
+          <primary>Status Monitoring</primary>
+        </indexterm></title>
+
+      <para>Data Flow의 Data Job 또는 Service Job의 실행 진행상황이나 실시간 노드별 결과(Finished,
+      Stand By, Running)를 각 Job의 상단에 색과 함께 표시한다. 각 수행한 내용은 <guibutton>Job
+      Monitoring 화면</guibutton>(<xref
+      linkend="figure_jobmonitoring_servicejob"/>)에서 해당 Job를 선택하면 확인할 수 있다.
+      자세한 내용은 <xref linkend="sect_job_job_mornitoring"/>을 참고한다.</para>
+
+      <para><figure>
+          <title>[Data Job] - Data Flow - Job 실행 도중 화면 (Editor)</title>
+
+          <mediaobject>
+            <imageobject>
+              <imagedata align="left"
+                         fileref="resources/figure_datajob_editor_running.png"
+                         width="700"/>
+            </imageobject>
+          </mediaobject>
+        </figure></para>
+    </section>
+  </section>
+
+  <section xml:id="sect_dataflow_output_tab">
+    <title>Data Flow 수행 결과 조회<indexterm class="singular">
+        <primary>Data Flow Output</primary>
+      </indexterm></title>
+
+    <para>Data Flow 실행 결과는 각 노드를 클릭한 후 <guibutton>[Output]</guibutton> 탭을 클릭하여
+    확인할 수 있다.</para>
+
+    <para><figure>
+        <title>[Data Job] - Data Flow 결과 조회</title>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata align="left"
+                       fileref="resources/figure_dataflow_output_tab.png"
+                       width="750"/>
+          </imageobject>
+        </mediaobject>
+      </figure></para>
+
+    <itemizedlist spacing="compact">
+      <listitem>
+        <para><guibutton>[Data Preview] 탭<indexterm>
+            <primary>Data Flow Output</primary>
+
+            <secondary>[Data Preview] 탭</secondary>
+          </indexterm></guibutton></para>
+
+        <para><guibutton>[Data Preview]</guibutton> 탭은 쿼리 결과를 표로 조회할 수 있다. 행
+        개수를 입력하고 <guibutton>보기</guibutton> 버튼을 클릭한다. 데이터 미리보기는 100개의 행까지 확인이
+        가능하다.</para>
+
+        <para><figure>
+            <title>[Data Job] - Data Flow 결과 조회 - Data Preview</title>
+
+            <mediaobject>
+              <imageobject>
+                <imagedata align="left"
+                           fileref="resources/figure_dataflowresult_data_preview.png"
+                           width="700"/>
+              </imageobject>
+            </mediaobject>
+          </figure></para>
+      </listitem>
+
+      <listitem>
+        <para><guibutton>[SQL] 탭<indexterm>
+            <primary>Data Flow Output</primary>
+
+            <secondary>[SQL] 탭</secondary>
+          </indexterm></guibutton></para>
+
+        <para><guibutton>[SQL]</guibutton> 탭은 수행 결과를 SQL 쿼리문으로 조회한다.</para>
+
+        <figure>
+          <title>[Data Job] - Data Flow 결과 조회 - SQL</title>
+
+          <mediaobject>
+            <imageobject>
+              <imagedata align="left"
+                         fileref="resources/figure_dataflowresult_sql.png"
+                         width="700"/>
+            </imageobject>
+          </mediaobject>
+        </figure>
+      </listitem>
+
+      <listitem>
+        <para><guibutton>[Summary] 탭<indexterm>
+            <primary>Data Flow Output</primary>
+
+            <secondary>[Summary] 탭</secondary>
+          </indexterm></guibutton></para>
+
+        <para><guibutton>[Summary]</guibutton> 탭은 컬럼별로 통계 정보를 요약하여 제공한다. 총
+        7가지의 통계 정보(min, max, mean, median, countMissing, var, std)를
+        제공한다.</para>
+
+        <figure>
+          <title>[Data Job] - Data Flow 결과 조회 - Summary</title>
+
+          <mediaobject>
+            <imageobject>
+              <imagedata align="left"
+                         fileref="resources/figure_dataflowresult_summary.png"
+                         width="700"/>
+            </imageobject>
+          </mediaobject>
+        </figure>
+      </listitem>
+
+      <listitem>
+        <para><guibutton>[Correlation] 탭<indexterm>
+            <primary>Data Flow Output</primary>
+
+            <secondary>[Correlation] 탭</secondary>
+          </indexterm></guibutton></para>
+
+        <para><guibutton>[Correlation]</guibutton> 탭은 컬럼 간의 연관된 정도를 나타내는 상관관계
+        정보를 제공한다. 상관관계 정보는 -1과 1 사이의 값을 가지며 절대값이 1에 가까울수록 높은 상관관계의 정도를 나타낸다.
+        컬럼 타입이 NUMBER인 경우만 제공받을 수 있으며, 2개 이상의 컬럼을 선택해야 한다.</para>
+
+        <para><figure>
+            <title>[Data Job] - Data Flow 결과 조회 - Correlation</title>
+
+            <mediaobject>
+              <imageobject>
+                <imagedata align="left"
+                           fileref="resources/figure_dataflowresult_correlation.png"
+                           width="700"/>
+              </imageobject>
+            </mediaobject>
+          </figure></para>
+      </listitem>
+
+      <listitem>
+        <para><guibutton>[Ad-Hoc] 탭<indexterm>
+            <primary>Data Flow Output</primary>
+
+            <secondary>[Ad-Hoc] 탭</secondary>
+          </indexterm></guibutton></para>
+
+        <para><guibutton>[Ad-Hoc]</guibutton> 탭은 즉각적인 분석을 수행할 수 있다.
+        <guibutton>'Chart Type'</guibutton> 항목을 클릭하면 분석 목적에 따라 차트 타입을 선택할 수
+        있다. <guibutton>차트 리스트</guibutton>에서 5가지의 차트 타입을 제공하며 차트를 선택하면 차트 타입에
+        해당되는 설정 화면이 나타난다.</para>
+
+        <para><figure>
+            <title>[Data Job] - Data Flow 결과 조회 - 차트 리스트</title>
+
+            <mediaobject>
+              <imageobject>
+                <imagedata align="left"
+                           fileref="resources/figure_dataflowresult_ad_hoc_charttype.png"
+                           width="450"/>
+              </imageobject>
+            </mediaobject>
+          </figure></para>
+
+        <para>다음은 각 차트별 설정 항목에 대한 설명이다.</para>
+
+        <para><itemizedlist spacing="compact">
+            <listitem>
+              <para>꺽은선 차트(Line Chart)<indexterm>
+                  <primary>Ad-Hoc</primary>
+
+                  <secondary>꺽은선 차트(Line Chart)</secondary>
+                </indexterm></para>
+
+              <informaltable colsep="1" frame="topbot" rowsep="1">
+                <tgroup cols="2">
+                  <colspec align="left" colwidth="120"/>
+
+                  <thead>
+                    <row>
+                      <entry>항목</entry>
+
+                      <entry>설명</entry>
+                    </row>
+                  </thead>
+
+                  <tbody>
+                    <row>
+                      <entry>X Index</entry>
+
+                      <entry>분석 결과물의 X축에 해당되는 컬럼을 설정한다. 컬럼 타입이 Time Series인
+                      경우만 해당되며 선택적으로 설정할 수 있다.</entry>
+                    </row>
+
+                    <row>
+                      <entry>Y Value</entry>
+
+                      <entry>분석 결과물의 Y축에 해당되는 컬럼을 설정한다. 컬럼 타입이 Number인 경우만
+                      해당된다.</entry>
+                    </row>
+                  </tbody>
+                </tgroup>
+              </informaltable>
+            </listitem>
+
+            <listitem>
+              <para>원형 차트(Pie Chart)<indexterm>
+                  <primary>Ad-Hoc</primary>
+
+                  <secondary>원형 차트(Pie Chart)</secondary>
+                </indexterm></para>
+
+              <informaltable colsep="1" frame="topbot" rowsep="1">
+                <tgroup cols="2">
+                  <colspec align="left" colwidth="120"/>
+
+                  <thead>
+                    <row>
+                      <entry>항목</entry>
+
+                      <entry>설명</entry>
+                    </row>
+                  </thead>
+
+                  <tbody>
+                    <row>
+                      <entry>Value</entry>
+
+                      <entry>분석 결과물의 범례에 해당되는 컬럼을 설정한다. 컬럼 타입에 상관없이
+                      해당된다.</entry>
+                    </row>
+                  </tbody>
+                </tgroup>
+              </informaltable>
+            </listitem>
+
+            <listitem>
+              <para>분포 차트(Scatter Chart)<indexterm>
+                  <primary>Ad-Hoc</primary>
+
+                  <secondary>분포 차트(Scatter Chart)</secondary>
+                </indexterm></para>
+
+              <informaltable colsep="1" frame="topbot" rowsep="1">
+                <tgroup cols="2">
+                  <colspec align="left" colwidth="120"/>
+
+                  <thead>
+                    <row>
+                      <entry>항목</entry>
+
+                      <entry>설명</entry>
+                    </row>
+                  </thead>
+
+                  <tbody>
+                    <row>
+                      <entry>X Value</entry>
+
+                      <entry>분석 결과물의 X축에 해당되는 컬럼을 설정한다. 컬럼 타입이 Number인 경우만
+                      해당된다.</entry>
+                    </row>
+
+                    <row>
+                      <entry>Y Value</entry>
+
+                      <entry>분석 결과물의 Y축에 해당되는 컬럼을 설정한다. 컬럼 타입이 Number인 경우만
+                      해당된다.</entry>
+                    </row>
+                  </tbody>
+                </tgroup>
+              </informaltable>
+            </listitem>
+
+            <listitem>
+              <para>거품형 차트(Bubble Chart)<indexterm>
+                  <primary>Ad-Hoc</primary>
+
+                  <secondary>거품형 차트(Bubble Chart)</secondary>
+                </indexterm></para>
+
+              <informaltable colsep="1" frame="topbot" rowsep="1">
+                <tgroup cols="2">
+                  <colspec align="left" colwidth="120"/>
+
+                  <thead>
+                    <row>
+                      <entry>항목</entry>
+
+                      <entry>설명</entry>
+                    </row>
+                  </thead>
+
+                  <tbody>
+                    <row>
+                      <entry>X Value</entry>
+
+                      <entry>분석 결과물의 X축에 해당되는 컬럼을 설정한다. 컬럼 타입이 Number인 경우만
+                      해당된다.</entry>
+                    </row>
+
+                    <row>
+                      <entry>Y Value</entry>
+
+                      <entry>분석 결과물의 Y축에 해당되는 컬럼을 설정한다. 컬럼 타입이 Number인 경우만
+                      해당된다.</entry>
+                    </row>
+
+                    <row>
+                      <entry>Z Value</entry>
+
+                      <entry>분석 결과물 값에 해당되는 컬럼을 설정한다. 컬럼의 데이터 크기만큼 거품의 크기가
+                      결정된다. 컬럼 타입이 Number인 경우만 해당된다.</entry>
+                    </row>
+                  </tbody>
+                </tgroup>
+              </informaltable>
+            </listitem>
+
+            <listitem>
+              <para>바 차트(Bar Chart)<indexterm>
+                  <primary>Ad-Hoc</primary>
+
+                  <secondary>바 차트(Bar Chart)</secondary>
+                </indexterm></para>
+
+              <informaltable colsep="1" frame="topbot" rowsep="1">
+                <tgroup cols="2">
+                  <colspec align="left" colwidth="120"/>
+
+                  <thead>
+                    <row>
+                      <entry>항목</entry>
+
+                      <entry>설명</entry>
+                    </row>
+                  </thead>
+
+                  <tbody>
+                    <row>
+                      <entry>X Index</entry>
+
+                      <entry>분석 결과물의 X축에 해당되는 컬럼을 설정한다. 컬럼 타입에 상관없이
+                      해당된다.</entry>
+                    </row>
+
+                    <row>
+                      <entry>Y Value</entry>
+
+                      <entry>분석 결과물의 Y축에 해당되는 컬럼을 설정한다. 컬럼 타입이 Number인 경우만
+                      해당된다.</entry>
+                    </row>
+                  </tbody>
+                </tgroup>
+              </informaltable>
+            </listitem>
+          </itemizedlist></para>
+
+        <para>설정 화면에서 차트에 적용해야 할 컬럼을 지정할 수 있다. 각 차트별 조건이 다르며 물음표 아이콘 위에 마우스를
+        올려놓으면 그에 해당하는 설명을 제공한다. <guibutton>[+]</guibutton> 버튼을 클릭하면 조건에 해당되는
+        컬럼 목록을 확인할 수 있다. 컬럼 목록에서 설정할 컬럼을 선택한다.</para>
+
+        <figure xml:id="figure_dataflowresult_ad_hoc_1">
+          <title>[Data Job] - Data Flow 결과 조회 - 차트 컬럼 설정</title>
+
+          <mediaobject>
+            <imageobject>
+              <imagedata align="left"
+                         fileref="resources/figure_dataflowresult_ad_hoc_1.png"
+                         width="450"/>
+            </imageobject>
+          </mediaobject>
+        </figure>
+
+        <para>설정 후 <guibutton>[Run]</guibutton> 버튼을 클릭하면 그에 대한 분석 결과를 차트로 조회할
+        수 있다.</para>
+
+        <para><figure xml:id="figure_dataflowresult_ad_hoc_2">
+            <title>[Data Job] - Data Flow 결과 조회 - Ad-Hoc 분석 결과</title>
+
+            <mediaobject>
+              <imageobject>
+                <imagedata align="left"
+                           fileref="resources/figure_dataflowresult_ad_hoc_2.png"
+                           width="750"/>
+              </imageobject>
+            </mediaobject>
+          </figure></para>
+      </listitem>
+    </itemizedlist>
+  </section>
+</section>

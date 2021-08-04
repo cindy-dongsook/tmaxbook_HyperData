@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section version="5.0" xml:id="sect_analytics_ml_predefined"
+         xmlns="http://docbook.org/ns/docbook"
+         xmlns:xlink="http://www.w3.org/1999/xlink"
+         xmlns:xi="http://www.w3.org/2001/XInclude"
+         xmlns:svg="http://www.w3.org/2000/svg"
+         xmlns:mml="http://www.w3.org/1998/Math/MathML"
+         xmlns:html="http://www.w3.org/1999/xhtml"
+         xmlns:db="http://docbook.org/ns/docbook">
+  <title>Predefined AI<indexterm>
+      <primary>분석 카테고리</primary>
+
+      <secondary>[Predefined AI] 메뉴</secondary>
+    </indexterm></title>
+
+  <para><guibutton>분석 &gt; [Predefined AI</guibutton>] 메뉴를 선택하면 사전 정의된 모델들을
+  바탕으로 등록된 서비스를 다양하게 제공한다. 제공되는 서비스는 <guibutton>모델 선택</guibutton>,<guibutton>
+  데이터 선택</guibutton> 과정으로 진행된다.</para>
+
+  <para></para>
+
+  <section>
+    <title>모델 선택</title>
+
+    <para><guibutton>모델 선택단계</guibutton>에서는 HyperData의 사전 정의된 모델 목록을
+    조회한다.</para>
+
+    <para>사전에 정의된 모델은 다양한 서비스 형태로 조회되며, 사용자는 각 서비스를 대표하는 제목과 상세 설명을 통해 목적에 맞는
+    모델을 선택한다.</para>
+
+    <para>사용자는 <guibutton>[학습 시작하기]</guibutton> 버튼을 클릭하여 모델을 제공 받거나,
+    <guibutton>[더 알아보기]</guibutton> 버튼을 클릭하여 각 모델의 보다 더 자세한 설명 내역을 확인할 수 있다.
+    현재 <guibutton>[더 알아보기]</guibutton> 버튼은 미지원 상태이며, 다음 버전에 추가될 예정이다.</para>
+
+    <para><figure xml:id="figure_predefinedai_selection">
+        <title>[Predefined AI] - 모델 선택단계</title>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata align="left"
+                       fileref="resources/figure_predefinedai_selection.png"
+                       width="750"></imagedata>
+          </imageobject>
+        </mediaobject>
+      </figure></para>
+  </section>
+
+  <section>
+    <title>데이터 선택</title>
+
+    <para><guibutton>모델 선택단계</guibutton>(<xref
+    linkend="figure_predefinedai_selection" />)에서 <guibutton>[학습
+    시작하기]</guibutton> 버튼을 클릭하면 <guibutton>데이터 선택단계</guibutton>로 이동한다.</para>
+
+    <para><guibutton>데이터 선택단계</guibutton>는 <guibutton>데이터 형식
+    확인</guibutton>,<guibutton> 데이터 오브젝트 선택</guibutton>,<guibutton> 선택한 데이터
+    확인</guibutton>의 3단계로 진행된다. <inlinemediaobject>
+        <imageobject>
+          <imagedata fileref="resources/icon_back.png" width="20"></imagedata>
+        </imageobject>
+      </inlinemediaobject> 아이콘을 클릭하면 이전 단계인 <guibutton>모델
+    선택단계</guibutton>(<xref linkend="figure_predefinedai_selection" />)로
+    이동한다.</para>
+
+    <orderedlist spacing="compact">
+      <listitem>
+        <para><guibutton>데이터 형식 확인</guibutton></para>
+
+        <para>사용자가 서비스를 제공받기 위해서 필수적으로 갖추어야 할 데이터의 형식을 보여준다. 사용자는 해당 데이터 형식에
+        맞추어 자신의 데이터를 수정하고, HyperData의 <guibutton>Data Source
+        화면</guibutton>(<xref linkend="figure_data_datasource" />)의 목록에 데이터를
+        등록한다. 데이터가 준비되어져 있는 상태라면 서비스를 수행하기 위해 <guibutton>[다음]</guibutton> 버튼을
+        클릭한다.</para>
+
+        <figure>
+          <title>[Predefined AI] - 데이터 선택단계 (1)</title>
+
+          <mediaobject>
+            <imageobject>
+              <imagedata align="left"
+                         fileref="resources/figure_predefinedai_datacontext.png"
+                         width="750"></imagedata>
+            </imageobject>
+          </mediaobject>
+        </figure>
+      </listitem>
+
+      <listitem>
+        <para><guibutton>데이터 오브젝트 선택</guibutton></para>
+
+        <para>HyperData의 데이터 오브젝트 목록 중 <guibutton>데이터 형식 확인단계</guibutton>에서
+        확인한 데이터 형식과 같은 형식의 데이터를 목록에 출력한다. 사용자는 출력된 데이터 오브젝트 목록 중 원하는 데이터 목록을
+        체크박스를 통해 선택하고, <guibutton>[다음]</guibutton> 버튼을 클릭한다. 이때 선택할 수 있는 체크박스의
+        수는 1개로 고정되어 있다. 원하는 데이터가 목록에 출력되지 않을 경우 <guibutton>[이전]</guibutton>
+        버튼을 클릭해서 데이터 형식을 확인하고, HyperData의 데이터 <guibutton>Data Source
+        화면</guibutton>(<xref linkend="figure_data_datasource" />)의 목록에서 본인이
+        등록한 데이터의 형태를 확인한다.</para>
+
+        <figure>
+          <title>[Predefined AI] - 데이터 선택단계 (2)</title>
+
+          <mediaobject>
+            <imageobject>
+              <imagedata align="left"
+                         fileref="resources/figure_predefinedai_dataconfirm.png"
+                         width="750"></imagedata>
+            </imageobject>
+          </mediaobject>
+        </figure>
+      </listitem>
+
+      <listitem>
+        <para><guibutton>선택한 데이터 확인 </guibutton></para>
+
+        <para><guibutton>데이터 오브젝트 선택단계</guibutton>에서 선택한 데이터 오브젝트의 데이터 형태를 확인할
+        수 있다.</para>
+
+        <para>조회된 데이터 형태가 본인이 원하던 데이터가 맞는지 확인한 후 <guibutton>[학습시작]</guibutton>
+        버튼을 클릭하면 사전 정의된 모델을 바탕으로 선택한 데이터에 대해 분석이 수행된다.
+        <guibutton>[이전]</guibutton> 버튼을 클릭하면 <guibutton>데이터 오브젝트
+        선택단계</guibutton>로 이동한다.</para>
+
+        <figure xml:id="figure_predefinedai_dataconcrete">
+          <title>[Predefined AI] - 데이터 선택단계 (3)</title>
+
+          <mediaobject>
+            <imageobject>
+              <imagedata align="left"
+                         fileref="resources/figure_predefinedai_dataconcrete.png"
+                         width="750"></imagedata>
+            </imageobject>
+          </mediaobject>
+        </figure>
+
+        <para>데이터 분석 완료 후 <guibutton>[목록으로 돌아가기]</guibutton> 버튼을 클릭하면
+        <guibutton>Experiments 목록 화면</guibutton>(<xref
+        linkend="figure_automl_experiment" />)에서 사용자 실험 결과 확인할 수 있다.</para>
+
+        <para><figure>
+            <title>[Predefined AI] - 데이터 선택단계 (4)</title>
+
+            <mediaobject>
+              <imageobject>
+                <imagedata align="left"
+                           fileref="resources/figure_predefinedai_complete.png"
+                           width="750"></imagedata>
+              </imageobject>
+            </mediaobject>
+          </figure></para>
+      </listitem>
+    </orderedlist>
+
+    <para></para>
+
+    <para></para>
+  </section>
+</section>

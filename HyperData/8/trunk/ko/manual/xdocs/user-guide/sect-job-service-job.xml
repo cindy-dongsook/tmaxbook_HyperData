@@ -1,0 +1,1098 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section version="5.0" xml:id="sect_job_service_job"
+         xmlns="http://docbook.org/ns/docbook"
+         xmlns:xlink222="http://www.w3.org/19999/xlink"
+         xmlns:xlink="http://www.w3.org/1999/xlink"
+         xmlns:xila="http://www.w3.org/2001/XInclude/local-attributes"
+         xmlns:xi="http://www.w3.org/2001/XInclude"
+         xmlns:trans="http://docbook.org/ns/transclusion"
+         xmlns:svg="http://www.w3.org/2000/svg"
+         xmlns:m="http://www.w3.org/1998/Math/MathML"
+         xmlns:html="http://www.w3.org/1999/xhtml"
+         xmlns:db="http://docbook.org/ns/docbook">
+  <title>Service Job<indexterm>
+      <primary>JOB 카테고리</primary>
+
+      <secondary>[Service Job] 메뉴</secondary>
+    </indexterm></title>
+
+  <para>Service Job은 등록된 Data Job들을 순차, 병렬, 조건부 수행을 할 수 있도록 Data Job의 실행 그룹을
+  정의하는 공간이다. Service Job을 생성하고 작성함으로서 그룹 분석/가공 작업을 정의할 수 있고, 작성된 Service Job을
+  동작함으로서 그룹 분석/가공 작업을 수행한다. Service Job을 정의한 후 스케줄러 등에서 활용할 수 있다.</para>
+
+  <para><guibutton>[JOB] &gt; [Service Job]</guibutton> 메뉴를 선택하면 Service Job을
+  조회하거나 생성, 수정, 삭제할 수 있다. <guibutton>[생성]</guibutton> 버튼을 클릭하면 Service Job을
+  생성할 수 있고, 생성 후 초기상태는 Draft로 나타난다. Draft란 작업 수행 전의 Job을 뜻한다. 목록의
+  <guibutton>'동작'</guibutton> 항목에서 <inlinemediaobject>
+      <imageobject>
+        <imagedata fileref="resources/icon_edit.png" width="20"></imagedata>
+      </imageobject>
+    </inlinemediaobject> 아이콘을 클릭하면 Service Job를 수정할 수 있다. 목록에서 Service Job을
+  선택한 후 <guibutton>[삭제]</guibutton> 버튼을 클릭하거나 <guibutton>'동작'</guibutton> 항목에
+  <inlinemediaobject>
+      <imageobject>
+        <imagedata fileref="resources/icon_delete.png" width="20"></imagedata>
+      </imageobject>
+    </inlinemediaobject> 아이콘을 클릭하면 Service Job을 삭제할 수 있다.
+  <guibutton>'동작'</guibutton> 항목에서 <inlinemediaobject>
+      <imageobject>
+        <imagedata fileref="resources/icon_export.png" width="20"></imagedata>
+      </imageobject>
+    </inlinemediaobject> 아이콘을 클릭하면 Service Job을 다른 프로젝트에 공유할 수 있다.</para>
+
+  <para><emphasis role="bold">[스케줄 매니저] </emphasis>버튼을 클릭하면 Service Job을 실행할
+  예약 시간 및 주기를 설정할 수 있다. 자세한 사용법은 <xref linkend="sect_servicejob_schedule" />를
+  참고한다.</para>
+
+  <para>목록 위에 <guibutton>'검색'</guibutton> 입력항목에 서비스 이름을 입력하고 &lt;Enter&gt; 키를
+  누르거나 <inlinemediaobject>
+      <imageobject>
+        <imagedata fileref="resources/icon_search.png" width="22"></imagedata>
+      </imageobject>
+    </inlinemediaobject> 아이콘을 클릭하면 해당 이름의 서비스를 조회할 수 있다. 목록 아래에 조회된 건수와 페이징
+  정보, 조회할 건수를 선택할 수 있다.</para>
+
+  <para>목록에서 Service Job을 선택하면 Service Flow와 Service Job에 대한 내용을 화면 아래 영역에
+  조회되고, <guibutton>'JOB 이름'</guibutton> 항목을 클릭하면 <guibutton>Service Flow
+  생성화면</guibutton>(<xref linkend="figure_servicejob_detail" />)으로 이동해서 Flow를
+  생성하거나 수정할 수 있다. 자세한 내용은 <xref linkend="sect_servicejob_detail" />을
+  참고한다.</para>
+
+  <para></para>
+
+  <para><figure xml:id="figure_servicejob">
+      <title>Service Job 화면</title>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata align="left" fileref="resources/figure_servicejob.png"
+                     width="750"></imagedata>
+        </imageobject>
+      </mediaobject>
+    </figure></para>
+
+  <para></para>
+
+  <para></para>
+
+  <section>
+    <title>Service Job 생성</title>
+
+    <para><guibutton>Service Job 화면</guibutton>(<xref
+    linkend="figure_servicejob" />)의 목록에서 <guibutton>[생성]</guibutton> 버튼을 클릭하면
+    Service Job을 생성할 수 있다. 추가할 Service Job의 정보를 입력하고
+    <guibutton>[확인]</guibutton> 버튼을 클릭한다.</para>
+
+    <figure>
+      <title>[Service Job] - Service Job 생성</title>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata align="left"
+                     fileref="resources/figure_servicejob_create.png"
+                     width="450"></imagedata>
+        </imageobject>
+      </mediaobject>
+    </figure>
+  </section>
+
+  <section>
+    <title>Service Job 수정</title>
+
+    <para><guibutton>Service Job 화면</guibutton>(<xref
+    linkend="figure_servicejob" />)의 목록에 <guibutton>'동작'</guibutton> 항목에서
+    <inlinemediaobject>
+        <imageobject>
+          <imagedata fileref="resources/icon_edit.png" width="20"></imagedata>
+        </imageobject>
+      </inlinemediaobject> 아이콘을 클릭하면 Service Job를 수정할 수 있다. 각 항목을 수정한 후
+    <guibutton>[확인]</guibutton> 버튼을 클릭한다. Service Job을 수정하는 경우 프로젝트는 변경할 수
+    없다.</para>
+
+    <figure>
+      <title>[Service Job] - Service Job 수정</title>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata align="left"
+                     fileref="resources/figure_servicejob_edit.png"
+                     width="450"></imagedata>
+        </imageobject>
+      </mediaobject>
+    </figure>
+  </section>
+
+  <section>
+    <title>Service Job 삭제</title>
+
+    <para><guibutton>Service Job 화면</guibutton>(<xref
+    linkend="figure_servicejob" />)의 목록에서 Service Job을 선택한 후
+    <guibutton>[삭제]</guibutton> 버튼을 클릭하거나 <guibutton>'동작'</guibutton> 항목에
+    <inlinemediaobject>
+        <imageobject>
+          <imagedata fileref="resources/icon_delete.png" width="20"></imagedata>
+        </imageobject>
+      </inlinemediaobject> 아이콘을 클릭하면 Service Job을 삭제할 수 있다. 목록에서 삭제할 정보를 확인한 후
+    <guibutton>[삭제]</guibutton> 버튼을 클릭한다.</para>
+
+    <figure>
+      <title>[Service Job] - Service Job 삭제</title>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata align="left"
+                     fileref="resources/figure_delete_servicejob.png"
+                     width="300"></imagedata>
+        </imageobject>
+      </mediaobject>
+    </figure>
+  </section>
+
+  <section>
+    <title>Service Job 공유</title>
+
+    <para><guibutton>Service Job 화면</guibutton>(<xref
+    linkend="figure_servicejob" />)의 목록에서 Data Job을 선택한 후
+    <guibutton>'동작'</guibutton> 항목에 <inlinemediaobject>
+        <imageobject>
+          <imagedata fileref="resources/icon_export.png" width="20"></imagedata>
+        </imageobject>
+      </inlinemediaobject> 아이콘을 클릭하면 Service Job을 다른 프로젝트에 공유할 수 있다. 프로젝트 목록
+    위에 <guibutton>'검색'</guibutton> 입력항목에 검색할 프로젝트를 입력하고 <inlinemediaobject>
+        <imageobject>
+          <imagedata fileref="resources/icon_search.png" width="22"></imagedata>
+        </imageobject>
+      </inlinemediaobject> 아이콘을 클릭하면 공유할 프로젝트를 조회할 수 있다. 공유할 Job 이름을 입력하고
+    프로젝트를 선택한 후 <guibutton>[적용]</guibutton> 버튼을 클릭한다.</para>
+
+    <figure>
+      <title>[Service Job] - Service Job 공유</title>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata align="left"
+                     fileref="resources/figure_servicejob_export.png"
+                     width="510"></imagedata>
+        </imageobject>
+      </mediaobject>
+    </figure>
+
+    <para><note>
+        <para>Service Job을 공유하는 경우 포함되어 있는 Data Job과 Data Object도 함께 공유된다. 공유할
+        프로젝트에 동일한 이름을 가진 Service Job, Data Job이 존재하면 공유되지 않는다.</para>
+      </note></para>
+  </section>
+
+  <section xml:id="sect_servicejob_detail">
+    <title>Service Flow 생성 및 수정<indexterm class="singular">
+        <primary>Service Flow</primary>
+      </indexterm></title>
+
+    <para><guibutton>Service Job 화면</guibutton>(<xref
+    linkend="figure_servicejob" />)의 목록에서 <guibutton>'JOB 이름'</guibutton> 항목을
+    클릭하면 Service Job의 Flow 정보를 조회하거나 생성할 수 있다.</para>
+
+    <figure xml:id="figure_servicejob_detail">
+      <title>[Service Job] - Service Flow 생성화면</title>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata align="left"
+                     fileref="resources/figure_servicejob_detail.png"
+                     width="750"></imagedata>
+        </imageobject>
+      </mediaobject>
+    </figure>
+
+    <para>다음은 <guibutton>Service Flow 생성화면</guibutton>의 각 영역에 대한 설명이다. 기본적인
+    사용법은 <guibutton>Data Job 상세화면</guibutton>(<xref
+    linkend="figure_datajob_detail" />)과 동일하므로 자세한 내용은 <xref
+    linkend="sect_datajob_detail" />을 참고한다.</para>
+
+    <itemizedlist spacing="compact">
+      <listitem>
+        <para><guibutton>작업선택 영역</guibutton></para>
+
+        <para><informaltable colsep="1" frame="topbot" rowsep="1">
+            <tgroup cols="2">
+              <colspec align="left" colwidth="150" />
+
+              <thead>
+                <row>
+                  <entry>탭</entry>
+
+                  <entry>설명</entry>
+                </row>
+              </thead>
+
+              <tbody>
+                <row>
+                  <entry><guibutton>[Job]</guibutton> 탭<indexterm>
+                      <primary>Service Flow</primary>
+
+                      <secondary>[Job] 탭</secondary>
+                    </indexterm></entry>
+
+                  <entry><para><guibutton>[Job]</guibutton> 탭을 선택하면 Service
+                  Flow를 생성하기 위해 미리 등록한 Data Job과 Experiments를 선택할 수 있다. Data
+                  Job 노드나 Experiment 노드를 선택한 후 <guibutton>작업영역</guibutton>으로
+                  드래그하면 Flow를 작성할 수 있다. </para><para>추가한 Data Job 노드나
+                  Experiment 노드를 클릭하면 상세 정보가 화면 아래 영역에 조회된다. Experiment 노드의
+                  자세한 사용법은 <link linkend="sect_mllab_experiment_node">"Ml Lab
+                  Experiment Node"</link>를 참고한다. </para></entry>
+                </row>
+
+                <row>
+                  <entry><guibutton>[Function]</guibutton> 탭<indexterm>
+                      <primary>Service Flow</primary>
+
+                      <secondary>[Function] 탭</secondary>
+                    </indexterm></entry>
+
+                  <entry><para><guibutton>[Function]</guibutton> 탭을 선택하면
+                  Service Flow를 생성하기 위한 Function 노드를 선택할 수 있다. Function 노드를
+                  선택한 후 <guibutton>작업영역</guibutton>으로 드래그하면 flow를 작성할 수
+                  있다.</para><para><itemizedlist spacing="compact">
+                      <listitem>
+                        <para><guibutton>[Diverging Gateway]</guibutton> :
+                        Data Job의 작업을 병렬처리나 분기처리를 하는 경우 선택한다. 자세한 사용법은 <link
+                        linkend="sect_servicejobflow_diverging_gw">"Diverging
+                        Gateway"</link>를 참고한다.</para>
+                      </listitem>
+
+                      <listitem>
+                        <para><guibutton>[Converging Gateway]</guibutton> :
+                        작업영역 아래 상세 정보 화면에서 converging gateway에 연결된 Data Job의
+                        정보를 확인할 수 있다.</para>
+                      </listitem>
+                    </itemizedlist></para></entry>
+                </row>
+              </tbody>
+            </tgroup>
+          </informaltable></para>
+      </listitem>
+
+      <listitem>
+        <para><guibutton>작업 툴바<indexterm>
+            <primary>Service Flow</primary>
+
+            <secondary>작업 툴바</secondary>
+          </indexterm></guibutton></para>
+
+        <para><informaltable colsep="1" frame="topbot" rowsep="1">
+            <tgroup cols="2">
+              <colspec align="left" colwidth="150" />
+
+              <thead>
+                <row>
+                  <entry>버튼</entry>
+
+                  <entry>설명</entry>
+                </row>
+              </thead>
+
+              <tbody>
+                <row>
+                  <entry><inlinemediaobject>
+                      <imageobject>
+                        <imagedata fileref="resources/icon_undo.png"
+                                   width="16"></imagedata>
+                      </imageobject>
+                    </inlinemediaobject>(Undo) / <inlinemediaobject>
+                      <imageobject>
+                        <imagedata fileref="resources/icon_redo.png"
+                                   width="16"></imagedata>
+                      </imageobject>
+                    </inlinemediaobject>(Redo)</entry>
+
+                  <entry>되돌리기/ 앞으로 가기 버튼이다. Data Flow를 생성하는 과정에서 사용할 수
+                  있다.</entry>
+                </row>
+
+                <row>
+                  <entry><inlinemediaobject>
+                      <imageobject>
+                        <imagedata fileref="resources/icon_save.png"
+                                   width="16"></imagedata>
+                      </imageobject>
+                    </inlinemediaobject>(Save)</entry>
+
+                  <entry>Service Flow를 저장한다. <guibutton> 저장하지 않은 경우 현재까지 작성한
+                  Flow는 보존되지 않는다. </guibutton></entry>
+                </row>
+
+                <row>
+                  <entry><inlinemediaobject>
+                      <imageobject>
+                        <imagedata fileref="resources/icon_run.png" width="22"></imagedata>
+                      </imageobject>
+                    </inlinemediaobject>(Run)</entry>
+
+                  <entry>Service Flow를 수행한다. 수행 결과는
+                  <guibutton>[Output]</guibutton> 탭에서 조회할 수 있다.</entry>
+                </row>
+
+                <row>
+                  <entry><inlinemediaobject>
+                      <imageobject>
+                        <imagedata fileref="resources/icon_stop.png"
+                                   width="16"></imagedata>
+                      </imageobject>
+                    </inlinemediaobject>(Stop)</entry>
+
+                  <entry>Service Flow를 수행을 중지한다. (현재 지원하지 않음)</entry>
+                </row>
+
+                <row>
+                  <entry><inlinemediaobject>
+                      <imageobject>
+                        <imagedata fileref="resources/icon_zoomout.png"
+                                   width="16"></imagedata>
+                      </imageobject>
+                    </inlinemediaobject>(Zoom In) / <inlinemediaobject>
+                      <imageobject>
+                        <imagedata fileref="resources/icon_zoomin.png"
+                                   width="16"></imagedata>
+                      </imageobject>
+                    </inlinemediaobject>(Zoom Out)</entry>
+
+                  <entry>Service Flow 작업영역을 확대, 축소한다.</entry>
+                </row>
+
+                <row>
+                  <entry><inlinemediaobject>
+                      <imageobject>
+                        <imagedata fileref="resources/icon_panmode.png"
+                                   width="16"></imagedata>
+                      </imageobject>
+                    </inlinemediaobject>(Pan Mode)</entry>
+
+                  <entry>Pan Mode를 선택하면 마우스 클릭만으로 화면을 움직일 수 있다. 해당 아이콘을 한번더
+                  눌리면 Pan Mode를 해제할 수 있다.</entry>
+                </row>
+
+                <row>
+                  <entry><inlinemediaobject>
+                      <imageobject>
+                        <imagedata fileref="resources/icon_fit.png" width="16"></imagedata>
+                      </imageobject>
+                    </inlinemediaobject>(Fit)</entry>
+
+                  <entry>작업공간에 만든 Service Flow 영역을 가르킨다.</entry>
+                </row>
+
+                <row>
+                  <entry><inlinemediaobject>
+                      <imageobject>
+                        <imagedata fileref="resources/icon_acturalsize.png"
+                                   width="20"></imagedata>
+                      </imageobject>
+                    </inlinemediaobject>(Actual Size)</entry>
+
+                  <entry>처음에 Service Flow을 생성했던 size로 볼 수 있다.</entry>
+                </row>
+
+                <row>
+                  <entry><inlinemediaobject>
+                      <imageobject>
+                        <imagedata fileref="resources/icon_minimap.png"
+                                   width="16"></imagedata>
+                      </imageobject>
+                    </inlinemediaobject>(Mini Map)</entry>
+
+                  <entry>해당 아이콘을 클릭하면 미니맵이 사라진다. 한번더 클릭하면 미니맵을 볼 수 있다.</entry>
+                </row>
+              </tbody>
+            </tgroup>
+          </informaltable></para>
+      </listitem>
+    </itemizedlist>
+
+    <para></para>
+
+    <para></para>
+
+    <para><literallayout></literallayout></para>
+
+    <para><bridgehead xml:id="sect_mllab_experiment_node">Ml Lab Experiment
+    Node<indexterm>
+        <primary>Service Flow</primary>
+
+        <secondary>Ml Lab Experiment Node</secondary>
+      </indexterm></bridgehead></para>
+
+    <para>Ml Lab Experiment 노드는 기계학습을 이용한 분석을 수행하는 경우 선택한다.</para>
+
+    <itemizedlist spacing="compact">
+      <listitem>
+        <para><guibutton>Training</guibutton></para>
+
+        <para><guibutton>'작업 종류'</guibutton> 항목을 'Training'으로 선택하면 ML Lab에서
+        작성한 코드로 기계학습을 수행할 수 있다. 노드를 클릭하면 ML Lab 실험 정보가 조회된다. <guibutton>컨테이너
+        옵션</guibutton>에 사용할 자원을 설정한 후 Service Flow를 실행한다.</para>
+
+        <para><figure xml:id="figure_servicejob_mllab_training">
+            <title>[Service Job] - Service Flow 생성 - Ml Lab Experiment 노드 -
+            Training</title>
+
+            <mediaobject>
+              <imageobject>
+                <imagedata align="left"
+                           fileref="resources/figure_servicejob_mllab_training.png"
+                           width="750"></imagedata>
+              </imageobject>
+            </mediaobject>
+          </figure></para>
+      </listitem>
+
+      <listitem>
+        <para><guibutton>Inference</guibutton></para>
+
+        <para><guibutton>'작업 종류'</guibutton> 항목을 'Inference'로 선택하면 ML Lab에서
+        작성한 코드로 추론을 수행할 수 있다. 노드를 클릭하면 ML Lab 실험 정보가 조회된다. <guibutton>컨테이너
+        옵션</guibutton>에 사용할 자원을 설정한 후 Service Flow를 실행한다.</para>
+
+        <para><figure xml:id="figure_servicejob_mllab_inference">
+            <title>[Service Job] - Service Flow 생성 - Ml Lab Experiment 노드 -
+            Inference</title>
+
+            <mediaobject>
+              <imageobject>
+                <imagedata align="left"
+                           fileref="resources/figure_servicejob_mllab_inference.png"
+                           width="750"></imagedata>
+              </imageobject>
+            </mediaobject>
+          </figure></para>
+      </listitem>
+    </itemizedlist>
+
+    <para><literallayout></literallayout></para>
+
+    <?dbfo-need height="10in" ?>
+
+    <para><bridgehead xml:id="sect_automl_experiment_node">AutoML Experiment
+    Node<indexterm>
+        <primary>Service Flow</primary>
+
+        <secondary>Automl Experiment Node</secondary>
+      </indexterm></bridgehead></para>
+
+    <para>AutoML Experiment 노드는 AutoML에서 생성한 모델에 대한 작업을 수행하는 경우 선택한다.</para>
+
+    <itemizedlist spacing="compact">
+      <listitem>
+        <para><guibutton>Training</guibutton></para>
+
+        <para><guibutton>'작업 종류'</guibutton> 항목을 'Training'으로 선택하면 AutoML에서
+        생성한 모델을 재학습할 수 있다. 노드를 클릭하면 AutoML 실험 정보가 조회된다.</para>
+
+        <para><figure xml:id="figure_servicejob_automl_training">
+            <title>[Service Job] - Service Flow 생성 - AutoML Experiment 노드 -
+            Training</title>
+
+            <mediaobject>
+              <imageobject>
+                <imagedata align="left"
+                           fileref="resources/figure_servicejob_automl_training.png"
+                           width="750"></imagedata>
+              </imageobject>
+            </mediaobject>
+          </figure></para>
+      </listitem>
+
+      <listitem>
+        <para><guibutton>Inference</guibutton></para>
+
+        <para><guibutton>'작업 종류'</guibutton> 항목을 'Inference'로 선택하면 AutoML에서
+        생성한 모델에 대해 추론을 수행할 수 있다. 노드를 클릭하면 AutoML 실험 정보가 조회된다. <guibutton>인터페이스
+        옵션</guibutton>에 필요한 설정을 선택하고 Service Flow를 수행한다.</para>
+
+        <para><figure xml:id="figure_servicejob_automl_inference">
+            <title>[Service Job] - Service Flow 생성 - AutoML Experiment 노드 -
+            Inference (1)</title>
+
+            <mediaobject>
+              <imageobject>
+                <imagedata align="left"
+                           fileref="resources/figure_servicejob_automl_inference.png"
+                           width="750"></imagedata>
+              </imageobject>
+            </mediaobject>
+          </figure></para>
+
+        <para>다음은 <guibutton>인터페이스 옵션</guibutton>의 각 항목에 대한 설명이다.</para>
+
+        <para><informaltable colsep="1" frame="topbot" rowsep="1">
+            <tgroup cols="2">
+              <colspec align="left" colwidth="150" />
+
+              <thead>
+                <row>
+                  <entry>항목</entry>
+
+                  <entry>설명</entry>
+                </row>
+              </thead>
+
+              <tbody>
+                <row>
+                  <entry>데이터 객체</entry>
+
+                  <entry><guibutton>[Select]</guibutton> 버튼을 클릭해서 데이터 객체를 선택할
+                  수 있다(<xref
+                  linkend="figure_servicejob_automl_inference_dataobject" />
+                  참고).</entry>
+                </row>
+
+                <row>
+                  <entry>모델</entry>
+
+                  <entry><guibutton>[Select]</guibutton> 버튼을 클릭해서 추론을 수행할 데이터
+                  소스와 데이터 오브젝트를 선택할 수 있다(<xref
+                  linkend="figure_servicejob_automl_inference_model" />
+                  참고).</entry>
+                </row>
+
+                <row>
+                  <entry>타겟 데이터 객체</entry>
+
+                  <entry><para>추론 결과를 저장할 데이터 오브젝트를 선택한다.</para><itemizedlist
+                      spacing="compact">
+                      <listitem>
+                        <para>자동 선택</para>
+                      </listitem>
+
+                      <listitem>
+                        <para>직접 선택 : <guibutton>[Select]</guibutton> 버튼을 클릭하면
+                        직접 타겟 데이터 오브젝트를 선택할 수 있다(<xref
+                        linkend="figure_servicejob_automl_inference_targetdo" />
+                        참고).</para>
+                      </listitem>
+                    </itemizedlist></entry>
+                </row>
+
+                <row>
+                  <entry>타겟 오브젝트가 업데이트 되는 방식</entry>
+
+                  <entry><itemizedlist spacing="compact">
+                      <listitem>
+                        <para>타겟 데이터 객체에 데이터 추가 : 타겟 데이터 오브젝트에 추론 결과를
+                        추가한다.</para>
+                      </listitem>
+
+                      <listitem>
+                        <para>타겟 데이터 객체 덮어쓰기 : 타겟 데이터 오브젝트에 저장된 데이터를 추론 결과로
+                        덮어쓴다.</para>
+                      </listitem>
+                    </itemizedlist></entry>
+                </row>
+              </tbody>
+            </tgroup>
+          </informaltable></para>
+
+        <para><guibutton>'데이터 객체'</guibutton> 항목에
+        <guibutton>[Select]</guibutton> 버튼을 클릭해서 데이터 객체를 선택한다. <figure
+            xml:id="figure_servicejob_automl_inference_dataobject">
+            <title>[Service Job] - Service Flow 생성 - AutoML Experiment 노드 -
+            Inference (2)</title>
+
+            <mediaobject>
+              <imageobject>
+                <imagedata align="left"
+                           fileref="resources/figure_servicejob_automl_inference_dataobject.png"
+                           width="550"></imagedata>
+              </imageobject>
+            </mediaobject>
+          </figure></para>
+
+        <para><guibutton>'모델'</guibutton> 항목에 <guibutton>[Select]</guibutton>
+        버튼을 클릭해서 추론을 수행할 데이터 소스와 데이터 오브젝트를 선택한다.</para>
+
+        <para><figure xml:id="figure_servicejob_automl_inference_model">
+            <title>[Service Job] - Service Flow 생성 - AutoML Experiment 노드 -
+            Inference (3)</title>
+
+            <mediaobject>
+              <imageobject>
+                <imagedata align="left"
+                           fileref="resources/figure_servicejob_automl_inference_model.png"
+                           width="550"></imagedata>
+              </imageobject>
+            </mediaobject>
+          </figure></para>
+
+        <para><guibutton>'타겟 데이터 객체'</guibutton> 항목을 '직접 선택'으로 선택한 후
+        <guibutton>[Select]</guibutton> 버튼을 클릭하면 직접 타겟 데이터 오브젝트를 선택할 수
+        있다.</para>
+
+        <para><figure xml:id="figure_servicejob_automl_inference_targetdo">
+            <title>[Service Job] - Service Flow 생성 - AutoML Experiment 노드 -
+            Inference (4)</title>
+
+            <mediaobject>
+              <imageobject>
+                <imagedata align="left"
+                           fileref="resources/figure_servicejob_automl_inference_targetdo.png"
+                           width="550"></imagedata>
+              </imageobject>
+            </mediaobject>
+          </figure></para>
+      </listitem>
+    </itemizedlist>
+
+    <para><literallayout></literallayout></para>
+
+    <para><bridgehead xml:id="sect_predefined_experiment_node">PredefinedAI
+    Experiment Node<indexterm>
+        <primary>Service Flow</primary>
+
+        <secondary>PredefinedAI Experiment Node</secondary>
+      </indexterm></bridgehead></para>
+
+    <para>PredefinedAI Experiment 노드는 PredefinedAI에서 생성한 모델에 대한 작업을 수행하는 경우
+    선택한다.</para>
+
+    <itemizedlist spacing="compact">
+      <listitem>
+        <para><guibutton>Training</guibutton></para>
+
+        <para><guibutton>'Job Type'</guibutton> 항목을 'Training'으로 선택하면
+        PredefinedAI에서 생성한 모델을 재학습할 수 있다. 노드를 클릭하면 PredefinedAI 실험 정보가
+        조회된다.</para>
+
+        <para><figure xml:id="figure_servicejob_predefined_training">
+            <title>[Service Job] - Service Flow 생성 - PredefinedAI Experiment
+            노드 - Training</title>
+
+            <mediaobject>
+              <imageobject>
+                <imagedata align="left"
+                           fileref="resources/figure_servicejob_predefined_training.png"
+                           width="750"></imagedata>
+              </imageobject>
+            </mediaobject>
+          </figure></para>
+      </listitem>
+
+      <listitem>
+        <para><guibutton>Inference</guibutton></para>
+
+        <para><guibutton>'Job Type'</guibutton> 항목을 'Inference'로 선택하면
+        PredefinedAI에서 생성한 모델에 대해 추론을 수행할 수 있다. 노드를 클릭하면 PredefinedAI 실험 정보가
+        조회된다. Inference Setting에 Inference 시 필요한 설정을 선택하고 Service Flow를 수행한다.
+        Inference Setting에 대한 자세한 방법은 <link
+        linkend="figure_servicejob_automl_inference_dataobject">"Inference
+        Setting"</link>을 참고한다.</para>
+
+        <para><figure xml:id="figure_servicejob_predefined_inference">
+            <title>[Service Job] - Service Flow 생성 - PredefinedAI Experiment
+            노드 - Inference</title>
+
+            <mediaobject>
+              <imageobject>
+                <imagedata align="left"
+                           fileref="resources/figure_servicejob_predefined_inference.png"
+                           width="750"></imagedata>
+              </imageobject>
+            </mediaobject>
+          </figure></para>
+      </listitem>
+    </itemizedlist>
+
+    <para><literallayout></literallayout></para>
+
+    <para><bridgehead xml:id="sect_servicejobflow_diverging_gw">Diverging
+    Gateway<indexterm>
+        <primary>Service Flow</primary>
+
+        <secondary>Diverging Gateway</secondary>
+      </indexterm></bridgehead></para>
+
+    <para>Diverging Gateway 노드는 Data Job의 작업을 병렬처리나 분기처리를 하는 경우 선택한다.</para>
+
+    <itemizedlist spacing="compact">
+      <listitem>
+        <para><guibutton>병렬처리(Parallel)<indexterm class="singular">
+            <primary>병렬처리(Parallel) 트리거</primary>
+          </indexterm></guibutton></para>
+
+        <para><guibutton>'Select Gateway Type'</guibutton> 항목을 '병렬처리'로 선택하면
+        Service Job의 Data Job의 작업을 동시에 수행할 수 있다.</para>
+
+        <para><figure xml:id="figure_diverging_gateway_type">
+            <title>[Service Job] - Service Flow 생성 - 병렬 처리</title>
+
+            <mediaobject>
+              <imageobject>
+                <imagedata align="left"
+                           fileref="resources/figure_diverging_gateway_type.png"
+                           width="450"></imagedata>
+              </imageobject>
+            </mediaobject>
+          </figure></para>
+
+        <para>아래 그림의 경우 datajob_1 수행 후 datajob_2, datajob_3, datajob_4가 동시
+        수행되며, 3개의 Data Job의 수행이 끝나고 나면 datajob_5가 수행된 후 Service Job이
+        종료된다.</para>
+
+        <para><figure>
+            <title>[Service Job] - Service Flow 생성 - 병렬 처리 예시 (1)</title>
+
+            <mediaobject>
+              <imageobject>
+                <imagedata align="left"
+                           fileref="resources/figure_diverging_gateway_parallel.png"
+                           width="750"></imagedata>
+              </imageobject>
+            </mediaobject>
+          </figure></para>
+
+        <para><note>
+            <para>병렬 처리할 Data Job들은 Converging Gateway로 감싸야 하며, 동일한 Data Job을
+            병렬처리할 수 없다.</para>
+          </note></para>
+
+        <para><guibutton>'Jobs'</guibutton> 항목에 Connected Job이 연결된 순서대로
+        표시된다.<!--(TD3 - 연구소 : 버그가 발견되어서 해당 그림은 추후에 수정하겠습니다. )--></para>
+
+        <figure>
+          <title>[Service Job] - Service Flow 생성 - 병렬 처리 예시 (2)</title>
+
+          <mediaobject>
+            <imageobject>
+              <imagedata align="left"
+                         fileref="resources/figure_diverging_gateway_connected_job.png"
+                         width="450"></imagedata>
+            </imageobject>
+          </mediaobject>
+        </figure>
+      </listitem>
+
+      <listitem>
+        <para><guibutton>병렬처리 트리거(Trigger Parallel)<indexterm class="singular">
+            <primary>병렬처리 트리거(Trigger Parallel)</primary>
+          </indexterm></guibutton></para>
+
+        <para><guibutton>'Select Gateway Type'</guibutton> 항목을 '병렬처리 트리거'로
+        선택하면 조건에 따라 Data Job이 선택적으로 수행하도록 설정할 수 있다.</para>
+
+        <figure xml:id="figure_diverging_gateway_type_trigger">
+          <title>[Service Job] - Service Flow - 분기 처리</title>
+
+          <mediaobject>
+            <imageobject>
+              <imagedata align="left"
+                         fileref="resources/figure_diverging_gateway_type_trigger.png"
+                         width="450"></imagedata>
+            </imageobject>
+          </mediaobject>
+        </figure>
+
+        <para><note>
+            <para>Converging Gateway는 해당 게이트웨이와 연결된 모든 Data Job으로부터 응답을 받아야 다음
+            Data Job을 수행한다. 분기 처리 시 모든 Data Job이 수행되지 않기 때문에, 분기 처리할 때에
+            Converging Gateway를 사용할 경우 Service Job이 끝까지 수행되지 않고 timeout까지 대기
+            상태로 빠질 수 있다.</para>
+          </note></para>
+
+        <para>다음은 트리거 설정이 완료된 병렬처리 트리거 Flow의 예이다. datajob_1이 수행된 후 트리거의 설정에 따라
+        datajob_2, dadtajob_4 중 하나가 선택적으로 수행된 후 Service Job이 종료된다.</para>
+
+        <para><figure xml:id="figure_servicejob_gateway_example">
+            <title>[Service Job] - Service Flow 생성 - 분기 처리 예시</title>
+
+            <mediaobject>
+              <imageobject>
+                <imagedata align="left"
+                           fileref="resources/figure_diverging_gateway_trigger.png"
+                           width="650"></imagedata>
+              </imageobject>
+            </mediaobject>
+          </figure></para>
+
+        <para><xref linkend="figure_diverging_gateway_type_trigger" />에서
+        <guibutton>[+트리거]</guibutton> 버튼을 클릭해서 Data Job의 서비스에 대한 트리거를 설정할 수
+        있다. 각 항목을 설정한 후 <guibutton>[등록]</guibutton> 버튼을 클릭한다.</para>
+
+        <figure>
+          <title>[Service Job] - Service Flow - 트리거 설정</title>
+
+          <mediaobject>
+            <imageobject>
+              <imagedata align="left"
+                         fileref="resources/figure_diverging_gateway_add_trigger.png"
+                         width="300"></imagedata>
+            </imageobject>
+          </mediaobject>
+        </figure>
+
+        <para>다음은 각 항목에 대한 설명이다.</para>
+
+        <para><informaltable colsep="1" frame="topbot" rowsep="1">
+            <tgroup cols="2">
+              <colspec align="left" colwidth="150" />
+
+              <thead>
+                <row>
+                  <entry>항목</entry>
+
+                  <entry>설명</entry>
+                </row>
+              </thead>
+
+              <tbody>
+                <row>
+                  <entry>트리거 이름</entry>
+
+                  <entry>트리거의 이름을 설정한다.</entry>
+                </row>
+
+                <row>
+                  <entry>트리거 조건</entry>
+
+                  <entry><para>트리거의 분기 조건을 설정한다.</para><itemizedlist
+                      spacing="compact">
+                      <listitem>
+                        <para>함수 : 트리거의 조건이 되는 타겟 Data Job 컬럼 이름을 입력한다. 이때 앞선
+                        Data Job Node의 결과 노드에서 출력되는 컬럼 이름을 입력한다. 예를 들어 <xref
+                        linkend="figure_servicejob_gateway_example" />의
+                        datajob_1의 Data Flow의 최종 노드에서 출력되는 컬럼 이름을 입력한다.</para>
+                      </listitem>
+
+                      <listitem>
+                        <para>비교 연산자 : 연산자를 선택한다.</para>
+                      </listitem>
+
+                      <listitem>
+                        <para>비교 대상 : 연산을 할 값을 입력한다.</para>
+                      </listitem>
+                    </itemizedlist></entry>
+                </row>
+
+                <row>
+                  <entry>Job 선택</entry>
+
+                  <entry>트리거를 수행할 Data Job을 선택한다.</entry>
+                </row>
+              </tbody>
+            </tgroup>
+          </informaltable></para>
+
+        <para>예를 들어 다음과 같이 설정한 경우 datajob_1의 INPUT 컬럼의 값이 1이라면 datajob_2가
+        수행된다.</para>
+
+        <figure>
+          <title>[Service Job] - Service Flow - 트리거 설정 예 (1)</title>
+
+          <mediaobject>
+            <imageobject>
+              <imagedata align="left"
+                         fileref="resources/figure_diverging_gateway_add_trigger_example_1.png"
+                         width="300"></imagedata>
+            </imageobject>
+          </mediaobject>
+        </figure>
+
+        <para>datajob_1의 INPUT 컬럼의 값이 컬럼의 값이 2라면 datajob_4가 수행된다.</para>
+
+        <figure>
+          <title>[Service Job] - Service Flow - 트리거 설정 예 (2)</title>
+
+          <mediaobject>
+            <imageobject>
+              <imagedata align="left"
+                         fileref="resources/figure_diverging_gateway_add_trigger_example_2.png"
+                         width="300"></imagedata>
+            </imageobject>
+          </mediaobject>
+        </figure>
+      </listitem>
+    </itemizedlist>
+
+    <para></para>
+
+    <para><literallayout></literallayout></para>
+
+    <para><bridgehead>Service Job Bind Parameter</bridgehead></para>
+
+    <para>Data Job에서 사용한 Bind Parameter를 Service Job에서도 사용할 수 있다.</para>
+
+    <para>왼쪽 하단에 Data Job에서 만들었던 Bind Parameter 리스트가 뜬다. 오른쪽 하단에는 Bind
+    Parameter가 포함된 노드를 빨간색 테두리로 표시한다. 왼쪽 하단에 값을 입력하고
+    <guibutton>[Run]</guibutton> 버튼을 클릭하면 설정한 값으로 Service Job을 수행할 수
+    있다.</para>
+
+    <para></para>
+
+    <figure>
+      <title>[Service Job] - 부가 기능 - Service Job Bind Parameter</title>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata align="left"
+                     fileref="resources/figure_servicejob_bindparam.png"
+                     width="750"></imagedata>
+        </imageobject>
+      </mediaobject>
+    </figure>
+
+    <para></para>
+  </section>
+
+  <section xml:id="sect_servicejob_schedule">
+    <title>Service Job 스케줄러 매니저<indexterm class="singular">
+        <primary>Service Job 스케줄러 매니저</primary>
+      </indexterm></title>
+
+    <para><guibutton>Service Job 화면</guibutton>(<xref
+    linkend="figure_servicejob" />)에서 <emphasis role="bold">[스케줄
+    매니저]</emphasis> 버튼을 클릭하면 Service Job을 실행할 예약 시간 및 주기를 설정할 수 있다.
+    <guibutton>[생성]</guibutton> 버튼을 클릭하면 스케줄을 생성할 수 있다. 목록에서 스케줄을 선택한 후
+    <guibutton>[수정]</guibutton>, <guibutton>[삭제]</guibutton> 버튼을 클릭하면 스케줄을
+    수정하거나 삭제할 수 있다.</para>
+
+    <para>목록 위에 <guibutton>'검색'</guibutton> 입력항목에 스케줄 이름을 입력하고 &lt;Enter&gt;
+    키를 누르거나 <inlinemediaobject>
+        <imageobject>
+          <imagedata fileref="resources/icon_search.png" width="22"></imagedata>
+        </imageobject>
+      </inlinemediaobject> 아이콘을 클릭하면 해당 이름의 스케줄을 조회할 수 있다. 목록 아래에 조회된 건수와 페이징
+    정보, 조회할 건수를 선택할 수 있다. 목록을 선택하면 스케줄의 Service Job Flow가 아래 상세 영역에 조회된다. 목록의
+    <guibutton>'동작/정지'</guibutton> 항목의 토글 버튼을 선택해서 스케줄을 동작시킬 수 있다.</para>
+
+    <para><figure xml:id="figure_servicejobschedulemanager">
+        <title>Service Job 스케줄러 매니저 화면</title>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata align="left"
+                       fileref="resources/figure_servicejobschedulemanager.png"
+                       width="750"></imagedata>
+          </imageobject>
+        </mediaobject>
+      </figure><literallayout></literallayout></para>
+
+    <section>
+      <title>Service Job Schedule 생성</title>
+
+      <para><guibutton>Service Job 스케줄러 매니저 화면</guibutton>(<xref
+      linkend="figure_servicejobschedulemanager" />)의
+      <guibutton>[생성]</guibutton> 버튼을 클릭하면 Service Job 스케줄 정보를 입력할 수 있다. 생성할
+      스케줄 정보와 유형을 입력하고 <guibutton>[확인]</guibutton> 버튼을 클릭한다.</para>
+
+      <figure>
+        <title>[Service Job] - Schedule 관리 - Service Job Schedule 생성</title>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata align="left"
+                       fileref="resources/figure_servicejobschedule_create.png"
+                       width="400"></imagedata>
+          </imageobject>
+        </mediaobject>
+      </figure>
+
+      <para>스케줄은 다음의 2가지 유형으로 설정할 수 있다.<indexterm>
+          <primary>Service Job 스케줄러 매니저</primary>
+
+          <secondary>Cron 표현식</secondary>
+        </indexterm></para>
+
+      <itemizedlist spacing="compact">
+        <listitem>
+          <para><guibutton>날짜 기준(Dates)<indexterm>
+              <primary>Service Job 스케줄러 매니저</primary>
+
+              <secondary>날짜 기준</secondary>
+            </indexterm></guibutton></para>
+
+          <para>날짜 기준은 실행 날짜와 시간을 직접 설정한다. 여러 날짜와 시간을 설정할 수 있으며
+          <guibutton>[생성]</guibutton> 버튼을 클릭하면 실행 날짜와 시간을 입력하는 행이 생성되어 날짜와 시간을
+          입력할 수 있다. 체크 박스 설정 후 <guibutton>[삭제]</guibutton> 버튼을 클릭하면 체크된 행들이
+          삭제된다.</para>
+
+          <mediaobject>
+            <imageobject>
+              <imagedata align="left"
+                         fileref="resources/figure_servicejobschedule_dates_create.png"
+                         width="400"></imagedata>
+            </imageobject>
+          </mediaobject>
+        </listitem>
+
+        <listitem>
+          <para><guibutton>Cron 표현식</guibutton><guibutton>(Cron
+          Expression</guibutton>)</para>
+
+          <para>Cron Expression은 Cron 표현식을 통해 실행 예약 시간과 주기를 설정한다. Cron
+          표현식(Cron Expression)의 경우 날짜 기준(Dates)와 달리 From / To 시간 설정을 해야 사용할 수
+          있다.</para>
+
+          <mediaobject>
+            <imageobject>
+              <imagedata align="left"
+                         fileref="resources/figure_servicejobschedule_cron_create.png"
+                         width="400"></imagedata>
+            </imageobject>
+          </mediaobject>
+        </listitem>
+      </itemizedlist>
+
+      <para></para>
+
+      <literallayout></literallayout>
+    </section>
+
+    <section>
+      <title>Service Job Schedule 수정</title>
+
+      <para><guibutton>Service Job 스케줄러 매니저 화면</guibutton>(<xref
+      linkend="figure_servicejobschedulemanager" />) 목록에서 스케줄을 클릭하면 스케줄러 정보를
+      수정할 수 있다. 항목을 수정한 <guibutton>[확인]</guibutton> 버튼을 클릭한다. 스케줄을 수정하는 경우
+      <guibutton>'소속 프로젝트'</guibutton>와 <guibutton>'Service Job'</guibutton>
+      항목은 변경할 수 없다.</para>
+
+      <figure>
+        <title>[Service Job] - Schedule 관리 - Service Job Schedule 수정</title>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata align="left"
+                       fileref="resources/figure_servicejobschedule_edit.png"
+                       width="400"></imagedata>
+          </imageobject>
+        </mediaobject>
+      </figure>
+
+      <para></para>
+
+      <para></para>
+
+      <literallayout></literallayout>
+    </section>
+
+    <section>
+      <title>Service Job Schedule 삭제</title>
+
+      <para><guibutton>Service Job 스케줄러 매니저 화면</guibutton>(<xref
+      linkend="figure_servicejobschedulemanager" />) 목록에서 스케줄을 선택한 후
+      <guibutton>[삭제]</guibutton> 버튼을 클릭하면 스케줄을 삭제할 수 있다. 목록에서 삭제할 사용자를 확인한 후
+      <guibutton>[삭제]</guibutton> 버튼을 클릭한다. 삭제된 스케줄 정보는 복구가 불가하다.</para>
+
+      <para></para>
+
+      <figure>
+        <title>[Service Job] - Schedule 관리 - Service Job Schedule 삭제</title>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata align="left"
+                       fileref="resources/figure_servicejobschedule_delete.png"
+                       width="300"></imagedata>
+          </imageobject>
+        </mediaobject>
+      </figure>
+    </section>
+  </section>
+</section>

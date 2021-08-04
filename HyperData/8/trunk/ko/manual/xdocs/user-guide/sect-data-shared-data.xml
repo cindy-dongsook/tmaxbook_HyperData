@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section version="5.0" xml:id="sect_data_shared_data"
+         xmlns="http://docbook.org/ns/docbook"
+         xmlns:xlink="http://www.w3.org/1999/xlink"
+         xmlns:xi="http://www.w3.org/2001/XInclude"
+         xmlns:svg="http://www.w3.org/2000/svg"
+         xmlns:mml="http://www.w3.org/1998/Math/MathML"
+         xmlns:html="http://www.w3.org/1999/xhtml"
+         xmlns:db="http://docbook.org/ns/docbook">
+  <title>Shared Data<indexterm>
+      <primary>데이터 카테고리</primary>
+
+      <secondary>[Shared Data] 메뉴</secondary>
+    </indexterm></title>
+
+  <para><guibutton>[데이터] &gt; [Shared Data]</guibutton> 메뉴를 선택하면 프로젝트 내에 공유되는
+  데이터 객체 정보를 조회할 수 있다. 데이터 객체의 공유 설정에 대한 자세한 내용은 <xref
+  linkend="sect_dataobject_sharing" />를 참고한다. 목록 아래에 조회된 건수와 페이징 정보, 조회할 건수를
+  선택할 수 있다. </para>
+
+  <para>다음은 프로젝트 <guibutton>SEARCH_TEST</guibutton>에서 생성된 데이터 객체
+  <guibutton>고객정보</guibutton>를 프로젝트 <guibutton>JY_TEST</guibutton>에 공유한 내역이다.
+  다른 프로젝트에서 <guibutton>SEARCH_TEST</guibutton> 프로젝트로 공유된 데이터 객체가 있다면,
+  <guibutton>다른 프로젝트로부터 공유</guibutton>에 해당 정보가 조회된다.</para>
+
+  <para><figure xml:id="figure_shared_data">
+      <title>공유 데이터 화면</title>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata align="left" fileref="resources/figure_shared_data.png"
+                     width="750"></imagedata>
+        </imageobject>
+      </mediaobject>
+    </figure></para>
+</section>

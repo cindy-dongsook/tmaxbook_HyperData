@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section version="5.0" xml:id="sect_data_data_asset"
+         xmlns="http://docbook.org/ns/docbook"
+         xmlns:xlink="http://www.w3.org/1999/xlink"
+         xmlns:xi="http://www.w3.org/2001/XInclude"
+         xmlns:svg="http://www.w3.org/2000/svg"
+         xmlns:mml="http://www.w3.org/1998/Math/MathML"
+         xmlns:html="http://www.w3.org/1999/xhtml"
+         xmlns:db="http://docbook.org/ns/docbook">
+  <title>Data Asset<indexterm>
+      <primary>데이터 카테고리</primary>
+
+      <secondary>[Data Asset] 메뉴</secondary>
+    </indexterm></title>
+
+  <para><guibutton>[데이터] &gt; [Data Asset]</guibutton> 메뉴를 선택하면 <guibutton>데이터
+  자산 화면</guibutton>에서 프로젝트 내 등록된 데이터 객체에 대해 검색할 수 있다.</para>
+
+  <para><figure xml:id="figure_asset_first">
+      <title>데이터 자산 초기 화면</title>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata align="left" fileref="resources/figure_asset_first.png"
+                     width="750"></imagedata>
+        </imageobject>
+      </mediaobject>
+    </figure></para>
+
+  <para></para>
+
+  <para><guibutton>'검색'</guibutton> 항목에 키워드를 입력하고 &lt;Enter&gt; 키를 누르거나
+  <inlinemediaobject>
+      <imageobject>
+        <imagedata fileref="resources/icon_search.png" width="22"></imagedata>
+      </imageobject>
+    </inlinemediaobject> 아이콘을 클릭하면 현재 조회 중인 프로젝트에 등록된 데이터 객체에 대한 정보를 검색할 수
+  있다.</para>
+
+  <figure xml:id="figure_asset_search_example">
+    <title>[Data Asset] - 데이터 자산 검색 예</title>
+
+    <mediaobject>
+      <imageobject>
+        <imagedata align="left"
+                   fileref="resources/figure_asset_search_example.png"
+                   width="750"></imagedata>
+      </imageobject>
+    </mediaobject>
+  </figure>
+
+  <para></para>
+
+  <itemizedlist spacing="compact">
+    <listitem>
+      <para><guibutton>검색 조건</guibutton></para>
+
+      <para><guibutton>'검색'</guibutton> 항목에 키워드에 매칭되는 정보에는 데이터 객체에 대한 논리명,
+      물리명, 설명, 태그, 작성자, 소속 카테고리, 소속 데이터소스 위치와 데이터 객체에 포함된 컬럼의 설명, 태그, 개별값이 있다.
+      검색 후 키워드가 매칭된 검색 결과가 화면에 나타난다. 아무 입력 값이 없이 검색하면 모든 데이터 객체가 조회된다.</para>
+    </listitem>
+
+    <listitem>
+      <para><guibutton>검색 결과 영역</guibutton></para>
+
+      <para>검색 결과 영역은 검색 결과 내에서 필터 기능을 수행하는 <guibutton>선택된 항목으로 제한
+      영역</guibutton>과 <guibutton>날짜기준 영역</guibutton>, <guibutton>검색결과
+      영역</guibutton>으로 나뉜다.</para>
+
+      <itemizedlist spacing="compact">
+        <listitem>
+          <para><guibutton>선택된 항목으로 제한</guibutton></para>
+
+          <para>각 필터 버튼 내에는 해당 기준에 대한 키워드 매칭 개수가 표기된다. 검색되는 기준을 하나 이상 선택할 수 있고
+          선택된 기준들로 필터링된 결과가 검색 결과에 조회된다.</para>
+
+          <figure xml:id="figure_asset_filter_1">
+            <title>[Data Asset] - 데이터 객체 검색 필터</title>
+
+            <mediaobject>
+              <imageobject>
+                <imagedata align="left"
+                           fileref="resources/figure_asset_filter_1.png"
+                           width="700"></imagedata>
+              </imageobject>
+            </mediaobject>
+          </figure>
+        </listitem>
+
+        <listitem>
+          <para><guibutton>날짜기준</guibutton></para>
+
+          <para>생성 날짜와 수정 날짜에 대한 필터 기능을 지원한다. <guibutton>'생성 날짜'</guibutton>와
+          <guibutton>'수정 날짜'</guibutton>에 각 항목 옆에 해당하는 결과 수만큼 표시되며 항목을 선택하면 해당
+          기준으로 필터링된 결과가 검색 결과에 조회된다.</para>
+
+          <figure xml:id="figure_asset_filter_2">
+            <title>[Data Asset] - 데이터 객체 검색 필터</title>
+
+            <mediaobject>
+              <imageobject>
+                <imagedata align="left"
+                           fileref="resources/figure_asset_filter_2.png"
+                           width="700"></imagedata>
+              </imageobject>
+            </mediaobject>
+          </figure>
+        </listitem>
+
+        <listitem>
+          <para><guibutton>검색 결과</guibutton></para>
+
+          <para>검색 결과 위에 검색된 건수를 표시하고 검색 결과는 항목에 각 데이터 객체에 대한 내용을 조회한다.</para>
+
+          <para>검색결과 내역에서 체크박스를 체크하면 <guibutton>[데이터잡에 추가]</guibutton> 버튼이
+          활성화되어 Data Job으로 데이터 객체를 추가할 수 있다. 자세한 내용은 <link
+          linkend="sect_datajob_regist">"Data Job에 추가"</link>를 참고한다.</para>
+
+          <figure xml:id="figure_asset_result">
+            <title>[Data Asset] - 데이터 객체 검색 결과</title>
+
+            <mediaobject>
+              <imageobject>
+                <imagedata align="left"
+                           fileref="resources/figure_asset_result.png"
+                           width="700"></imagedata>
+              </imageobject>
+            </mediaobject>
+          </figure>
+
+          <para>검색 결과의 각 데이터 객체의 정보는 다음의 4가지 항목으로 구성된다.</para>
+
+          <itemizedlist mark="circle" spacing="compact">
+            <listitem>
+              <para>(1) 논리명, 작성자, 수정날짜, 생성날짜</para>
+            </listitem>
+
+            <listitem>
+              <para>(2) 물리명, 소속 카테고리, 소속 데이터소스 위치</para>
+            </listitem>
+
+            <listitem>
+              <para>(3) 태그</para>
+            </listitem>
+
+            <listitem>
+              <para>(4) 설명</para>
+            </listitem>
+          </itemizedlist>
+
+          <para>검색된 데이터 객체의 <inlinemediaobject>
+              <imageobject>
+                <imagedata fileref="resources/icon_detail.png" width="22"></imagedata>
+              </imageobject>
+            </inlinemediaobject>아이콘을 클릭하면 데이터 객체의 상세 정보를 조회할 수 있다.</para>
+
+          <para><guibutton>[Details]</guibutton>,
+          <guibutton>[스키마]</guibutton>, <guibutton>[데이터 미리보기]</guibutton> 탭에서
+          상세 정보를 조회할 수 있다. 각 탭의 자세한 설명은 <xref
+          linkend="sect_dataobject_detail" />를 참고한다.</para>
+
+          <para><figure xml:id="figure_asset_details">
+              <title>[Data Asset] - 데이터 자산 상세 정보 조회</title>
+
+              <mediaobject>
+                <imageobject>
+                  <imagedata align="left"
+                             fileref="resources/figure_asset_details.png"
+                             width="700"></imagedata>
+                </imageobject>
+              </mediaobject>
+            </figure></para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
+  </itemizedlist>
+
+  <para><literallayout></literallayout></para>
+
+  <?dbfo-need height="10in" ?>
+
+  <bridgehead xml:id="sect_datajob_regist">Data Job에 추가</bridgehead>
+
+  <para><guibutton>데이터 객체 검색 결과</guibutton>(<xref
+  linkend="figure_asset_result" />) 영역에 검색결과 내역에서 체크박스를 체크하면 <guibutton>[데이터잡에
+  추가]</guibutton> 버튼이 활성화된다.</para>
+
+  <para><figure xml:id="figure_asset_btn_add_datajob">
+      <title>[Data Asset] - 데이터 잡에 추가</title>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata align="left"
+                     fileref="resources/figure_asset_btn_add_datajob.png"
+                     width="750"></imagedata>
+        </imageobject>
+      </mediaobject>
+    </figure></para>
+
+  <para><guibutton> 데이터잡에 추가 화면</guibutton>에 데이터 객체를 추가할 Data Job을
+  <guibutton>'JOB 이름'</guibutton> 항목에서 선택한 후 <guibutton>[확인]</guibutton> 버튼을
+  클릭한다.</para>
+
+  <figure xml:id="figure_asset_dlg_add_datajob">
+    <title>[Data Asset] - Data Job 선택 페이지</title>
+
+    <mediaobject>
+      <imageobject>
+        <imagedata align="left"
+                   fileref="resources/figure_asset_dlg_add_datajob.png"
+                   width="380"></imagedata>
+      </imageobject>
+    </mediaobject>
+  </figure>
+
+  <para>데이터 객체를 추가하면 <guibutton>Data Job 화면</guibutton>으로 이동한다. Data Job에 대한
+  자세한 설명은 <xref linkend="sect_datajob_detail" />을 참고한다.</para>
+
+  <figure xml:id="figure_asset_dlg_add_datajob">
+    <title>[Data Asset] - Data Job에 추가된 데이터 객체</title>
+
+    <mediaobject>
+      <imageobject>
+        <imagedata align="left" fileref="resources/figure_asset_datajob.png"
+                   width="750"></imagedata>
+      </imageobject>
+    </mediaobject>
+  </figure>
+
+  <para></para>
+</section>

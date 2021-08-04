@@ -1,0 +1,802 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section version="5.0" xml:id="sect_data_meta_mgmt"
+         xmlns="http://docbook.org/ns/docbook"
+         xmlns:xlink="http://www.w3.org/1999/xlink"
+         xmlns:xi="http://www.w3.org/2001/XInclude"
+         xmlns:svg="http://www.w3.org/2000/svg"
+         xmlns:mml="http://www.w3.org/1998/Math/MathML"
+         xmlns:html="http://www.w3.org/1999/xhtml"
+         xmlns:db="http://docbook.org/ns/docbook">
+  <title>Meta Management<indexterm>
+      <primary>데이터 카테고리</primary>
+
+      <secondary>[Meta Management] 메뉴</secondary>
+    </indexterm></title>
+
+  <para><guibutton>[데이터] &gt; [Meta Management]</guibutton> 메뉴를 선택하면 프로젝트 내
+  등록된 데이터 객체와 컬럼에 대한 메타 데이터를 관리할 수 있다.</para>
+
+  <para><guibutton>메타데이터 관리 화면</guibutton>은 <guibutton>[비지니스 룰]</guibutton>,
+  <guibutton>[카테고리 관리]</guibutton>, <guibutton>[컬럼값 관리]</guibutton>,
+  <guibutton>[사전]</guibutton> 탭을 선택해서 비지니스룰, 카테고리와 컬럼값을 관리하고 데이터의 정보를 정의할 사전을
+  관리할 수 있다.</para>
+
+  <figure xml:id="figure_meta_mgmt">
+    <title>[Meta Management] - 비지니스 룰 초기 화면</title>
+
+    <mediaobject>
+      <imageobject>
+        <imagedata align="left" fileref="resources/figure_business_rule.png"
+                   width="750"></imagedata>
+      </imageobject>
+    </mediaobject>
+  </figure>
+
+  <section xml:id="sect_meta_business_rule">
+    <title>비지니스 룰 관리</title>
+
+    <para><guibutton>메타데이터 관리 화면</guibutton>(<xref
+    linkend="figure_meta_mgmt" />)의 <guibutton>[비지니스 룰]</guibutton> 탭을 선택하면
+    비지니스 로직을 위한 룰(rule)을 정의하고 관리할 수 있다.</para>
+
+    <section xml:id="sect_meta_business_rule_create">
+      <title>비지니스 룰 생성</title>
+
+      <para>비지니스 룰 기본 화면(<xref linkend="figure_meta_mgmt" />)에서 <guibutton>[+
+      비지니스룰]</guibutton> 버튼을 클릭하면 새로운 비지니스 룰을 생성할 수 있으며, 비지니스 룰 생성 화면에서는 기본정보와
+      룰을 설정 할 수 있다.</para>
+
+      <figure xml:id="figure_business_create">
+        <title>[Meta Management] - 비지니스 룰 생성 화면</title>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata align="left"
+                       fileref="resources/figure_business_create.png"
+                       width="750"></imagedata>
+          </imageobject>
+        </mediaobject>
+      </figure>
+
+      <itemizedlist spacing="compact">
+        <listitem>
+          <para><guibutton>비지니스 룰 기본정보</guibutton></para>
+
+          <para>비지니스 룰 기본 정보로는 <guibutton>이름, 관계 타입, 설명</guibutton>이
+          있다.</para>
+        </listitem>
+
+        <listitem>
+          <para><guibutton>비지니스 룰 설정</guibutton></para>
+
+          <para>일반화 룰(Generalization rule)을 정의할 수 있으며, 설정 항목의
+          <guibutton>[수정]</guibutton> 버튼을 클릭하면 일반화 룰을 생성할 수 있다. 자세한 내용은 <link
+          linkend="sect_generalization_rule">"일반화 룰 정의"</link>를 참고한다.</para>
+        </listitem>
+      </itemizedlist>
+
+      <para></para>
+
+      <para><literallayout></literallayout></para>
+
+      <para></para>
+
+      <para><bridgehead xml:id="sect_generalization_rule">일반화 룰
+      정의</bridgehead></para>
+
+      <para>일반화 룰을 정의하기 위해서는 일반화 타입을 선택해야하며, 일반화 타입으로는 <guibutton>값 지정
+      타입</guibutton>과 <guibutton>구간 지정 타입</guibutton>이 있다. 일반화는 기본적으로 분류 구조
+      관리를 목적으로 하며, <guibutton>값 지정 타입</guibutton>은 값이 포함되는 개념과 값에 관한 상하 구조를
+      설정하고 <guibutton>구간 지정 타입</guibutton>은 숫자형 데이터에 대하여 범위를 설정하는 룰이다.</para>
+
+      <para></para>
+
+      <figure xml:id="figure_business_rule_generalization">
+        <title>[Meta Management] - 비지니스 룰 - 일반화 생성 화면</title>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata align="left"
+                       fileref="resources/figure_business_rule_generalization_setting.png"
+                       width="750"></imagedata>
+          </imageobject>
+        </mediaobject>
+      </figure>
+
+      <para></para>
+
+      <itemizedlist spacing="compact">
+        <listitem>
+          <para><guibutton>값/개념 설정</guibutton></para>
+
+          <para>분류할 값과 개념의 추가는 <guibutton>일반화 생성 화면</guibutton>(<xref
+          linkend="figure_business_rule_generalization" />)의
+          <guibutton>[불러오기]</guibutton> 또는 <guibutton>[추가]</guibutton> 버튼을
+          클릭한다.</para>
+
+          <itemizedlist spacing="compact">
+            <listitem>
+              <para><guibutton>불러오기</guibutton></para>
+
+              <para>해당 버튼을 통해 컬럼의 Candidates를 값이나 개념으로 불러올 수 있다. 특정 컬럼에 대하여
+              Candidates가 존재하지 않는다면 <guibutton>[컬럼값 관리]</guibutton> 탭에서 생성이
+              가능하며, 자세한 내용은 <xref linkend="sect_meta_column" />를 참고한다.</para>
+
+              <para><guibutton>[불러오기]</guibutton> 버튼을 클릭하면 Candidates를 불러올 데이터
+              객체와 해당 데이터 객체의 컬럼을 선택할 수 있다. 선택을 완료한 후
+              <guibutton>[적용]</guibutton> 버튼을 클릭하면
+              <guibutton>[불러오기]</guibutton> 버튼이 클릭된 리스트에서 선택한 컬럼의 Candidates를
+              확인할 수 있다.</para>
+
+              <figure xml:id="figure_business_generalization_import">
+                <title>[Meta Management] - 비지니스 룰 - 일반화 값/개념 불러오기</title>
+
+                <mediaobject>
+                  <imageobject>
+                    <imagedata align="left"
+                               fileref="resources/figure_business_generalization_import.png"
+                               width="400"></imagedata>
+                  </imageobject>
+                </mediaobject>
+              </figure>
+            </listitem>
+
+            <listitem>
+              <para><guibutton>추가</guibutton></para>
+
+              <para>해당 버튼을 통해 직접 값이나 개념을 입력할 수 있다. <guibutton>[추가]</guibutton>
+              버튼을 클릭하면 새로 생성할 값/개념을 입력할 수 있는 다이얼로그가 나타난다. 원하는 값/개념을 입력하고
+              <guibutton>[적용]</guibutton> 버튼을 클릭하면 입력한 값/개념을
+              <guibutton>[추가]</guibutton> 버튼이 클릭된 리스트에서 확인할 수 있다.</para>
+
+              <figure xml:id="figure_business_generalization_add">
+                <title>[Meta Management] - 비지니스 룰 - 일반화 값/개념 추가오기</title>
+
+                <mediaobject>
+                  <imageobject>
+                    <imagedata align="left"
+                               fileref="resources/figure_business_generalization_add.png"
+                               width="400"></imagedata>
+                  </imageobject>
+                </mediaobject>
+              </figure>
+
+              <para>일반화 타입이 <guibutton>구간 지정</guibutton>이라면
+              <guibutton>[추가]</guibutton> 버튼을 클릭할 경우 구간을 입력할 수 있는 다이얼로그가 나타난다.
+              원하는 구간을 입력하고 <guibutton>[적용]</guibutton>버튼을 클릭하면 입력한 구간을 값 리스트에서
+              확인할 수 있다.</para>
+
+              <para><figure xml:id="figure_business_generalization_add_range">
+                  <title>[Meta Management] - 비지니스 룰 - 일반화 구간 불러오기</title>
+
+                  <mediaobject>
+                    <imageobject>
+                      <imagedata align="left"
+                                 fileref="resources/figure_business_generalization_add_range.png"
+                                 width="400"></imagedata>
+                    </imageobject>
+                  </mediaobject>
+                </figure></para>
+            </listitem>
+
+            <listitem>
+              <para><guibutton>삭제</guibutton></para>
+
+              <para>해당 버튼을 통해 값이나 개념을 삭제할 수 있다. <guibutton>일반화 생성
+              화면</guibutton>(<xref
+              linkend="figure_business_rule_generalization" />)에서 값/개념 리스트에서
+              삭제할 요소를 선택하여 해당 버튼을 클릭하면 선택된 개념/값에 대하여 삭제가 실행된다.</para>
+            </listitem>
+          </itemizedlist>
+        </listitem>
+
+        <listitem>
+          <para><guibutton>값/개념 선택</guibutton></para>
+
+          <para>값/개념을 추가한 리스트에서 룰을 생성할 값/개념을 선택할 수 있다. 일반화 타입이 <guibutton>값
+          지정</guibutton>이라면 여러개의 값을 선택하여 개념에 포함시킬 수 있다.</para>
+
+          <figure xml:id="figure_business_generalization_value_type">
+            <title>[Meta Management] - 비지니스 룰 - 값/개념 선택</title>
+
+            <mediaobject>
+              <imageobject>
+                <imagedata align="left"
+                           fileref="resources/figure_business_generalization_value_type.png"
+                           width="750"></imagedata>
+              </imageobject>
+            </mediaobject>
+          </figure>
+
+          <para>일반화 타입이 <guibutton>구간 지정</guibutton>이라면 값 리스트에서 하나의 구간을 선택하여
+          개념에 포함시킬 수 있다.</para>
+
+          <figure xml:id="figure_business_generalization_range_type">
+            <title>[Meta Management] - 비지니스 룰 - 구간 선택</title>
+
+            <mediaobject>
+              <imageobject>
+                <imagedata align="left"
+                           fileref="resources/figure_business_generalization_range_type.png"
+                           width="750"></imagedata>
+              </imageobject>
+            </mediaobject>
+          </figure>
+        </listitem>
+
+        <listitem>
+          <para><guibutton>일반화 룰 생성</guibutton></para>
+
+          <para>값/개념 리스트에서 룰을 생성할 요소를 선택하여 <guibutton>[▶]</guibutton> 버튼을 클릭하면
+          선택한 값/개념이 적용되어 생성될 룰의 요약이 보여진다.</para>
+
+          <figure xml:id="figure_business_generalization_summary">
+            <title>[Meta Management] - 비지니스 룰 - 룰 요약 (값 지정 타입)</title>
+
+            <mediaobject>
+              <imageobject>
+                <imagedata align="left"
+                           fileref="resources/figure_business_generalization_summary.png"
+                           width="350"></imagedata>
+              </imageobject>
+            </mediaobject>
+          </figure>
+
+          <para>일반화 타입이 <guibutton>구간 지정</guibutton>이라면 한 범주당 하나의 개념을 포함한 요약을
+          확인할 수 있다.</para>
+
+          <figure xml:id="figure_business_generalization_summary_range">
+            <title>[Meta Management] - 비지니스 룰 - 룰 요약 (구간 지정 타입)</title>
+
+            <mediaobject>
+              <imageobject>
+                <imagedata align="left"
+                           fileref="resources/figure_business_generalization_summary_range.png"
+                           width="350"></imagedata>
+              </imageobject>
+            </mediaobject>
+          </figure>
+
+          <para>룰 요약을 확인 후 <guibutton>일반화 생성 화면</guibutton>(<xref
+          linkend="figure_business_rule_generalization" />)의
+          <guibutton>[적용]</guibutton> 버튼을 클릭하면 일반화룰이 생성된다.</para>
+
+          <para>일반화 생성화면의 설정 항목에서 생성한 일반화 룰을 확인할 수 있다. 일반화 설정 (<xref
+          linkend="figure_business_generalization_preview" />)에서 체크박스를 통해 일반화
+          룰을 선택하고 <guibutton>[삭제]</guibutton> 버튼을 클릭하면 삭제를 할 수 있다.</para>
+
+          <para>일반화 룰과 기본 정보를 작성하거나 수정했다면 <guibutton>비지니스룰
+          생성화면</guibutton>(<xref linkend="figure_business_create" />) 아래에
+          <guibutton>[저장]</guibutton> 버튼을 클릭한다.</para>
+
+          <figure xml:id="figure_business_generalization_preview">
+            <title>[Meta Management] - 비지니스 룰 - 일반화 룰 생성</title>
+
+            <mediaobject>
+              <imageobject>
+                <imagedata align="left"
+                           fileref="resources/figure_business_generalization_preview.png"
+                           width="750"></imagedata>
+              </imageobject>
+            </mediaobject>
+          </figure>
+        </listitem>
+      </itemizedlist>
+
+      <para></para>
+
+      <para></para>
+
+      <literallayout></literallayout>
+    </section>
+
+    <section xml:id="sect_meta_business_rule_edit">
+      <title>비지니스 룰 수정</title>
+
+      <para>비지니스 룰 조회 화면(<xref linkend="figure_meta_mgmt" />)에서 수정할 룰을 체크박스를
+      통해 선택하고 <guibutton>수정</guibutton> 버튼을 클릭하거나 수정할 룰을 더블클릭하면 비지니스룰을 수정할 수
+      있다. 항목 설정에 대한 자세한 내용은 <xref linkend="sect_meta_business_rule_create" />을
+      참고한다.</para>
+
+      <figure xml:id="figure_business_edit">
+        <title>[Meta Management] - 비지니스 룰 - 룰 수정</title>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata align="left"
+                       fileref="resources/figure_business_edit.png"
+                       width="750"></imagedata>
+          </imageobject>
+        </mediaobject>
+      </figure>
+
+      <literallayout></literallayout>
+    </section>
+
+    <section xml:id="sect_meta_business_rule_remove">
+      <title>비지니스 룰 삭제</title>
+
+      <para>비지니스 룰 조회 화면(<xref linkend="figure_meta_mgmt" />)에서 삭제할 룰을 체크박스를
+      통해 선택하고 <guibutton>삭제</guibutton> 버튼을 클릭하면 여러 개의 비지니스 룰을 삭제할 수 있다. 삭제
+      화면에서 목록을 확인 한 후 <guibutton>삭제</guibutton> 버튼을 클릭한다.</para>
+
+      <figure xml:id="figure_business_create_delete">
+        <title>[Meta Management] - 비지니스 룰 - 룰 삭제</title>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata align="left"
+                       fileref="resources/figure_business_create_delete.png"
+                       width="350"></imagedata>
+          </imageobject>
+        </mediaobject>
+      </figure>
+    </section>
+  </section>
+
+  <section xml:id="sect_meta_category">
+    <title>카테고리 관리</title>
+
+    <para><guibutton>메타데이터 관리 화면</guibutton>(<xref
+    linkend="figure_meta_mgmt" />)의 <guibutton>[카테고리 관리]</guibutton> 탭을 선택하면
+    데이터 객체와 컬럼에 대한 논리적인 집합인 카테고리(category)를 정의하고 관리할 수 있다.</para>
+
+    <para>등록된 카테고리가 없는 경우 <guibutton>카테고리 관리 초기 화면</guibutton>(<xref
+    linkend="figure_meta_mgmt_category" />)의 중앙에 <guibutton>[카테고리
+    생성]</guibutton> 버튼이나 <guibutton>[+카테고리]</guibutton> 버튼을 클릭해서 카테고리를
+    등록한다.</para>
+
+    <figure xml:id="figure_meta_mgmt_category">
+      <title>[Meta Management] - 카테고리 관리 초기 화면</title>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata align="left" fileref="resources/figure_meta_mgmt.png"
+                     width="750"></imagedata>
+        </imageobject>
+      </mediaobject>
+    </figure>
+
+    <para>등록된 카테고리로 트리를 구성하고 <guibutton>'검색'</guibutton> 항목을 입력하면 트리에서 입력한 값으로
+    조회된다. 트리에서 카테고리를 선택하면 해당 상세 정보를 조회하고 수정, 삭제할 수 있다. 목록 아래에 조회된 건수와 페이징 정보,
+    조회할 건수를 선택할 수 있다.</para>
+
+    <para><figure xml:id="figure_meta_category_select">
+        <title>[Meta Management] - 카테고리 조회 화면</title>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata align="left"
+                       fileref="resources/figure_meta_category_select.png"
+                       width="750"></imagedata>
+          </imageobject>
+        </mediaobject>
+      </figure></para>
+
+    <para><guibutton>카테고리 조회 화면</guibutton> 트리에서 카테고리를 선택한 후 다음과 같이 드래그 앤 드롭을
+    하면 등록된 카테고리들간의 포함 관계를 지정할 수 있다.</para>
+
+    <figure xml:id="figure_meta_category_treeUpdate">
+      <title>[Meta Management] - 카테고리 수정 - 카테고리 간 관계 설정 화면</title>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata align="left"
+                     fileref="resources/figure_meta_category_treeupdate.png"
+                     width="350"></imagedata>
+        </imageobject>
+      </mediaobject>
+    </figure>
+
+    <literallayout></literallayout>
+
+    <section xml:id="sect_meta_category_create">
+      <title>카테고리 생성</title>
+
+      <para>등록된 카테고리가 없는 경우 <guibutton>카테고리 관리 초기 화면</guibutton>(<xref
+      linkend="figure_meta_mgmt_category" />)의 <guibutton>[카테고리
+      생성]</guibutton> 버튼이나 <guibutton>카테고리 조회 화면</guibutton>(<xref
+      linkend="figure_meta_category_select" />)의
+      <guibutton>[+카테고리]</guibutton> 버튼을 클릭하면 카테고리를 등록할 수 있다.</para>
+
+      <para><guibutton>카테고리 생성 화면</guibutton>의 <guibutton>[+항목 추가]</guibutton>
+      버튼을 클릭하면 카테고리에 묶을 항목들을 지정할 수 있다(<xref
+      linkend="figure_meta_category_item" /> 참고). 추가된 항목은 <guibutton> [항목 삭제]
+      </guibutton> 버튼을 클릭해서 삭제할 수 있다. 카테고리 정보를 설정하고
+      <guibutton>[저장]</guibutton> 버튼을 클릭한다.</para>
+
+      <para></para>
+
+      <para><figure xml:id="figure_meta_category_create">
+          <title>[Meta Management] - 카테고리 생성</title>
+
+          <mediaobject>
+            <imageobject>
+              <imagedata align="left"
+                         fileref="resources/figure_meta_category_create.png"
+                         width="600"></imagedata>
+            </imageobject>
+          </mediaobject>
+        </figure></para>
+
+      <para></para>
+
+      <para></para>
+
+      <para><literallayout></literallayout></para>
+
+      <para></para>
+
+      <para><bridgehead>항목 등록</bridgehead></para>
+
+      <para><guibutton>항목 등록 화면</guibutton>의 왼쪽 <guibutton>항목 영역</guibutton>에
+      현재 프로젝트 내 등록된 데이터 객체와 컬럼이 조회된다.</para>
+
+      <para><guibutton>항목 영역</guibutton>에서 지정할 항목을 선택한 후<guibutton> [항목
+      업데이트&gt;&gt;] </guibutton>버튼을 클릭하면 해당 항목들이 오른쪽의 <guibutton> 카테고리 구성항목 영역
+      </guibutton>으로 이동하며 설정할 카테고리 항목으로 된다. <guibutton> 카테고리 구성항목 영역
+      </guibutton>에서 삭제할 항목을 선택한 후 <guibutton> [&lt;&lt;항목 삭제] </guibutton>버튼을
+      클릭하면 설정할 항목 리스트에서 삭제된다.</para>
+
+      <para>설정이 완료되면 <guibutton>[적용]</guibutton> 버튼을 클릭한다.</para>
+
+      <para></para>
+
+      <para><figure xml:id="figure_meta_category_item">
+          <title>[Meta Management] - 카테고리 생성 - 항목 등록</title>
+
+          <mediaobject>
+            <imageobject>
+              <imagedata align="left"
+                         fileref="resources/figure_meta_category_item.png"
+                         width="550"></imagedata>
+            </imageobject>
+          </mediaobject>
+        </figure></para>
+
+      <para></para>
+
+      <literallayout></literallayout>
+    </section>
+
+    <section xml:id="sect_meta_category_edit">
+      <title>카테고리 수정</title>
+
+      <para><guibutton>카테고리 조회 화면</guibutton>(<xref
+      linkend="figure_meta_mgmt_category" />)의 <guibutton>[수정]</guibutton> 버튼을
+      클릭하면 카테고리를 수정할 수 있다. 카테고리 정보를 수정한 후 <guibutton>[저장]</guibutton> 버튼을
+      클릭한다. 항목 설정에 대한 자세한 내용은 <xref linkend="sect_meta_category_create" />을
+      참고한다.</para>
+
+      <para><figure xml:id="figure_meta_category_edit">
+          <title>[Meta Management] - 카테고리 수정</title>
+
+          <mediaobject>
+            <imageobject>
+              <imagedata align="left"
+                         fileref="resources/figure_meta_category_edit.png"
+                         width="600"></imagedata>
+            </imageobject>
+          </mediaobject>
+        </figure></para>
+
+      <literallayout></literallayout>
+
+      <?dbfo-need height="10in" ?>
+    </section>
+
+    <section xml:id="sect_meta_category_delete">
+      <title>카테고리 삭제</title>
+
+      <para><guibutton>카테고리 조회 화면</guibutton>(<xref
+      linkend="figure_meta_mgmt_category" />)의 카테고리 트리에서 카테고리의 체크박스를 선택한 후
+      <guibutton>[삭제]</guibutton> 버튼을 클릭하면 여러 개의 카테고리를 삭제할 수 있고, 하위에 있는 카테고리도
+      함께 삭제할 수 있다.</para>
+
+      <para>카테고리 상세조회 후 <guibutton>[삭제]</guibutton> 버튼을 클릭하면 해당 카테고리를 삭제할 수
+      있다. 삭제 화면에서 목록을 확인한 후 <guibutton>[삭제]</guibutton> 버튼을 클릭한다.</para>
+
+      <figure xml:id="figure_meta_category_delete">
+        <title>[Meta Management] - 카테고리 삭제</title>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata align="left"
+                       fileref="resources/figure_meta_category_delete.png"
+                       width="300"></imagedata>
+          </imageobject>
+        </mediaobject>
+      </figure>
+
+      <para></para>
+    </section>
+  </section>
+
+  <section xml:id="sect_meta_column">
+    <title>컬럼값 관리</title>
+
+    <para><guibutton>메타데이터 관리 화면</guibutton>(<xref
+    linkend="figure_meta_mgmt" />)의 <guibutton>[컬럼값 관리]</guibutton> 탭을 선택하면 기존
+    데이터베이스의 Candidates 정보를 조회하거나 관리할 수 있다. Candidates는 특정 컬럼이 가진 값에 대해 중복하지 않은
+    값의 목록을 말한다.<indexterm class="singular">
+        <primary>Candidates</primary>
+      </indexterm></para>
+
+    <para>왼쪽의 컬럼 트리는 데이터소스, 테이블, 컬럼 순서로 구성된다. 컬럼 트리에서 특정 컬럼을 선택하면 컬럼의 논리명,
+    물리명과 함께 해당 컬럼이 가지고 있는 Candidates가 조회된다.</para>
+
+    <para>트리의 <guibutton>'검색'</guibutton> 항목을 입력하면 트리에서 입력한 값으로 조회된다. 트리에서 컬럼을
+    선택한 후 <guibutton>[불러오기]</guibutton> 버튼을 클릭하면 데이터베이스로부터 Candidate를 가져올 수
+    있다. 자세한 내용은 <xref linkend="sect_meta_column_create" />을 참고한다.</para>
+
+    <para>컬럼 트리를 선택하면 오른쪽 영역에 해당 트리의 정보를 조회하고 Candidates를 등록, 수정, 삭제할 수
+    있다.</para>
+
+    <figure xml:id="figure_candidate_view_content">
+      <title>[Meta Management] - 컬럼값 관리 화면</title>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata align="left"
+                     fileref="resources/figure_candidate_view_content.png"
+                     width="750"></imagedata>
+        </imageobject>
+      </mediaobject>
+    </figure>
+
+    <para></para>
+
+    <itemizedlist spacing="compact">
+      <listitem>
+        <para><guibutton>컬럼 정보</guibutton></para>
+
+        <para>컬럼의 논리명과 물리명을 조회한다.</para>
+      </listitem>
+
+      <listitem>
+        <para><guibutton>컬럼값 집합</guibutton></para>
+
+        <para><informaltable colsep="1" frame="topbot" rowsep="1">
+            <tgroup cols="2">
+              <colspec align="left" colwidth="150" />
+
+              <thead>
+                <row>
+                  <entry>항목</entry>
+
+                  <entry>설명</entry>
+                </row>
+              </thead>
+
+              <tbody>
+                <row>
+                  <entry>컬럼값</entry>
+
+                  <entry>컬럼의 값이다.</entry>
+                </row>
+
+                <row>
+                  <entry>등록 타입</entry>
+
+                  <entry><para>컬럼값의 타입이다. </para><itemizedlist
+                      spacing="compact">
+                      <listitem>
+                        <para>manual : 사용자가 입력한 경우</para>
+                      </listitem>
+
+                      <listitem>
+                        <para>import : <guibutton>[불러오기]</guibutton> 버튼을 클릭해서
+                        데이터베이스에서 가져온 경우</para>
+                      </listitem>
+                    </itemizedlist></entry>
+                </row>
+              </tbody>
+            </tgroup>
+          </informaltable></para>
+      </listitem>
+    </itemizedlist>
+
+    <para></para>
+
+    <literallayout></literallayout>
+
+    <section xml:id="sect_meta_column_create">
+      <title>Candidates 생성</title>
+
+      <para>Candidate 생성은 사용자가 직접 입력하는 방법과 데이터베이스에서 가져오는 방법으로 나뉜다.</para>
+
+      <itemizedlist spacing="compact">
+        <listitem>
+          <para><guibutton>사용자가 직접 입력하는 방법</guibutton></para>
+
+          <para><guibutton>컬럼값 관리 화면</guibutton>(<xref
+          linkend="figure_candidate_view_content" />)의 트리에서 컬럼을 선택한 후
+          <guibutton>[생성]</guibutton> 버튼을 클릭하면 새로운 Candidate를 생성할 수 있다.
+          <guibutton>후보 컬럼값추가 화면</guibutton>의 <guibutton>'추가 컬럼값'</guibutton>
+          항목을 입력한 후 <guibutton>[적용] </guibutton>버튼을 클릭하면 Candidate가 생성된다. 추가된
+          컬럼의 <guibutton>'등록 타입'</guibutton> 항목은 'manual'로 표기된다.</para>
+
+          <figure>
+            <title>[Meta Management] - 컬럼값 관리 - 후보 컬럼값 추가</title>
+
+            <mediaobject>
+              <imageobject>
+                <imagedata align="left"
+                           fileref="resources/figure_candidate_new.png"
+                           width="250"></imagedata>
+              </imageobject>
+            </mediaobject>
+          </figure>
+        </listitem>
+
+        <listitem>
+          <para><guibutton>데이터베이스에서 가져오는 방법</guibutton></para>
+
+          <para><guibutton>컬럼값 관리 화면</guibutton>(<xref
+          linkend="figure_candidate_view_content" />)의 트리에서 컬럼을 선택한 후
+          <guibutton>[불러오기]</guibutton> 버튼을 클릭하면 데이터베이스로부터 Candidate를 가져올 수
+          있다. 추가된 컬럼의 <guibutton>'등록 타입' </guibutton>항목은 'import'로
+          표기된다.</para>
+        </listitem>
+      </itemizedlist>
+
+      <para></para>
+
+      <literallayout></literallayout>
+    </section>
+
+    <section xml:id="sect_meta_column_edit">
+      <title>Candidates 수정</title>
+
+      <para><guibutton>컬럼값 관리 화면</guibutton>(<xref
+      linkend="figure_candidate_view_content" />)의 <guibutton> 컬럼값 집합
+      </guibutton>에서 Candidates를 선택한 후 <guibutton>[수정] </guibutton>버튼을 클릭하면
+      Candidate를 수정할 수 있다. 각 항목을 수정한 후 <guibutton>[적용]</guibutton> 버튼을 클릭한다.
+      <guibutton>'등록 타입'</guibutton>이 'import'인 경우 수정이 불가하다.</para>
+
+      <figure>
+        <title>[Meta Management] - 컬럼값 관리 - 후보 컬럼값 수정</title>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata align="left"
+                       fileref="resources/figure_candidate_edit.png"
+                       width="250"></imagedata>
+          </imageobject>
+        </mediaobject>
+      </figure>
+
+      <para></para>
+
+      <para></para>
+
+      <literallayout></literallayout>
+    </section>
+
+    <section xml:id="sect_meta_column_delete">
+      <title>Candidates 삭제</title>
+
+      <para><guibutton>컬럼값 관리 화면</guibutton>(<xref
+      linkend="figure_candidate_view_content" />)의 <guibutton> 컬럼값 집합
+      </guibutton>에서 Candidates를 선택한 후 <guibutton>[삭제]</guibutton> 버튼을 클릭하면
+      Candidate를 삭제할 수 있다. 삭제할 목록을 확인한 후 <guibutton>[삭제]</guibutton> 버튼을 클릭한다.
+      <guibutton>'등록 타입'</guibutton>이 'import'인 경우 삭제가 불가하다.</para>
+
+      <figure>
+        <title>[Meta Management] - 컬럼값 관리 - 후보 컬럼값 삭제</title>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata align="left"
+                       fileref="resources/figure_candidate_delete.png"
+                       width="300"></imagedata>
+          </imageobject>
+        </mediaobject>
+      </figure>
+    </section>
+  </section>
+
+  <section xml:id="sect_meta_dictionary">
+    <title>사전 관리</title>
+
+    <para><guibutton>메타데이터 관리 화면</guibutton>(<xref
+    linkend="figure_meta_mgmt" />)의 <guibutton>[사전]</guibutton> 탭을 선택하면 데이터의
+    정보를 정의할 사전을 열람할 수 있다.<indexterm class="singular">
+        <primary>Candidates</primary>
+      </indexterm> 왼쪽의 사전 리스트에서 데이터의 사전에 대한 정보를 확인할 수 있다. 사전 리스트에서 특정 사전을 선택하면
+    테이블의 세부 내용을 조회할 수 있다. 사전 리스트에서 <guibutton>'검색'</guibutton> 항목을 입력하면 리스트에서
+    입력한 값으로 조회가 된다.</para>
+
+    <figure xml:id="figure_dictionary_main">
+      <title>[Meta Management] - 사전 기본 화면</title>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata align="left"
+                     fileref="resources/figure_dictionary_main.png"
+                     width="750"></imagedata>
+        </imageobject>
+      </mediaobject>
+    </figure>
+
+    <para></para>
+
+    <para></para>
+
+    <literallayout></literallayout>
+
+    <section xml:id="sect_meta_dictionary_create">
+      <title>Dictionary 추가</title>
+
+      <para><guibutton>사전 기본 화면</guibutton>(<xref
+      linkend="figure_dictionary_main" />)의 리스트 위에 있는 <guibutton>[+
+      사전]</guibutton> 버튼을 클릭하면 새로운 Dictionary를 생성할 수 있다. <guibutton>메타 사전 추가
+      다이얼로그</guibutton>에서 <guibutton>'이름'</guibutton>과 <guibutton>'파일
+      경로'</guibutton> 항목을 입력한 후 <guibutton>[등록] </guibutton>버튼을 클릭하면
+      Dictionary 리스트에 정해진 이름의 사전이 추가된다. Dictionary 추가는 xlsx 확장자의 엑셀파일을 업로드하는
+      방식으로 이루어진다.</para>
+
+      <figure>
+        <title>[Meta Management] - 사전 관리 - 사전 추가</title>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata align="left"
+                       fileref="resources/figure_dictionary_upload.png"
+                       width="300"></imagedata>
+          </imageobject>
+        </mediaobject>
+      </figure>
+
+      <para></para>
+
+      <literallayout></literallayout>
+
+      <?dbfo-need height="10in" ?>
+    </section>
+
+    <section xml:id="sect_meta_dictionary_delete">
+      <title>Dictionary 삭제</title>
+
+      <para><guibutton>사전 기본 화면</guibutton>(<xref
+      linkend="figure_dictionary_main" />)의 <guibutton> 사전 리스트</guibutton>에서
+      삭제를 원하는 사전을 체크한 후 <guibutton>[삭제]</guibutton> 버튼을 클릭하면 사전을 삭제할 수
+      있다.</para>
+
+      <figure>
+        <title>[Meta Management] - 사전 관리 - 사전 삭제</title>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata align="left"
+                       fileref="resources/figure_dictionary_delete.png"
+                       width="300"></imagedata>
+          </imageobject>
+        </mediaobject>
+      </figure>
+
+      <literallayout></literallayout>
+    </section>
+
+    <section xml:id="sect_meta_dictionary_download">
+      <title>Dictionary 열람 및 다운로드</title>
+
+      <para><guibutton>사전 기본 화면</guibutton>(<xref
+      linkend="figure_dictionary_main" />)의 <guibutton> 사전 리스트</guibutton>에서
+      원하는 사전을 클릭하면 사전의 세부 내용을 열람할 수 있다. 다운로드를 원할 경우 우측 상단에 있는
+      <guibutton>[다운로드]</guibutton> 버튼을 클릭해 xlsx 확장자의 파일을 다운로드 받을 수 있다.</para>
+
+      <figure>
+        <title>[Meta Management] - 컬럼값 관리 - 후보 컬럼값 다운로드</title>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata align="left"
+                       fileref="resources/figure_dictionary_download.png"
+                       width="750"></imagedata>
+          </imageobject>
+        </mediaobject>
+      </figure>
+    </section>
+  </section>
+</section>

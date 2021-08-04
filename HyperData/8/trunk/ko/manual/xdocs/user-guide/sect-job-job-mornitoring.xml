@@ -1,0 +1,556 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section version="5.0" xml:id="sect_job_job_mornitoring"
+         xmlns="http://docbook.org/ns/docbook"
+         xmlns:xlink="http://www.w3.org/1999/xlink"
+         xmlns:xi="http://www.w3.org/2001/XInclude"
+         xmlns:trans="http://docbook.org/ns/transclusion"
+         xmlns:svg="http://www.w3.org/2000/svg"
+         xmlns:mml="http://www.w3.org/1998/Math/MathML"
+         xmlns:html="http://www.w3.org/1999/xhtml"
+         xmlns:db="http://docbook.org/ns/docbook">
+  <title>Job Monitoring<indexterm>
+      <primary>JOB 카테고리</primary>
+
+      <secondary>[Job Monitoring] 메뉴</secondary>
+    </indexterm></title>
+
+  <para><guibutton>[JOB] &gt; [Job Monitoring]</guibutton> 메뉴를 선택하면
+  <guibutton>Job Monitoring 화면</guibutton>으로 이동한다. <guibutton>[Service
+  Job]</guibutton> 탭 또는 <guibutton>[Data Job]</guibutton> 탭을 선택하여 히스토리를 조회할 수
+  있다.</para>
+
+  <figure xml:id="figure_jobmonitoring">
+    <title>Job Monitoring 화면</title>
+
+    <mediaobject>
+      <imageobject>
+        <imagedata align="left" fileref="resources/figure_jobmonitoring.png"
+                   width="750"></imagedata>
+      </imageobject>
+    </mediaobject>
+  </figure>
+
+  <para><guibutton>Job Monitoring 화면</guibutton>을 지속적으로 새로고침해서 모니터링하는 경우 왼쪽
+  상단에 있는 <inlinemediaobject>
+      <imageobject>
+        <imagedata fileref="resources/icon_autoreflash.png"></imagedata>
+      </imageobject>
+    </inlinemediaobject> 버튼을 클릭해서 Auto Refresh 정보를 설정할 수 있다. <guibutton>Auto
+  Refresh 화면</guibutton>에서 <guibutton>'Auto Refresh Configure'</guibutton> 항목의
+  토글 버튼으로 새로고침 모니터링 기능의 사용 여부를 설정할 수 있다. 해당 기능을 사용하는 경우 새로고침 주기를 설정한 후
+  <guibutton>[Save]</guibutton> 버튼을 클릭한다.</para>
+
+  <para><figure>
+      <title>[Job Monitoring] - Auto Refresh 설정</title>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata align="left"
+                     fileref="resources/figure_job_monitoring_auto_refresh.png"
+                     width="250"></imagedata>
+        </imageobject>
+      </mediaobject>
+    </figure></para>
+
+  <section>
+    <title>Service Job</title>
+
+    <para><guibutton>Job Monitoring 화면</guibutton>에서 <guibutton>[Service
+    Job]</guibutton> 탭을 선택하면 Service Job의 수행 내역을 조회할 수 있다.</para>
+
+    <para>목록을 클릭하면 오른쪽에 <guibutton>히스토리 상세 조회화면</guibutton>(<xref
+    linkend="figure_jobmonitoring_servicejob_detail" />)에서 해당 Service Job의 실행
+    결과를 조회할 수 있다. 해당 화면에 접근 이후 발생한 이력은 <guibutton>[검색]</guibutton> 버튼을 클릭하면
+    최신화된 정보를 알 수 있다. 목록 아래에 조회된 건수와 페이징 정보, 조회할 건수를 선택할 수 있다.</para>
+
+    <figure xml:id="figure_jobmonitoring_servicejob">
+      <title>[Job Monitoring] - Service Job 히스토리 화면</title>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata align="left"
+                     fileref="resources/figure_jobmonitoring_servicejob.png"
+                     width="750"></imagedata>
+        </imageobject>
+      </mediaobject>
+    </figure>
+
+    <itemizedlist spacing="compact">
+      <listitem>
+        <para><guibutton>조회 조건</guibutton></para>
+
+        <para>검색 조건을 설정한 후 <guibutton>[검색]</guibutton> 버튼을 클릭하면 조건에 해당되는 수행내역
+        조회할 수 있다. <emphasis
+        role="underline"><guibutton>초기화</guibutton></emphasis>를 클릭하면 설정되었던 모든
+        조건들이 초기화된다.</para>
+
+        <para><informaltable colsep="1" frame="topbot" rowsep="1">
+            <tgroup cols="2">
+              <colspec align="left" colwidth="150" />
+
+              <thead>
+                <row>
+                  <entry>항목</entry>
+
+                  <entry>설명</entry>
+                </row>
+              </thead>
+
+              <tbody>
+                <row>
+                  <entry>시작 시간</entry>
+
+                  <entry>설정한 시간 이후로 시작한 Job을 검색한다.</entry>
+                </row>
+
+                <row>
+                  <entry>종료 시간</entry>
+
+                  <entry>설정한 시간 이전에 완료된 Job을 검색한다.</entry>
+                </row>
+
+                <row>
+                  <entry>상태</entry>
+
+                  <entry>작업 실행 결과를 선택한다.</entry>
+                </row>
+
+                <row>
+                  <entry>지연 상태</entry>
+
+                  <entry>Job의 지연 여부를 선택한다.</entry>
+                </row>
+
+                <row>
+                  <entry>Service Job 이름</entry>
+
+                  <entry>검색할 Job의 이름을 입력한다.</entry>
+                </row>
+              </tbody>
+            </tgroup>
+          </informaltable></para>
+      </listitem>
+
+      <listitem>
+        <para><guibutton>히스토리 목록 </guibutton></para>
+
+        <para><informaltable colsep="1" frame="topbot" rowsep="1">
+            <tgroup cols="2">
+              <colspec align="left" colwidth="150" />
+
+              <thead>
+                <row>
+                  <entry>항목</entry>
+
+                  <entry>설명</entry>
+                </row>
+              </thead>
+
+              <tbody>
+                <row>
+                  <entry>Service Job 이름</entry>
+
+                  <entry>해당 히스토리에 해당하는 Service Job 이름을 표시한다.</entry>
+                </row>
+
+                <row>
+                  <entry>상태</entry>
+
+                  <entry><para>작업 실행 결과를 표시한다.<indexterm class="singular">
+                      <primary>작업 실행 결과</primary>
+                    </indexterm></para><itemizedlist spacing="compact">
+                      <listitem>
+                        <para>Finished : 작업이 완료된 Job의 경우</para>
+                      </listitem>
+
+                      <listitem>
+                        <para>Failed : 작업이 실패한 Job의 경우</para>
+                      </listitem>
+
+                      <listitem>
+                        <para>Running : 작업이 실행 중인 Job의 경우</para>
+                      </listitem>
+                    </itemizedlist></entry>
+                </row>
+
+                <row>
+                  <entry>시작 시간</entry>
+
+                  <entry>Job이 시작된 시간을 표시한다.</entry>
+                </row>
+
+                <row>
+                  <entry>종료 시간</entry>
+
+                  <entry>Job이 종료된 시간을 표시한다.</entry>
+                </row>
+
+                <row>
+                  <entry>소요 시간</entry>
+
+                  <entry>Job을 수행하는 데 걸린 시간을 표시한다.</entry>
+                </row>
+
+                <row>
+                  <entry>스케줄러</entry>
+
+                  <entry>스케줄러의 경우 스케줄러 이름을 표시하고, 스케줄러가 아닌 경우 하이픈(-)으로
+                  표시한다.</entry>
+                </row>
+
+                <row>
+                  <entry>지연 상태</entry>
+
+                  <entry><para>지연 여부를 표시한다.<indexterm class="singular">
+                      <primary>작업 지연 상태</primary>
+                    </indexterm></para><itemizedlist spacing="compact">
+                      <listitem>
+                        <para>NORMAL : 지연되지 않은 경우</para>
+                      </listitem>
+
+                      <listitem>
+                        <para>DELAYED : 타임아웃을 초과하여 완료된 경우</para>
+                      </listitem>
+                    </itemizedlist></entry>
+                </row>
+              </tbody>
+            </tgroup>
+          </informaltable></para>
+      </listitem>
+    </itemizedlist>
+
+    <para></para>
+
+    <para><literallayout></literallayout></para>
+
+    <para><bridgehead xml:id="sect_servicejob_history_detail">Service Job 히스토리
+    상세 조회</bridgehead></para>
+
+    <para><guibutton>Service Job 히스토리 화면</guibutton>(<xref
+    linkend="figure_jobmonitoring_servicejob" />)의 목록을 클릭하면 Service Job의 실행
+    결과를 조회할 수 있다.</para>
+
+    <para><figure xml:id="figure_jobmonitoring_servicejob_detail">
+        <title>[Job Monitoring] - Service Job 히스토리 상세 조회</title>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata align="left"
+                       fileref="resources/figure_jobmonitoring_servicejob_detail.png"
+                       width="750"></imagedata>
+          </imageobject>
+        </mediaobject>
+      </figure></para>
+
+    <para>Service Job에서 Save output File를 사용한 경우 <guibutton>[Saved File
+    Download]</guibutton> 버튼을 클릭해서 파일을 다운 받을 수 있다. 다수의 파일을 다운로드하는 경우 zip 파일로
+    압축하여 다운로드된다. 파일을 다운로드하는 경우 다운로드 사유를 입력해야 한다. 자세한 사항은 <link
+    linkend="sect_datajob_history_detail">"Data Job 히스토리 상세 조회"</link>의 실행정보를
+    참고한다.</para>
+
+    <para></para>
+  </section>
+
+  <section>
+    <title>Data Job</title>
+
+    <para><guibutton>Job Monitoring 화면</guibutton>에서 <guibutton>[Data
+    Job]</guibutton> 탭을 선택하면 Data Job의 수행 내역을 조회할 수 있다.</para>
+
+    <para>목록을 클릭하면 오른쪽에 <guibutton>히스토리 상세 조회화면</guibutton>(<xref
+    linkend="figure_jobmonitoring_detail_1" />)에서 해당 Data Job의 실행 결과를 조회할 수
+    있다. 히스토리 상세 조회화면에서 생성한 Data job 수행 이력은 <guibutton>[검색]</guibutton> 버튼을
+    클릭하면 최신화된 정보를 조회할 수 있다.</para>
+
+    <para></para>
+
+    <figure xml:id="figure_jobmonitoring_datajob">
+      <title>[Job Monitoring] - Data Job 히스토리 화면</title>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata align="left"
+                     fileref="resources/figure_jobmonitoring_datajob.png"
+                     width="750"></imagedata>
+        </imageobject>
+      </mediaobject>
+    </figure>
+
+    <para><itemizedlist spacing="compact">
+        <listitem>
+          <para><guibutton>조회 조건 </guibutton></para>
+
+          <para>검색 조건을 설정한 후 <guibutton>[검색]</guibutton> 버튼을 클릭하면 조건에 해당되는
+          수행내역 조회할 수 있다. <guibutton>[초기화]</guibutton>를 클릭하면 설정되었던 모든 조건들이
+          초기화된다. 목록 아래에 조회된 건수와 페이징 정보, 조회할 건수를 선택할 수 있다.</para>
+
+          <para><informaltable colsep="1" frame="topbot" rowsep="1">
+              <tgroup cols="2">
+                <colspec align="left" colwidth="150" />
+
+                <thead>
+                  <row>
+                    <entry>항목</entry>
+
+                    <entry>설명</entry>
+                  </row>
+                </thead>
+
+                <tbody>
+                  <row>
+                    <entry>시작 시간</entry>
+
+                    <entry>설정한 시간 이후로 시작한 Job을 검색한다.</entry>
+                  </row>
+
+                  <row>
+                    <entry>종료 시간</entry>
+
+                    <entry>설정한 시간 이전에 완료된 job을 검색한다.</entry>
+                  </row>
+
+                  <row>
+                    <entry>상태</entry>
+
+                    <entry>작업 실행 결과를 선택한다.</entry>
+                  </row>
+
+                  <row>
+                    <entry>Data Job 이름</entry>
+
+                    <entry>검색할 Job의 이름을 입력한다.</entry>
+                  </row>
+                </tbody>
+              </tgroup>
+            </informaltable></para>
+        </listitem>
+
+        <listitem>
+          <para><guibutton>히스토리 목록 </guibutton></para>
+
+          <informaltable colsep="1" frame="topbot" rowsep="1">
+            <tgroup cols="2">
+              <colspec align="left" colwidth="150" />
+
+              <thead>
+                <row>
+                  <entry>항목</entry>
+
+                  <entry>설명</entry>
+                </row>
+              </thead>
+
+              <tbody>
+                <row>
+                  <entry>Data Job 이름</entry>
+
+                  <entry>해당 히스토리에 해당하는 Data Job 이름을 표시한다.</entry>
+                </row>
+
+                <row>
+                  <entry>상태</entry>
+
+                  <entry><para>작업 실행 결과를 표시한다.<indexterm class="singular">
+                      <primary>작업 실행 결과</primary>
+                    </indexterm></para><itemizedlist spacing="compact">
+                      <listitem>
+                        <para>Finished : 작업이 완료된 Job의 경우</para>
+                      </listitem>
+
+                      <listitem>
+                        <para>Failed : 작업이 실패한 Job의 경우</para>
+                      </listitem>
+
+                      <listitem>
+                        <para>Running : 작업이 실행 중인 Job의 경우</para>
+                      </listitem>
+                    </itemizedlist></entry>
+                </row>
+
+                <row>
+                  <entry>시작 시간</entry>
+
+                  <entry>Job이 시작된 시간을 표시한다.</entry>
+                </row>
+
+                <row>
+                  <entry>종료 시간</entry>
+
+                  <entry>Job이 종료된 시간을 표시한다.</entry>
+                </row>
+
+                <row>
+                  <entry>소요 시간</entry>
+
+                  <entry>Job을 수행하는 데 걸린 시간을 표시한다.</entry>
+                </row>
+
+                <row>
+                  <entry>결과</entry>
+
+                  <entry><para>Data Flow에 Validation이 포함되면 Validation 결과를 확인할
+                  수 있다. </para><itemizedlist spacing="compact">
+                      <listitem>
+                        <para><inlinemediaobject>
+                            <imageobject>
+                              <imagedata fileref="resources/icon_warning.png"
+                                         width="18"></imagedata>
+                            </imageobject>
+                          </inlinemediaobject> : 경고 조건</para>
+                      </listitem>
+
+                      <listitem>
+                        <para><inlinemediaobject>
+                            <imageobject>
+                              <imagedata fileref="resources/icon_error.png"
+                                         width="18"></imagedata>
+                            </imageobject>
+                          </inlinemediaobject> : 에러 조건</para>
+                      </listitem>
+                    </itemizedlist></entry>
+                </row>
+              </tbody>
+            </tgroup>
+          </informaltable>
+        </listitem>
+      </itemizedlist></para>
+
+    <para></para>
+
+    <para><literallayout></literallayout></para>
+
+    <para><bridgehead xml:id="sect_datajob_history_detail">Data Job 히스토리 상세
+    조회</bridgehead></para>
+
+    <para><guibutton>Data Job 히스토리 화면</guibutton>(<xref
+    linkend="figure_jobmonitoring_datajob" />)의 목록을 클릭하면 Data Job의 실행 결과를 조회할
+    수 있다. Node의 <guibutton>'검증 결과'</guibutton> 항목을 클릭하면 검증 내역을 조회할 수
+    있다.</para>
+
+    <para><figure xml:id="figure_jobmonitoring_detail_1">
+        <title>[Job Monitoring] - Data Job 히스토리 상세 조회</title>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata align="left"
+                       fileref="resources/figure_jobmonitoring_detail_1.png"
+                       width="750"></imagedata>
+          </imageobject>
+        </mediaobject>
+      </figure></para>
+
+    <para><guibutton>Data Job 화면</guibutton>에서 <guibutton>Save Output File
+    </guibutton>함수를 사용할 경우 파일을 다운받을 수 있다.</para>
+
+    <para><figure xml:id="figure_jobmonitoring_detail_2">
+        <title>[Job Monitoring] - Data Job 히스토리 상세 조회 - 파일 다운</title>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata align="left"
+                       fileref="resources/figure_jobmonitoring_detail_2.png"
+                       width="750"></imagedata>
+          </imageobject>
+        </mediaobject>
+      </figure></para>
+
+    <itemizedlist spacing="compact">
+      <listitem>
+        <para><guibutton>실행 정보</guibutton></para>
+
+        <para>선택한 Data Job의 실행 정보를 조회한다. <guibutton>'상태'</guibutton> 항목의
+        <guibutton>[Saved File Download]</guibutton> 버튼을 클릭하면 수행 결과 파일을 다운로드
+        받을 수 있다. 다수의 파일을 다운로드할 때 zip 파일로 압축한다.</para>
+
+        <para><guibutton>Saved File List 화면</guibutton>에서 다운로드할 파일을 체크하고
+        <guibutton>[다운로드]</guibutton> 버튼을 클릭하면 결과 파일을 받을 수 있다.
+        <guibutton>'다운로드 사유'</guibutton> 항목은 필수 입력 항목이다. Output File에 대한 자세한
+        내용은 <xref linkend="sect_dataflow_function_tab" />의 <link
+        linkend="sect_datajob_dataflow_saveoutputfile">"SaveOutputFile"</link>을
+        참고한다.</para>
+
+        <para><figure xml:id="figure_jobmonitoring_detail3">
+            <title>[Job Monitoring] - 히스토리 상세 조회 - 파일 다운로드</title>
+
+            <mediaobject>
+              <imageobject>
+                <imagedata align="left"
+                           fileref="resources/figure_enter_reason_job_monitoring.png"
+                           width="220"></imagedata>
+              </imageobject>
+            </mediaobject>
+          </figure></para>
+
+        <para>다운로드가 완료되면 Audit Log에 다음 형태로 자장된다.</para>
+
+        <para><programlisting><?db-font-size 90% ?>"File Downloaded from Data Job {<emphasis>Data Job 이름</emphasis>} (Explanatory Statement)."  </programlisting></para>
+
+        <para>만약 여러 개의 output file을 기록하는 Data Job에서 파일을 다운받는 경우 파일들의 리스트가
+        조회된다. 다운받으려는 파일들을 선택하면, 여러 개의 파일이 압축파일 형태로 다운로드되며, Audit Log에 다음 형태로
+        기록된다.</para>
+
+        <para><programlisting><?db-font-size 90% ?>"Multiple Files Downloaded from Data Job {<emphasis>Data Job 이름</emphasis>} (Explanatory Statement)."</programlisting></para>
+
+        <para>기록된 로그 정보는 <guibutton>Audit Log 화면</guibutton>(<xref
+        linkend="figure_auditlog_main" />)에서 조회할 수 있다. 로그의 유형은 'FILE'로 저장된다.
+        로그 목록의 row를 클릭하면 다운로드할 때 입력한 사유서를 조회할 수 있다.</para>
+
+        <para>또한 hd_config.properties에 WS_SAVEOUTPUT_FILEPATH 로 정의한 경로에서는 각
+        Data Job의 Save Output File 최근 작업 결과물을 확인할 수 있다.</para>
+      </listitem>
+
+      <listitem>
+        <para><guibutton>히스토리 검증 결과 조회</guibutton></para>
+
+        <para>Validation 노드를 사용한 Data Job의 경우 <guibutton>검증 결과</guibutton>
+        테이블의 행을 더블클릭하면 검증 내역을 조회할 수 있다.</para>
+
+        <para><figure>
+            <title>[Job Monitoring] - 히스토리 상세 조회 - 검증 결과 조회</title>
+
+            <mediaobject>
+              <imageobject>
+                <imagedata align="left"
+                           fileref="resources/figure_job_monitoring_validation_log.png"
+                           width="680"></imagedata>
+              </imageobject>
+            </mediaobject>
+          </figure></para>
+
+        <para></para>
+
+        <para><informaltable colsep="1" frame="topbot" rowsep="1">
+            <tgroup cols="2">
+              <colspec align="left" colwidth="150" />
+
+              <thead>
+                <row>
+                  <entry>구분</entry>
+
+                  <entry>설명</entry>
+                </row>
+              </thead>
+
+              <tbody>
+                <row>
+                  <entry><guibutton>[Warning Alert]</guibutton> 탭</entry>
+
+                  <entry>경고 조건에 대한 세부 히스토리를 조회할 수 있다. 경고 조건에 대한 세부 히스토리는 경고
+                  히스토리와 경고 조건에 검출된 데이터 목록을 포함한다.</entry>
+                </row>
+
+                <row>
+                  <entry><guibutton>[Error Alert]</guibutton> 탭</entry>
+
+                  <entry>에러 조건에 대한 세부 히스토리를 조회할 수 있다. 에러 조건에 대한 세부 히스토리는 에러
+                  히스토리와 에러 조건에 검출된 데이터 목록을 포함한다.</entry>
+                </row>
+              </tbody>
+            </tgroup>
+          </informaltable></para>
+      </listitem>
+    </itemizedlist>
+
+    <para></para>
+  </section>
+</section>
